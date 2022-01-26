@@ -1,1 +1,1 @@
-# itrix-front-end
+# itrix-game
