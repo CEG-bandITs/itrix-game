@@ -3,4 +3,4 @@
 | PATH					| DESCRIPTION				  					  |
 | --------------------- | ----------------------------------------------- |
 | /						| sends index.html								  |
-| /public/**			| sends all .css, .js files						  |
+| /**					| sends all .css, .js files						  |
