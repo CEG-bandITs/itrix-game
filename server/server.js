@@ -25,5 +25,5 @@ app.use("/", root);
 app.use(express.static(path.join(__dirname, "..", "client", "build")));
 
 app.listen(PORT, () => {
-  console.log(`Started Listening in PORT ${PORT}`);
+  console.log(`Started Listening in PORT ${PORT}...`);
 });

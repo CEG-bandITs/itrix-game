@@ -10,41 +10,30 @@ Clone the repo
 git clone https://github.com/CEG-bandITs/itrix-game.git
 ```
 
-Installing Dependancies
+## Client
+
+To start running client
 
 ```sh
+cd client
 npm install
-```
-
-Starting the project
-
-```sh
 npm run start
 ```
 
-# How To Colaborate
+To start running server
 
-If you have a Idea or Problem [create an
-issue](https://github.com/CEG-bandITs/itrix-game/issues) Lets discuss there.
+```sh
+cd server
+npm install
+npm run start
+```
 
-# Project Structure
+To start the application in production mode
 
 ```
-├── LICENSE
-├── README.md
-├── doc
-│   └── API.md				// Checkout the API documentation here
-├── package-lock.json
-├── package.json
-└── src
-    ├── config
-    │   └── routes.js
-    ├── index.js
-    ├── public				// HTML, CSS, JS of Client side
-    │   ├── favicon.ico
-    │   ├── index.html
-    │   ├── index.js
-    │   └── style.css
-    └── routes				// Add routes of the project here as new file
-        └── root.js
+cd client
+npm install npm run build
+cd ../server
+npm run install --production
+npm run start
 ```
