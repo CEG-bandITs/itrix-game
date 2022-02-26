@@ -1,1 +1,0 @@
-alert("you haven't logined!!");
