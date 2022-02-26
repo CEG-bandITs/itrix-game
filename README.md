@@ -1,4 +1,4 @@
-# itrix-game
+# itrix-game.
 
 Game Website devoloped for ITRIX-2022.
 
