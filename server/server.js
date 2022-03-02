@@ -20,6 +20,9 @@ app.use(express.json());
 const root = require("./routes/root");
 app.use("/", root);
 
+// user route 
+app.use("/api/users/", require("./routes/userRoute") );
+
 // Serving files from ../client/build
 // Which can be created by running `npm run build` in client folder
 app.use(express.static(path.join(__dirname, "..", "client", "build")));
