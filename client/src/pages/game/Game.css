@@ -1,0 +1,127 @@
+@import url("https://fonts.googleapis.com/css2?family=Cookie&display=swap");
+
+* {
+  margin: 0px;
+  padding: 0px;
+  font-family: "cookie";
+  font-size: 1.3rem;
+}
+
+.GamePage {
+  background-image: url("../../../public/images/question-bg.png");
+  width: 100vw;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+}
+
+.QuestionBar {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 1.3rem;
+}
+
+.QuestionBar > .next-icon,
+.QuestionBar > .prev-icon {
+  max-height: 16vh;
+  max-width: 8vw;
+  object-fit: contain;
+}
+
+.QuestionBar > .prev-icon {
+  transform: scaleX(-1);
+}
+
+.QuestionBar > .Question-Img {
+  max-width: 50vw;
+  max-height: 50vh;
+  object-fit: contain;
+}
+
+@media screen and (min-width: 1300px) {
+  .QuestionBar > .Question-Img {
+    max-width: 25vw;
+    max-height: 25vh;
+  }
+}
+
+.AnswerBar {
+  padding-top: 10vh;
+  display: flex;
+  justify-content: center;
+}
+
+.AnswerBar-Input {
+  display: block;
+  width: 80vw;
+  border-radius: 2rem;
+  height: 5vmax;
+  text-align: center;
+  padding: 2vmin;
+}
+
+.AnswerBar-Input:focus {
+  outline: 0px;
+}
+
+.AnswerBar-Bottom {
+  display: flex;
+  justify-content: center;
+  padding-top: 3vw;
+}
+
+.AnswerBar-Icon {
+  width: 5vw;
+  max-height: 5vh;
+  padding: 1vmin;
+  object-fit: contain;
+}
+
+.AnswerBar-Hint {
+  width: 40vw;
+  border-radius: 2rem;
+  background-color: rgba(255, 255, 255, 0.5);
+  font-weight: bold;
+  color: black;
+}
+
+.AnswerBar-Submit {
+  width: 40vw;
+  background-color: transparent;
+  color: white;
+  border: 1vmin solid white;
+  border-radius: 2rem;
+}
+
+.AnswerBar-Oneline-Bottom {
+  display: flex;
+  gap: 1vmax;
+}
+
+.AnswerBar-Oneline-Bottom > .AnswerBar-Hint {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 15vw;
+}
+
+.AnswerBar-Oneline-Bottom > .AnswerBar-Hint > p {
+  font-size: 3rem;
+}
+
+.AnswerBar-Oneline-Bottom > input[type="text"] {
+  border-radius: 10vmax;
+  text-align: center;
+  font-size: 3rem;
+  width: 55vw;
+  padding: 2vmin;
+}
+
+.AnswerBar-Oneline-Bottom > .AnswerBar-Submit {
+  font-size: 3rem;
+  width: 10vw;
+}
