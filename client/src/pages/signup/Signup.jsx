@@ -4,9 +4,13 @@ import "./Signup.css";
 
 function Declaration(props) {
   const [redirect, SetRedirect] = useState(false);
-  setTimeout(() => {
-    SetRedirect(true);
-  }, 2000);
+  if (props.signinsucess) {
+    setTimeout(() => {
+      SetRedirect(true);
+    }, 2000);
+  } else {
+    return <></>;
+  }
   return !redirect ? (
     <div className="declaration-form">
       <img src="images/declaration.jpg"></img>
@@ -79,7 +83,7 @@ function Signup() {
           </div>
         </form>
       </div>
-      <Declaration />
+      <Declaration signinsucess={SignInSuccess} />
     </>
   );
 }
