@@ -25,25 +25,25 @@
   gap: 1.3rem;
 }
 
-.QuestionBar > .next-icon,
-.QuestionBar > .prev-icon {
+.QuestionBar > .nextIcon,
+.QuestionBar > .prevIcon {
   max-height: 16vh;
   max-width: 8vw;
   object-fit: contain;
 }
 
-.QuestionBar > .prev-icon {
+.QuestionBar > .prevIcon {
   transform: scaleX(-1);
 }
 
-.QuestionBar > .Question-Img {
+.QuestionBar > .QuestionImg {
   max-width: 50vw;
   max-height: 50vh;
   object-fit: contain;
 }
 
 @media screen and (min-width: 1300px) {
-  .QuestionBar > .Question-Img {
+  .QuestionBar > .QuestionImg {
     max-width: 25vw;
     max-height: 25vh;
   }
@@ -55,7 +55,7 @@
   justify-content: center;
 }
 
-.AnswerBar-Input {
+.AnswerBarInput {
   display: block;
   width: 80vw;
   border-radius: 2rem;
@@ -64,24 +64,24 @@
   padding: 2vmin;
 }
 
-.AnswerBar-Input:focus {
+.AnswerBarInput:focus {
   outline: 0px;
 }
 
-.AnswerBar-Bottom {
+.AnswerBarBottom {
   display: flex;
   justify-content: center;
   padding-top: 3vw;
 }
 
-.AnswerBar-Icon {
+.AnswerBarIcon {
   width: 5vw;
   max-height: 5vh;
   padding: 1vmin;
   object-fit: contain;
 }
 
-.AnswerBar-Hint {
+.AnswerBarHint {
   width: 40vw;
   border-radius: 2rem;
   background-color: rgba(255, 255, 255, 0.5);
@@ -89,7 +89,7 @@
   color: black;
 }
 
-.AnswerBar-Submit {
+.AnswerBarSubmit {
   width: 40vw;
   background-color: transparent;
   color: white;
@@ -97,23 +97,23 @@
   border-radius: 2rem;
 }
 
-.AnswerBar-Oneline-Bottom {
+.AnswerBarOnelineBottom {
   display: flex;
   gap: 1vmax;
 }
 
-.AnswerBar-Oneline-Bottom > .AnswerBar-Hint {
+.AnswerBarOnelineBottom > .AnswerBarHint {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 15vw;
 }
 
-.AnswerBar-Oneline-Bottom > .AnswerBar-Hint > p {
+.AnswerBarOnelineBottom > .AnswerBarHint > p {
   font-size: 3rem;
 }
 
-.AnswerBar-Oneline-Bottom > input[type="text"] {
+.AnswerBarOnelineBottom > input[type="text"] {
   border-radius: 10vmax;
   text-align: center;
   font-size: 3rem;
@@ -121,7 +121,7 @@
   padding: 2vmin;
 }
 
-.AnswerBar-Oneline-Bottom > .AnswerBar-Submit {
+.AnswerBarOnelineBottom > .AnswerBarSubmit {
   font-size: 3rem;
   width: 10vw;
 }

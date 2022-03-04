@@ -1,22 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Cookie&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Comfortaa&display=swap");
 
-body,
-html {
-  height: 100%;
-  font-size: 5vmax;
-}
-
-#root {
+.base {
   background-image: url(../../../public/images/cos.png);
+  position: absolute;
   height: 100%;
+  width: 100%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   display: grid;
-  align-items: center;
-  justify-items: center;
-  overflow-y: scroll;
+  grid-template-columns: 1fr;
 }
 
 .container {
@@ -24,8 +18,7 @@ html {
   padding: 2vmin;
   margin: 2vmin;
   margin-top: 1rem;
-  max-width: 80vmax;
-  width: 80vw;
+  width: clamp(50vmin, 50vw, 50vmax);
   display: grid;
   align-items: center;
 }
@@ -66,19 +59,13 @@ html {
 }
 
 @media screen and (min-width: 1800px) {
-  html,
-  body {
-    font-size: 4rem;
-  }
-  #root {
+  .base {
+    grid-template-columns: 1fr 1fr;
     align-items: center;
     justify-items: start;
   }
+
   .container {
-    width: 45vw;
-    max-width: 50vmax;
-  }
-  #root {
     grid-template-columns: 1fr 1fr;
   }
 }
@@ -99,11 +86,11 @@ html {
   color: white;
 }
 
-.aldready-having-account > p {
+.aldreadyHavingAccount > p {
   font-size: 0.6rem;
 }
 
-.aldready-having-account > input[type="button"] {
+.aldreadyHavingAccount > input[type="button"] {
   background-color: rgba(45, 145, 188, 0.6);
   border: 0;
   padding: 0.3rem;
@@ -119,12 +106,12 @@ html {
   }
 }
 
-.declaration-form {
+.declarationForm {
   animation: fadeInAnimation ease 3s;
   justify-self: center;
 }
 
-.declaration-form > img {
+.declarationForm > img {
   max-width: 80vw;
   max-height: 80vh;
   height: auto;

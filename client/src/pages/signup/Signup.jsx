@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Navigate } from "react-router-dom";
-import "./Signup.css";
+import SignupStyle from "./Signup.module.css";
 
 function Declaration(props) {
   const [redirect, SetRedirect] = useState(false);
@@ -12,7 +12,7 @@ function Declaration(props) {
     return <></>;
   }
   return !redirect ? (
-    <div className="declaration-form">
+    <div className="declarationForm">
       <img src="images/declaration.jpg"></img>
     </div>
   ) : (
@@ -21,7 +21,7 @@ function Declaration(props) {
 }
 
 function Signup() {
-  const [SignInSuccess, SetSignInSuccess] = useState(true);
+  const [SignInSuccess, SetSignInSuccess] = useState(false);
   const [dimentions, SetDimentions] = useState({
     width: window.innerWidth,
     height: window.innerHeight,
@@ -45,8 +45,8 @@ function Signup() {
   }
 
   return (
-    <>
-      <div className="container">
+    <div className={SignupStyle.base}>
+      <div className={SignupStyle.container}>
         <h1>Signup</h1>
         <form action="">
           <input type="text" name="fname" id="fname" placeholder="First Name" />
@@ -77,14 +77,14 @@ function Signup() {
             placeholder="Confirm Password"
           />
           <input type="button" value="Sign Up" />
-          <div className="aldready-having-account">
+          <div className={SignupStyle.aldreadyHavingAccount}>
             <p>Already have an account?</p>
             <input type="button" value="SignIn" />
           </div>
         </form>
       </div>
       <Declaration signinsucess={SignInSuccess} />
-    </>
+    </div>
   );
 }
 

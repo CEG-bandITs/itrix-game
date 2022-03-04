@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./Game.css";
+import GameStyle from "./Game.module.css";
 
 let data = {
   images: [
@@ -40,16 +40,19 @@ function QuestionBar(props) {
   }
   if (props.for === "Mobile") {
     return (
-      <div className="QuestionBar">
+      <div className={GameStyle.QuestionBar}>
         <img
-          className="prev-icon"
+          className={GameStyle.prevIcon}
           src="images/right.png"
           alt="right image"
           onClick={IncreaseImgPointer}
         />
-        <img className="Question-Img" src={data.images[ImgPointer].url}></img>
         <img
-          className="next-icon"
+          className={GameStyle.QuestionImg}
+          src={data.images[ImgPointer].url}
+        ></img>
+        <img
+          className={GameStyle.nextIcon}
           src="images/right.png"
           alt="left image"
           onClick={DecreaseImgPointer}
@@ -58,13 +61,13 @@ function QuestionBar(props) {
     );
   } else {
     return (
-      <div className="QuestionBar">
+      <div className={GameStyle.QuestionBar}>
         {data.images.map((i) => {
           return (
             <img
               src={i.url}
               key={i.id}
-              className="Question-Img"
+              className={GameStyle.QuestionImg}
               alt="Question Image"
             />
           );
@@ -107,25 +110,28 @@ function AnswerBar(props) {
   if (props.for === "Mobile") {
     return (
       <>
-        <div className="AnswerBar">
+        <div className={GameStyle.AnswerBar}>
           <form>
             <input
-              className="AnswerBar-Input"
+              className={GameStyle.AnswerBarInput}
               type="text"
               placeholder="Enter Answer"
             ></input>
-            <div className="AnswerBar-Bottom">
+            <div className={GameStyle.AnswerBarBottom}>
               <button
-                className="AnswerBar-Hint"
+                className={GameStyle.AnswerBarHint}
                 onClick={(e) => {
                   e.preventDefault();
                   setShowHint(true);
                 }}
               >
                 Hint
-                <img className="AnswerBar-Icon" src="images/idea-icon.png" />
+                <img
+                  className={GameStyle.AnswerBarIcon}
+                  src="images/idea-icon.png"
+                />
               </button>
-              <button className="AnswerBar-Submit">submit</button>
+              <button className={GameStyle.AnswerBarSubmit}>submit</button>
             </div>
           </form>
         </div>
@@ -135,12 +141,12 @@ function AnswerBar(props) {
   } else {
     return (
       <>
-        <div className="AnswerBar">
-          <form className="AnswerBar-Oneline-Bottom">
-            <button className="AnswerBar-Hint">
+        <div className={GameStyle.AnswerBar}>
+          <form className={GameStyle.AnswerBarOnelineBottom}>
+            <button className={GameStyle.AnswerBarHint}>
               <p>Hint</p>
               <img
-                className="AnswerBar-Icon"
+                className={GameStyle.AnswerBarIcon}
                 src="images/idea-icon.png"
                 onClick={(e) => {
                   e.preventDefault();
@@ -149,7 +155,7 @@ function AnswerBar(props) {
               />
             </button>
             <input type="text" placeholder="Enter Answer"></input>
-            <button className="AnswerBar-Submit">submit</button>
+            <button className={GameStyle.AnswerBarSubmit}>submit</button>
           </form>
         </div>
         <HintBox show={showHint} setShowHint={setShowHint} />
@@ -178,7 +184,7 @@ function Game(props) {
   }, []);
 
   return (
-    <div className="GamePage">
+    <div className={GameStyle.GamePage}>
       {dimentions.width <= 1300 ? (
         <QuestionBar for="Mobile" />
       ) : (
