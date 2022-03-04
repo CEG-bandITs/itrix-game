@@ -121,4 +121,12 @@ html {
 
 .declaration-form {
   animation: fadeInAnimation ease 3s;
+  justify-self: center;
+}
+
+.declaration-form > img {
+  max-width: 80vw;
+  max-height: 80vh;
+  height: auto;
+  width: auto;
 }

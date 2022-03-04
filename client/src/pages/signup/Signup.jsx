@@ -1,18 +1,45 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { Navigate } from "react-router-dom";
 import "./Signup.css";
 
 function Declaration(props) {
-  return props.show ? (
+  const [redirect, SetRedirect] = useState(false);
+  setTimeout(() => {
+    SetRedirect(true);
+  }, 2000);
+  return !redirect ? (
     <div className="declaration-form">
       <img src="images/declaration.jpg"></img>
     </div>
   ) : (
-    <></>
+    <Navigate to="/" />
   );
 }
 
 function Signup() {
   const [SignInSuccess, SetSignInSuccess] = useState(true);
+  const [dimentions, SetDimentions] = useState({
+    width: window.innerWidth,
+    height: window.innerHeight,
+  });
+
+  useEffect(() => {
+    function HandleResize() {
+      SetDimentions({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    }
+    window.addEventListener("resize", HandleResize);
+    return () => {
+      window.removeEventListener("resize", HandleResize);
+    };
+  }, []);
+
+  if (dimentions.width <= 1800 && SignInSuccess) {
+    return <Declaration />;
+  }
+
   return (
     <>
       <div className="container">
@@ -52,7 +79,7 @@ function Signup() {
           </div>
         </form>
       </div>
-      <Declaration show={SignInSuccess} />
+      <Declaration />
     </>
   );
 }
