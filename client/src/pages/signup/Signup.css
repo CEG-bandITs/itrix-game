@@ -1,0 +1,124 @@
+@import url("https://fonts.googleapis.com/css2?family=Cookie&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa&display=swap");
+
+body,
+html {
+  height: 100%;
+  font-size: 5vmax;
+}
+
+#root {
+  background-image: url(../../../public/images/cos.png);
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  overflow-y: scroll;
+}
+
+.container {
+  background-color: rgba(196, 196, 196, 0.3);
+  padding: 2vmin;
+  margin: 2vmin;
+  margin-top: 1rem;
+  max-width: 80vmax;
+  width: 80vw;
+  display: grid;
+  align-items: center;
+}
+
+.container > h1 {
+  text-align: center;
+  display: block;
+  padding-bottom: 0.5rem;
+  font-size: 1.3rem;
+  color: white;
+  border-radius: 10px;
+}
+
+.container > form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.3rem;
+  justify-items: center;
+}
+
+.container > form > input[type="text"],
+.container > form > input[type="password"],
+.container > form > input[type="email"] {
+  width: 90%;
+  background-color: rgba(196, 196, 196, 0.6);
+  color: white;
+  border: 0;
+  font-size: 1.3rem;
+  outline: 0;
+  border-radius: 10px;
+  padding: 0.2rem;
+}
+
+.container > form > input[type="text"]::placeholder,
+.container > form > input[type="password"]::placeholder,
+.container > form > input[type="email"]::placeholder {
+  color: white;
+}
+
+@media screen and (min-width: 1800px) {
+  html,
+  body {
+    font-size: 4rem;
+  }
+  #root {
+    align-items: center;
+    justify-items: start;
+  }
+  .container {
+    width: 45vw;
+    max-width: 50vmax;
+  }
+  #root {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.container > form > input[type="button"] {
+  width: 95%;
+  background-color: rgba(11, 194, 52, 0.6);
+  border: 0;
+  color: white;
+}
+
+.aldready-having-account {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 0.3rem;
+  color: white;
+}
+
+.aldready-having-account > p {
+  font-size: 0.6rem;
+}
+
+.aldready-having-account > input[type="button"] {
+  background-color: rgba(45, 145, 188, 0.6);
+  border: 0;
+  padding: 0.3rem;
+  color: white;
+}
+
+@keyframes fadeInAnimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.declaration-form {
+  animation: fadeInAnimation ease 3s;
+}
