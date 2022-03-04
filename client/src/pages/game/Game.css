@@ -125,3 +125,37 @@
   font-size: 3rem;
   width: 10vw;
 }
+
+.GreyLayer {
+  background-color: grey;
+  opacity: 0.6;
+  z-index: 0;
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+}
+
+.HintBox {
+  position: absolute;
+  z-index: 1;
+  max-width: 75%;
+  max-height: 75%;
+  background-color: rgb(59, 59, 59);
+  color: white;
+  left: 50%;
+  top: 50%;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  transform: translate(-50%, -50%);
+  padding: 1.2rem;
+}
+
+.HintBox > p {
+  text-align: center;
+  padding: 3vmin;
+}
+
+.HintBox :not(:last-child) {
+  border-bottom: 1vmin solid white;
+}

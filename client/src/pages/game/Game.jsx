@@ -16,7 +16,10 @@ let data = {
       url: "images/idea-icon.png",
     },
   ],
-  hints: ["An Actor", "Asian"],
+  hints: [
+    { id: 1, msg: "An Actor" },
+    { id: 2, msg: "Asian" },
+  ],
 };
 
 function QuestionBar(props) {
@@ -71,44 +74,88 @@ function QuestionBar(props) {
   }
 }
 
-function AnswerBar(props) {
-  if (props.for === "Mobile") {
+function HintBox(props) {
+  if (props.show === true) {
     return (
-      <div className="AnswerBar">
-        <form>
-          <input
-            className="AnswerBar-Input"
-            type="text"
-            placeholder="Enter Answer"
-          ></input>
-          <div className="AnswerBar-Bottom">
-            <button className="AnswerBar-Hint">
-              Hint
-              <img className="AnswerBar-Icon" src="images/idea-icon.png" />
-            </button>
-            <button className="AnswerBar-Submit">submit</button>
-          </div>
-        </form>
-      </div>
+      <>
+        <div
+          className="GreyLayer"
+          onClick={() => {
+            props.setShowHint(false);
+          }}
+        ></div>
+        <div className="HintBox">
+          {data.hints.map((i) => {
+            return (
+              <>
+                <p key={i.id}>
+                  Hint {i.id}: &nbsp;&nbsp; {i.msg}
+                </p>
+              </>
+            );
+          })}
+        </div>
+      </>
     );
   } else {
-    return (
-      <div className="AnswerBar">
-        <form className="AnswerBar-Oneline-Bottom">
-          <button className="AnswerBar-Hint">
-            <p>Hint</p>
-            <img className="AnswerBar-Icon" src="images/idea-icon.png" />
-          </button>
-          <input type="text" placeholder="Enter Answer"></input>
-          <button className="AnswerBar-Submit">submit</button>
-        </form>
-      </div>
-    );
+    return <></>;
   }
 }
 
-function HintBox(props) {
-  return <div>{data.hint}</div>;
+function AnswerBar(props) {
+  const [showHint, setShowHint] = useState(false);
+  if (props.for === "Mobile") {
+    return (
+      <>
+        <div className="AnswerBar">
+          <form>
+            <input
+              className="AnswerBar-Input"
+              type="text"
+              placeholder="Enter Answer"
+            ></input>
+            <div className="AnswerBar-Bottom">
+              <button
+                className="AnswerBar-Hint"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setShowHint(true);
+                }}
+              >
+                Hint
+                <img className="AnswerBar-Icon" src="images/idea-icon.png" />
+              </button>
+              <button className="AnswerBar-Submit">submit</button>
+            </div>
+          </form>
+        </div>
+        <HintBox show={showHint} setShowHint={setShowHint} />
+      </>
+    );
+  } else {
+    return (
+      <>
+        <div className="AnswerBar">
+          <form className="AnswerBar-Oneline-Bottom">
+            <button className="AnswerBar-Hint">
+              <p>Hint</p>
+              <img
+                className="AnswerBar-Icon"
+                src="images/idea-icon.png"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setShowHint(true);
+                }}
+              />
+            </button>
+            <input type="text" placeholder="Enter Answer"></input>
+            <button className="AnswerBar-Submit">submit</button>
+          </form>
+        </div>
+        <HintBox show={showHint} setShowHint={setShowHint} />
+      </>
+    );
+  }
 }
 
 function Game(props) {
