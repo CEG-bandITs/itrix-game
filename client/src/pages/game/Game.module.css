@@ -1,12 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Cookie&display=swap");
 
-* {
-  margin: 0px;
-  padding: 0px;
-  font-family: "cookie";
-  font-size: 1.3rem;
-}
-
 .GamePage {
   background-image: url("../../../public/images/question-bg.png");
   width: 100vw;

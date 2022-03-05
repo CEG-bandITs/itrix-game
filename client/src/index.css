@@ -1,0 +1,10 @@
+/*
+    This Stylesheet gets imported to all pages
+*/
+
+* {
+  margin: 0px;
+  padding: 0px;
+  font-family: "cookie";
+  font-size: 1.3rem;
+}
