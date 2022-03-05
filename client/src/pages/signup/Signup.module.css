@@ -11,23 +11,20 @@
   background-size: cover;
   display: grid;
   grid-template-columns: 1fr;
+  overflow-y: scroll;
 }
 
 .container {
   background-color: rgba(196, 196, 196, 0.3);
-  padding: 2vmin;
-  margin: 2vmin;
-  margin-top: 1rem;
-  width: clamp(50vmin, 50vw, 50vmax);
-  display: grid;
-  align-items: center;
+  max-width: 50vmax;
+  margin: 5vmin;
 }
 
 .container > h1 {
   text-align: center;
   display: block;
-  padding-bottom: 0.5rem;
-  font-size: 1.3rem;
+  padding: 3vmax;
+  font-size: 6vmax;
   color: white;
   border-radius: 10px;
 }
@@ -35,7 +32,7 @@
 .container > form {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 0.3rem;
+  gap: 3vh;
   justify-items: center;
 }
 
@@ -43,10 +40,12 @@
 .container > form > input[type="password"],
 .container > form > input[type="email"] {
   width: 90%;
+  min-height: 5vh;
+  padding: 1vmax;
   background-color: rgba(196, 196, 196, 0.6);
   color: white;
   border: 0;
-  font-size: 1.3rem;
+  font-size: 3.5vmax;
   outline: 0;
   border-radius: 10px;
   padding: 0.2rem;
@@ -58,7 +57,7 @@
   color: white;
 }
 
-@media screen and (min-width: 1800px) {
+/* @media screen and (min-width: 1800px) {
   .base {
     grid-template-columns: 1fr 1fr;
     align-items: center;
@@ -68,31 +67,35 @@
   .container {
     grid-template-columns: 1fr 1fr;
   }
-}
+} */
 
 .container > form > input[type="button"] {
-  width: 95%;
+  width: 90%;
+  min-height: 5vh;
   background-color: rgba(11, 194, 52, 0.6);
   border: 0;
   color: white;
+  font-size: 4vmax;
 }
 
-.aldready-having-account {
+.aldreadyHavingAccount {
   display: grid;
   grid-template-columns: 1fr 1fr;
   justify-content: space-evenly;
   align-items: center;
-  gap: 0.3rem;
+  gap: 3vw;
+  padding: 3vmax;
   color: white;
 }
 
 .aldreadyHavingAccount > p {
-  font-size: 0.6rem;
+  font-size: 2.6vmax;
 }
 
 .aldreadyHavingAccount > input[type="button"] {
   background-color: rgba(45, 145, 188, 0.6);
   border: 0;
+  font-size: 4vmax;
   padding: 0.3rem;
   color: white;
 }
