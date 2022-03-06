@@ -1,6 +1,7 @@
 import React, { useState,useEffect } from 'react'
 import Routing from './routing/Routing';
 import {VerifyLogin} from "./api_calls/Auth";
+import {HomePageLoader} from "../src/components/loader/Loader"
 
 export const Wrapper = React.createContext();
 
@@ -34,11 +35,11 @@ export default function RootPage(){
         <React.Fragment>
             <Wrapper.Provider value={value}>
                 {/* page loader has to placed instead of 'loading..' */}
-                
+                <div className="cont">
                 {
-                    isLoading ? "loading..." : <Routing/>
+                    isLoading ? <HomePageLoader/> : <Routing/>
                 }
-
+                </div>
             </Wrapper.Provider>
         </React.Fragment>
     )

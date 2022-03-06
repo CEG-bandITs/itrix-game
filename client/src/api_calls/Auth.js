@@ -12,5 +12,31 @@ export const VerifyLogin =async()=>{
 
       //as of now assume user to be logined !!
 
-    return true ;
+    return false;
+}
+
+export const Logout =(handler)=>{
+  //delete cookie 
+  handler(false);
+}
+
+export const Login__ =async (data)=>{
+  //sending request with data 
+  return [true,""] ;
+  //await sleep(4000);
+ // return [false ,"invalid credentials"];
+}
+
+export const Register__ =async (data)=>{
+  //sending request with data 
+  console.log(data);
+  await sleep(4000);
+  //return [false,'user already exists'];
+return [true,'']
+}
+
+function sleep(ms) {
+  return new Promise((resolve) => {
+    setTimeout(resolve, ms);
+  });
 }
