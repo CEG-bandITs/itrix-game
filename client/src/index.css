@@ -1,16 +1,9 @@
-*
-{
-    margin:0;
-    padding:0;
+* {
+  margin: 0;
+  padding: 0;
 }
 
-body 
-{
-    overflow: hidden;
-}
-
-.cont .after__login 
-{
-    animation-name :backInRight;
-    animation-duration: 1s;
+body {
+  overflow-y: auto;
+  overflow-x: hidden;
 }

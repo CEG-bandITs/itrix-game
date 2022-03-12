@@ -1,225 +1,192 @@
-
 @import url("https://fonts.googleapis.com/css?family=Cookie");
 @import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@50");
-@media screen and (min-device-width : 950px) {
-    
-    
-.section{
+@media screen and (min-device-width: 950px) {
+  .section {
     position: absolute;
 
-
-left: 42%;
-top: 20px;
-
-
-font-family:Cookie;
-font-style: normal;
-font-weight: normal;
-font-size: 70px;
-line-height: 100px;
-/* identical to box height */
-
-align-items: center;
-display:flex;
-
-color: white;
-}
-.bg{
-    position: absolute;
-width: 100%;
-
-height: 950px;
-left: 0px;
-right:0px;
-
-top: 0px;
-background-image:url("/public/images/imgr2.jpeg");
-background-size: cover;
-background-repeat:no-repeat;
-
-
-
-
-}
-.one{
-    position: absolute;
-width: 84%;
-height: 770px;
-left: 8%;
-top: 90px;
-
-
-
-background: rgba(196, 196, 196, 0.3);
-border-radius: 68px;
-}
-.ruletext{
-    position: absolute;
-left:10%;
-top: 180px;
-
-font-family: Cookie;
-font-style: normal;
-font-weight: normal;
-font-size: 37px;
-text-align: center;
-margin-right: 10%;
-
-  transition: 300ms linear; 
-
-/* identical to box height */
-
-
-
-color: #FFFFFF;
-}
-
-.ruletext:hover{
-transform: scale(1.06);}}
-@media screen and (min-device-width : 378px) and (max-device-width:954px) {
-    
-    
-    .section{
-        position: absolute;
-    
-    
     left: 42%;
     top: 20px;
-    
-    
-    font-family:Cookie;
+
+    font-family: Cookie;
     font-style: normal;
     font-weight: normal;
     font-size: 70px;
     line-height: 100px;
     /* identical to box height */
-    
+
     align-items: center;
-    display:flex;
-    
+    display: flex;
+
     color: white;
-    }
-    .bg{
-        position: absolute;
+  }
+  .bg {
+    position: absolute;
     width: 100%;
-    
+
     height: 950px;
     left: 0px;
-    right:0px;
-    
+    right: 0px;
+
     top: 0px;
-    background-image:url("/public/images/imgr2.jpeg");
+    background-image: url("/public/images/imgr2.jpeg");
     background-size: cover;
-    background-repeat:no-repeat;
-    
-    
-    
-    
-    }
-    .one{
-        position: absolute;
+    background-repeat: no-repeat;
+  }
+  .one {
+    position: absolute;
+    width: 84%;
+    height: 770px;
+    left: 8%;
+    top: 90px;
+
+    background: rgba(196, 196, 196, 0.3);
+    border-radius: 68px;
+  }
+  .ruletext {
+    position: absolute;
+    left: 10%;
+    top: 180px;
+
+    font-family: Cookie;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 37px;
+    text-align: center;
+    margin-right: 10%;
+
+    transition: 300ms linear;
+
+    /* identical to box height */
+
+    color: #ffffff;
+  }
+
+  .ruletext:hover {
+    transform: scale(1.06);
+  }
+}
+@media screen and (min-device-width: 378px) and (max-device-width: 954px) {
+  .section {
+    position: absolute;
+
+    left: 42%;
+    top: 20px;
+
+    font-family: Cookie;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 70px;
+    line-height: 100px;
+    /* identical to box height */
+
+    align-items: center;
+    display: flex;
+
+    color: white;
+  }
+  .bg {
+    position: absolute;
+    width: 100%;
+
+    height: 950px;
+    left: 0px;
+    right: 0px;
+
+    top: 0px;
+    background-image: url("/public/images/imgr2.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  .one {
+    position: absolute;
     width: 86%;
     height: 770px;
     left: 8%;
     top: 90px;
-    
-    
-    
+
     background: rgba(196, 196, 196, 0.3);
     border-radius: 68px;
-    }
-    .ruletext{
-        position: absolute;
-    left:20px;
+  }
+  .ruletext {
+    position: absolute;
+    left: 20px;
     top: 150px;
-    
+
     font-family: Cookie;
     font-style: normal;
     font-weight: normal;
     font-size: 30px;
     text-align: center;
     margin-right: 20px;
-    transition: 300ms linear; 
+    transition: 300ms linear;
 
-    
+    /* identical to box height */
+
+    color: #ffffff;
+  }
+  .ruletext:hover {
+    transform: scale(1.02);
+  }
+}
 
 /* identical to box height */
 
+@media screen and (max-device-width: 430px) {
+  .section {
+    position: absolute;
 
+    left: 40%;
+    top: 50px;
 
-color: #FFFFFF;
-
-}
-.ruletext:hover{
-    transform: scale(1.02);}
-
-}
-    
+    font-family: Cookie;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 50px;
+    line-height: 72px;
     /* identical to box height */
-    
-    
-    
-    
-@media screen and (max-device-width : 430px) {
-    .section{
-     position: absolute;
-     
-     left: 40%;
-     top: 50px;
-     
-     font-family: Cookie;
-     font-style: normal;
-     font-weight: normal;
-     font-size: 50px;
-     line-height: 72px;
-     /* identical to box height */
-     
-     align-items: center;
-     
-     color: #FFFFFF;
-    }
-    .bg{
-        position: absolute;
-width: 900px;
-height: 900px;
-left: -485px;
-top: 0px;
 
-background: url("/public/images/imgr2.jpeg");
-background-size: cover;
+    align-items: center;
 
-    }
-    .one{
-        position: absolute;
-width: 300px;
-height: 730px;
-left: 540px;
-top: 103px;
+    color: #ffffff;
+  }
+  .bg {
+    position: absolute;
+    width: 900px;
+    height: 900px;
+    left: -485px;
+    top: 0px;
 
-background: rgba(196, 196, 196, 0.3);
-border-radius: 30px;
+    background: url("/public/images/imgr2.jpeg");
+    background-size: cover;
+  }
+  .one {
+    position: absolute;
+    width: 300px;
+    height: 730px;
+    left: 540px;
+    top: 103px;
 
-
-    }
-    .ruletext{
-        position: absolute;
-    left:20px;
+    background: rgba(196, 196, 196, 0.3);
+    border-radius: 30px;
+  }
+  .ruletext {
+    position: absolute;
+    left: 20px;
     top: 150px;
-    
+
     font-family: Cookie;
     font-style: normal;
     font-weight: normal;
     font-size: 25px;
     text-align: center;
     margin-right: 10px;
-    transition: 300ms linear; 
+    transition: 300ms linear;
 
-    
     /* identical to box height */
-    
-    
-    
-    color: #FFFFFF;}
-    .ruletext:hover{
-        transform: scale(1.02);}
-   }
+
+    color: #ffffff;
+  }
+  .ruletext:hover {
+    transform: scale(1.02);
+  }
+}
