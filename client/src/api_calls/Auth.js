@@ -11,11 +11,18 @@ export const VerifyLogin = async () => {
 
   //as of now assume user to be logined !!
 
-  console.log("Sent HTTP Request");
-  syncSleep(1000);
-  console.log("Received HTTP Request");
+  console.log("waiting");
+  await syncSleep(10000);
+  let validated = true;
+  console.log("waited");
 
-  return false;
+  return new Promise((resolve, reject) => {
+    if (validated) {
+      resolve("activated");
+    } else {
+      reject("rejected");
+    }
+  });
 };
 
 export const Logout = (handler) => {
@@ -33,7 +40,7 @@ export const Login__ = async (data) => {
 export const Register__ = async (data) => {
   //sending request with data
   console.log(data);
-  await sleep(4000);
+  // await sleep(4000);
   //return [false,'user already exists'];
   return [true, ""];
 };
