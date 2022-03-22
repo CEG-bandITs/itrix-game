@@ -60,10 +60,10 @@ function Login() {
 
   React.useEffect(() => {
     if (initial !== true) {
-      if (password.length < 8) {
+      if (password.length < 1) {
         document.getElementById("password").style.border = "1px solid red";
-        handlePasswordError("weak password ,length should be atleast 8");
-      } else if (password.length >= 8) {
+        handlePasswordError("Empty password");
+      } else if (password.length >= 1) {
         handlePasswordError("");
         document.getElementById("password").style.border = "2px solid green";
       } else {

@@ -5,7 +5,7 @@ const userCntrl = require("../controllers/UserController");
 
 router.post("/new", asyncHandler(userCntrl.CreateUser));
 
-router.get("/auth", asyncHandler(userCntrl.Auth));
+router.post("/auth", asyncHandler(userCntrl.Auth));
 
 router.get("/details", asyncHandler(userCntrl.Details));
 

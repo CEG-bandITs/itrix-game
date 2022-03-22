@@ -21,15 +21,21 @@ export default function RootPage() {
   };
 
   useEffect(() => {
-    VerifyLogin().then(handleIsLogin(true));
+    VerifyLogin().then(response=>{
+      handleIsLogin(response);
+      handleIsLoading(false);
+      
+    });
   }, []);
 
-  //this effect will happen whenever you refresh the page
+  useEffect(()=>{
+    console.log(isLoading);
+  },[isLoading])
   return (
     <React.Fragment>
       <Wrapper.Provider value={value}>
         <Suspense fallback={<Loader />}>
-          {isLogin ? <Routing /> : <Loader />}
+          {!isLoading ? <Routing /> : <Loader />}
         </Suspense>
       </Wrapper.Provider>
     </React.Fragment>

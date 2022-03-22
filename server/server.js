@@ -2,7 +2,20 @@ const express = require("express");
 const path = require("path");
 const fs = require("fs");
 const app = express();
-const PORT = process.env.PORT || 3000;
+const cookieParser = require("cookie-parser")
+const PORT = process.env.PORT || 3001;
+const cors = require("cors") ;
+
+
+
+//connecting to atlas
+require("./db/dbConnections");
+
+//cookie middleware
+app.use(cookieParser());
+
+//cors middleware  
+app.use(cors());
 
 // Checking if Build folder from client side exists or not
 let BuildExistence = fs.existsSync(

@@ -1,28 +1,13 @@
+import axios from "axios";
+
+const API_URL = "http://localhost:3001/api/users"
+
+
 export const VerifyLogin = async () => {
-  console.log("hi!!");
-  var c = document.cookie;
-  /*
+    await axios.get(`${API_URL}/details`).then(response=>console.log(response));
+    
+    return false ;
 
-      1) get cookie , if cookie is not avaiable return false 
-      2) if cookie available ,then post to  axios.post("/api/users/verify")
-      3) if response is {'msg':'success'} return true
-      4) if response is {'msg': some___error} return false
-      */
-
-  //as of now assume user to be logined !!
-
-  console.log("waiting");
-  await syncSleep(10000);
-  let validated = true;
-  console.log("waited");
-
-  return new Promise((resolve, reject) => {
-    if (validated) {
-      resolve("activated");
-    } else {
-      reject("rejected");
-    }
-  });
 };
 
 export const Logout = (handler) => {
@@ -30,20 +15,67 @@ export const Logout = (handler) => {
   handler(false);
 };
 
+
+//logining user 
 export const Login__ = async (data) => {
-  //sending request with data
-  return [true, ""];
-  //await sleep(4000);
-  // return [false ,"invalid credentials"];
+  
+  let status= false ,message = "";
+
+  await axios.post(`${API_URL}/auth/`,data).then(resp=>{
+    const data= resp.data ;
+  
+    const serverMessage = data.message ;
+    if(serverMessage==="success") 
+    {status=true ;
+      
+    }
+    else message=serverMessage;
+  }).catch(err=>{
+    message = "Internet connection Problem"
+  })
+
+   return [status,message]
 };
 
+
+
+//creating new account 
 export const Register__ = async (data) => {
-  //sending request with data
-  console.log(data);
-  // await sleep(4000);
-  //return [false,'user already exists'];
-  return [true, ""];
+
+  let status= false ,message = "";
+  await axios.post(`${API_URL}/new/`,data).then(resp=>{
+    const data = resp.data ;
+    const serverMessage = data['message'] ;
+
+    if(serverMessage==="success") status=true;
+    else message = serverMessage ;
+
+  }
+  ).
+  catch(err=>{
+    status = false ;
+    message ="Internet connection Problem"
+  }
+  );
+  
+  return [status,message];
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 function asyncSleep(ms) {
   return new Promise((resolve) => {
