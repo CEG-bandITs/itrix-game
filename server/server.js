@@ -2,11 +2,9 @@ const express = require("express");
 const path = require("path");
 const fs = require("fs");
 const app = express();
-const cookieParser = require("cookie-parser")
-const PORT = process.env.PORT || 3001;
-const cors = require("cors") ;
-
-
+const cookieParser = require("cookie-parser");
+const PORT = process.env.PORT || 3000;
+const cors = require("cors");
 
 //connecting to atlas
 require("./db/dbConnections");
@@ -14,7 +12,7 @@ require("./db/dbConnections");
 //cookie middleware
 app.use(cookieParser());
 
-//cors middleware  
+//cors middleware
 app.use(cors());
 
 // Checking if Build folder from client side exists or not
@@ -30,8 +28,8 @@ if (BuildExistence === false) {
 app.use(express.json());
 
 // Root ('/') Path
-const root = require("./routes/root");
-app.use("/", root);
+const client = require("./routes/client");
+app.use("/", client);
 
 // user route
 app.use("/api/users/", require("./routes/userRoute"));

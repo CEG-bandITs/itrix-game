@@ -1,13 +1,11 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:3001/api/users"
-
+const API_URL = "http://localhost:3001/api/users";
 
 export const VerifyLogin = async () => {
-    await axios.get(`${API_URL}/details`).then(response=>console.log(response));
-    
-    return false ;
+  // await axios.get(`${API_URL}/details`).then(response=>console.log(response));
 
+  return true;
 };
 
 export const Logout = (handler) => {
@@ -15,67 +13,48 @@ export const Logout = (handler) => {
   handler(false);
 };
 
-
-//logining user 
+//logining user
 export const Login__ = async (data) => {
-  
-  let status= false ,message = "";
+  let status = false,
+    message = "";
 
-  await axios.post(`${API_URL}/auth/`,data).then(resp=>{
-    const data= resp.data ;
-  
-    const serverMessage = data.message ;
-    if(serverMessage==="success") 
-    {status=true ;
-      
-    }
-    else message=serverMessage;
-  }).catch(err=>{
-    message = "Internet connection Problem"
-  })
+  await axios
+    .post(`${API_URL}/auth/`, data)
+    .then((resp) => {
+      const data = resp.data;
 
-   return [status,message]
+      const serverMessage = data.message;
+      if (serverMessage === "success") {
+        status = true;
+      } else message = serverMessage;
+    })
+    .catch((err) => {
+      message = "Internet connection Problem";
+    });
+
+  return [status, message];
 };
 
-
-
-//creating new account 
+//creating new account
 export const Register__ = async (data) => {
+  let status = false,
+    message = "";
+  await axios
+    .post(`${API_URL}/new/`, data)
+    .then((resp) => {
+      const data = resp.data;
+      const serverMessage = data["message"];
 
-  let status= false ,message = "";
-  await axios.post(`${API_URL}/new/`,data).then(resp=>{
-    const data = resp.data ;
-    const serverMessage = data['message'] ;
+      if (serverMessage === "success") status = true;
+      else message = serverMessage;
+    })
+    .catch((err) => {
+      status = false;
+      message = "Internet connection Problem";
+    });
 
-    if(serverMessage==="success") status=true;
-    else message = serverMessage ;
-
-  }
-  ).
-  catch(err=>{
-    status = false ;
-    message ="Internet connection Problem"
-  }
-  );
-  
-  return [status,message];
+  return [status, message];
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 function asyncSleep(ms) {
   return new Promise((resolve) => {

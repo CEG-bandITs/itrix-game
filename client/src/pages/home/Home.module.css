@@ -1,3 +1,114 @@
+@import url("https://fonts.googleapis.com/css2?family=Cookie&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa&display=swap");
+.content__wrapper {
+  background: url("/public/images/cos.png");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  color: white;
+  width: auto;
+  height: 100vh;
+  min-height: fit-content;
+  display: block;
+}
+
+.column .img {
+  height: 25vh;
+  width: 25vh;
+  max-width: 25vmax;
+  max-height: 25vmax;
+  border-radius: 50%;
+  margin-bottom: 20px;
+  cursor: pointer;
+  background-position: center;
+  background-size: cover;
+  box-shadow: rgba(185, 81, 81, 0.19) 0px 10px 20px,
+    rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+.column .img1 {
+  background-image: url("/public/images/signup.png");
+}
+.column .img2 {
+  background-image: url("/public/images/signin.png");
+}
+
+.column .img:hover {
+  animation-name: tada;
+  animation-duration: 2s;
+}
+.row {
+  display: flex;
+}
+
+.content__header {
+  padding: 1vw;
+  white-space: nowrap;
+  font-size: clamp(5vmax, 10vw, 6vmax);
+  color: white;
+  font-family: cookie;
+  position: relative;
+  animation-name: headShake;
+  animation-duration: 1s;
+}
+
+/* Float four columns side by side */
+
+.column {
+  padding: 0 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+}
+/* Remove extra left and right margins, due to padding */
+
+.content {
+  background-color: rgba(196, 196, 196, 0.2);
+  border-radius: 5px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+  margin: 20px 0px;
+  border-color: black;
+  box-shadow: 0 0 10px black;
+}
+
+.column p {
+  font-family: cookie;
+  font-size: 4vmax;
+  color: white;
+}
+
+/* Responsive columns */
+
+@media screen and (max-width: 500px) {
+  .row {
+    flex-direction: column;
+  }
+  .content__header {
+    margin: 0;
+  }
+}
+/* Style the counter cards */
+
+.card {
+  font-weight: bold;
+  font-size: 30px;
+  padding: 5px;
+  text-align: center;
+}
+/*
+======================================
+*/
+/* After Authentication */
 .after__login {
   width: 100vw;
   height: 100vh;
@@ -29,6 +140,7 @@
   flex-direction: column;
   height: 50%;
   width: 50%;
+  gap: 1vw;
   align-items: center;
   justify-content: space-around;
 }
@@ -52,7 +164,7 @@
   color: black;
 }
 
-.btn-grad {
+.btnGrad {
   background-image: linear-gradient(
     to right,
     #f2994a 0%,
@@ -60,7 +172,7 @@
     #f2994a 100%
   );
 }
-.btn-grad {
+.btnGrad {
   margin: 10px;
   animation-name: tada;
   animation-duration: 1.5s;
@@ -75,7 +187,7 @@
   white-space: nowrap;
 }
 
-.btn-grad:hover {
+.btnGrad:hover {
   background-position: right center; /* change the direction of the change here */
   color: #fff;
   text-decoration: none;
@@ -150,107 +262,4 @@
   62% {
     transform: translate(-22px, 5px) skew(21deg);
   }
-}
-
-/*
-
-*/
-
-@import url("https://fonts.googleapis.com/css2?family=Cookie&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Comfortaa&display=swap");
-.content__wrapper {
-  background: url("/public/images/cos.png") no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  color: white;
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-}
-
-.column .img {
-  height: 25vh;
-  width: 25vh;
-  border-radius: 50%;
-  margin-bottom: 20px;
-  cursor: pointer;
-  background-position: center;
-  background-size: cover;
-  box-shadow: rgba(185, 81, 81, 0.19) 0px 10px 20px,
-    rgba(0, 0, 0, 0.23) 0px 6px 6px;
-}
-.column .img1 {
-  background-image: url("/public/images/signup.png");
-}
-.column .img2 {
-  background-image: url("/public/images/signin.png");
-}
-
-.column .img:hover {
-  animation-name: tada;
-  animation-duration: 2s;
-}
-.row {
-  display: flex;
-  color: black;
-}
-
-.content__header {
-  padding: 20px;
-  white-space: nowrap;
-  font-size: xx-large;
-  color: white;
-  font-family: cookie;
-  position: relative;
-  animation-name: headShake;
-  animation-duration: 1s;
-}
-
-/* Float four columns side by side */
-
-.column {
-  padding: 0 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 10px;
-}
-/* Remove extra left and right margins, due to padding */
-
-.content {
-  background-color: rgb(104, 97, 97);
-  opacity: 0.85;
-  border-radius: 5px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 30px;
-  margin: 20px 0px;
-  border-color: black;
-  box-shadow: 0 0 10px black;
-}
-
-/* Responsive columns */
-
-@media screen and (max-width: 500px) {
-  .row {
-    flex-direction: column;
-  }
-  .content__header {
-    margin: 0;
-  }
-}
-/* Style the counter cards */
-
-.card {
-  font-weight: bold;
-  font-size: 30px;
-  padding: 5px;
-  text-align: center;
 }

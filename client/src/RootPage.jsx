@@ -21,21 +21,20 @@ export default function RootPage() {
   };
 
   useEffect(() => {
-    VerifyLogin().then(response=>{
+    VerifyLogin().then((response) => {
       handleIsLogin(response);
       handleIsLoading(false);
-      
     });
   }, []);
 
-  useEffect(()=>{
+  useEffect(() => {
     console.log(isLoading);
-  },[isLoading])
+  }, [isLoading]);
   return (
     <React.Fragment>
       <Wrapper.Provider value={value}>
         <Suspense fallback={<Loader />}>
-          {!isLoading ? <Routing /> : <Loader />}
+          {isLoading ? <Loader /> : <Routing />}
         </Suspense>
       </Wrapper.Provider>
     </React.Fragment>
