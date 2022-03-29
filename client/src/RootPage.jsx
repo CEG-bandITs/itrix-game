@@ -18,7 +18,7 @@ export default function RootPage() {
     handleIsLogin: handleIsLogin,
     isloading: isLoading,
     handleIsLoading: handleIsLoading,
-    userData:userData,
+    userData:userData, //user data for storing game details 
     handleUserData:handleUserData 
   };
 
@@ -34,12 +34,12 @@ export default function RootPage() {
 
   useEffect(()=>{
     console.log(isLoading);
-  },[isLoading])
+  }, [isLoading]);
   return (
     <React.Fragment>
       <Wrapper.Provider value={value}>
         <Suspense fallback={<Loader />}>
-          {!isLoading ? <Routing /> : <Loader />}
+          {isLoading ? <Loader /> : <Routing />}
         </Suspense>
       </Wrapper.Provider>
     </React.Fragment>

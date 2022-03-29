@@ -26,6 +26,7 @@ export const VerifyLogin = async () => {
     
     return [response,data] ;
 
+  return true;
 };
 
 export const Logout = (handler) => {
@@ -59,45 +60,26 @@ export const Login__ = async (data,handleUserData) => {
    return [status,message]
 };
 
-
-
-//creating new account 
+//creating new account
 export const Register__ = async (data) => {
+  let status = false,
+    message = "";
+  await axios
+    .post(`${API_URL}/new/`, data)
+    .then((resp) => {
+      const data = resp.data;
+      const serverMessage = data["message"];
 
-  let status= false ,message = "";
-  await axios.post(`${API_URL}/new/`,data).then(resp=>{
-    const data = resp.data ;
-    const serverMessage = data['message'] ;
+      if (serverMessage === "success") status = true;
+      else message = serverMessage;
+    })
+    .catch((err) => {
+      status = false;
+      message = "Internet connection Problem";
+    });
 
-    if(serverMessage==="success") status=true;
-    else message = serverMessage ;
-
-  }
-  ).
-  catch(err=>{
-    status = false ;
-    message ="Internet connection Problem"
-  }
-  );
-  
-  return [status,message];
+  return [status, message];
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 function asyncSleep(ms) {
   return new Promise((resolve) => {
