@@ -2,22 +2,42 @@ import axios from "axios";
 
 const API_URL = "http://localhost:3001/api/users"
 
+function getCookie(cName) {
+  const name = cName + "=";
+  const cDecoded = decodeURIComponent(document.cookie); //to be careful
+  const cArr = cDecoded .split('; ');
+  let res;
+  cArr.forEach(val => {
+      if (val.indexOf(name) === 0) res = val.substring(name.length);
+  })
+  return res;
+}
 
 export const VerifyLogin = async () => {
-    await axios.get(`${API_URL}/details`).then(response=>console.log(response));
+    let response=false,data={} ;
+    const token = getCookie("jwt");
+    await axios.post(`${API_URL}/details/`,{JWT:token}).then(res=>{
+      if(res.data.message==="success") 
+      {
+        response = true ;
+        data = res.data.data ;
+      }
+    });
     
-    return false ;
+    return [response,data] ;
 
 };
 
 export const Logout = (handler) => {
   //delete cookie
+  document.cookie="jwt=";
+
   handler(false);
 };
 
 
 //logining user 
-export const Login__ = async (data) => {
+export const Login__ = async (data,handleUserData) => {
   
   let status= false ,message = "";
 
@@ -26,8 +46,10 @@ export const Login__ = async (data) => {
   
     const serverMessage = data.message ;
     if(serverMessage==="success") 
-    {status=true ;
-      
+    {
+      document.cookie="jwt="+data['token'] ;
+      status=true ;
+      handleUserData(data.data);
     }
     else message=serverMessage;
   }).catch(err=>{

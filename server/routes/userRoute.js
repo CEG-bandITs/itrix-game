@@ -7,6 +7,6 @@ router.post("/new", asyncHandler(userCntrl.CreateUser));
 
 router.post("/auth", asyncHandler(userCntrl.Auth));
 
-router.get("/details", asyncHandler(userCntrl.Details));
+router.post("/details", asyncHandler(userCntrl.Details));
 
 module.exports = router;

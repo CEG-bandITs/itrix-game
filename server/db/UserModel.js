@@ -22,6 +22,25 @@ const DaySchema={
     }
 };
 
+//Days 
+
+var  day_1 = new Date()
+var  day_2 = new Date(day_1.getTime()+(24*60*60*1000))
+var  day_3 = new Date(day_1.getTime()+(2*24*60*60*1000))
+
+const getDate =(day)=>{
+    return(day.toLocaleDateString());
+}
+
+day_1=getDate(day_1);
+day_2=getDate(day_2) ;
+day_3=getDate(day_3) ;
+
+let Dates = {};
+Dates[day_1]=DaySchema ;
+Dates[day_2]=DaySchema ;
+Dates[day_3] =DaySchema ;
+
 
 //main user schema 
 const UserSchema = new schema({
@@ -61,9 +80,7 @@ const UserSchema = new schema({
         required:"college is required !!"
     },
 
-    day1 : DaySchema ,
-    day2 : DaySchema ,
-    day3 : DaySchema 
+   Dates
 
 },{timestamps:true});
 

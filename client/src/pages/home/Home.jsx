@@ -13,6 +13,7 @@ function AfterLogin() {
   return (
     <div className="after__login">
       <div className="content1">
+        {value.userData!==null&&value.userData.email}
         <div className="hi" title="Chamber of secrets">
           Chamber of secrets
         </div>

@@ -22,7 +22,7 @@ function Login() {
   const handleSubmit = () => {
     if (passwordError === "" && emailError === "") {
       const data = { email: email, password: password };
-      Login__(data).then((response) => {
+      Login__(data,value.handleUserData).then((response) => {
         if (response[0] === true) {
           value.handleIsLogin(true);
         } else {

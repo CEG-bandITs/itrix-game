@@ -24,17 +24,19 @@ async function Auth(req, res) {
     const valid = await user.ValidatePassword(data.password) ;
     if(valid)
     {
-      let response = res ;
+      //todays date 
+      var  today = new Date().toLocaleDateString();
 
-      const token = JWTTokenGenerator({
+      console.log(user);
+      const data ={
         name: user.name ,
-        day1: user.day1 ,
-        day2: user.day2 ,
-        day3: user.day3 ,
-        email: user.email 
-      })
-      response.cookie("JWT-Token",token) ;
-      response.send({message:"success"}) ;
+        email: user.email ,
+        startedAt: user.Dates[today]
+      } ;
+      console.log(data)
+      const token = JWTTokenGenerator(data)
+      
+      res.send({message:"success",token:token,data:data}) ;
 
     }
    
@@ -91,7 +93,7 @@ async function CreateUser(req, res) {
 async function Details(req, res) {
 
   //parse token 
-  const token = req.cookies['JWT-Token'];
+  const token = req.body.JWT 
   //verify token
   console.log(token)
   jwt.verify(token,process.env.JWT_SECRET,function(err,decodedData){
