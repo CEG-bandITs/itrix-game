@@ -11,24 +11,19 @@ function Home() {
 function AfterLogin() {
   const value = React.useContext(Wrapper);
   return (
-<<<<<<< HEAD
-<<<<<<< HEAD
+
     <div className="after__login">
       <div className="content1">
-        {value.userData!==null&&value.userData.email}
-        <div className="hi" title="Chamber of secrets">
-=======
+
+
+
     <div className={styles.after__login}>
       <div className={styles.content1}>
+
         <div className={styles.hi} title="Chamber of secrets">
->>>>>>> 322b0238dc57f6fed9b72bc64b135a253209921f
-=======
-    <div className={styles.after__login}>
-      <div className={styles.content1}>
-        <div className={styles.hi} title="Chamber of secrets">
->>>>>>> 322b0238dc57f6fed9b72bc64b135a253209921f
           Chamber of secrets
         </div>
+
         <div className={styles.nav__links}>
           <Link className={styles.btnGrad} to="/game">
             Play Game
@@ -52,7 +47,9 @@ function AfterLogin() {
 
       <div className={styles.image__wrapper}></div>
     </div>
-  );
+    </div>
+    </div> 
+  )  ;
 }
 
 function BeforeLogin() {

@@ -3,7 +3,7 @@ const path = require("path");
 const fs = require("fs");
 const app = express();
 const cookieParser = require("cookie-parser");
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 const cors = require("cors");
 
 //connecting to atlas
@@ -26,6 +26,7 @@ if (BuildExistence === false) {
 
 // Enabling Express to read req body as json
 app.use(express.json());
+
 
 // Root ('/') Path
 const client = require("./routes/client");
