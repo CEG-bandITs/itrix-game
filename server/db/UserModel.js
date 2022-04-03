@@ -1,7 +1,11 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
-
+require("dotenv").config();
 const schema = mongoose.Schema ;
+const moment = require("moment");
+
+
+
 
 
 //day schema 
@@ -16,30 +20,52 @@ const DaySchema={
         type:String ,
         default : ""
     },
-    isStarted : {
-        type:Boolean,
-        default:false
-    }
+    duration : {
+        type:String ,
+        default : ""
+    },
+   
 };
 
+
 //Days 
+let days ={};
 
-var  day_1 = new Date()
-var  day_2 = new Date(day_1.getTime()+(24*60*60*1000))
-var  day_3 = new Date(day_1.getTime()+(2*24*60*60*1000))
-
-const getDate =(day)=>{
-    return(day.toLocaleDateString());
+const t = new Date().toLocaleDateString().split("/");
+let month,date ;
+if(parseInt(t[1])<10)
+{
+ month = "0"+t[1];
 }
+else month =t[1];
+if(parseInt(t[0])<10)
+{
+    date = "0"+t[0];
+}
+else 
+{
+    date =t[0];
+}
+let today = `${t[2]}-${month}-${date}`;
+today=moment(today);
 
-day_1=getDate(day_1);
-day_2=getDate(day_2) ;
-day_3=getDate(day_3) ;
+const startDate = moment(process.env.START_DATE);
+const diffDays =  today.date() - startDate.date();
 
-let Dates = {};
-Dates[day_1]=DaySchema ;
-Dates[day_2]=DaySchema ;
-Dates[day_3] =DaySchema ;
+console.log("differnce in date",diffDays);
+
+if((diffDays>=0)&&(diffDays<3))
+{
+   
+    var b=0;
+    for(var k=diffDays;k<3;k++)
+    {
+        var date__= moment().add(b,"days");
+        days[date__.format("YYYY-MM-DD")] =DaySchema;
+        b++;
+    }
+  
+}
 
 
 //main user schema 
@@ -80,7 +106,7 @@ const UserSchema = new schema({
         required:"college is required !!"
     },
 
-   Dates
+    days 
 
 },{timestamps:true});
 

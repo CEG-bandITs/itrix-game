@@ -35,6 +35,10 @@ app.use("/", client);
 // user route
 app.use("/api/users/", require("./routes/userRoute"));
 
+//game route
+app.use("/api/game/", require("./routes/GameRoute"));
+
+
 // Serving files from ../client/build
 // Which can be created by running `npm run build` in client folder
 app.use(express.static(path.join(__dirname, "..", "client", "build")));
