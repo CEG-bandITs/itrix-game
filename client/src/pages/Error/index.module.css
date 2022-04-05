@@ -1,0 +1,30 @@
+@import url("https://fonts.googleapis.com/css2?family=Cookie&display=swap");
+
+h1 {
+  font-size: clamp(3rem, 1rem + 10vw, 13rem);
+  font-weight: 800;
+  text-align: center;
+  font-family: "Cookie";
+}
+
+h2 {
+  font-size: clamp(2rem, 1rem + 7vw, 6rem);
+  font-weight: 800;
+  text-align: center;
+  font-family: "Cookie";
+}
+
+p {
+  text-align: center;
+  font-family: "Cookie";
+  font-size: clamp(1rem, 0.5rem + 6vw, 5rem);
+}
+
+.container {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+}

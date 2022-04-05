@@ -9,6 +9,7 @@ import Login from "../pages/login/Login";
 import Rules from "../pages/rules/Rules";
 import Signup from "../pages/signup/Signup";
 import Team from "../pages/team/Team";
+import ErrorPage from "../pages/Error";
 
 //importing context from home page
 import { Wrapper } from "../RootPage";
@@ -31,12 +32,12 @@ function Routing() {
 function AuthenticatedRoute() {
   return (
     <Routes>
-      <Route element={<Game />} path="/game"></Route>
-      <Route element={<Team />} path="/team"></Route>
-      <Route element={<Leaderboard />} path="/leaderboard"></Route>
-      <Route element={<Home />} path="/"></Route>
-      <Route element={<Rules />} path="/rules"></Route>
-      <Route element={<Navigate to="/" />} path="/*"></Route>
+      <Route element={<Game />} exact path="/game"></Route>
+      <Route element={<Team />} exact path="/team"></Route>
+      <Route element={<Leaderboard />} exact path="/leaderboard"></Route>
+      <Route element={<Home />} exact path="/"></Route>
+      <Route element={<Rules />} exact path="/rules"></Route>
+      <Route element={<ErrorPage />} path="*"></Route>
     </Routes>
   );
 }
@@ -44,11 +45,11 @@ function AuthenticatedRoute() {
 function UnAuthenticatedRoute() {
   return (
     <Routes>
-      <Route element={<Home />} path="/"></Route>
-      <Route element={<Login />} path="/login"></Route>
-      <Route element={<Signup />} path="/register"></Route>
-      <Route element={<Rules />} path="/rules"></Route>
-      <Route element={<Navigate to="/" />} path="/*"></Route>
+      <Route element={<Home />} exact path="/"></Route>
+      <Route element={<Login />} exact path="/login"></Route>
+      <Route element={<Signup />} exact path="/register"></Route>
+      <Route element={<Rules />} exact path="/rules"></Route>
+      <Route element={<ErrorPage />} path="*"></Route>
     </Routes>
   );
 }

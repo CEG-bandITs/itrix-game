@@ -2,7 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Comfortaa&display=swap");
 
 .base {
-  background-image: url(../../../public/images/cos.png);
+  background-image: url("/public/images/cos.webp");
   position: absolute;
   height: 100vh;
   width: 100vw;
