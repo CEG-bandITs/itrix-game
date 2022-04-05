@@ -153,11 +153,11 @@
   color: white;
 }
 .other__pages {
-  padding: 10px;
-  background-color: transparent;
+  background-color: rgba(255, 255, 255, 0.2);
   border: 1px solid thistle;
   border-radius: 5px;
-  width: 150px;
+  padding: 1vmin;
+  font-size: clamp(3vmax, 1vw, 4vmax);
   text-align: center;
   color: white;
   cursor: pointer;
@@ -180,7 +180,6 @@
   margin: 10px;
   animation-name: tada;
   animation-duration: 1.5s;
-  padding: 15px 45px;
   text-align: center;
   text-transform: uppercase;
   transition: 0.5s;
@@ -189,6 +188,8 @@
   box-shadow: 0 0 20px #eee;
   border-radius: 10px;
   white-space: nowrap;
+  padding: 2vmin;
+  font-size: clamp(3.5vmax, 1.5vw, 3vmax);
 }
 
 .btnGrad:hover {
@@ -198,12 +199,12 @@
 }
 
 /*
-*/
+  */
 
 .hi {
   animation: glitch 1s linear infinite;
   color: white;
-  font-size: 30px;
+  font-size: clamp(4vmax, 2.5vw, 6vmax);
   white-space: nowrap;
 }
 
