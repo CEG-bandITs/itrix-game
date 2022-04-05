@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import "./Game.css";
+import React, { useState } from "react";
+import style from "./Game.module.css";
 import { SubmitAnswer } from "../../api_calls/Game";
 
 let data = {
@@ -14,6 +14,10 @@ let data = {
     },
     {
       id: 3,
+      url: "images/idea-icon.png",
+    },
+    {
+      id: 4,
       url: "images/idea-icon.png",
     },
   ],
@@ -41,16 +45,19 @@ export function QuestionBar(props) {
   }
   if (props.for === "Mobile") {
     return (
-      <div className="QuestionBar">
+      <div className={style.QuestionBar}>
         <img
-          className="prev-icon"
+          className={style.previcon}
           src="images/right.png"
           alt="right image"
           onClick={IncreaseImgPointer}
         />
-        <img className="Question-Img" src={data.images[ImgPointer].url}></img>
         <img
-          className="next-icon"
+          className={style.QuestionImg}
+          src={data.images[ImgPointer].url}
+        ></img>
+        <img
+          className={style.nexticon}
           src="images/right.png"
           alt="left image"
           onClick={DecreaseImgPointer}
@@ -59,13 +66,13 @@ export function QuestionBar(props) {
     );
   } else {
     return (
-      <div className="QuestionBar">
+      <div className={style.QuestionBar}>
         {data.images.map((i) => {
           return (
             <img
               src={i.url}
               key={i.id}
-              className="Question-Img"
+              className={style.QuestionImg}
               alt="Question Image"
             />
           );
@@ -80,12 +87,12 @@ function HintBox(props) {
     return (
       <>
         <div
-          className="GreyLayer"
+          className={style.GreyLayer}
           onClick={() => {
             props.setShowHint(false);
           }}
         ></div>
-        <div className="HintBox">
+        <div className={style.HintBox}>
           {data.hints.map((i) => {
             return (
               <>
@@ -103,32 +110,35 @@ function HintBox(props) {
   }
 }
 
-export  function AnswerBar(props) {
+export function AnswerBar(props) {
   const [showHint, setShowHint] = useState(false);
   if (props.for === "Mobile") {
     return (
       <>
-        <div className="AnswerBar">
+        <div className={style.AnswerBar}>
           <form>
             <input
-              className="AnswerBar-Input"
+              className={style.AnswerBarInput}
               type="text"
               placeholder="Enter Answer"
             ></input>
-            <div className="AnswerBar-Bottom">
+            <div className={style.AnswerBarBottom}>
               <button
-                className="AnswerBar-Hint"
+                className={style.AnswerBarHint}
                 onClick={(e) => {
                   e.preventDefault();
                   setShowHint(true);
                 }}
               >
                 Hint
-                <img className="AnswerBar-Icon" src="images/idea-icon.png" />
+                <img
+                  className={style.AnswerBarIcon}
+                  src="images/idea-icon.png"
+                />
               </button>
               <button
                 type="button"
-                className="AnswerBar-Submit"
+                className={style.AnswerBarSubmit}
                 onClick={SubmitAnswer}
               >
                 submit
@@ -142,12 +152,12 @@ export  function AnswerBar(props) {
   } else {
     return (
       <>
-        <div className="AnswerBar">
-          <div className="AnswerBar-Oneline-Bottom">
-            <button className="AnswerBar-Hint">
+        <div className={style.AnswerBar}>
+          <div className={style.AnswerBarOnelineBottom}>
+            <button className={style.AnswerBarHint}>
               <p>Hint</p>
               <img
-                className="AnswerBar-Icon"
+                className={style.AnswerBarIcon}
                 src="images/idea-icon.png"
                 onClick={(e) => {
                   e.preventDefault();
@@ -156,7 +166,7 @@ export  function AnswerBar(props) {
               />
             </button>
             <input type="text" placeholder="Enter Answer"></input>
-            <button className="AnswerBar-Submit" type="button">
+            <button className={style.AnswerBarSubmit} type="button">
               submit
             </button>
           </div>

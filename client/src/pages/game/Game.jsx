@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from "react";
-import "./Game.css";
-import { SubmitAnswer } from "../../api_calls/Game";
-import { GiDiamondTrophy } from "react-icons/gi";
-import Menu from "../../components/menu/Menu";
-import {AnswerBar,QuestionBar} from "./GameComponents"
+import style from "./Game.module.css";
+import { AnswerBar, QuestionBar } from "./GameComponents";
 
 function Game(props) {
   const [dimentions, SetDimentions] = useState({
@@ -39,16 +36,7 @@ function Game(props) {
   }, []);
 
   return (
-    <div className="GamePage">
-      <div className="game__nav">
-        <span className="game__menu">
-          <Menu />
-        </span>
-        <span className="trophy">
-          1
-          <GiDiamondTrophy style={{ color: "yellow" }} />
-        </span>
-      </div>
+    <div className={style.GamePage}>
       {dimentions.width <= 1300 ? (
         <QuestionBar for="Mobile" />
       ) : (

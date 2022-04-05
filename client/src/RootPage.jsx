@@ -11,30 +11,26 @@ export default function RootPage() {
   //intial states
   const [isLoading, handleIsLoading] = useState(true);
   const [isLogin, handleIsLogin] = useState(false);
-  const [userData,handleUserData] =useState(null);
+  const [userData, handleUserData] = useState(null);
   //value to context for using in all childer component without passing as props
   const value = {
     isLogin: isLogin,
     handleIsLogin: handleIsLogin,
     isloading: isLoading,
     handleIsLoading: handleIsLoading,
-    userData:userData, //user data for storing game details 
-    handleUserData:handleUserData 
+    userData: userData, //user data for storing game details
+    handleUserData: handleUserData,
   };
 
+  // On Mount Verfy The Login
   useEffect(() => {
-    VerifyLogin().then(response=>{
+    VerifyLogin().then((response) => {
       handleIsLogin(response[0]);
       handleIsLoading(false);
-      handleUserData(response[1])
+      handleUserData(response[1]);
     });
   }, []);
 
-  
-
-  useEffect(()=>{
-    console.log(isLoading);
-  }, [isLoading]);
   return (
     <React.Fragment>
       <Wrapper.Provider value={value}>

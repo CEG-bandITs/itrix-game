@@ -41,12 +41,13 @@
 }
 .row {
   display: flex;
+  gap: 3vw;
 }
 
 .content__header {
   padding: 1vw;
   white-space: nowrap;
-  font-size: clamp(5vmax, 10vw, 6vmax);
+  font-size: clamp(5vmax, 16vw, 5vmax);
   color: white;
   font-family: cookie;
   position: relative;
@@ -89,12 +90,15 @@
 
 /* Responsive columns */
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 691px) {
   .row {
     flex-direction: column;
   }
   .content__header {
     margin: 0;
+  }
+  .content {
+    max-width: 75vw;
   }
 }
 /* Style the counter cards */

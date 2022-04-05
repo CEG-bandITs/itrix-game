@@ -18,33 +18,32 @@
   gap: 1.3rem;
 }
 
-.QuestionBar > .next-icon,
-.QuestionBar > .prev-icon {
+.QuestionBar > .nexticon,
+.QuestionBar > .previcon {
   max-height: 16vh;
   max-width: 8vw;
   object-fit: contain;
 }
 
-.QuestionBar > .prev-icon {
+.QuestionBar > .previcon {
   transform: scaleX(-1);
 }
 
-.QuestionBar > .Question-Img {
-  max-width: 50vw;
-  max-height: 50vh;
-  object-fit: contain;
-}
-
-@media screen and (min-width: 1300px) {
-  .QuestionBar > .Question-Img {
-    width: 25vw;
-    max-height: 25vh;
-  }
-}
-
-.Question-Img {
+.QuestionBar > .QuestionImg {
   width: 50vw;
-  height: 50vw;
+  height: auto;
+  object-fit: contain;
+  transition: transform 0.2s;
+}
+
+.QuestionBar > .QuestionImg:hover {
+  transform: scale(1.2);
+}
+
+@media screen and (min-width: 1200px) {
+  .QuestionBar > .QuestionImg {
+    max-width: 25vw;
+  }
 }
 
 .AnswerBar {
@@ -53,7 +52,12 @@
   justify-content: center;
 }
 
-.AnswerBar-Input {
+.AnswerBar input {
+  font-family: Cookie;
+  font-size: 4vmax;
+}
+
+.AnswerBarInput {
   display: block;
   width: 80vw;
   border-radius: 1rem;
@@ -61,42 +65,41 @@
   height: 5vmax;
   text-align: center;
   padding: 2vmin;
-  font-size: large;
 }
-.AnswerBar-Input:focus {
+.AnswerBarInput:focus {
   outline: none;
   border-color: #9ecaed;
   box-shadow: 0 0 10px #9ecaed;
 }
 
-.AnswerBar-Input::placeholder {
+.AnswerBarInput::placeholder {
   animation-name: tada;
   animation-duration: 5s;
 }
 
-.AnswerBar-Input:focus {
+.AnswerBarInput:focus {
   outline: 0px;
 }
 
-.AnswerBar-Bottom {
+.AnswerBarBottom {
   display: flex;
   justify-content: center;
   padding-top: 3vw;
 }
 
-.AnswerBar-Icon {
+.AnswerBarIcon {
   width: 5vw;
   max-height: 5vh;
   padding: 1vmin;
   object-fit: contain;
 }
 
-.AnswerBar-Hint {
+.AnswerBarHint {
   width: 40vw;
   border-radius: 2rem;
   background-color: rgba(255, 255, 255, 0.5);
   font-weight: bold;
-  color: black;
+  color: white;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -104,9 +107,11 @@
   margin: 10px;
   margin-top: 20px;
   outline: none;
+  font-family: Cookie;
+  font-size: 4vmax;
 }
 
-.AnswerBar-Submit {
+.AnswerBarSubmit {
   width: 40vw;
   background-color: transparent;
   color: white;
@@ -117,33 +122,37 @@
   font-size: medium;
   margin-top: 20px;
   outline: none;
+  font-family: Cookie;
+  font-size: 4vmax;
 }
 
-.AnswerBar-Oneline-Bottom {
+.AnswerBarOnelineBottom {
   display: flex;
   gap: 1vmax;
+  align-items: center;
 }
 
-.AnswerBar-Oneline-Bottom > .AnswerBar-Hint {
+.AnswerBarOnelineBottom > .AnswerBarHint {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 15vw;
 }
 
-.AnswerBar-Oneline-Bottom > .AnswerBar-Hint > p {
+.AnswerBarOnelineBottom > .AnswerBarHint > p {
   font-size: 3rem;
 }
 
-.AnswerBar-Oneline-Bottom > input[type="text"] {
+.AnswerBarOnelineBottom > input[type="text"] {
   border-radius: 10vmax;
   text-align: center;
   font-size: 3rem;
   width: 55vw;
+  height: 6vh;
   padding: 2vmin;
 }
 
-.AnswerBar-Oneline-Bottom > .AnswerBar-Submit {
+.AnswerBarOnelineBottom > .AnswerBarSubmit {
   font-size: 3rem;
   width: 10vw;
 }
