@@ -9,6 +9,12 @@ import {
 import "react-notifications/lib/notifications.css";
 import { Wrapper } from "../../RootPage";
 
+const validateEmail = (email) => {
+  return email.match(
+    /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+  );
+};
+
 function Signup() {
   const value = React.useContext(Wrapper);
   const navigate = useNavigate();
@@ -48,7 +54,7 @@ function Signup() {
       error = "empty field";
     }
     if (name === "email") {
-      if (!value.endsWith("@gmail.com") && value.length < 13) {
+      if (!validateEmail(value)) {
         error = "invalid email";
       }
     } else if (name === "passwd") {
@@ -62,9 +68,9 @@ function Signup() {
       const new_data = { ...prev };
       new_data[name] = { error: error, value: value };
       if (error !== "") {
-        document.getElementsByName(name)[0].style.border = "1px solid red";
+        document.getElementsByName(name)[0].style.border = "0.2rem solid red";
       } else
-        document.getElementsByName(name)[0].style.border = "1px solid green";
+        document.getElementsByName(name)[0].style.border = "0.2rem solid green";
       return new_data;
     });
   };
@@ -74,7 +80,7 @@ function Signup() {
     var count = 0;
     for (var k of Object.keys(data)) {
       if (data[k]["error"] === "initial") {
-        document.getElementsByName(k)[0].style.border = "1px solid red";
+        document.getElementsByName(k)[0].style.border = "0.2rem solid red";
         new_data[k]["error"] = "required*";
       } else if (data[k]["error"] === "") count++;
     }

@@ -4,140 +4,84 @@
 .base {
   background-image: url(../../../public/images/cos.png);
   position: absolute;
-  height: 100%;
-  width: 100%;
+  height: 100vh;
+  width: 100vw;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  display: grid;
-  grid-template-columns: 1fr;
-  overflow-y: scroll;
+  font-family: Cookie;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .container {
-  background-color: rgba(196, 196, 196, 0.3);
+  background-color: rgba(196, 196, 196, 0.2);
+  border-radius: 1rem;
+  color: white;
+  margin: 1vmax;
+  min-width: 85vmin;
+  max-height: 90vh;
 }
 
-.container > h1 {
+.container h1 {
+  font-size: clamp(3rem, 1rem + 5vw, 9rem);
+  padding: 1vw;
   text-align: center;
-  display: block;
-  padding: 3vmax;
-  font-size: larger;
-  color: white;
-  font-weight: 100;
 }
 
-.container > form {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 3vh;
-  justify-items: center;
+.container form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.container > form > input[type="text"],
-.container > form > input[type="password"],
-.container > form > input[type="email"] {
-  width: 90%;
-  padding: 10px;
+.container form input[type="text"],
+.container form input[type="email"],
+.container form input[type="password"] {
+  font-size: clamp(1rem, 1rem + 4vmin, 5rem);
   background-color: rgba(196, 196, 196, 0.6);
+  border-radius: 1rem;
+  width: 85%;
   color: white;
-  border: 0;
-  font-size: small;
+  padding: 0.3rem;
+  margin: 0.7rem;
   outline: 0;
-  border-radius: 6px;
-  margin: 5px;
-  margin-bottom: 0px;
-  border: 1px solid transparent;
-}
-
-.container > form > input[type="text"]::placeholder,
-.container > form > input[type="password"]::placeholder,
-.container > form > input[type="email"]::placeholder {
-  color: white;
-}
-
-/* @media screen and (min-width: 1800px) {
-  .base {
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    justify-items: start;
-  }
-
-  .container {
-    grid-template-columns: 1fr 1fr;
-  }
-} */
-
-.container > form > input[type="button"] {
-  width: 95%;
-  background-color: rgba(11, 194, 52);
   border: 0;
+  font-family: Cookie;
+}
+
+.container form input[type="text"]::placeholder,
+.container form input[type="email"]::placeholder,
+.container form input[type="password"]::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.container form span {
+  display: none;
+}
+
+.container form input[type="button"] {
+  font-family: Cookie;
+  font-size: clamp(1rem, 1rem + 4vmin, 5rem);
+  margin: 0.7rem;
+  background-color: rgba(11, 194, 52, 0.6);
   color: white;
-  font-size: medium;
-  padding: 10px;
-  margin-top: 20px;
-  border-radius: 10px;
+  padding: 1vmin;
+  border: 0;
 }
 
 .aldreadyHavingAccount {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  justify-content: space-evenly;
+  margin: 0.7rem;
+  display: flex;
+  flex-direction: row;
+  font-size: clamp(0.5rem, 0.5rem + 3vmin, 3rem);
   align-items: center;
-  gap: 3vw;
-  padding: 3vmax;
-  color: white;
 }
 
-.aldreadyHavingAccount > p {
-  font-size: small;
-  font-weight: 100;
-  color: black;
-}
-
-.aldreadyHavingAccount > input[type="button"] {
-  background-color: rgba(45, 145, 188, 0.8);
-  border: 0;
-  font-size: small;
-  padding: 10px;
-  color: white;
-  border-radius: 10px;
-}
-
-@keyframes fadeInAnimation {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-.declarationForm {
-  animation: fadeInAnimation ease 3s;
-  justify-self: center;
-}
-
-.declarationForm > img {
-  max-width: 80vw;
-  max-height: 80vh;
-  height: auto;
-  width: auto;
-}
-
-@media only screen and (min-width: 500px) {
-  .container {
-    margin-top: 50px;
-    padding: 20px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-}
-
-.Error {
-  color: red;
-  font-size: small;
-  height: 10px;
+.aldreadyHavingAccount input[type="button"] {
+  font-size: clamp(0.8rem, 0.8rem + 3vmin, 2rem) !important;
+  background-color: rgba(45, 145, 188, 0.6) !important;
+  margin-left: 3vmin;
 }
