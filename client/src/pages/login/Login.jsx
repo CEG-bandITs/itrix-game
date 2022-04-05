@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { Login__ } from "../../api_calls/Auth";
 import { Wrapper } from "../../RootPage";
 import styles from "./Login.module.css";
@@ -22,7 +23,7 @@ function Login() {
   const handleSubmit = () => {
     if (passwordError === "" && emailError === "") {
       const data = { email: email, password: password };
-      Login__(data,value.handleUserData).then((response) => {
+      Login__(data, value.handleUserData).then((response) => {
         if (response[0] === true) {
           value.handleIsLogin(true);
         } else {
@@ -35,21 +36,21 @@ function Login() {
     if (emailError === "initial") {
       handleEmailError("empty email");
 
-      document.getElementById("email").style.border = "1px solid red";
+      document.getElementById("email").style.border = "0.2rem solid red";
     }
     if (passwordError === "initial") {
       handlePasswordError("empty password");
-      document.getElementById("password").style.border = "1px solid red";
+      document.getElementById("password").style.border = "0.2rem solid red";
     }
   };
 
   React.useEffect(() => {
     if (initial !== true) {
       if (!email.endsWith("@gmail.com")) {
-        document.getElementById("email").style.border = "1px solid red";
+        document.getElementById("email").style.border = "0.2rem solid red";
         handleEmailError("invalid email");
       } else if (email.endsWith("@gmail.com") && email.length >= 15) {
-        document.getElementById("email").style.border = "2px solid green";
+        document.getElementById("email").style.border = "0.2rem solid green";
         handleEmailError("");
       } else {
         document.getElementById("email").style.border = "none";
@@ -61,17 +62,18 @@ function Login() {
   React.useEffect(() => {
     if (initial !== true) {
       if (password.length < 1) {
-        document.getElementById("password").style.border = "1px solid red";
+        document.getElementById("password").style.border = "0.2rem solid red";
         handlePasswordError("Empty password");
       } else if (password.length >= 1) {
         handlePasswordError("");
-        document.getElementById("password").style.border = "2px solid green";
+        document.getElementById("password").style.border = "0.2rem solid green";
       } else {
         document.getElementById("password").style.border = "none";
         handlePasswordError("");
       }
     } else handleInitial(false);
   }, [password]);
+  const nav = useNavigate();
 
   return (
     <div className={styles.login}>
@@ -115,8 +117,14 @@ function Login() {
           />
 
           <div className={styles.createAccount}>
-            <p>Don’t have an account?</p>
-            <input type="button" value={"Sign Up"} />
+            <p>Don't have an account?</p>
+            <input
+              type="button"
+              value={"Sign Up"}
+              onClick={() => {
+                nav("/register");
+              }}
+            />
           </div>
         </form>
       </div>

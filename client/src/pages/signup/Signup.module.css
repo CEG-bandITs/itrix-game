@@ -58,10 +58,6 @@
   color: rgba(255, 255, 255, 0.6);
 }
 
-.container form span {
-  display: none;
-}
-
 .container form input[type="button"] {
   font-family: Cookie;
   font-size: clamp(1rem, 1rem + 4vmin, 5rem);
