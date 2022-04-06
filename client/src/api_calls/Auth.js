@@ -14,7 +14,7 @@ function getCookie(cName) {
 }
 
 export const VerifyLogin = async () => {
-  let response = false,
+  let response = true,
     data = {};
   // const token = getCookie("jwt");
   // await axios.post(`${API_URL}/details/`, { JWT: token }).then((res) => {
