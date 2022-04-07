@@ -1,6 +1,7 @@
 import React from "react";
 import style from "./Leaderboard.module.css";
 
+const userRank = 6;
 const data = [
   {
     rank: 1,
@@ -69,16 +70,38 @@ function Leaderboard() {
           </thead>
           <tbody>
             {data.map((personDetails) => {
-              return (
-                <tr key={personDetails.rank}>
-                  <td>{personDetails.rank}</td>
-                  <td>{personDetails.name}</td>
-                  <td>{personDetails.level}</td>
-                </tr>
-              );
+              if (personDetails.rank == userRank)
+                return (
+                  <tr
+                    style={{ backgroundColor: "rgba(255,255,255, 0.2)" }}
+                    key={personDetails.rank}
+                  >
+                    <td>{personDetails.rank}</td>
+                    <td>{personDetails.name}</td>
+                    <td>{personDetails.level}</td>
+                  </tr>
+                );
+              else
+                return (
+                  <tr key={personDetails.rank}>
+                    <td>{personDetails.rank}</td>
+                    <td>{personDetails.name}</td>
+                    <td>{personDetails.level}</td>
+                  </tr>
+                );
             })}
           </tbody>
         </table>
+        <div className={style.navigator}>
+          <div className={style.navigator_up}>
+            <img src="/images/first_page.png" alt="" srcset="" />
+            <img src="/images/page_up.png" alt="" srcset="" />
+          </div>
+          <div className={style.navigator_down}>
+            <img src="/images/last_page.png" alt="" srcset="" />
+            <img src="/images/page_down.png" alt="" srcset="" />
+          </div>
+        </div>
       </div>
     </div>
   );

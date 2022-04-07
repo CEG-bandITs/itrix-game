@@ -1,20 +1,19 @@
 .wrapper {
   background-image: url("/public/images/harrypotter_timer_wall.png");
   width: 100%;
-  min-height: 100%;
+  min-height: 100vh;
   background-position: center;
   background-repeat: no-repeat;
-  background-size: 100% auto;
+  background-size: cover;
 }
 
 .wrapper .greyCover {
   background-color: rgba(0, 0, 0, 0.5);
   width: 100%;
-  min-height: 100%;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
 }
 
 .wrapper h1 {
@@ -24,6 +23,7 @@
 .wrapper table {
   border-collapse: separate;
   border-spacing: 0;
+  margin: 4vmax 0 4vmax 0;
   color: #eae1c3;
   font-family: Cookie;
   font-size: clamp(1rem, 1rem + 6vmin, 7rem);
@@ -65,4 +65,20 @@
 /* bottom-right border-radius */
 .wrapper table tr:last-child td:last-child {
   border-bottom-right-radius: 6px;
+}
+
+.navigator {
+  display: flex;
+  flex-direction: row;
+  gap: 2vw;
+}
+
+.navigator_up {
+  display: flex;
+  gap: 2vw;
+}
+
+.navigator_down {
+  display: flex;
+  gap: 2vw;
 }
