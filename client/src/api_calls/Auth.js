@@ -14,15 +14,15 @@ function getCookie(cName) {
 }
 
 export const VerifyLogin = async () => {
-  let response = true,
+  let response = false,
     data = {};
-  // const token = getCookie("jwt");
-  // await axios.post(`${API_URL}/details/`, { JWT: token }).then((res) => {
-  //   if (res.data.message === "success") {
-  //     response = true;
-  //     data = res.data.data;
-  //   }
-  // });
+  const token = getCookie("jwt");
+  await axios.post(`${API_URL}/details/`, { JWT: token }).then((res) => {
+    if (res.data.message === "success") {
+      response = true;
+      data = res.data.data;
+    }
+  });
 
   return [response, data];
 
