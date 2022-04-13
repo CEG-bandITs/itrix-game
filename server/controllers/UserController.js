@@ -81,7 +81,11 @@ async function CreateUser(req, res) {
   await user.save(function(err,results){
     if(err) 
     res.send({message:"some server error"}) ;
-    else res.send({message:"success"});
+    else 
+    {
+      const token = JWTTokenGenerator({name:user.name,email:user.email}) ;
+      res.send({message:"success",token:token});
+    }
   });
   }
 }
@@ -93,13 +97,17 @@ async function CreateUser(req, res) {
 */
 async function Details(req, res) {
 
+  
   //parse token
-  const authorization =  req.headers.authorization.split(" ") ;
+
+  const header = req.headers.authorization;
+   if(header===undefined) return res.json({message:"failed"})
+  const authorization =  header.split(" ") ;
   
   const bearer = authorization[0];
   const token = authorization[1];
 
-  if((bearer!==undefined)&&(token!==undefined)&&(bearer==="bearer"))
+  if((bearer!==undefined)&&(token!==undefined)&&(bearer==="Bearer"))
   {
     //verify token
     jwt.verify(token,process.env.JWT_SECRET,function(err,decodedData){

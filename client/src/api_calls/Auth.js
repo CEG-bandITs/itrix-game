@@ -16,7 +16,10 @@ function getCookie(cName) {
 export const VerifyLogin = async () => {
     let response=false,data={} ;
     const token = getCookie("jwt");
-    await axios.post(`${API_URL}/details/`,{JWT:token}).then(res=>{
+    await axios.get(`${API_URL}/details/`,{ headers: {
+      Authorization: 'Bearer ' + token } 
+    }).then(res=>{
+      console.log(res.data)
       if(res.data.message==="success") 
       {
         response = true ;
@@ -70,7 +73,11 @@ export const Register__ = async (data) => {
       const data = resp.data;
       const serverMessage = data["message"];
 
-      if (serverMessage === "success") status = true;
+      if (serverMessage === "success")
+      {
+        status = true; 
+        document.cookie="jwt="+data['token'] ; 
+      }
       else message = serverMessage;
     })
     .catch((err) => {
@@ -81,15 +88,3 @@ export const Register__ = async (data) => {
   return [status, message];
 };
 
-function asyncSleep(ms) {
-  return new Promise((resolve) => {
-    setTimeout(resolve, ms);
-  });
-}
-
-function syncSleep(ms) {
-  var start = new Date().getTime(),
-    expire = start + ms;
-  while (new Date().getTime() < expire) {}
-  return;
-}

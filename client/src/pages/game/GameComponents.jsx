@@ -24,7 +24,12 @@ let data = {
 };
 
 export function QuestionBar(props) {
+
   const [ImgPointer, SetImgPointer] = useState(0);
+  
+  const data ={'images':props.data.questions,'hints':props.data.hints};
+  
+
   function IncreaseImgPointer() {
     if (ImgPointer >= data.images.length - 1) {
       SetImgPointer(0);
@@ -86,7 +91,7 @@ function HintBox(props) {
           }}
         ></div>
         <div className="HintBox">
-          {data.hints.map((i) => {
+          {props.hints.map((i) => {
             return (
               <>
                 <p key={i.id}>
@@ -103,8 +108,38 @@ function HintBox(props) {
   }
 }
 
-export  function AnswerBar(props) {
+//data:{question:Questions[level+1],level:(level+1)}}
+
+export  function AnswerBar(props) { 
+ 
   const [showHint, setShowHint] = useState(false);
+  const [answer,handleAnswer] =useState("");
+
+  function Submit__()
+  {
+    if(answer.trim().length!==0){
+        
+      SubmitAnswer({level:props.data.level,answer:answer}).then(resp=>
+        {
+          console.log(resp)
+          props.handleError(resp.message) ;
+          if(resp.message==="success")
+          {
+             const temp = resp.data ;
+             const data__ ={
+               level : temp.level ,
+               hints : temp.question.hints ,
+               questions :temp.question.images 
+             };
+             props.changeData(data__);
+             handleAnswer("");
+          }
+        });
+    }
+   
+    else 
+       props.handleError("answer cannot be empty");
+  }
   if (props.for === "Mobile") {
     return (
       <>
@@ -113,6 +148,8 @@ export  function AnswerBar(props) {
             <input
               className="AnswerBar-Input"
               type="text"
+              value={answer}
+               onChange={(e)=>{handleAnswer(e.target.value)}}
               placeholder="Enter Answer"
             ></input>
             <div className="AnswerBar-Bottom">
@@ -124,19 +161,19 @@ export  function AnswerBar(props) {
                 }}
               >
                 Hint
-                <img className="AnswerBar-Icon" src="images/idea-icon.png" />
+                <img className="AnswerBar-Icon" src="images/idea.jpg" />
               </button>
               <button
                 type="button"
                 className="AnswerBar-Submit"
-                onClick={SubmitAnswer}
+                onClick={Submit__}
               >
                 submit
               </button>
             </div>
           </form>
         </div>
-        <HintBox show={showHint} setShowHint={setShowHint} />
+        <HintBox show={showHint} hints={props.data.hints} setShowHint={setShowHint} />
       </>
     );
   } else {
@@ -161,7 +198,7 @@ export  function AnswerBar(props) {
             </button>
           </div>
         </div>
-        <HintBox show={showHint} setShowHint={setShowHint} />
+        <HintBox show={showHint} hints={props.hints} setShowHint={setShowHint} />
       </>
     );
   }

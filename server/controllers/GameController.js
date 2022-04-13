@@ -50,7 +50,7 @@ async function getQuestion(req,res)
 
     if(message==="success")
     {
-        let question =  Questions[level];
+        let question = {...Questions[level]};
         //removing answer from question data 
         delete question['answer'];
         data__['question'] = question ;
@@ -76,12 +76,15 @@ async function getQuestion(req,res)
 
 async function verifyAnswer(req,res)
 {
+  
+  console.log(req.body)
   const level = req.body.level ;
   const answer = Convert(req.body.answer );
   
-  const question =Questions[level];
+  const question =Questions[`${level}`];
+  console.log(Questions,question);
   const email = req.data.email ;
-  console.log(answer,question.answer);
+  //console.log(answer,question,question.answer);
   if(answer===question.answer)
   {
      const user = await UserModel.findOne({email:email});
@@ -99,7 +102,12 @@ async function verifyAnswer(req,res)
         if(level===9)
         res.send({status:1,message:"game ended"})
         else 
-        res.send({status:1,message:"success",data:{question:Questions[level+1],level:(level+1)}});
+        {
+           let data={...Questions[level+1]} ;
+           delete data['answer'];
+           res.send({status:1,message:"success",data:{question:data,level:(level+1)}});
+        }
+        
      }
     
   }

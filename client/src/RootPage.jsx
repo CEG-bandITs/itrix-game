@@ -24,6 +24,8 @@ export default function RootPage() {
 
   useEffect(() => {
     VerifyLogin().then(response=>{
+     
+      
       handleIsLogin(response[0]);
       handleIsLoading(false);
       handleUserData(response[1])

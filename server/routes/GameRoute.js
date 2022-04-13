@@ -12,8 +12,8 @@ router.use(function(req,res,next){
   
     const bearer = authorization[0];
     const token = authorization[1];
-  
-    if((bearer!==undefined)&&(token!==undefined)&&(bearer==="bearer"))
+     console.log(token);
+    if((bearer!==undefined)&&(token!==undefined)&&(bearer==="Bearer"))
     {
       //verify token
       jwt.verify(token,process.env.JWT_SECRET,function(err,decodedData){
