@@ -47,7 +47,6 @@
 .content__header {
   padding: 1vw;
   white-space: nowrap;
-  font-size: clamp(5vmax, 16vw, 5vmax);
   color: white;
   font-family: cookie;
   position: relative;
@@ -84,7 +83,6 @@
 
 .column p {
   font-family: cookie;
-  font-size: 4vmax;
   color: white;
 }
 
@@ -105,7 +103,6 @@
 
 .card {
   font-weight: bold;
-  font-size: 30px;
   padding: 5px;
   text-align: center;
 }
@@ -157,7 +154,6 @@
   border: 1px solid thistle;
   border-radius: 5px;
   padding: 1vmin;
-  font-size: clamp(3vmax, 1vw, 4vmax);
   text-align: center;
   color: white;
   cursor: pointer;
@@ -189,7 +185,6 @@
   border-radius: 10px;
   white-space: nowrap;
   padding: 2vmin;
-  font-size: clamp(3.5vmax, 1.5vw, 3vmax);
 }
 
 .btnGrad:hover {
@@ -204,7 +199,6 @@
 .hi {
   animation: glitch 1s linear infinite;
   color: white;
-  font-size: clamp(4vmax, 2.5vw, 6vmax);
   white-space: nowrap;
 }
 

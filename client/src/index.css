@@ -7,3 +7,7 @@ body {
   overflow-y: auto;
   overflow-x: hidden;
 }
+
+:root {
+  font-size: clamp(2rem, 4vw + 1rem, 6rem);
+}

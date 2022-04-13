@@ -11,45 +11,40 @@ function Home() {
 function AfterLogin() {
   const value = React.useContext(Wrapper);
   return (
-
     <div className="after__login">
       <div className="content1">
+        <div className={styles.after__login}>
+          <div className={styles.content1}>
+            <div className={styles.hi} title="Chamber of secrets">
+              Chamber of secrets
+            </div>
 
+            <div className={styles.nav__links}>
+              <Link className={styles.btnGrad} to="/game">
+                Play Game
+              </Link>
+              <Link className={styles.other__pages} to="/leaderboard">
+                LeaderBoard
+              </Link>
+              <Link className={styles.other__pages} to="/team">
+                Our Team
+              </Link>
+              <span
+                className={styles.other__pages}
+                onClick={() => {
+                  Logout(value.handleIsLogin);
+                }}
+              >
+                Logout
+              </span>
+            </div>
+          </div>
 
-
-    <div className={styles.after__login}>
-      <div className={styles.content1}>
-
-        <div className={styles.hi} title="Chamber of secrets">
-          Chamber of secrets
-        </div>
-
-        <div className={styles.nav__links}>
-          <Link className={styles.btnGrad} to="/game">
-            Play Game
-          </Link>
-          <Link className={styles.other__pages} to="/leaderboard">
-            LeaderBoard
-          </Link>
-          <Link className={styles.other__pages} to="/team">
-            Our Team
-          </Link>
-          <span
-            className={styles.other__pages}
-            onClick={() => {
-              Logout(value.handleIsLogin);
-            }}
-          >
-            Logout
-          </span>
+          <div className={styles.image__wrapper}></div>
         </div>
       </div>
-
-      <div className={styles.image__wrapper}></div>
     </div>
-    </div>
-    </div> 
-  )  ;
+  );
 }
 
 function BeforeLogin() {

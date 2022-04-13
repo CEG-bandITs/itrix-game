@@ -18,15 +18,31 @@
 
 .wrapper h1 {
   color: white;
+  font-size: 2rem;
+}
+
+.wrapper .card {
+  border: 0.01rem solid white;
+  background-color: rgba(255, 255, 255, 0.1);
+  width: 85vw;
+  margin-top: 0.2rem;
+}
+.wrapper .card p {
+  color: white;
+  font-size: 1rem;
+}
+
+.wrapper .card h1 {
+  font-size: 3rem;
 }
 
 .wrapper table {
   border-collapse: separate;
   border-spacing: 0;
-  margin: 4vmax 0 4vmax 0;
+  margin-top: 0.6rem;
+  margin-bottom: 0.6rem;
   color: #eae1c3;
   font-family: Cookie;
-  font-size: clamp(1rem, 1rem + 6vmin, 7rem);
   width: 85vw;
 }
 
@@ -70,15 +86,11 @@
 .navigator {
   display: flex;
   flex-direction: row;
-  gap: 2vw;
+  justify-content: center;
+  gap: 0.5rem;
 }
 
-.navigator_up {
-  display: flex;
-  gap: 2vw;
-}
-
-.navigator_down {
-  display: flex;
-  gap: 2vw;
+.navigator svg {
+  height: 2rem;
+  width: auto;
 }

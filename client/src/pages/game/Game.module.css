@@ -13,24 +13,17 @@
 
 .QuestionBar {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
   gap: 1.3rem;
 }
 
-.QuestionBar > .nexticon,
-.QuestionBar > .previcon {
-  max-height: 16vh;
-  max-width: 8vw;
-  object-fit: contain;
-}
-
-.QuestionBar > .previcon {
-  transform: scaleX(-1);
+.QuestionBar svg {
+  color: white;
 }
 
 .QuestionBar > .QuestionImg {
-  width: 50vw;
+  width: 60vw;
   height: auto;
   object-fit: contain;
   transition: transform 0.2s;
@@ -54,7 +47,7 @@
 
 .AnswerBar input {
   font-family: Cookie;
-  font-size: 4vmax;
+  font-size: 1rem;
 }
 
 .AnswerBarInput {
@@ -108,7 +101,6 @@
   margin-top: 20px;
   outline: none;
   font-family: Cookie;
-  font-size: 4vmax;
 }
 
 .AnswerBarSubmit {
@@ -119,11 +111,13 @@
   border-radius: 2rem;
   padding: 10px;
   margin: 10px;
-  font-size: medium;
   margin-top: 20px;
   outline: none;
   font-family: Cookie;
-  font-size: 4vmax;
+}
+
+.AnswerBarHint p {
+  font-size: 1.5rem;
 }
 
 .AnswerBarOnelineBottom {
@@ -139,21 +133,19 @@
   width: 15vw;
 }
 
-.AnswerBarOnelineBottom > .AnswerBarHint > p {
-  font-size: 3rem;
+.AnswerBarOnelineBottom > .AnswerBarHint p {
+  font-size: 1.5rem;
 }
 
 .AnswerBarOnelineBottom > input[type="text"] {
   border-radius: 10vmax;
   text-align: center;
-  font-size: 3rem;
   width: 55vw;
   height: 6vh;
   padding: 2vmin;
 }
 
 .AnswerBarOnelineBottom > .AnswerBarSubmit {
-  font-size: 3rem;
   width: 10vw;
 }
 
