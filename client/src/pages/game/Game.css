@@ -35,12 +35,6 @@
   object-fit: contain;
 }
 
-@media screen and (min-width: 1300px) {
-  .QuestionBar > .Question-Img {
-    width: 25vw;
-    max-height: 25vh;
-  }
-}
 
 .Question-Img {
   width: 50vw;
@@ -62,6 +56,7 @@
   text-align: center;
   padding: 2vmin;
   font-size: large;
+  outline:none;
 }
 .AnswerBar-Input:focus {
   outline: none;
@@ -119,6 +114,10 @@
   outline: none;
 }
 
+.AnswerBar-Submit:disabled 
+{
+  opacity:50%;
+}
 .AnswerBar-Oneline-Bottom {
   display: flex;
   gap: 1vmax;
@@ -204,4 +203,36 @@
 .trophy {
   display: flex;
   align-items: baseline;
+}
+
+
+.message__div 
+{
+  color :white ;
+  text-transform: capitalize;
+  position:absolute ;
+  top:50%;
+  left:50%;
+  transform : translate(-50%,-50%);
+}
+
+
+
+.AnswerBar-Submit-lap,.AnswerBar-Hint-lap
+{
+  align-self: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding:20px;
+  font-size: larger;
+}
+
+
+@media screen and (min-width: 1300px) {
+  .QuestionBar > .Question-Img {
+    width: 25vw;
+    height: 25vh;
+  }
+
 }

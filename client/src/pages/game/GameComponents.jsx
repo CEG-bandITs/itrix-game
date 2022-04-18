@@ -1,33 +1,15 @@
 import React, { useEffect, useState } from "react";
 import "./Game.css";
 import { SubmitAnswer } from "../../api_calls/Game";
+import {Container} from "./Game.jsx"
 
-let data = {
-  images: [
-    {
-      id: 1,
-      url: "images/test_image.jpg",
-    },
-    {
-      id: 2,
-      url: "images/right.png",
-    },
-    {
-      id: 3,
-      url: "images/idea-icon.png",
-    },
-  ],
-  hints: [
-    { id: 1, msg: "An Actor" },
-    { id: 2, msg: "Asian" },
-  ],
-};
+
 
 export function QuestionBar(props) {
 
   const [ImgPointer, SetImgPointer] = useState(0);
-  
-  const data ={'images':props.data.questions,'hints':props.data.hints};
+  const value = React.useContext(Container);
+  const data ={'images':value.data.questions,'hints':value.data.hints};
   
 
   function IncreaseImgPointer() {
@@ -114,15 +96,18 @@ export  function AnswerBar(props) {
  
   const [showHint, setShowHint] = useState(false);
   const [answer,handleAnswer] =useState("");
+  const [disableButton,handleDisableButton] =useState(false);
+  const value = React.useContext(Container);
 
   function Submit__()
   {
     if(answer.trim().length!==0){
-        
-      SubmitAnswer({level:props.data.level,answer:answer}).then(resp=>
+      handleDisableButton(true);
+      SubmitAnswer({level:value.data.level,answer:answer}).then(resp=>
         {
-          console.log(resp)
-          props.handleError(resp.message) ;
+          handleDisableButton(false);
+          console.log(resp);
+        
           if(resp.message==="success")
           {
              const temp = resp.data ;
@@ -131,14 +116,20 @@ export  function AnswerBar(props) {
                hints : temp.question.hints ,
                questions :temp.question.images 
              };
-             props.changeData(data__);
+             value.changeData(data__);
              handleAnswer("");
+             value.handleError(resp.message);
+          }
+          else 
+          {
+            handleDisableButton(false); 
+            value.handleError(resp.message);
           }
         });
     }
    
     else 
-       props.handleError("answer cannot be empty");
+       value.handleError("Answer Can't Be Empty");
   }
   if (props.for === "Mobile") {
     return (
@@ -164,6 +155,7 @@ export  function AnswerBar(props) {
                 <img className="AnswerBar-Icon" src="images/idea.jpg" />
               </button>
               <button
+                disabled={disableButton}
                 type="button"
                 className="AnswerBar-Submit"
                 onClick={Submit__}
@@ -173,7 +165,7 @@ export  function AnswerBar(props) {
             </div>
           </form>
         </div>
-        <HintBox show={showHint} hints={props.data.hints} setShowHint={setShowHint} />
+        <HintBox show={showHint} hints={value.data.hints} setShowHint={setShowHint} />
       </>
     );
   } else {
@@ -181,24 +173,27 @@ export  function AnswerBar(props) {
       <>
         <div className="AnswerBar">
           <div className="AnswerBar-Oneline-Bottom">
-            <button className="AnswerBar-Hint">
-              <p>Hint</p>
-              <img
-                className="AnswerBar-Icon"
-                src="images/idea-icon.png"
-                onClick={(e) => {
+            <button className="AnswerBar-Hint-lap"  onClick={(e) => {
                   e.preventDefault();
                   setShowHint(true);
-                }}
+                }}>
+              <p >Hint</p>
+              <img
+                className="AnswerBar-Icon"
+                src="images/idea.jpg"
+    
               />
             </button>
-            <input type="text" placeholder="Enter Answer"></input>
-            <button className="AnswerBar-Submit" type="button">
+            <input type="text" className="AnswerBar-Input" placeholder="Enter Answer" value={answer}
+               onChange={(e)=>{handleAnswer(e.target.value)}}></input>
+
+            <button className="AnswerBar-Submit-lap" type="button" onClick={Submit__}>
               submit
             </button>
+
           </div>
         </div>
-        <HintBox show={showHint} hints={props.hints} setShowHint={setShowHint} />
+        <HintBox show={showHint} hints={value.data.hints} setShowHint={setShowHint} />
       </>
     );
   }

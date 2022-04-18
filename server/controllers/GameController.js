@@ -19,12 +19,11 @@ async function getQuestion(req,res)
 {
   const email = req.data.email ;
   const data =  await UserModel.findOne({email:email});
-  console.log(data);
   const today = moment().format("YYYY-MM-DD");
   const day =data['days'][today] ;
   
   if(day===undefined)
-  res.send({status:0,message:"you cannot play today"});
+  res.send({status:0,message:"you can only play between may 5,6,7"});
 
   else 
   {
@@ -40,12 +39,12 @@ async function getQuestion(req,res)
        status=1 ;
     }
 
-    else if(level<10) {
+    else if(level<9) {
       status=1 ;
       
     }
    
-    else  message="you have completed the game";
+    else  message="you have completed the today's game";
    
 
     if(message==="success")
@@ -77,45 +76,48 @@ async function getQuestion(req,res)
 async function verifyAnswer(req,res)
 {
   
-  console.log(req.body)
+
   const level = req.body.level ;
   const answer = Convert(req.body.answer );
   
   const question =Questions[`${level}`];
-  console.log(Questions,question);
+ 
   const email = req.data.email ;
-  //console.log(answer,question,question.answer);
-  if(answer===question.answer)
-  {
-     const user = await UserModel.findOne({email:email});
-     const today = moment().format("YYYY-MM-DD");
 
-     if(user.days[today]===undefined)
-         res.send({status:0,message:"you cannot submit today"});
-     else 
-     {
-        //update level
-        user.days[today].level +=1;
-        //updating duration 
-        user.days[today].duration = TimeDifference(user.days[today].startedAt);
-        user.save();
-        if(level===9)
-        res.send({status:1,message:"game ended"})
-        else 
-        {
-           let data={...Questions[level+1]} ;
-           delete data['answer'];
-           res.send({status:1,message:"success",data:{question:data,level:(level+1)}});
-        }
-        
-     }
-    
-  }
+  if(level===9)  res.send({status:1,message:"game ended"})
+  //console.log(answer,question,question.answer);
+
   else 
   {
-    res.send({message:"wrong answer"});
-  }
+    if(answer===question.answer)
+    {
+       const user = await UserModel.findOne({email:email});
+       const today = moment().format("YYYY-MM-DD");
   
+       if(user.days[today]===undefined)
+           res.send({status:0,message:"you cannot submit today"});
+       else 
+       {
+          
+          
+          //update level
+          user.days[today].level +=1;
+          //updating duration 
+          user.days[today].duration = TimeDifference(user.days[today].startedAt);
+          await user.save();
+  
+          let data={...Questions[level+1]} ;
+          delete data['answer'];
+          console.log("updating level !!");
+          res.send({status:1,message:"success",data:{question:data,level:(level+1)}});
+        }
+      
+    }
+    else  res.send({message:"wrong answer"});
+    
+    
+  }
+ 
   
   
  
