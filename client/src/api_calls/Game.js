@@ -3,7 +3,7 @@ const API_URL = 'http://localhost:3001/api/game'
 
 function getCookie(cName) {
   const name = cName + '='
-  const cDecoded = decodeURIComponent(document.cookie) //to be careful
+  const cDecoded = decodeURIComponent(document.cookie)
   const cArr = cDecoded.split('; ')
   let res
   cArr.forEach((val) => {
@@ -14,7 +14,7 @@ function getCookie(cName) {
 
 export const SubmitAnswer = async (data) => {
   const token = getCookie('jwt')
-  let res_data = {}
+  let resultData = {}
   await axios
     .post(`${API_URL}/verify/`, data, {
       headers: {
@@ -22,10 +22,10 @@ export const SubmitAnswer = async (data) => {
       },
     })
     .then((resp) => {
-      res_data = resp.data
+      resultData = resp.data
     })
 
-  return res_data
+  return resultData
 }
 
 export const GetQuestion = async () => {
@@ -38,7 +38,7 @@ export const GetQuestion = async () => {
 
   */
   const token = getCookie('jwt')
-  let res_data = {}
+  let resultData = {}
   await axios
     .get(`${API_URL}`, {
       headers: {
@@ -46,7 +46,7 @@ export const GetQuestion = async () => {
       },
     })
     .then((resp) => {
-      res_data = resp.data
+      resultData = resp.data
     })
-  return res_data
+  return resultData
 }

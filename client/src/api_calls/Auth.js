@@ -51,36 +51,37 @@ export const Login__ = async (data, handleUserData) => {
 
       const serverMessage = data.message
       if (serverMessage === 'success') {
-        document.cookie = 'jwt=' + data['token']
+        document.cookie = 'jwt=' + data.token
         status = true
         handleUserData(data.data)
       } else message = serverMessage
     })
     .catch((err) => {
       message = 'Internet connection Problem'
+      console.log(err)
     })
 
   return [status, message]
 }
 
-//creating new account
 export const Register__ = async (data) => {
-  let status = false,
-    message = ''
+  let status = false
+  let message = ''
   await axios
     .post(`${API_URL}/new/`, data)
     .then((resp) => {
       const data = resp.data
-      const serverMessage = data['message']
+      const serverMessage = data.message
 
       if (serverMessage === 'success') {
         status = true
-        document.cookie = 'jwt=' + data['token']
+        document.cookie = 'jwt=' + data.token
       } else message = serverMessage
     })
     .catch((err) => {
       status = false
       message = 'Internet connection Problem'
+      console.log(err)
     })
 
   return [status, message]
