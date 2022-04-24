@@ -34,12 +34,12 @@ export default function RootPage() {
     console.log(isLoading)
   }, [isLoading])
   return (
-    <React.Fragment>
+    <>
       <Wrapper.Provider value={value}>
         <Suspense fallback={<Loader />}>
           {isLoading ? <Loader /> : <Routing />}
         </Suspense>
       </Wrapper.Provider>
-    </React.Fragment>
+    </>
   )
 }
