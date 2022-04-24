@@ -4,7 +4,7 @@ const API_URL = 'http://localhost:3001/api/users'
 
 function getCookie(cName) {
   const name = cName + '='
-  const cDecoded = decodeURIComponent(document.cookie) //to be careful
+  const cDecoded = decodeURIComponent(document.cookie)
   const cArr = cDecoded.split('; ')
   let res
   cArr.forEach((val) => {
@@ -14,8 +14,8 @@ function getCookie(cName) {
 }
 
 export const VerifyLogin = async () => {
-  let response = false,
-    data = {}
+  let response = false
+  let data = {}
   const token = getCookie('jwt')
   await axios
     .get(`${API_URL}/details/`, {
@@ -32,21 +32,17 @@ export const VerifyLogin = async () => {
     })
 
   return [response, data]
-
-  return true
 }
 
 export const Logout = (handler) => {
-  //delete cookie
   document.cookie = 'jwt='
 
   handler(false)
 }
 
-//logining user
 export const Login__ = async (data, handleUserData) => {
-  let status = false,
-    message = ''
+  let status = false
+  let message = ''
 
   await axios
     .post(`${API_URL}/auth/`, data)
