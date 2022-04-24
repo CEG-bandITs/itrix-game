@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import './Game.css'
 import { SubmitAnswer } from '../../api_calls/Game'
 import { Container } from './Game.jsx'
@@ -86,7 +86,9 @@ function HintBox(props) {
   }
 }
 
-//data:{question:Questions[level+1],level:(level+1)}}
+/*
+  data:{question:Questions[level+1],level:(level+1)}}
+*/
 
 export function AnswerBar(props) {
   const [showHint, setShowHint] = useState(false)

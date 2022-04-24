@@ -1,19 +1,16 @@
 import React, { useEffect, useState } from 'react'
-import './Game.css'
-import { SubmitAnswer, GetQuestion } from '../../api_calls/Game'
+import styles from './Game.css'
+import { GetQuestion } from '../../api_calls/Game'
 import { GiDiamondTrophy } from 'react-icons/gi'
-import Menu from '../../components/menu/Menu'
+import Menu from '../../components/Menu'
 import { AnswerBar, QuestionBar } from './GameComponents'
 import ReactModal from 'react-modal'
 import { NotificationContainer, NotificationManager } from 'react-notifications'
 import 'react-notifications/lib/notifications.css'
-import party from 'party-js'
+import { useWindowSize } from '../../lib/windowSize'
+// import party from 'party-js'
 
 export const Container = React.createContext()
-
-//suucess array
-const sucess = ['']
-//failure array
 
 function Game(props) {
   const [dimentions, SetDimentions] = useState({
@@ -36,12 +33,11 @@ function Game(props) {
   }
 
   useEffect(() => {
-    //party.js
-    document
-      .querySelector('.party__button')
-      .addEventListener('click', function (e) {
-        party.confetti(this, { count: party.variation.range(100, 500) })
-      })
+    // document
+    // .querySelector('.party__button')
+    // .addEventListener('click', function (e) {
+    //   party.confetti(this, { count: party.variation.range(100, 500) })
+    // })
     function HandleResize() {
       SetDimentions({
         width: window.innerWidth,
@@ -51,10 +47,10 @@ function Game(props) {
 
     GetQuestion().then((res) => {
       if (res.message === 'success') {
-        let data__ = {}
-        data__['level'] = res.data.level
-        data__['questions'] = res.data.question.images
-        data__['hints'] = res.data.question.hints
+        const data__ = {}
+        data__.level = res.data.level
+        data__.questions = res.data.question.images
+        data__.hints = res.data.question.hints
         changeData(data__)
       } else {
         handleMessage(res.message)
@@ -64,15 +60,6 @@ function Game(props) {
     return () => {
       window.removeEventListener('resize', HandleResize)
     }
-
-    //get the game question
-
-    /*
-    data = {
-      question_1 : ... ,
-      
-    }
-    */
   }, [])
 
   useEffect(() => {
@@ -92,62 +79,67 @@ function Game(props) {
     }
   }, [MessageFromServer])
 
+  const size = useWindowSize()
+
   return (
-    <Container.Provider value={value}>
-      <button
-        className="party__button"
-        style={{
-          display: 'none',
-          position: 'absolute',
-          top: '50%',
-          left: '50%',
-          translate: 'transform(-50%,-50%)',
-        }}
-      ></button>
-      <div className="GamePage">
-        <div className="game__nav">
-          <span className="game__menu">{/* <Menu /> muthu's side bar*/}</span>
+    <main className={styles.main}>
+      <Menu loggedIn={true} desktop={size.width > 1024} />
+      <div className={styles.wrapper}></div>
+      <Container.Provider value={value}>
+        <button
+          className={styles.party__button}
+          style={{
+            display: 'none',
+            position: 'absolute',
+            top: '50%',
+            left: '50%',
+            translate: 'transform(-50%,-50%)',
+          }}
+        ></button>
+        <div className={styles.GamePage}>
+          <div className={styles.game__nav}>
+            <span className={styles.game__menu}></span>
 
-          <span className="trophy">
-            {data !== null && (
-              <div>
-                {' '}
-                {data['level']} <GiDiamondTrophy style={{ color: 'yellow' }} />{' '}
-              </div>
-            )}
-          </span>
-        </div>
-
-        {data === null ? (
-          <div className="message__div">
-            {message === '' ? 'loading' : message}
+            <span className={styles.trophy}>
+              {data !== null && (
+                <div>
+                  {data.level} <GiDiamondTrophy style={{ color: 'yellow' }} />{' '}
+                </div>
+              )}
+            </span>
           </div>
-        ) : dimentions.width <= 1300 ? (
-          <>
-            <QuestionBar for="Mobile" />
-            <AnswerBar for="Mobile" />
-          </>
-        ) : (
-          <>
-            <QuestionBar />
-            <AnswerBar />
-          </>
-        )}
 
-        <ReactModal className="success__modal" isOpen={modal}>
-          <button
-            onClick={() => {
-              handleModal(false)
-            }}
-          >
-            {' '}
-            X
-          </button>
-          <p>Success!!</p>
-        </ReactModal>
-      </div>
-      <NotificationContainer />
-    </Container.Provider>
+          {data === null ? (
+            <div className={styles.message__div}>
+              {message === '' ? 'loading' : message}
+            </div>
+          ) : dimentions.width <= 1300 ? (
+            <>
+              <QuestionBar for="Mobile" />
+              <AnswerBar for="Mobile" />
+            </>
+          ) : (
+            <>
+              <QuestionBar />
+              <AnswerBar />
+            </>
+          )}
+
+          <ReactModal className={styles.success__modal} isOpen={modal}>
+            <button
+              onClick={() => {
+                handleModal(false)
+              }}
+            >
+              {' '}
+              X
+            </button>
+            <p>Success!!</p>
+          </ReactModal>
+        </div>
+        <NotificationContainer />
+      </Container.Provider>
+    </main>
   )
 }
 

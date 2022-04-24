@@ -1,7 +1,6 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 
-//importing all page components
 import Home from '../pages/home/Home'
 import Game from '../pages/game/Game'
 import Leaderboard from '../pages/leaderboard/Leaderboard'
@@ -10,7 +9,6 @@ import Rules from '../pages/rules/Rules'
 import Signup from '../pages/signup/Signup'
 import Team from '../pages/team/Team'
 
-//importing context from home page
 import { Wrapper } from '../RootPage'
 
 function Routing() {

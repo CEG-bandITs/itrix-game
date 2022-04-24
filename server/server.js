@@ -2,6 +2,7 @@ const express = require('express')
 const path = require('path')
 const fs = require('fs')
 const app = express()
+const jwt = require('jsonwebtoken')
 const cookieParser = require('cookie-parser')
 const PORT = process.env.PORT || 3001
 const cors = require('cors')
@@ -40,6 +41,20 @@ app.use('/api/game/', require('./routes/GameRoute'))
 // Serving files from ../client/build
 // Which can be created by running `npm run build` in client folder
 app.use(express.static(path.join(__dirname, '..', 'client', 'build')))
+
+app.get('/api/users/verify', (req, res) => {
+  try {
+    jwt.verify(req.headers.jwt, process.env.JWT_SECRET)
+    res.send({
+      msg: 'Validated',
+    })
+  } catch (e) {
+    console.log('Error Occured In ' + req.path + ' ' + e)
+    res.send({
+      msg: 'Invalid Token',
+    })
+  }
+})
 
 app.listen(PORT, () => {
   console.log(`Started Listening in PORT ${PORT}...`)

@@ -2,21 +2,20 @@ import React from 'react'
 import { Login__ } from '../../api_calls/Auth'
 import { Wrapper } from '../../RootPage'
 import styles from './Login.module.css'
+import Menu from '../../components/Menu'
+import { useWindowSize } from '../../lib/windowSize'
 
 function Login() {
+  const size = useWindowSize()
   const value = React.useContext(Wrapper)
   const [Error, handleError] = React.useState('')
-  //password adn email
   const [password, handlePassword] = React.useState('')
   const [email, handleEmail] = React.useState('')
-  //disabling button after submit
   const [disableButton, handleDisableButton] = React.useState(false)
 
-  //errors
   const [emailError, handleEmailError] = React.useState('initial')
   const [passwordError, handlePasswordError] = React.useState('initial')
 
-  //setting for not getting fields in error mode
   const [initial, handleInitial] = React.useState(true)
 
   const handleSubmit = () => {
@@ -74,53 +73,57 @@ function Login() {
   }, [password])
 
   return (
-    <div className={styles.login}>
-      <div className={styles.darkLayer}>
-        <form action="" className={styles.loginBox}>
-          <h1>Sign In</h1>
-          <span className={styles.Error}>{Error}</span>
-          <input
-            type="email"
-            placeholder="Email"
-            value={email}
-            onChange={(e) => {
-              handleEmail(e.target.value)
-            }}
-            id="email"
-          />
-          <span className={styles.Error}>
-            {' '}
-            {emailError !== 'initial' && emailError}
-          </span>
-          <input
-            type="password"
-            name="password"
-            placeholder="Password"
-            value={password}
-            id="password"
-            onChange={(e) => {
-              handlePassword(e.target.value)
-            }}
-          />
-          <span className={styles.Error}>
-            {passwordError !== 'initial' && passwordError}
-          </span>
+    <main className={styles.main}>
+      <Menu loggedIn={true} desktop={size.width > 1024} />
+      <div className={styles.wrapper}></div>
+      <div className={styles.login}>
+        <div className={styles.darkLayer}>
+          <form action="" className={styles.loginBox}>
+            <h1>Sign In</h1>
+            <span className={styles.Error}>{Error}</span>
+            <input
+              type="email"
+              placeholder="Email"
+              value={email}
+              onChange={(e) => {
+                handleEmail(e.target.value)
+              }}
+              id="email"
+            />
+            <span className={styles.Error}>
+              {' '}
+              {emailError !== 'initial' && emailError}
+            </span>
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              value={password}
+              id="password"
+              onChange={(e) => {
+                handlePassword(e.target.value)
+              }}
+            />
+            <span className={styles.Error}>
+              {passwordError !== 'initial' && passwordError}
+            </span>
 
-          <input
-            type="button"
-            value={disableButton ? 'please wait..' : 'Sign In'}
-            onClick={handleSubmit}
-            disabled={disableButton}
-            style={{ opacity: disableButton && 0.5 }}
-          />
+            <input
+              type="button"
+              value={disableButton ? 'please wait..' : 'Sign In'}
+              onClick={handleSubmit}
+              disabled={disableButton}
+              style={{ opacity: disableButton && 0.5 }}
+            />
 
-          <div className={styles.createAccount}>
-            <p>Don’t have an account?</p>
-            <input type="button" value={'Sign Up'} />
-          </div>
-        </form>
+            <div className={styles.createAccount}>
+              <p>Don’t have an account?</p>
+              <input type="button" value={'Sign Up'} />
+            </div>
+          </form>
+        </div>
       </div>
-    </div>
+    </main>
   )
 }
 

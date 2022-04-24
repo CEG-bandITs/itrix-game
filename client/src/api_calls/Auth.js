@@ -1,41 +1,22 @@
 import axios from 'axios'
+import jsCookie from 'js-cookie'
 
 const API_URL = 'http://localhost:3001/api/users'
 
-function getCookie(cName) {
-  const name = cName + '='
-  const cDecoded = decodeURIComponent(document.cookie)
-  const cArr = cDecoded.split('; ')
-  let res
-  cArr.forEach((val) => {
-    if (val.indexOf(name) === 0) res = val.substring(name.length)
-  })
-  return res
-}
-
 export const VerifyLogin = async () => {
-  let response = false
-  let data = {}
-  const token = getCookie('jwt')
-  await axios
-    .get(`${API_URL}/details/`, {
-      headers: {
-        Authorization: 'Bearer ' + token,
-      },
-    })
+  fetch('/api/users/verify')
+    .then((res) => res.json())
     .then((res) => {
-      console.log(res.data)
-      if (res.data.message === 'success') {
-        response = true
-        data = res.data.data
-      }
+      console.log(res)
+      return true
     })
-
-  return [response, data]
+    .catch(() => {
+      return false
+    })
 }
 
 export const Logout = (handler) => {
-  document.cookie = 'jwt='
+  jsCookie.remove('jwt')
 
   handler(false)
 }
