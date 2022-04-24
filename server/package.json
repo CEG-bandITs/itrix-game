@@ -4,7 +4,9 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon -w . -e js -x 'node server.js'"
+    "start": "nodemon -w . -e js -x 'node server.js'",
+    "prettier": "prettier -w .",
+    "lint": "eslint ."
   },
   "keywords": [],
   "author": "",
@@ -17,11 +19,19 @@
     "express": "^4.17.3",
     "express-async-handler": "^1.2.0",
     "jsonwebtoken": "^8.5.1",
-    "moment": "^2.29.1",
-    "mongoose": "^6.2.7",
+    "moment": "^2.29.3",
+    "mongoose": "^6.3.1",
     "unique-username-generator": "^1.0.1"
   },
   "devDependencies": {
-    "nodemon": "^2.0.15"
+    "eslint": "^8.14.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-n": "^15.1.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-promise": "^6.0.0",
+    "nodemon": "^2.0.15",
+    "prettier": "^2.6.2"
   }
 }

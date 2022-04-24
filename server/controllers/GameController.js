@@ -1,9 +1,9 @@
-const UserModel = require("../db/UserModel");
-const moment = require("moment");
-const Questions = require("../Questions");
-require("dotenv").config();
+const UserModel = require('../db/UserModel')
+const moment = require('moment')
+const Questions = require('../Questions')
+require('dotenv').config()
 
-const startDate = process.env.START_DATE;
+const startDate = process.env.START_DATE
 
 /*
   @desc : get /api/game/ ;  header => bearer <token>
@@ -14,38 +14,38 @@ const startDate = process.env.START_DATE;
       {status:0,message:'you completed game',data:{}}
 */
 async function getQuestion(req, res) {
-  const email = req.data.email;
-  const data = await UserModel.findOne({ email: email });
-  const today = moment().format("YYYY-MM-DD");
-  const day = data["days"][today];
+  const email = req.data.email
+  const data = await UserModel.findOne({ email: email })
+  const today = moment().format('YYYY-MM-DD')
+  const day = data['days'][today]
 
   if (day === undefined)
-    res.send({ status: 0, message: "you can only play between may 5,6,7" });
+    res.send({ status: 0, message: 'you can only play between may 5,6,7' })
   else {
-    const level = day.level;
+    const level = day.level
     let status = 0,
-      message = "success",
-      data__ = {};
+      message = 'success',
+      data__ = {}
     if (level === 0) {
       //updating startTime
-      data.days[today].startedAt = moment().format("HH:mm:ss");
+      data.days[today].startedAt = moment().format('HH:mm:ss')
       //updating end time (duration)
-      data.days[today].EndedAt = "00:00:00";
-      data.save();
-      status = 1;
+      data.days[today].EndedAt = '00:00:00'
+      data.save()
+      status = 1
     } else if (level < 9) {
-      status = 1;
-    } else message = "you have completed the today's game";
+      status = 1
+    } else message = "you have completed the today's game"
 
-    if (message === "success") {
-      let question = { ...Questions[level] };
+    if (message === 'success') {
+      let question = { ...Questions[level] }
       //removing answer from question data
-      delete question["answer"];
-      data__["question"] = question;
-      data__["level"] = level;
+      delete question['answer']
+      data__['question'] = question
+      data__['level'] = level
     }
 
-    res.send({ status: status, message: message, data: data__ });
+    res.send({ status: status, message: message, data: data__ })
   }
 }
 
@@ -62,67 +62,67 @@ async function getQuestion(req, res) {
 */
 
 async function verifyAnswer(req, res) {
-  const level = req.body.level;
-  const answer = Convert(req.body.answer);
+  const level = req.body.level
+  const answer = Convert(req.body.answer)
 
-  const question = Questions[`${level}`];
+  const question = Questions[`${level}`]
 
-  const email = req.data.email;
+  const email = req.data.email
 
-  if (level === 9) res.send({ status: 1, message: "game ended" });
+  if (level === 9) res.send({ status: 1, message: 'game ended' })
   //console.log(answer,question,question.answer);
   else {
     if (answer === question.answer) {
-      const user = await UserModel.findOne({ email: email });
-      const today = moment().format("YYYY-MM-DD");
+      const user = await UserModel.findOne({ email: email })
+      const today = moment().format('YYYY-MM-DD')
 
       if (user.days[today] === undefined)
-        res.send({ status: 0, message: "you cannot submit today" });
+        res.send({ status: 0, message: 'you cannot submit today' })
       else {
         //update level
-        user.days[today].level += 1;
+        user.days[today].level += 1
         //updating duration
-        user.days[today].duration = TimeDifference(user.days[today].startedAt);
-        await user.save();
+        user.days[today].duration = TimeDifference(user.days[today].startedAt)
+        await user.save()
 
-        let data = { ...Questions[level + 1] };
-        delete data["answer"];
-        console.log("updating level !!");
+        let data = { ...Questions[level + 1] }
+        delete data['answer']
+        console.log('updating level !!')
         res.send({
           status: 1,
-          message: "success",
+          message: 'success',
           data: { question: data, level: level + 1 },
-        });
+        })
       }
-    } else res.send({ message: "wrong answer" });
+    } else res.send({ message: 'wrong answer' })
   }
 }
 
 function Convert(answer) {
   //removing paddings
-  answer = answer.trim();
+  answer = answer.trim()
 
   //removing spaces between words
-  answer = answer.split(" ").join("");
+  answer = answer.split(' ').join('')
   //making everything to lower case
-  answer = answer.toLowerCase();
+  answer = answer.toLowerCase()
 
-  return answer;
+  return answer
 }
 
 function TimeDifference(startTime) {
-  let endTime = moment(moment().format("HH:mm:ss"), "HH:mm:ss");
-  startTime = moment(startTime, "HH:mm:ss");
-  console.log(endTime, startTime);
+  let endTime = moment(moment().format('HH:mm:ss'), 'HH:mm:ss')
+  startTime = moment(startTime, 'HH:mm:ss')
+  console.log(endTime, startTime)
 
-  let dif = moment.duration(endTime.diff(startTime));
+  let dif = moment.duration(endTime.diff(startTime))
 
-  dif = [dif.hours(), dif.minutes(), dif.seconds()].join(":");
+  dif = [dif.hours(), dif.minutes(), dif.seconds()].join(':')
 
-  return dif;
+  return dif
 }
 
 module.exports = {
   getQuestion,
   verifyAnswer,
-};
+}
