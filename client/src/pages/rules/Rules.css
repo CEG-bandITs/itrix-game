@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Cookie");
+@import url('https://fonts.googleapis.com/css?family=Cookie');
 @media screen and (min-device-width: 950px) {
   .section {
     position: absolute;
@@ -27,7 +27,7 @@
     right: 0px;
 
     top: 0px;
-    background-image: url("/public/images/imgr2.jpeg");
+    background-image: url('/public/images/imgr2.jpeg');
     background-size: cover;
     background-repeat: no-repeat;
   }
@@ -92,7 +92,7 @@
     right: 0px;
 
     top: 0px;
-    background-image: url("/public/images/imgr2.jpeg");
+    background-image: url('/public/images/imgr2.jpeg');
     background-size: cover;
     background-repeat: no-repeat;
   }
@@ -155,7 +155,7 @@
     left: -485px;
     top: 0px;
 
-    background: url("/public/images/imgr2.jpeg");
+    background: url('/public/images/imgr2.jpeg');
     background-size: cover;
   }
   .one {

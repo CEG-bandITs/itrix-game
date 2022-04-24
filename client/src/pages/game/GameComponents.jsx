@@ -1,32 +1,28 @@
-import React, { useEffect, useState } from "react";
-import "./Game.css";
-import { SubmitAnswer } from "../../api_calls/Game";
-import {Container} from "./Game.jsx"
-
-
+import React, { useEffect, useState } from 'react'
+import './Game.css'
+import { SubmitAnswer } from '../../api_calls/Game'
+import { Container } from './Game.jsx'
 
 export function QuestionBar(props) {
-
-  const [ImgPointer, SetImgPointer] = useState(0);
-  const value = React.useContext(Container);
-  const data ={'images':value.data.questions,'hints':value.data.hints};
-  
+  const [ImgPointer, SetImgPointer] = useState(0)
+  const value = React.useContext(Container)
+  const data = { images: value.data.questions, hints: value.data.hints }
 
   function IncreaseImgPointer() {
     if (ImgPointer >= data.images.length - 1) {
-      SetImgPointer(0);
+      SetImgPointer(0)
     } else {
-      SetImgPointer(ImgPointer + 1);
+      SetImgPointer(ImgPointer + 1)
     }
   }
   function DecreaseImgPointer() {
     if (ImgPointer <= 0) {
-      SetImgPointer(data.images.length - 1);
+      SetImgPointer(data.images.length - 1)
     } else {
-      SetImgPointer(ImgPointer - 1);
+      SetImgPointer(ImgPointer - 1)
     }
   }
-  if (props.for === "Mobile") {
+  if (props.for === 'Mobile') {
     return (
       <div className="QuestionBar">
         <img
@@ -43,7 +39,7 @@ export function QuestionBar(props) {
           onClick={DecreaseImgPointer}
         />
       </div>
-    );
+    )
   } else {
     return (
       <div className="QuestionBar">
@@ -55,10 +51,10 @@ export function QuestionBar(props) {
               className="Question-Img"
               alt="Question Image"
             />
-          );
+          )
         })}
       </div>
-    );
+    )
   }
 }
 
@@ -69,7 +65,7 @@ function HintBox(props) {
         <div
           className="GreyLayer"
           onClick={() => {
-            props.setShowHint(false);
+            props.setShowHint(false)
           }}
         ></div>
         <div className="HintBox">
@@ -80,58 +76,49 @@ function HintBox(props) {
                   Hint {i.id}: &nbsp;&nbsp; {i.msg}
                 </p>
               </>
-            );
+            )
           })}
         </div>
       </>
-    );
+    )
   } else {
-    return <></>;
+    return <></>
   }
 }
 
 //data:{question:Questions[level+1],level:(level+1)}}
 
-export  function AnswerBar(props) { 
- 
-  const [showHint, setShowHint] = useState(false);
-  const [answer,handleAnswer] =useState("");
-  const [disableButton,handleDisableButton] =useState(false);
-  const value = React.useContext(Container);
+export function AnswerBar(props) {
+  const [showHint, setShowHint] = useState(false)
+  const [answer, handleAnswer] = useState('')
+  const [disableButton, handleDisableButton] = useState(false)
+  const value = React.useContext(Container)
 
-  function Submit__()
-  {
-    if(answer.trim().length!==0){
-      handleDisableButton(true);
-      SubmitAnswer({level:value.data.level,answer:answer}).then(resp=>
-        {
-          handleDisableButton(false);
-          console.log(resp);
-        
-          if(resp.message==="success")
-          {
-             const temp = resp.data ;
-             const data__ ={
-               level : temp.level ,
-               hints : temp.question.hints ,
-               questions :temp.question.images 
-             };
-             value.changeData(data__);
-             handleAnswer("");
-             value.handleError(resp.message);
+  function Submit__() {
+    if (answer.trim().length !== 0) {
+      handleDisableButton(true)
+      SubmitAnswer({ level: value.data.level, answer: answer }).then((resp) => {
+        handleDisableButton(false)
+        console.log(resp)
+
+        if (resp.message === 'success') {
+          const temp = resp.data
+          const data__ = {
+            level: temp.level,
+            hints: temp.question.hints,
+            questions: temp.question.images,
           }
-          else 
-          {
-            handleDisableButton(false); 
-            value.handleError(resp.message);
-          }
-        });
-    }
-   
-    else 
-       value.handleError("Answer Can't Be Empty");
+          value.changeData(data__)
+          handleAnswer('')
+          value.handleError(resp.message)
+        } else {
+          handleDisableButton(false)
+          value.handleError(resp.message)
+        }
+      })
+    } else value.handleError("Answer Can't Be Empty")
   }
-  if (props.for === "Mobile") {
+  if (props.for === 'Mobile') {
     return (
       <>
         <div className="AnswerBar">
@@ -140,15 +127,17 @@ export  function AnswerBar(props) {
               className="AnswerBar-Input"
               type="text"
               value={answer}
-               onChange={(e)=>{handleAnswer(e.target.value)}}
+              onChange={(e) => {
+                handleAnswer(e.target.value)
+              }}
               placeholder="Enter Answer"
             ></input>
             <div className="AnswerBar-Bottom">
               <button
                 className="AnswerBar-Hint"
                 onClick={(e) => {
-                  e.preventDefault();
-                  setShowHint(true);
+                  e.preventDefault()
+                  setShowHint(true)
                 }}
               >
                 Hint
@@ -165,36 +154,53 @@ export  function AnswerBar(props) {
             </div>
           </form>
         </div>
-        <HintBox show={showHint} hints={value.data.hints} setShowHint={setShowHint} />
+        <HintBox
+          show={showHint}
+          hints={value.data.hints}
+          setShowHint={setShowHint}
+        />
       </>
-    );
+    )
   } else {
     return (
       <>
         <div className="AnswerBar">
           <div className="AnswerBar-Oneline-Bottom">
-            <button className="AnswerBar-Hint-lap"  onClick={(e) => {
-                  e.preventDefault();
-                  setShowHint(true);
-                }}>
-              <p >Hint</p>
-              <img
-                className="AnswerBar-Icon"
-                src="images/idea.jpg"
-    
-              />
+            <button
+              className="AnswerBar-Hint-lap"
+              onClick={(e) => {
+                e.preventDefault()
+                setShowHint(true)
+              }}
+            >
+              <p>Hint</p>
+              <img className="AnswerBar-Icon" src="images/idea.jpg" />
             </button>
-            <input type="text" className="AnswerBar-Input" placeholder="Enter Answer" value={answer}
-               onChange={(e)=>{handleAnswer(e.target.value)}}></input>
+            <input
+              type="text"
+              className="AnswerBar-Input"
+              placeholder="Enter Answer"
+              value={answer}
+              onChange={(e) => {
+                handleAnswer(e.target.value)
+              }}
+            ></input>
 
-            <button className="AnswerBar-Submit-lap" type="button" onClick={Submit__}>
+            <button
+              className="AnswerBar-Submit-lap"
+              type="button"
+              onClick={Submit__}
+            >
               submit
             </button>
-
           </div>
         </div>
-        <HintBox show={showHint} hints={value.data.hints} setShowHint={setShowHint} />
+        <HintBox
+          show={showHint}
+          hints={value.data.hints}
+          setShowHint={setShowHint}
+        />
       </>
-    );
+    )
   }
 }

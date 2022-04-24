@@ -1,5 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Cookie&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Comfortaa&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Cookie&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
 
 .base {
   background-image: url(../../../public/images/cos.png);
@@ -34,9 +34,9 @@
   justify-items: center;
 }
 
-.container > form > input[type="text"],
-.container > form > input[type="password"],
-.container > form > input[type="email"] {
+.container > form > input[type='text'],
+.container > form > input[type='password'],
+.container > form > input[type='email'] {
   width: 90%;
   padding: 10px;
   background-color: rgba(196, 196, 196, 0.6);
@@ -50,9 +50,9 @@
   border: 1px solid transparent;
 }
 
-.container > form > input[type="text"]::placeholder,
-.container > form > input[type="password"]::placeholder,
-.container > form > input[type="email"]::placeholder {
+.container > form > input[type='text']::placeholder,
+.container > form > input[type='password']::placeholder,
+.container > form > input[type='email']::placeholder {
   color: white;
 }
 
@@ -68,7 +68,7 @@
   }
 } */
 
-.container > form > input[type="button"] {
+.container > form > input[type='button'] {
   width: 95%;
   background-color: rgba(11, 194, 52);
   border: 0;
@@ -95,7 +95,7 @@
   color: black;
 }
 
-.aldreadyHavingAccount > input[type="button"] {
+.aldreadyHavingAccount > input[type='button'] {
   background-color: rgba(45, 145, 188, 0.8);
   border: 0;
   font-size: small;

@@ -27,7 +27,6 @@ if (BuildExistence === false) {
 // Enabling Express to read req body as json
 app.use(express.json());
 
-
 // Root ('/') Path
 const client = require("./routes/client");
 app.use("/", client);
@@ -37,7 +36,6 @@ app.use("/api/users/", require("./routes/userRoute"));
 
 //game route
 app.use("/api/game/", require("./routes/GameRoute"));
-
 
 // Serving files from ../client/build
 // Which can be created by running `npm run build` in client folder

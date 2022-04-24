@@ -1,18 +1,18 @@
 const mongoose = require("mongoose");
 
 //atlas url
-var mongoose_url = "mongodb+srv://itrix:itrix@cluster0.ngqge.mongodb.net/itrix?retryWrites=true&w=majority"
+var mongoose_url =
+  "mongodb+srv://itrix:itrix@cluster0.ngqge.mongodb.net/itrix?retryWrites=true&w=majority";
 
-//connecting 
+//connecting
 mongoose.connect(mongoose_url);
 
-var db = mongoose.connection ;
+var db = mongoose.connection;
 
-//error instance 
-db.on("error",console.error.bind("error connecting to database"));
+//error instance
+db.on("error", console.error.bind("error connecting to database"));
 
-//success instance 
-db.once("open",()=>{
-    console.log("Successfully connected to atlas!!");
-})
-
+//success instance
+db.once("open", () => {
+  console.log("Successfully connected to atlas!!");
+});

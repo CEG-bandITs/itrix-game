@@ -10,11 +10,7 @@
 
 */
 
-async function LeaderBoard(req,res)
-{
-
-}
-
+async function LeaderBoard(req, res) {}
 
 /*
 

@@ -5,19 +5,29 @@
   "main": "src/index.js",
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build"
+    "build": "react-scripts build",
+    "prettier": "prettier -w .",
+    "lint": "eslint ."
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "axios": "^0.26.1",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
+    "eslint": "^8.14.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-n": "^15.1.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-promise": "^6.0.0",
+    "eslint-plugin-react": "^7.29.4",
+    "prettier": "^2.6.2",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
     "react-icons": "^4.3.1",
     "react-notifications": "^1.7.3",
-    "react-router-dom": "^6.2.2",
-    "react-scripts": "^5.0.0"
+    "react-router-dom": "^6.3.0",
+    "react-scripts": "^5.0.1"
   },
   "browserslist": {
     "production": [
@@ -32,6 +42,7 @@
     ]
   },
   "dependencies": {
+    "eslint-config-prettier": "^8.5.0",
     "party-js": "^2.1.2",
     "react-modal": "^3.14.4"
   }

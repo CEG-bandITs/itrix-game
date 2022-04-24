@@ -1,20 +1,20 @@
-import React from "react";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import React from 'react'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 
 //importing all page components
-import Home from "../pages/home/Home";
-import Game from "../pages/game/Game";
-import Leaderboard from "../pages/leaderboard/Leaderboard";
-import Login from "../pages/login/Login";
-import Rules from "../pages/rules/Rules";
-import Signup from "../pages/signup/Signup";
-import Team from "../pages/team/Team";
+import Home from '../pages/home/Home'
+import Game from '../pages/game/Game'
+import Leaderboard from '../pages/leaderboard/Leaderboard'
+import Login from '../pages/login/Login'
+import Rules from '../pages/rules/Rules'
+import Signup from '../pages/signup/Signup'
+import Team from '../pages/team/Team'
 
 //importing context from home page
-import { Wrapper } from "../RootPage";
+import { Wrapper } from '../RootPage'
 
 function Routing() {
-  const values = React.useContext(Wrapper);
+  const values = React.useContext(Wrapper)
   return (
     <>
       <BrowserRouter>
@@ -25,7 +25,7 @@ function Routing() {
         )}
       </BrowserRouter>
     </>
-  );
+  )
 }
 
 function AuthenticatedRoute() {
@@ -38,7 +38,7 @@ function AuthenticatedRoute() {
       <Route element={<Rules />} path="/rules"></Route>
       <Route element={<Navigate to="/" />} path="/*"></Route>
     </Routes>
-  );
+  )
 }
 
 function UnAuthenticatedRoute() {
@@ -50,7 +50,7 @@ function UnAuthenticatedRoute() {
       <Route element={<Rules />} path="/rules"></Route>
       <Route element={<Navigate to="/" />} path="/*"></Route>
     </Routes>
-  );
+  )
 }
 
-export default Routing;
+export default Routing

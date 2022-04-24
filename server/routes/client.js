@@ -52,11 +52,8 @@ router.get("/register", (req, res) => {
 });
 
 router.get("/static/*", (req, res) => {
-  console.log("INFO: received GET "+req.path+" Request from " + req.ip);
-  res.sendFile(
-    path.join(__dirname, "..", "..", "client", "build", req.path)
-  );
+  console.log("INFO: received GET " + req.path + " Request from " + req.ip);
+  res.sendFile(path.join(__dirname, "..", "..", "client", "build", req.path));
 });
-
 
 module.exports = router;

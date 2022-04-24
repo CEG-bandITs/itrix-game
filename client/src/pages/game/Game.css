@@ -1,7 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Cookie&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Cookie&display=swap');
 
 .GamePage {
-  background-image: url("../../../public/images/question-bg.png");
+  background-image: url('../../../public/images/question-bg.png');
   width: 100vw;
   height: 100vh;
   background-size: cover;
@@ -35,7 +35,6 @@
   object-fit: contain;
 }
 
-
 .Question-Img {
   width: 50vw;
   height: 50vw;
@@ -56,7 +55,7 @@
   text-align: center;
   padding: 2vmin;
   font-size: large;
-  outline:none;
+  outline: none;
 }
 .AnswerBar-Input:focus {
   outline: none;
@@ -114,9 +113,8 @@
   outline: none;
 }
 
-.AnswerBar-Submit:disabled 
-{
-  opacity:50%;
+.AnswerBar-Submit:disabled {
+  opacity: 50%;
 }
 .AnswerBar-Oneline-Bottom {
   display: flex;
@@ -134,7 +132,7 @@
   font-size: 3rem;
 }
 
-.AnswerBar-Oneline-Bottom > input[type="text"] {
+.AnswerBar-Oneline-Bottom > input[type='text'] {
   border-radius: 10vmax;
   text-align: center;
   font-size: 3rem;
@@ -205,34 +203,28 @@
   align-items: baseline;
 }
 
-
-.message__div 
-{
-  color :white ;
+.message__div {
+  color: white;
   text-transform: capitalize;
-  position:absolute ;
-  top:50%;
-  left:50%;
-  transform : translate(-50%,-50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-
-
-.AnswerBar-Submit-lap,.AnswerBar-Hint-lap
-{
+.AnswerBar-Submit-lap,
+.AnswerBar-Hint-lap {
   align-self: center;
   display: flex;
   align-items: center;
   justify-content: space-around;
-  padding:20px;
+  padding: 20px;
   font-size: larger;
 }
-
 
 @media screen and (min-width: 1300px) {
   .QuestionBar > .Question-Img {
     width: 25vw;
     height: 25vh;
   }
-
 }

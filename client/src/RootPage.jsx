@@ -1,42 +1,38 @@
-import React, { useState, useEffect, Suspense } from "react";
+import React, { useState, useEffect, Suspense } from 'react'
 const Routing = React.lazy(() => {
-  return import("./routing/Routing");
-});
-import { VerifyLogin } from "./api_calls/Auth";
-import Loader from "../src/components/loader/Loader";
+  return import('./routing/Routing')
+})
+import { VerifyLogin } from './api_calls/Auth'
+import Loader from '../src/components/loader/Loader'
 
-export const Wrapper = React.createContext();
+export const Wrapper = React.createContext()
 
 export default function RootPage() {
   //intial states
-  const [isLoading, handleIsLoading] = useState(true);
-  const [isLogin, handleIsLogin] = useState(false);
-  const [userData,handleUserData] =useState(null);
+  const [isLoading, handleIsLoading] = useState(true)
+  const [isLogin, handleIsLogin] = useState(false)
+  const [userData, handleUserData] = useState(null)
   //value to context for using in all childer component without passing as props
   const value = {
     isLogin: isLogin,
     handleIsLogin: handleIsLogin,
     isloading: isLoading,
     handleIsLoading: handleIsLoading,
-    userData:userData, //user data for storing game details 
-    handleUserData:handleUserData 
-  };
+    userData: userData, //user data for storing game details
+    handleUserData: handleUserData,
+  }
 
   useEffect(() => {
-    VerifyLogin().then(response=>{
-     
-      
-      handleIsLogin(response[0]);
-      handleIsLoading(false);
+    VerifyLogin().then((response) => {
+      handleIsLogin(response[0])
+      handleIsLoading(false)
       handleUserData(response[1])
-    });
-  }, []);
+    })
+  }, [])
 
-  
-
-  useEffect(()=>{
-    console.log(isLoading);
-  }, [isLoading]);
+  useEffect(() => {
+    console.log(isLoading)
+  }, [isLoading])
   return (
     <React.Fragment>
       <Wrapper.Provider value={value}>
@@ -45,5 +41,5 @@ export default function RootPage() {
         </Suspense>
       </Wrapper.Provider>
     </React.Fragment>
-  );
+  )
 }

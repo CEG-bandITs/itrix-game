@@ -1,77 +1,77 @@
-import React from "react";
-import { Login__ } from "../../api_calls/Auth";
-import { Wrapper } from "../../RootPage";
-import styles from "./Login.module.css";
+import React from 'react'
+import { Login__ } from '../../api_calls/Auth'
+import { Wrapper } from '../../RootPage'
+import styles from './Login.module.css'
 
 function Login() {
-  const value = React.useContext(Wrapper);
-  const [Error, handleError] = React.useState("");
+  const value = React.useContext(Wrapper)
+  const [Error, handleError] = React.useState('')
   //password adn email
-  const [password, handlePassword] = React.useState("");
-  const [email, handleEmail] = React.useState("");
+  const [password, handlePassword] = React.useState('')
+  const [email, handleEmail] = React.useState('')
   //disabling button after submit
-  const [disableButton, handleDisableButton] = React.useState(false);
+  const [disableButton, handleDisableButton] = React.useState(false)
 
   //errors
-  const [emailError, handleEmailError] = React.useState("initial");
-  const [passwordError, handlePasswordError] = React.useState("initial");
+  const [emailError, handleEmailError] = React.useState('initial')
+  const [passwordError, handlePasswordError] = React.useState('initial')
 
   //setting for not getting fields in error mode
-  const [initial, handleInitial] = React.useState(true);
+  const [initial, handleInitial] = React.useState(true)
 
   const handleSubmit = () => {
-    if (passwordError === "" && emailError === "") {
-      const data = { email: email, password: password };
-      Login__(data,value.handleUserData).then((response) => {
+    if (passwordError === '' && emailError === '') {
+      const data = { email: email, password: password }
+      Login__(data, value.handleUserData).then((response) => {
         if (response[0] === true) {
-          value.handleIsLogin(true);
+          value.handleIsLogin(true)
         } else {
-          handleDisableButton(false);
-          handleError(response[1]);
+          handleDisableButton(false)
+          handleError(response[1])
         }
-      });
-      handleDisableButton(true);
+      })
+      handleDisableButton(true)
     }
-    if (emailError === "initial") {
-      handleEmailError("empty email");
+    if (emailError === 'initial') {
+      handleEmailError('empty email')
 
-      document.getElementById("email").style.border = "1px solid red";
+      document.getElementById('email').style.border = '1px solid red'
     }
-    if (passwordError === "initial") {
-      handlePasswordError("empty password");
-      document.getElementById("password").style.border = "1px solid red";
+    if (passwordError === 'initial') {
+      handlePasswordError('empty password')
+      document.getElementById('password').style.border = '1px solid red'
     }
-  };
+  }
 
   React.useEffect(() => {
     if (initial !== true) {
-      if (!email.endsWith("@gmail.com")) {
-        document.getElementById("email").style.border = "1px solid red";
-        handleEmailError("invalid email");
-      } else if (email.endsWith("@gmail.com") && email.length >= 15) {
-        document.getElementById("email").style.border = "2px solid green";
-        handleEmailError("");
+      if (!email.endsWith('@gmail.com')) {
+        document.getElementById('email').style.border = '1px solid red'
+        handleEmailError('invalid email')
+      } else if (email.endsWith('@gmail.com') && email.length >= 15) {
+        document.getElementById('email').style.border = '2px solid green'
+        handleEmailError('')
       } else {
-        document.getElementById("email").style.border = "none";
-        handleEmailError("");
+        document.getElementById('email').style.border = 'none'
+        handleEmailError('')
       }
-    } else handleInitial(false);
-  }, [email]);
+    } else handleInitial(false)
+  }, [email])
 
   React.useEffect(() => {
     if (initial !== true) {
       if (password.length < 1) {
-        document.getElementById("password").style.border = "1px solid red";
-        handlePasswordError("Empty password");
+        document.getElementById('password').style.border = '1px solid red'
+        handlePasswordError('Empty password')
       } else if (password.length >= 1) {
-        handlePasswordError("");
-        document.getElementById("password").style.border = "2px solid green";
+        handlePasswordError('')
+        document.getElementById('password').style.border = '2px solid green'
       } else {
-        document.getElementById("password").style.border = "none";
-        handlePasswordError("");
+        document.getElementById('password').style.border = 'none'
+        handlePasswordError('')
       }
-    } else handleInitial(false);
-  }, [password]);
+    } else handleInitial(false)
+  }, [password])
 
   return (
     <div className={styles.login}>
@@ -84,13 +84,13 @@ function Login() {
             placeholder="Email"
             value={email}
             onChange={(e) => {
-              handleEmail(e.target.value);
+              handleEmail(e.target.value)
             }}
             id="email"
           />
           <span className={styles.Error}>
-            {" "}
-            {emailError !== "initial" && emailError}
+            {' '}
+            {emailError !== 'initial' && emailError}
           </span>
           <input
             type="password"
@@ -99,16 +99,16 @@ function Login() {
             value={password}
             id="password"
             onChange={(e) => {
-              handlePassword(e.target.value);
+              handlePassword(e.target.value)
             }}
           />
           <span className={styles.Error}>
-            {passwordError !== "initial" && passwordError}
+            {passwordError !== 'initial' && passwordError}
           </span>
 
           <input
             type="button"
-            value={disableButton ? "please wait.." : "Sign In"}
+            value={disableButton ? 'please wait..' : 'Sign In'}
             onClick={handleSubmit}
             disabled={disableButton}
             style={{ opacity: disableButton && 0.5 }}
@@ -116,12 +116,12 @@ function Login() {
 
           <div className={styles.createAccount}>
             <p>Don’t have an account?</p>
-            <input type="button" value={"Sign Up"} />
+            <input type="button" value={'Sign Up'} />
           </div>
         </form>
       </div>
     </div>
-  );
+  )
 }
 
-export default Login;
+export default Login

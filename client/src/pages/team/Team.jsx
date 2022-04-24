@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react'
 
 function Team() {
-  return <div>Team</div>;
+  return <div>Team</div>
 }
 
-export default Team;
+export default Team

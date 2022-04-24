@@ -1,5 +1,5 @@
-import React from "react";
-import "./Rules.css";
+import React from 'react'
+import './Rules.css'
 function Rules() {
   return (
     <div className="bg">
@@ -15,13 +15,14 @@ function Rules() {
           Each day is independent and one winner will be chosen each day.
           <br></br>
           <br></br>
-          The UI of the website has no relation to the questions.<br></br>
+          The UI of the website has no relation to the questions.
+          <br></br>
           <br></br>
           Clues will be updated periodically in the specified time.
         </div>
       </section>
     </div>
-  );
+  )
 }
 
-export default Rules;
+export default Rules
