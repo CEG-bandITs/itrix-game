@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import './Game.css'
 import { SubmitAnswer } from '../../api_calls/Game'
 import { Container } from './Game.jsx'
+import PropTypes from 'prop-types'
 
 export function QuestionBar(props) {
   const [ImgPointer, SetImgPointer] = useState(0)
@@ -58,6 +59,10 @@ export function QuestionBar(props) {
   }
 }
 
+QuestionBar.propTypes = {
+  for: PropTypes.string,
+}
+
 function HintBox(props) {
   if (props.show === true) {
     return (
@@ -86,6 +91,12 @@ function HintBox(props) {
   }
 }
 
+HintBox.propTypes = {
+  show: PropTypes.bool,
+  setShowHint: PropTypes.func,
+  hints: PropTypes.array,
+}
+
 /*
   data:{question:Questions[level+1],level:(level+1)}}
 */
@@ -99,7 +110,7 @@ export function AnswerBar(props) {
   function Submit__() {
     if (answer.trim().length !== 0) {
       handleDisableButton(true)
-      SubmitAnswer({ level: value.data.level, answer: answer }).then((resp) => {
+      SubmitAnswer({ level: value.data.level, answer }).then((resp) => {
         handleDisableButton(false)
         console.log(resp)
 
@@ -205,4 +216,8 @@ export function AnswerBar(props) {
       </>
     )
   }
+}
+
+AnswerBar.propTypes = {
+  for: PropTypes.string,
 }

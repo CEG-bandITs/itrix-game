@@ -1,7 +1,9 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import styles from './index.module.css'
 import { Link, useLocation } from 'react-router-dom'
-import jsCookie from 'js-cookie'
+import { Logout } from '../../api_calls/Auth'
+import { Wrapper } from '../../RootPage'
+import PropTypes from 'prop-types'
 
 const navLinks = [
   {
@@ -18,7 +20,8 @@ const navLinks = [
   },
 ]
 
-export default function Menu({ desktop, loggedIn }) {
+export default function Menu({ desktop }) {
+  const value = useContext(Wrapper)
   const [isOpen, setOpen] = useState(false)
   const location = useLocation()
 
@@ -71,9 +74,9 @@ export default function Menu({ desktop, loggedIn }) {
               )
           })}
 
-          {loggedIn ? (
+          {value.isLogin ? (
             <Link to="/">
-              <li onClick={() => logout()}>Logout</li>
+              <li onClick={() => Logout(value.handleIsLogin)}>Logout</li>
             </Link>
           ) : (
             <></>
@@ -82,6 +85,8 @@ export default function Menu({ desktop, loggedIn }) {
       </nav>
     )
 }
-function logout() {
-  jsCookie.remove('jwt')
+
+Menu.propTypes = {
+  desktop: PropTypes.bool,
+  loggedIn: PropTypes.bool,
 }

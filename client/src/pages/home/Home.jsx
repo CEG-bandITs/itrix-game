@@ -15,7 +15,7 @@ function AfterLogin() {
   const value = React.useContext(Wrapper)
   return (
     <main className={styles.main}>
-      <Menu loggedIn={true} desktop={size.width > 1024} />
+      <Menu loggedIn={value.isLogin} desktop={size.width > 1024} />
       <div className={styles.wrapper}>
         <div className="after__login">
           <div className="content1">
@@ -58,11 +58,6 @@ function AfterLogin() {
 function BeforeLogin() {
   const nav = useNavigate()
   const size = useWindowSize()
-  const navigate = (page) => {
-    setTimeout(() => {
-      nav(page)
-    }, 1000)
-  }
   return (
     <main className={styles.main}>
       <Menu loggedIn={true} desktop={size.width > 1024} />
@@ -73,14 +68,14 @@ function BeforeLogin() {
             <div className={styles.row}>
               <div className={styles.column}>
                 <div
-                  onClick={() => navigate('/register')}
+                  onClick={() => nav('/register')}
                   className={`${styles.img} ${styles.img1}`}
                 ></div>
                 <p> Sign Up</p>
               </div>
               <div className={styles.column}>
                 <div
-                  onClick={() => navigate('/login')}
+                  onClick={() => nav('/login')}
                   className={`${styles.img} ${styles.img2}`}
                 ></div>
                 <p> Login </p>

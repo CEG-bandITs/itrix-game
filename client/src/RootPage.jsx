@@ -10,19 +10,14 @@ export const Wrapper = React.createContext()
 export default function RootPage() {
   const [isLoading, handleIsLoading] = useState(true)
   const [isLogin, handleIsLogin] = useState(false)
-  const [userData, handleUserData] = useState(null)
   const value = {
-    isLogin: isLogin,
-    handleIsLogin: handleIsLogin,
-    isloading: isLoading,
-    handleIsLoading: handleIsLoading,
-    userData: userData,
-    handleUserData: handleUserData,
+    isLogin,
+    handleIsLogin,
   }
 
   useEffect(() => {
     VerifyLogin().then((response) => {
-      handleIsLogin(response[0])
+      handleIsLogin(response)
       handleIsLoading(false)
     })
   }, [])
