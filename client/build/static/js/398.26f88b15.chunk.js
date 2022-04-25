@@ -7,7 +7,7 @@
       s.r(n),
         s.d(n, {
           default: function () {
-            return ze
+            return Qe
           },
         })
       var a = s(791),
@@ -15,8 +15,8 @@
         r = s(871),
         i = s(348),
         l = 'Home_main__6GbQv',
-        o = 'Home_wrapper__Ce14n',
-        c = 'Home_content__wrapper__LkgMb',
+        c = 'Home_wrapper__Ce14n',
+        o = 'Home_content__wrapper__LkgMb',
         d = 'Home_column__X6izR',
         u = 'Home_img__N7NQ0',
         m = 'Home_img1__AsJPx',
@@ -37,25 +37,25 @@
         S = 'Menu_NavBar__nIA6a',
         H = 'Menu_active__LsPUM',
         L = s(184),
-        A = [
+        G = [
           { name: 'Home', link: '/' },
           { name: 'Rules', link: '/rules' },
           { name: 'LeaderBoard', link: '/leaderboard' },
         ]
-      function G(e) {
+      function A(e) {
         var n = e.desktop,
           s = (0, a.useContext)(i.i),
           l = (0, a.useState)(!1),
-          o = (0, C.Z)(l, 2),
-          c = o[0],
-          d = o[1],
+          c = (0, C.Z)(l, 2),
+          o = c[0],
+          d = c[1],
           u = (0, r.TH)()
-        return n || c
+        return n || o
           ? (0, L.jsx)('nav', {
               className: S,
               children: (0, L.jsxs)('ul', {
                 onClick: function () {
-                  return d(!c)
+                  return d(!o)
                 },
                 children: [
                   n
@@ -70,7 +70,7 @@
                           }),
                         }),
                       }),
-                  A.map(function (e) {
+                  G.map(function (e) {
                     return e.link === u.pathname
                       ? (0, L.jsx)(
                           t.rU,
@@ -112,7 +112,7 @@
               className: k,
               viewBox: '0 0 16 16',
               onClick: function () {
-                return d(!c)
+                return d(!o)
               },
               children: (0, L.jsx)('path', {
                 fillRule: 'evenodd',
@@ -149,9 +149,9 @@
         return (0, L.jsxs)('main', {
           className: l,
           children: [
-            (0, L.jsx)(G, { loggedIn: n.isLogin, desktop: e.width > 1024 }),
+            (0, L.jsx)(A, { loggedIn: n.isLogin, desktop: e.width > 1024 }),
             (0, L.jsx)('div', {
-              className: o,
+              className: c,
               children: (0, L.jsx)('div', {
                 className: 'after__login',
                 children: (0, L.jsx)('div', {
@@ -211,11 +211,11 @@
         return (0, L.jsxs)('main', {
           className: l,
           children: [
-            (0, L.jsx)(G, { loggedIn: !0, desktop: n.width > 1024 }),
+            (0, L.jsx)(A, { loggedIn: !0, desktop: n.width > 1024 }),
             (0, L.jsx)('div', {
-              className: o,
+              className: c,
               children: (0, L.jsx)('div', {
-                className: c,
+                className: o,
                 children: (0, L.jsxs)('div', {
                   className: g,
                   children: [
@@ -259,13 +259,13 @@
           ],
         })
       }
-      var Z = function () {
+      var F = function () {
           var e = a.useContext(i.i)
           return (0, L.jsx)('div', {
             children: e.isLogin ? (0, L.jsx)(B, {}) : (0, L.jsx)(E, {}),
           })
         },
-        F = s(861),
+        Z = s(861),
         W = s(757),
         M = s.n(W),
         D = 'Game_main__+0xaN',
@@ -274,8 +274,8 @@
         R = 'Game_QuestionBar__7wEWI',
         T = 'Game_nexticon__HLBJQ',
         O = 'Game_previcon__Jd6ng',
-        z = 'Game_QuestionImg__-+44o',
-        Q = 'Game_AnswerBar__4+sER',
+        Q = 'Game_QuestionImg__-+44o',
+        z = 'Game_AnswerBar__4+sER',
         J = 'Game_AnswerBarInput__HWQzo',
         P = 'Game_AnswerBarBottom__1F0Bq',
         V = 'Game_AnswerBarIcon__vO3VS',
@@ -287,11 +287,11 @@
         ne = 'Game_game__nav__kegaA',
         se = 'Game_game__menu__-JxLQ',
         ae = 'Game_trophy__wGrJw',
-        te = 'Game_message__div__S61yz',
+        te = 'Game_message__DS4GI',
         re = 'Game_AnswerBarSubmitlap__NFRQU',
         ie = 'Game_AnswerBarHintlap__U9ReQ',
         le = (function () {
-          var e = (0, F.Z)(
+          var e = (0, Z.Z)(
             M().mark(function e(n) {
               var s, a
               return M().wrap(function (e) {
@@ -319,8 +319,8 @@
             return e.apply(this, arguments)
           }
         })(),
-        oe = (function () {
-          var e = (0, F.Z)(
+        ce = (function () {
+          var e = (0, Z.Z)(
             M().mark(function e() {
               var n, s
               return M().wrap(function (e) {
@@ -343,7 +343,7 @@
             return e.apply(this, arguments)
           }
         })(),
-        ce = s(952)
+        oe = s(952)
       function de(e) {
         var n = (0, a.useState)(0),
           s = (0, C.Z)(n, 2),
@@ -363,7 +363,7 @@
                     t >= l.images.length - 1 ? r(0) : r(t + 1)
                   },
                 }),
-                (0, L.jsx)('img', { className: z, src: l.images[t].url }),
+                (0, L.jsx)('img', { className: Q, src: l.images[t].url }),
                 (0, L.jsx)('img', {
                   className: T,
                   src: 'images/right.png',
@@ -378,7 +378,7 @@
               className: R,
               children: l.images.map(function (e) {
                 return (0,
-                L.jsx)('img', { src: e.url, className: z, alt: 'Question Image' }, e.id)
+                L.jsx)('img', { src: e.url, className: Q, alt: 'Question Image' }, e.id)
               }),
             })
       }
@@ -410,8 +410,8 @@
           r = s[1],
           i = (0, a.useState)(''),
           l = (0, C.Z)(i, 2),
-          o = l[0],
-          c = l[1],
+          c = l[0],
+          o = l[1],
           d = (0, a.useState)(!1),
           u = (0, C.Z)(d, 2),
           m = u[0],
@@ -419,18 +419,19 @@
           x = a.useContext(he)
         function _(e) {
           e.preventDefault(),
-            0 !== o.trim().length
+            0 !== c.trim().length
               ? (h(!0),
-                le({ level: x.data.level, answer: o }).then(function (e) {
+                le({ level: x.data.level, answer: c }).then(function (e) {
                   if ((h(!1), console.log(e), 'Success' === e.message)) {
                     var n = e.data
-                    if (null == e.data) return void x.handleError('End Of Game')
+                    if (null == e.data)
+                      return void x.handleMessage('Game Over!')
                     var s = {
                       level: n.level,
                       hints: n.hints,
                       questions: n.questions,
                     }
-                    x.changeData(s), c(''), x.handleError(e.message)
+                    x.changeData(s), o(''), x.handleError(e.message)
                   } else h(!1), x.handleError(e.message)
                 }))
               : x.handleError("Answer Can't Be Empty")
@@ -439,15 +440,15 @@
           ? (0, L.jsxs)(L.Fragment, {
               children: [
                 (0, L.jsx)('div', {
-                  className: Q,
+                  className: z,
                   children: (0, L.jsxs)('form', {
                     children: [
                       (0, L.jsx)('input', {
                         className: J,
                         type: 'text',
-                        value: o,
+                        value: c,
                         onChange: function (e) {
-                          c(e.target.value)
+                          o(e.target.value)
                         },
                         placeholder: 'Enter Answer',
                       }),
@@ -491,7 +492,7 @@
           : (0, L.jsxs)(L.Fragment, {
               children: [
                 (0, L.jsx)('div', {
-                  className: Q,
+                  className: z,
                   children: (0, L.jsxs)('div', {
                     className: K,
                     children: [
@@ -512,9 +513,9 @@
                         type: 'text',
                         className: J,
                         placeholder: 'Enter Answer',
-                        value: o,
+                        value: c,
                         onChange: function (e) {
-                          c(e.target.value)
+                          o(e.target.value)
                         },
                       }),
                       (0, L.jsx)('button', {
@@ -544,37 +545,26 @@
           r = s[1],
           i = (0, a.useState)(''),
           l = (0, C.Z)(i, 2),
-          o = l[0],
-          c = l[1],
-          d = (0, a.useState)(''),
-          u = (0, C.Z)(d, 2),
-          m = u[0],
-          h = u[1],
-          x = {
-            data: t,
-            changeData: r,
-            message: o,
-            handleMessage: c,
-            error: m,
-            handleError: h,
-          }
+          c = l[0],
+          o = l[1],
+          d = { data: t, changeData: r, message: c, handleMessage: o }
         return (
           (0, a.useEffect)(function () {
-            ;(0, F.Z)(
+            ;(0, Z.Z)(
               M().mark(function e() {
                 var n, s
                 return M().wrap(function (e) {
                   for (;;)
                     switch ((e.prev = e.next)) {
                       case 0:
-                        return (e.next = 2), oe()
+                        return (e.next = 2), ce()
                       case 2:
                         'Success' === (n = e.sent).message
                           ? (((s = {}).level = n.questionData.level),
                             (s.questions = n.questionData.images),
                             (s.hints = n.questionData.hints),
                             r(s))
-                          : c(n.message)
+                          : o(n.message)
                       case 4:
                       case 'end':
                         return e.stop()
@@ -583,59 +573,74 @@
               }),
             )()
           }, []),
-          (0, L.jsxs)('main', {
-            className: D,
-            children: [
-              (0, L.jsx)(G, { loggedIn: !0, desktop: e.width > 1024 }),
-              (0, L.jsx)('div', {
-                className: U,
-                children: (0, L.jsx)(he.Provider, {
-                  value: x,
-                  children: (0, L.jsxs)('div', {
-                    className: q,
-                    children: [
-                      (0, L.jsxs)('div', {
-                        className: ne,
+          '' !== c
+            ? (0, L.jsxs)('main', {
+                className: D,
+                children: [
+                  (0, L.jsx)(A, { loggedIn: !0, desktop: e.width > 1024 }),
+                  (0, L.jsx)('div', {
+                    className: U,
+                    children: (0, L.jsx)('div', {
+                      className: q,
+                      children: (0, L.jsx)('div', {
+                        className: te,
+                        children: (0, L.jsx)('h1', { children: c }),
+                      }),
+                    }),
+                  }),
+                ],
+              })
+            : (0, L.jsxs)('main', {
+                className: D,
+                children: [
+                  (0, L.jsx)(A, { loggedIn: !0, desktop: e.width > 1024 }),
+                  (0, L.jsx)('div', {
+                    className: U,
+                    children: (0, L.jsx)(he.Provider, {
+                      value: d,
+                      children: (0, L.jsxs)('div', {
+                        className: q,
                         children: [
-                          (0, L.jsx)('span', { className: se }),
-                          (0, L.jsx)('span', {
-                            className: ae,
-                            children:
-                              null !== t &&
-                              (0, L.jsxs)('div', {
-                                children: [
-                                  t.level,
-                                  ' ',
-                                  (0, L.jsx)(ce.xng, {
-                                    style: { color: 'yellow' },
+                          (0, L.jsxs)('div', {
+                            className: ne,
+                            children: [
+                              (0, L.jsx)('span', { className: se }),
+                              (0, L.jsx)('span', {
+                                className: ae,
+                                children:
+                                  null !== t &&
+                                  (0, L.jsxs)('div', {
+                                    children: [
+                                      t.level,
+                                      ' ',
+                                      (0, L.jsx)(oe.xng, {
+                                        style: { color: 'yellow' },
+                                      }),
+                                      ' ',
+                                    ],
                                   }),
-                                  ' ',
+                              }),
+                            ],
+                          }),
+                          e.width <= 1300
+                            ? (0, L.jsxs)(L.Fragment, {
+                                children: [
+                                  (0, L.jsx)(de, { for: 'Mobile' }),
+                                  (0, L.jsx)(me, { for: 'Mobile' }),
+                                ],
+                              })
+                            : (0, L.jsxs)(L.Fragment, {
+                                children: [
+                                  (0, L.jsx)(de, {}),
+                                  (0, L.jsx)(me, {}),
                                 ],
                               }),
-                          }),
                         ],
                       }),
-                      null === t
-                        ? (0, L.jsx)('div', {
-                            className: te,
-                            children: '' === o ? 'loading' : o,
-                          })
-                        : e.width <= 1300
-                        ? (0, L.jsxs)(L.Fragment, {
-                            children: [
-                              (0, L.jsx)(de, { for: 'Mobile' }),
-                              (0, L.jsx)(me, { for: 'Mobile' }),
-                            ],
-                          })
-                        : (0, L.jsxs)(L.Fragment, {
-                            children: [(0, L.jsx)(de, {}), (0, L.jsx)(me, {})],
-                          }),
-                    ],
+                    }),
                   }),
-                }),
-              }),
-            ],
-          })
+                ],
+              })
         )
       }
       var _e = function () {
@@ -755,7 +760,7 @@
           return (0, L.jsxs)('main', {
             className: ge,
             children: [
-              (0, L.jsx)(G, { loggedIn: !0, desktop: n.width > 1024 }),
+              (0, L.jsx)(A, { loggedIn: !0, desktop: n.width > 1024 }),
               (0, L.jsx)('div', {
                 className: je,
                 children: (0, L.jsx)('div', {
@@ -780,7 +785,7 @@
                               }
                               ye(s.email) &&
                                 be(s.password) &&
-                                (0, F.Z)(
+                                (0, Z.Z)(
                                   M().mark(function n() {
                                     var a, t
                                     return M().wrap(function (n) {
@@ -845,24 +850,24 @@
           })
         },
         Le = 'Rules_main__GIxjv',
-        Ae = 'Rules_wrapper__ReoAq',
-        Ge = 'Rules_section__dSiFW',
+        Ge = 'Rules_wrapper__ReoAq',
+        Ae = 'Rules_section__dSiFW',
         Ie = 'Rules_bg__cnwNG',
         Be = 'Rules_one__68+Yw',
         Ee = 'Rules_ruletext__S6ckw'
-      var Ze = function () {
+      var Fe = function () {
           var e = I()
           return (0, L.jsxs)('main', {
             className: Le,
             children: [
-              (0, L.jsx)(G, { loggedIn: !0, desktop: e.width > 1024 }),
-              (0, L.jsx)('div', { className: Ae }),
+              (0, L.jsx)(A, { loggedIn: !0, desktop: e.width > 1024 }),
+              (0, L.jsx)('div', { className: Ge }),
               (0, L.jsx)('div', {
                 className: Ie,
                 children: (0, L.jsxs)('section', {
                   className: Be,
                   children: [
-                    (0, L.jsx)('div', { className: Ge, children: 'Rules' }),
+                    (0, L.jsx)('div', { className: Ae, children: 'Rules' }),
                     (0, L.jsxs)('div', {
                       className: Ee,
                       children: [
@@ -887,7 +892,7 @@
             ],
           })
         },
-        Fe = 'Signup_main__UxcTo',
+        Ze = 'Signup_main__UxcTo',
         We = 'Signup_wrapper__8m1s3',
         Me = 'Signup_container__lV1-P',
         De = 'Signup_aldreadyHavingAccount__QNkPm',
@@ -897,9 +902,9 @@
           n = I(),
           s = (0, r.s0)()
         return (0, L.jsxs)('main', {
-          className: Fe,
+          className: Ze,
           children: [
-            (0, L.jsx)(G, { loggedIn: !0, desktop: n.width > 1024 }),
+            (0, L.jsx)(A, { loggedIn: !0, desktop: n.width > 1024 }),
             (0, L.jsx)('div', {
               className: We,
               children: (0, L.jsxs)('div', {
@@ -940,7 +945,7 @@
                             }
                             ye(s.email) &&
                               be(s.password) &&
-                              (0, F.Z)(
+                              (0, Z.Z)(
                                 M().mark(function n() {
                                   var a, t
                                   return M().wrap(function (n) {
@@ -1011,8 +1016,8 @@
               element: (0, L.jsx)(_e, {}),
               path: '/leaderboard',
             }),
-            (0, L.jsx)(r.AW, { element: (0, L.jsx)(Z, {}), path: '/' }),
-            (0, L.jsx)(r.AW, { element: (0, L.jsx)(Ze, {}), path: '/rules' }),
+            (0, L.jsx)(r.AW, { element: (0, L.jsx)(F, {}), path: '/' }),
+            (0, L.jsx)(r.AW, { element: (0, L.jsx)(Fe, {}), path: '/rules' }),
             (0, L.jsx)(r.AW, {
               element: (0, L.jsx)(r.Fg, { to: '/' }),
               path: '/*',
@@ -1023,13 +1028,13 @@
       function Oe() {
         return (0, L.jsxs)(r.Z5, {
           children: [
-            (0, L.jsx)(r.AW, { element: (0, L.jsx)(Z, {}), path: '/' }),
+            (0, L.jsx)(r.AW, { element: (0, L.jsx)(F, {}), path: '/' }),
             (0, L.jsx)(r.AW, { element: (0, L.jsx)(He, {}), path: '/login' }),
             (0, L.jsx)(r.AW, {
               element: (0, L.jsx)(qe, {}),
               path: '/register',
             }),
-            (0, L.jsx)(r.AW, { element: (0, L.jsx)(Ze, {}), path: '/rules' }),
+            (0, L.jsx)(r.AW, { element: (0, L.jsx)(Fe, {}), path: '/rules' }),
             (0, L.jsx)(r.AW, {
               element: (0, L.jsx)(r.Fg, { to: '/' }),
               path: '/*',
@@ -1037,7 +1042,7 @@
           ],
         })
       }
-      var ze = function () {
+      var Qe = function () {
         var e = a.useContext(i.i)
         return (0, L.jsx)(L.Fragment, {
           children: (0, L.jsx)(t.VK, {
@@ -1049,4 +1054,4 @@
     },
   },
 ])
-//# sourceMappingURL=398.87655ecb.chunk.js.map
+//# sourceMappingURL=398.26f88b15.chunk.js.map

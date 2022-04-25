@@ -381,7 +381,6 @@
   flex-flow: column;
   height: 100vh;
   justify-content: center;
-  width: 100vw;
 }
 .Game_QuestionBar__7wEWI {
   align-items: center;
@@ -514,7 +513,6 @@
   height: 100vh;
   opacity: 0.6;
   position: absolute;
-  width: 100vw;
   z-index: 0;
 }
 .Game_HintBox__87WwY {
@@ -561,14 +559,17 @@
   align-items: baseline;
   display: flex;
 }
-.Game_message__div__S61yz {
+.Game_message__DS4GI {
+  align-items: center;
   color: #fff;
-  left: 50%;
-  position: absolute;
+  display: flex;
+  justify-content: center;
   text-transform: capitalize;
-  top: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+}
+.Game_message__DS4GI h1 {
+  background-color: hsla(0, 0%, 100%, 0.3);
+  font-size: 1.5rem;
+  padding: 0.5rem;
 }
 .Game_AnswerBarHintlap__U9ReQ,
 .Game_AnswerBarSubmitlap__NFRQU {
@@ -1101,4 +1102,4 @@
     justify-content: center;
   }
 }
-/*# sourceMappingURL=398.5af42ad9.chunk.css.map*/
+/*# sourceMappingURL=398.aa503845.chunk.css.map*/

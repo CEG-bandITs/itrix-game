@@ -14,15 +14,12 @@ function Game() {
 
   const [data, changeData] = useState(null)
   const [message, handleMessage] = useState('')
-  const [MessageFromServer, handleMessageFromServer] = useState('')
 
   const value = {
     data,
     changeData,
     message,
     handleMessage,
-    error: MessageFromServer,
-    handleError: handleMessageFromServer,
   }
 
   useEffect(() => {
@@ -39,6 +36,20 @@ function Game() {
       }
     })()
   }, [])
+
+  if (message !== '')
+    return (
+      <main className={styles.main}>
+        <Menu loggedIn={true} desktop={size.width > 1024} />
+        <div className={styles.wrapper}>
+          <div className={styles.GamePage}>
+            <div className={styles.message}>
+              <h1>{message}</h1>
+            </div>
+          </div>
+        </div>
+      </main>
+    )
 
   return (
     <main className={styles.main}>
@@ -58,11 +69,7 @@ function Game() {
               </span>
             </div>
 
-            {data === null ? (
-              <div className={styles.message__div}>
-                {message === '' ? 'loading' : message}
-              </div>
-            ) : size.width <= 1300 ? (
+            {size.width <= 1300 ? (
               <>
                 <QuestionBar for="Mobile" />
                 <AnswerBar for="Mobile" />

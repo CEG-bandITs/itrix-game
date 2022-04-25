@@ -15,12 +15,12 @@ router.post('/auth', asyncHandler(userCntrl.Auth))
 router.get('/verify', (req, res) => {
   try {
     jwt.verify(req.cookies.jwt, process.env.JWT_SECRET)
-    res.send({
+    res.json({
       msg: 'Validated',
     })
   } catch (e) {
     console.log('Error Occured In ' + req.path + ' ' + e)
-    res.send({
+    res.json({
       msg: 'Invalid Token',
     })
   }

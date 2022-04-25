@@ -18,6 +18,7 @@ async function Auth(req, res) {
     if (!user) res.send({ message: 'User not found' })
     else {
       const valid = await user.ValidatePassword(data.password)
+      console.log(valid)
 
       if (valid) {
         const data = {

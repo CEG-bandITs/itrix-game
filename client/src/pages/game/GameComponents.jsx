@@ -122,7 +122,7 @@ export function AnswerBar(props) {
         if (resp.message === 'Success') {
           const temp = resp.data
           if (resp.data == null) {
-            value.handleError('End Of Game')
+            value.handleMessage('Game Over!')
             return
           }
           const data = {
