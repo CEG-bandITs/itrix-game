@@ -1,12 +1,15 @@
 const UserModel = require('../db/UserModel')
-const moment = require('moment')
-const Questions = require('../Questions')
+// const moment = require('moment')
+// const Questions = require('../Questions')
+const config = require('../Questions')
+const GetUserEmailFromJWt =
+  require('../controllers/UserController').GetUserEmailFromJWt
 require('dotenv').config()
 
-const startDate = process.env.START_DATE
+const currentDate = config.currentDate
 
 /*
-  @desc : get /api/game/ ;  header => bearer <token>
+  @desc : get /api/game/ ;  cookie jwt
   response : 
       if user level is less than 10 :
       {status:1,message:'sucess',data:<question_data>}
@@ -14,38 +17,24 @@ const startDate = process.env.START_DATE
       {status:0,message:'you completed game',data:{}}
 */
 async function getQuestion(req, res) {
-  const email = req.data.email
-  const data = await UserModel.findOne({ email: email })
-  const today = moment().format('YYYY-MM-DD')
-  const day = data['days'][today]
+  const email = GetUserEmailFromJWt(req)
+  if (email === '') {
+    res.status(400).json({ message: 'Email Not IN JWT' })
+    return
+  }
 
-  if (day === undefined)
-    res.send({ status: 0, message: 'you can only play between may 5,6,7' })
-  else {
-    const level = day.level
-    let status = 0,
-      message = 'success',
-      data__ = {}
-    if (level === 0) {
-      //updating startTime
-      data.days[today].startedAt = moment().format('HH:mm:ss')
-      //updating end time (duration)
-      data.days[today].EndedAt = '00:00:00'
-      data.save()
-      status = 1
-    } else if (level < 9) {
-      status = 1
-    } else message = "you have completed the today's game"
-
-    if (message === 'success') {
-      let question = { ...Questions[level] }
-      //removing answer from question data
-      delete question['answer']
-      data__['question'] = question
-      data__['level'] = level
+  try {
+    const data = await UserModel.findOne({ email })
+    const level = data.days[currentDate].level
+    const questionData = {
+      level,
+      images: config.level[level].images,
+      hints: config.level[level].hints,
     }
-
-    res.send({ status: status, message: message, data: data__ })
+    res.json({ message: 'Success', questionData })
+  } catch (e) {
+    console.log('ERROR: Error in finding email of user')
+    res.status(500).json({ message: 'Email Not IN JWT' })
   }
 }
 
@@ -62,64 +51,41 @@ async function getQuestion(req, res) {
 */
 
 async function verifyAnswer(req, res) {
-  const level = req.body.level
-  const answer = Convert(req.body.answer)
-
-  const question = Questions[`${level}`]
-
-  const email = req.data.email
-
-  if (level === 9) res.send({ status: 1, message: 'game ended' })
-  //console.log(answer,question,question.answer);
-  else {
-    if (answer === question.answer) {
-      const user = await UserModel.findOne({ email: email })
-      const today = moment().format('YYYY-MM-DD')
-
-      if (user.days[today] === undefined)
-        res.send({ status: 0, message: 'you cannot submit today' })
-      else {
-        //update level
-        user.days[today].level += 1
-        //updating duration
-        user.days[today].duration = TimeDifference(user.days[today].startedAt)
-        await user.save()
-
-        let data = { ...Questions[level + 1] }
-        delete data['answer']
-        console.log('updating level !!')
-        res.send({
-          status: 1,
-          message: 'success',
-          data: { question: data, level: level + 1 },
-        })
-      }
-    } else res.send({ message: 'wrong answer' })
+  const email = GetUserEmailFromJWt(req)
+  if (email === '') {
+    res.status(400).json({ message: 'Email Not IN JWT' })
+    return
   }
-}
 
-function Convert(answer) {
-  //removing paddings
-  answer = answer.trim()
-
-  //removing spaces between words
-  answer = answer.split(' ').join('')
-  //making everything to lower case
-  answer = answer.toLowerCase()
-
-  return answer
-}
-
-function TimeDifference(startTime) {
-  let endTime = moment(moment().format('HH:mm:ss'), 'HH:mm:ss')
-  startTime = moment(startTime, 'HH:mm:ss')
-  console.log(endTime, startTime)
-
-  let dif = moment.duration(endTime.diff(startTime))
-
-  dif = [dif.hours(), dif.minutes(), dif.seconds()].join(':')
-
-  return dif
+  try {
+    const data = await UserModel.findOne({ email })
+    let level = data.days[currentDate].level
+    console.log(config.level[level].answers)
+    if (config.level[level].answers.includes(req.body.answer)) {
+      data.days[currentDate].level += 1
+      data.save()
+      console.log(config.level.length)
+      console.log(level + 2)
+      if (level + 2 < config.level.length) {
+        level++
+        res.json({
+          message: 'Success',
+          data: {
+            level,
+            questions: config.level[level].images,
+            hints: config.level[level].hints,
+          },
+        })
+      } else {
+        res.json({ message: 'Success', data: null })
+      }
+    } else {
+      res.status(500).json({ message: 'Wrong Answer' })
+    }
+  } catch (e) {
+    console.log('ERROR: Error in finding email of user', e)
+    res.status(500).json({ message: 'Email Not IN JWT' })
+  }
 }
 
 module.exports = {

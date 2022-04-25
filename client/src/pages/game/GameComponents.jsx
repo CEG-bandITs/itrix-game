@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import './Game.css'
+import style from './Game.module.css'
 import { SubmitAnswer } from '../../api_calls/Game'
 import { Container } from './Game.jsx'
 import PropTypes from 'prop-types'
@@ -25,16 +25,19 @@ export function QuestionBar(props) {
   }
   if (props.for === 'Mobile') {
     return (
-      <div className="QuestionBar">
+      <div className={style.QuestionBar}>
         <img
-          className="prev-icon"
+          className={style.previcon}
           src="images/right.png"
           alt="right image"
           onClick={IncreaseImgPointer}
         />
-        <img className="Question-Img" src={data.images[ImgPointer].url}></img>
         <img
-          className="next-icon"
+          className={style.QuestionImg}
+          src={data.images[ImgPointer].url}
+        ></img>
+        <img
+          className={style.nexticon}
           src="images/right.png"
           alt="left image"
           onClick={DecreaseImgPointer}
@@ -43,13 +46,13 @@ export function QuestionBar(props) {
     )
   } else {
     return (
-      <div className="QuestionBar">
+      <div className={style.QuestionBar}>
         {data.images.map((i) => {
           return (
             <img
               src={i.url}
               key={i.id}
-              className="Question-Img"
+              className={style.QuestionImg}
               alt="Question Image"
             />
           )
@@ -68,12 +71,12 @@ function HintBox(props) {
     return (
       <>
         <div
-          className="GreyLayer"
+          className={style.GreyLayer}
           onClick={() => {
             props.setShowHint(false)
           }}
         ></div>
-        <div className="HintBox">
+        <div className={style.HintBox}>
           {props.hints.map((i) => {
             return (
               <>
@@ -107,21 +110,27 @@ export function AnswerBar(props) {
   const [disableButton, handleDisableButton] = useState(false)
   const value = React.useContext(Container)
 
-  function Submit__() {
+  function Submit(e) {
+    e.preventDefault()
+
     if (answer.trim().length !== 0) {
       handleDisableButton(true)
       SubmitAnswer({ level: value.data.level, answer }).then((resp) => {
         handleDisableButton(false)
         console.log(resp)
 
-        if (resp.message === 'success') {
+        if (resp.message === 'Success') {
           const temp = resp.data
-          const data__ = {
-            level: temp.level,
-            hints: temp.question.hints,
-            questions: temp.question.images,
+          if (resp.data == null) {
+            value.handleError('End Of Game')
+            return
           }
-          value.changeData(data__)
+          const data = {
+            level: temp.level,
+            hints: temp.hints,
+            questions: temp.questions,
+          }
+          value.changeData(data)
           handleAnswer('')
           value.handleError(resp.message)
         } else {
@@ -134,10 +143,10 @@ export function AnswerBar(props) {
   if (props.for === 'Mobile') {
     return (
       <>
-        <div className="AnswerBar">
+        <div className={style.AnswerBar}>
           <form>
             <input
-              className="AnswerBar-Input"
+              className={style.AnswerBarInput}
               type="text"
               value={answer}
               onChange={(e) => {
@@ -145,22 +154,22 @@ export function AnswerBar(props) {
               }}
               placeholder="Enter Answer"
             ></input>
-            <div className="AnswerBar-Bottom">
+            <div className={style.AnswerBarBottom}>
               <button
-                className="AnswerBar-Hint"
+                className={style.AnswerBarHint}
                 onClick={(e) => {
                   e.preventDefault()
                   setShowHint(true)
                 }}
               >
                 Hint
-                <img className="AnswerBar-Icon" src="images/idea.jpg" />
+                <img className={style.AnswerBarIcon} src="images/idea.jpg" />
               </button>
               <button
                 disabled={disableButton}
                 type="button"
-                className="AnswerBar-Submit"
-                onClick={Submit__}
+                className={style.AnswerBarSubmit}
+                onClick={(e) => Submit(e)}
               >
                 submit
               </button>
@@ -177,21 +186,21 @@ export function AnswerBar(props) {
   } else {
     return (
       <>
-        <div className="AnswerBar">
-          <div className="AnswerBar-Oneline-Bottom">
+        <div className={style.AnswerBar}>
+          <div className={style.AnswerBarOnelineBottom}>
             <button
-              className="AnswerBar-Hint-lap"
+              className={style.AnswerBarHintlap}
               onClick={(e) => {
                 e.preventDefault()
                 setShowHint(true)
               }}
             >
               <p>Hint</p>
-              <img className="AnswerBar-Icon" src="images/idea.jpg" />
+              <img className={style.AnswerBarIcon} src="images/idea.jpg" />
             </button>
             <input
               type="text"
-              className="AnswerBar-Input"
+              className={style.AnswerBarInput}
               placeholder="Enter Answer"
               value={answer}
               onChange={(e) => {
@@ -200,9 +209,9 @@ export function AnswerBar(props) {
             ></input>
 
             <button
-              className="AnswerBar-Submit-lap"
+              className={style.AnswerBarSubmitlap}
               type="button"
-              onClick={Submit__}
+              onClick={Submit}
             >
               submit
             </button>

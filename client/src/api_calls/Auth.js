@@ -16,7 +16,7 @@ export const VerifyLogin = async () => {
 }
 
 export const LoginUser = (token, handler) => {
-  jsCookie.set('jwt', token)
+  jsCookie.set('jwt', token, { expires: 7, path: '' })
 
   handler(true)
 }

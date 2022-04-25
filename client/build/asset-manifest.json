@@ -1,10 +1,10 @@
 {
   "files": {
     "main.css": "/static/css/main.0484fe16.css",
-    "main.js": "/static/js/main.e548cbb1.js",
-    "static/css/340.5c31be72.chunk.css": "/static/css/340.5c31be72.chunk.css",
-    "static/js/340.81e89721.chunk.js": "/static/js/340.81e89721.chunk.js",
-    "static/js/326.30c972ad.chunk.js": "/static/js/326.30c972ad.chunk.js",
+    "main.js": "/static/js/main.4d0b56d5.js",
+    "static/css/398.5af42ad9.chunk.css": "/static/css/398.5af42ad9.chunk.css",
+    "static/js/398.87655ecb.chunk.js": "/static/js/398.87655ecb.chunk.js",
+    "static/js/477.14a5fdc4.chunk.js": "/static/js/477.14a5fdc4.chunk.js",
     "static/media/harrypotter-platform-bg.png": "/static/media/harrypotter-platform-bg.5b3029177a4dd0559c05.png",
     "static/media/question-bg.png": "/static/media/question-bg.82d5aaeee49effac137e.png",
     "static/media/cos.png": "/static/media/cos.fd0b240ded8a5a623855.png",
@@ -18,10 +18,10 @@
     "static/media/notification.ttf?s3g3t9": "/static/media/notification.c5d9251ea82e42f75381.ttf",
     "index.html": "/index.html",
     "main.0484fe16.css.map": "/static/css/main.0484fe16.css.map",
-    "main.e548cbb1.js.map": "/static/js/main.e548cbb1.js.map",
-    "340.5c31be72.chunk.css.map": "/static/css/340.5c31be72.chunk.css.map",
-    "340.81e89721.chunk.js.map": "/static/js/340.81e89721.chunk.js.map",
-    "326.30c972ad.chunk.js.map": "/static/js/326.30c972ad.chunk.js.map"
+    "main.4d0b56d5.js.map": "/static/js/main.4d0b56d5.js.map",
+    "398.5af42ad9.chunk.css.map": "/static/css/398.5af42ad9.chunk.css.map",
+    "398.87655ecb.chunk.js.map": "/static/js/398.87655ecb.chunk.js.map",
+    "477.14a5fdc4.chunk.js.map": "/static/js/477.14a5fdc4.chunk.js.map"
   },
-  "entrypoints": ["static/css/main.0484fe16.css", "static/js/main.e548cbb1.js"]
+  "entrypoints": ["static/css/main.0484fe16.css", "static/js/main.4d0b56d5.js"]
 }

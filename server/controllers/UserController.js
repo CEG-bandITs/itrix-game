@@ -82,7 +82,18 @@ async function CreateUser(req, res) {
   }
 }
 
+function GetUserEmailFromJWt(req) {
+  try {
+    const data = jwt.verify(req.cookies.jwt, process.env.JWT_SECRET)
+    return data.email
+  } catch (e) {
+    console.log('ERROR: in verifing JWT', e)
+    return ''
+  }
+}
+
 module.exports = {
   Auth,
   CreateUser,
+  GetUserEmailFromJWt,
 }
