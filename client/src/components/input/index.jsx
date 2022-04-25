@@ -68,7 +68,7 @@ export function Password(props) {
 export function ConfirmPassword(props) {
   const [hint, setHint] = useState(false)
   const validatePassword = (e) => {
-    if (e.target.value === document.getElementById('password')) {
+    if (e.target.value === document.getElementById('password').value) {
       e.target.style.border = '0.1rem solid green'
       setHint(false)
     } else {

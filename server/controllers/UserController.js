@@ -1,35 +1,36 @@
 const jwt = require('jsonwebtoken')
 require('dotenv').config()
-
 const User = require('../db/UserModel')
+const DateZero = new Date(0)
 
 /*
     @desc POST /api/users/auth/
     actions :verify user , generate token and set token as cookie
 */
+
 async function Auth(req, res) {
   const email = req.body.email
   const password = req.body.password
-  const data = { email: email, password: password }
+  const data = { email, password }
 
-  const user = await User.findOne({ email: data.email })
+  try {
+    const user = await User.findOne({ email: data.email })
+    if (!user) res.send({ message: 'User not found' })
+    else {
+      const valid = await user.ValidatePassword(data.password)
 
-  if (!user) res.send({ message: 'User not found' })
-  else {
-    const valid = await user.ValidatePassword(data.password)
-    if (valid) {
-      //todays date
-      var today = new Date().toLocaleDateString()
-
-      const data = {
-        name: user.name,
-        email: user.email,
-      }
-
-      const token = JWTTokenGenerator(data)
-
-      res.send({ message: 'success', token: token, data: data })
-    } else res.send({ message: 'Wrong Credentials' })
+      if (valid) {
+        const data = {
+          name: user.name,
+          email: user.email,
+        }
+        const token = JWTTokenGenerator(data)
+        res.json({ message: 'success', token, data })
+      } else res.status(400).json({ message: 'wrong credentials' })
+    }
+  } catch (e) {
+    console.log('ERROR: error in finding user')
+    res.status(500).json({ message: 'internal server error' })
   }
 }
 
@@ -44,55 +45,44 @@ const JWTTokenGenerator = (payload) => {
 async function CreateUser(req, res) {
   const body = req.body
   const data = {
-    name: {
-      firstName: body.fname.value,
-      lastName: body.lname.value,
-    },
-    college: body.clg.value,
-    password: body.passwd.value,
-    email: body.email.value,
+    name: body.name,
+    college: body.clg,
+    password: body.password,
+    email: body.email,
+    days: [
+      {
+        level: 0,
+        lastCompletedTimeStamp: DateZero,
+      },
+      {
+        level: 0,
+        lastCompletedTimeStamp: DateZero,
+      },
+      {
+        level: 0,
+        lastCompletedTimeStamp: DateZero,
+      },
+    ],
   }
 
-  var user = new User(data)
-  const is_exists = await User.exists({ email: data.email })
-
-  if (is_exists) res.send({ message: 'Account already exists' })
-  else {
+  try {
+    const user = new User(data)
     await user.save(function (err, results) {
-      if (err) res.send({ message: 'some server error' })
-      else {
+      if (err) {
+        console.log('Error: In saving user while creating', err)
+        res.status(500).json({ message: err._message })
+      } else {
         const token = JWTTokenGenerator({ name: user.name, email: user.email })
-        res.send({ message: 'success', token: token })
+        res.status(200).json({ message: 'success', token })
       }
     })
+  } catch (e) {
+    console.log('ERROR: in creating user', e)
+    res.status(500).json({ message: 'internal server error' })
   }
-}
-
-/*
-    @desc GET /api/users/details
-    actions :parse cookie 
-*/
-async function Details(req, res) {
-  //parse token
-
-  const header = req.headers.authorization
-  if (header === undefined) return res.json({ message: 'failed' })
-  const authorization = header.split(' ')
-
-  const bearer = authorization[0]
-  const token = authorization[1]
-
-  if (bearer !== undefined && token !== undefined && bearer === 'Bearer') {
-    //verify token
-    jwt.verify(token, process.env.JWT_SECRET, function (err, decodedData) {
-      if (err) res.send({ message: 'failed' })
-      else res.send({ message: 'success', data: decodedData })
-    })
-  } else res.send({ message: 'failed' })
 }
 
 module.exports = {
   Auth,
   CreateUser,
-  Details,
 }

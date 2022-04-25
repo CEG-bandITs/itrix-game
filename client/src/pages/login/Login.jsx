@@ -5,16 +5,38 @@ import { useWindowSize } from '../../lib/windowSize'
 import { Email, Password } from '../../components/input'
 import { validEmail, validPassword } from '../../lib/validation'
 import { useNavigate } from 'react-router-dom'
+import { Wrapper } from '../../RootPage'
+import { LoginUser } from '../../api_calls/Auth'
 
 function Login() {
+  const value = React.useContext(Wrapper)
   const size = useWindowSize()
   const nav = useNavigate()
 
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-    if (!validEmail() || !validPassword()) return
+  const handleSubmit = (e) => {
+    const data = {
+      email: document.getElementById('email').value,
+      password: document.getElementById('password').value,
+    }
 
-    fetch('/api/users/login')
+    // Don't send request if its invalid
+    if (!validEmail(data.email) || !validPassword(data.password)) {
+      return
+    }
+
+    ;(async () => {
+      const res = await fetch('/api/users/auth', {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+      const response = await res.json()
+      if (response.message === 'success') {
+        LoginUser(response.token, value.handleIsLogin)
+      }
+    })()
   }
 
   return (
@@ -31,7 +53,7 @@ function Login() {
               <input
                 type="button"
                 value={'Sign In'}
-                onClick={() => handleSubmit}
+                onClick={(e) => handleSubmit(e)}
               />
 
               <div className={styles.createAccount}>

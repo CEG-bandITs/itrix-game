@@ -16,15 +16,13 @@ export default function RootPage() {
   }
 
   useEffect(() => {
-    VerifyLogin().then((response) => {
-      handleIsLogin(response)
+    ;(async () => {
+      const res = await VerifyLogin()
+      handleIsLogin(res)
       handleIsLoading(false)
-    })
+    })()
   }, [])
 
-  useEffect(() => {
-    console.log(isLoading)
-  }, [isLoading])
   return (
     <>
       <Wrapper.Provider value={value}>
