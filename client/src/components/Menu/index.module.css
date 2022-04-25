@@ -6,7 +6,7 @@
 
 .MenuIcon {
   background-color: black;
-  fill: var(--white);
+  fill: white;
   height: 2rem;
   width: auto;
   z-index: 3;

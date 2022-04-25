@@ -3,13 +3,13 @@
 
 .main {
   min-height: 100vh;
-  background-color: var(--black);
-  color: var(--white);
+  background-color: black;
+  color: white;
   display: flex;
 }
 
 .wrapper {
-  color: var(--white);
+  color: white;
   flex-grow: 1;
   display: flex;
   flex-direction: column;
@@ -20,7 +20,8 @@
 }
 
 .content__wrapper {
-  background: url('/public/images/cos.png');
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    url('/public/images/cos.png');
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -32,6 +33,7 @@
   height: 100vh;
   min-height: fit-content;
   display: block;
+  position: relative;
 }
 
 .column .img {

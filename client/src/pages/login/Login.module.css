@@ -22,20 +22,14 @@
   background-image: url('/public/images/harrypotter-platform-bg.png');
   background-size: cover;
   background-position: 80%;
-  position: absolute;
   height: 100vh;
-  width: 100vw;
-  overflow-x: auto;
 }
 
 .darkLayer {
   background-color: black;
   height: 100vh;
-  width: 100vw;
-  position: absolute;
-  display: grid;
-  align-items: center;
   opacity: 0.85;
+  position: relative;
 }
 
 .loginBox {
@@ -49,7 +43,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 80vw;
+  width: 40vw;
 }
 
 .loginBox > h1 {
@@ -83,6 +77,12 @@
 .loginBox > input[type='email']::placeholder,
 .loginBox > input[type='password']::placeholder {
   color: white;
+}
+
+.loginBox span {
+  color: red;
+  font-weight: bold;
+  font-size: 0.5rem;
 }
 
 .createAccount {
@@ -136,8 +136,8 @@
   font-size: smaller;
 }
 
-@media only screen and (min-width: 700px) {
+@media only screen and (max-width: 700px) {
   .loginBox {
-    width: 50vw;
+    width: 80vw;
   }
 }

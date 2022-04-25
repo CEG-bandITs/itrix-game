@@ -13,6 +13,7 @@ export const VerifyLogin = async () => {
     .catch(() => {
       return false
     })
+  return true
 }
 
 export const Logout = (handler) => {

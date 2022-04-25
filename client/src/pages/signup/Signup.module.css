@@ -1,143 +1,107 @@
 @import url('https://fonts.googleapis.com/css2?family=Cookie&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
 
-.base {
-  background-image: url(../../../public/images/cos.png);
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  display: grid;
-  grid-template-columns: 1fr;
+.main {
+  min-height: 100vh;
+  display: flex;
   overflow-y: scroll;
 }
 
-.container {
-  background-color: rgba(196, 196, 196, 0.3);
-}
-
-.container > h1 {
+.wrapper {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  display: block;
-  padding: 3vmax;
-  font-size: larger;
-  color: white;
-  font-weight: 100;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(../../../public/images/cos.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
 }
 
-.container > form {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 3vh;
-  justify-items: center;
-}
-
-.container > form > input[type='text'],
-.container > form > input[type='password'],
-.container > form > input[type='email'] {
+.container {
+  background-color: rgba(255, 255, 255, 0.3);
   width: 90%;
-  padding: 10px;
-  background-color: rgba(196, 196, 196, 0.6);
-  color: white;
-  border: 0;
-  font-size: small;
-  outline: 0;
-  border-radius: 6px;
-  margin: 5px;
-  margin-bottom: 0px;
-  border: 1px solid transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.container > form > input[type='text']::placeholder,
-.container > form > input[type='password']::placeholder,
-.container > form > input[type='email']::placeholder {
+.container h1 {
   color: white;
 }
 
-/* @media screen and (min-width: 1800px) {
-  .base {
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    justify-items: start;
-  }
+.container form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  width: 100%;
+  gap: 0.2rem;
+}
 
-  .container {
-    grid-template-columns: 1fr 1fr;
-  }
-} */
-
-.container > form > input[type='button'] {
-  width: 95%;
-  background-color: rgba(11, 194, 52);
-  border: 0;
+.container form input[type='email'],
+.container form input[type='text'],
+.container form input[type='password'],
+.container form input[type='tel'] {
+  width: 90%;
+  font-size: 0.7rem;
   color: white;
-  font-size: medium;
-  padding: 10px;
-  margin-top: 20px;
+  background-color: rgba(196, 196, 196, 0.4);
+  height: 5vh;
   border-radius: 10px;
+  margin: 1vmin;
+  padding: 1vmin;
+}
+
+.container form input[type='email']::placeholder,
+.container form input[type='text']::placeholder,
+.container form input[type='password']::placeholder,
+.container form input[type='tel']::placeholder {
+  color: white;
+}
+.container form > input[type='button'] {
+  background-color: rgba(11, 194, 52, 0.6);
+  margin: 1vw;
+  color: white;
+  cursor: pointer;
+  border-radius: 10px;
+  padding: 0.2rem;
 }
 
 .aldreadyHavingAccount {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
   justify-content: space-evenly;
   align-items: center;
-  gap: 3vw;
-  padding: 3vmax;
+  margin: 1vw;
+  width: 100%;
+  padding: 0.3rem;
+}
+
+.aldreadyHavingAccount p {
+  font-size: 0.6rem;
   color: white;
 }
 
-.aldreadyHavingAccount > p {
-  font-size: small;
-  font-weight: 100;
-  color: black;
-}
-
-.aldreadyHavingAccount > input[type='button'] {
-  background-color: rgba(45, 145, 188, 0.8);
-  border: 0;
-  font-size: small;
-  padding: 10px;
+.aldreadyHavingAccount input[type='button'] {
+  background-color: rgba(45, 145, 188, 0.6);
+  padding: 0.2rem;
   color: white;
   border-radius: 10px;
+  cursor: pointer;
 }
 
-@keyframes fadeInAnimation {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-.declarationForm {
-  animation: fadeInAnimation ease 3s;
-  justify-self: center;
-}
-
-.declarationForm > img {
-  max-width: 80vw;
-  max-height: 80vh;
-  height: auto;
-  width: auto;
-}
-
-@media only screen and (min-width: 500px) {
+@media screen and (min-width: 1200px) {
   .container {
-    margin-top: 50px;
-    padding: 20px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    width: 60%;
   }
-}
-
-.Error {
-  color: red;
-  font-size: small;
-  height: 10px;
+  .aldreadyHavingAccount {
+    justify-content: center;
+    gap: 1rem;
+  }
 }
