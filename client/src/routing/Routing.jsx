@@ -45,6 +45,7 @@ function UnAuthenticatedRoute() {
       <Route element={<Home />} path="/"></Route>
       <Route element={<Login />} path="/login"></Route>
       <Route element={<Signup />} path="/register"></Route>
+      <Route element={<Leaderboard />} path="/leaderboard"></Route>
       <Route element={<Rules />} path="/rules"></Route>
       <Route element={<Navigate to="/" />} path="/*"></Route>
     </Routes>

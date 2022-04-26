@@ -1,13 +1,13 @@
 'use strict'
 ;(self.webpackChunkitrix_game_client =
   self.webpackChunkitrix_game_client || []).push([
-  [398],
+  [197],
   {
-    896: function (e, n, s) {
+    550: function (e, n, s) {
       s.r(n),
         s.d(n, {
           default: function () {
-            return Qe
+            return Xe
           },
         })
       var a = s(791),
@@ -18,103 +18,103 @@
         c = 'Home_wrapper__Ce14n',
         o = 'Home_content__wrapper__LkgMb',
         d = 'Home_column__X6izR',
-        u = 'Home_img__N7NQ0',
-        m = 'Home_img1__AsJPx',
+        m = 'Home_img__N7NQ0',
+        u = 'Home_img1__AsJPx',
         h = 'Home_img2__Dyjmg',
         x = 'Home_row__FYwgB',
-        _ = 'Home_content__header__Foxxu',
-        g = 'Home_content__GWLDp',
-        j = 'Home_after__login__0MMxI',
+        j = 'Home_content__header__Foxxu',
+        _ = 'Home_content__GWLDp',
+        g = 'Home_after__login__0MMxI',
         p = 'Home_image__wrapper__wXJMU',
         v = 'Home_content1__ZxbGG',
         f = 'Home_nav__links__XoDUA',
         w = 'Home_other__pages__hvh3W',
         N = 'Home_btnGrad__8azU4',
-        y = 'Home_hi__erHpY',
-        b = s(878),
-        C = s(152),
-        k = 'Menu_MenuIcon__gFJdr',
-        S = 'Menu_NavBar__nIA6a',
-        H = 'Menu_active__LsPUM',
-        L = s(184),
-        G = [
+        b = 'Home_hi__erHpY',
+        y = s(878),
+        k = s(152),
+        C = 'Menu_MenuIcon__gFJdr',
+        L = 'Menu_NavBar__nIA6a',
+        S = 'Menu_active__LsPUM',
+        H = s(184),
+        A = [
           { name: 'Home', link: '/' },
           { name: 'Rules', link: '/rules' },
           { name: 'LeaderBoard', link: '/leaderboard' },
         ]
-      function A(e) {
+      function G(e) {
         var n = e.desktop,
           s = (0, a.useContext)(i.i),
           l = (0, a.useState)(!1),
-          c = (0, C.Z)(l, 2),
+          c = (0, k.Z)(l, 2),
           o = c[0],
           d = c[1],
-          u = (0, r.TH)()
+          m = (0, r.TH)()
         return n || o
-          ? (0, L.jsx)('nav', {
-              className: S,
-              children: (0, L.jsxs)('ul', {
+          ? (0, H.jsx)('nav', {
+              className: L,
+              children: (0, H.jsxs)('ul', {
                 onClick: function () {
                   return d(!o)
                 },
                 children: [
                   n
-                    ? (0, L.jsx)(L.Fragment, {})
-                    : (0, L.jsx)('li', {
-                        children: (0, L.jsx)('svg', {
+                    ? (0, H.jsx)(H.Fragment, {})
+                    : (0, H.jsx)('li', {
+                        children: (0, H.jsx)('svg', {
                           xmlns: 'http://www.w3.org/2000/svg',
                           fill: 'currentColor',
                           viewBox: '0 0 16 16',
-                          children: (0, L.jsx)('path', {
+                          children: (0, H.jsx)('path', {
                             d: 'M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z',
                           }),
                         }),
                       }),
-                  G.map(function (e) {
-                    return e.link === u.pathname
-                      ? (0, L.jsx)(
+                  A.map(function (e) {
+                    return e.link === m.pathname
+                      ? (0, H.jsx)(
                           t.rU,
                           {
                             to: e.link,
-                            children: (0, L.jsx)('li', {
-                              className: H,
+                            children: (0, H.jsx)('li', {
+                              className: S,
                               children: e.name,
                             }),
                           },
                           e.name,
                         )
-                      : (0, L.jsx)(
+                      : (0, H.jsx)(
                           t.rU,
                           {
                             to: e.link,
-                            children: (0, L.jsx)('li', { children: e.name }),
+                            children: (0, H.jsx)('li', { children: e.name }),
                           },
                           e.name,
                         )
                   }),
                   s.isLogin
-                    ? (0, L.jsx)(t.rU, {
+                    ? (0, H.jsx)(t.rU, {
                         to: '/',
-                        children: (0, L.jsx)('li', {
+                        children: (0, H.jsx)('li', {
                           onClick: function () {
-                            return (0, b.RD)(s.handleIsLogin)
+                            return (0, y.RD)(s.handleIsLogin)
                           },
                           children: 'Logout',
                         }),
                       })
-                    : (0, L.jsx)(L.Fragment, {}),
+                    : (0, H.jsx)(H.Fragment, {}),
                 ],
               }),
             })
-          : (0, L.jsx)('svg', {
+          : (0, H.jsx)('svg', {
               xmlns: 'http://www.w3.org/2000/svg',
               fill: 'currentColor',
-              className: k,
+              className: C,
               viewBox: '0 0 16 16',
               onClick: function () {
                 return d(!o)
               },
-              children: (0, L.jsx)('path', {
+              children: (0, H.jsx)('path', {
                 fillRule: 'evenodd',
                 d: 'M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z',
               }),
@@ -122,7 +122,7 @@
       }
       function I() {
         var e = (0, a.useState)({ width: void 0, height: void 0 }),
-          n = (0, C.Z)(e, 2),
+          n = (0, k.Z)(e, 2),
           s = n[0],
           t = n[1]
         return (
@@ -146,49 +146,49 @@
       function B() {
         var e = I(),
           n = a.useContext(i.i)
-        return (0, L.jsxs)('main', {
+        return (0, H.jsxs)('main', {
           className: l,
           children: [
-            (0, L.jsx)(A, { loggedIn: n.isLogin, desktop: e.width > 1024 }),
-            (0, L.jsx)('div', {
+            (0, H.jsx)(G, { loggedIn: n.isLogin, desktop: e.width > 1024 }),
+            (0, H.jsx)('div', {
               className: c,
-              children: (0, L.jsx)('div', {
+              children: (0, H.jsx)('div', {
                 className: 'after__login',
-                children: (0, L.jsx)('div', {
+                children: (0, H.jsx)('div', {
                   className: 'content1',
-                  children: (0, L.jsxs)('div', {
-                    className: j,
+                  children: (0, H.jsxs)('div', {
+                    className: g,
                     children: [
-                      (0, L.jsxs)('div', {
+                      (0, H.jsxs)('div', {
                         className: v,
                         children: [
-                          (0, L.jsx)('div', {
-                            className: y,
+                          (0, H.jsx)('div', {
+                            className: b,
                             title: 'Chamber of secrets',
                             children: 'Chamber of secrets',
                           }),
-                          (0, L.jsxs)('div', {
+                          (0, H.jsxs)('div', {
                             className: f,
                             children: [
-                              (0, L.jsx)(t.rU, {
+                              (0, H.jsx)(t.rU, {
                                 className: N,
                                 to: '/game',
                                 children: 'Play Game',
                               }),
-                              (0, L.jsx)(t.rU, {
+                              (0, H.jsx)(t.rU, {
                                 className: w,
                                 to: '/leaderboard',
                                 children: 'LeaderBoard',
                               }),
-                              (0, L.jsx)(t.rU, {
+                              (0, H.jsx)(t.rU, {
                                 className: w,
                                 to: '/team',
                                 children: 'Our Team',
                               }),
-                              (0, L.jsx)('span', {
+                              (0, H.jsx)('span', {
                                 className: w,
                                 onClick: function () {
-                                  ;(0, b.RD)(n.handleIsLogin)
+                                  ;(0, y.RD)(n.handleIsLogin)
                                 },
                                 children: 'Logout',
                               }),
@@ -196,7 +196,7 @@
                           }),
                         ],
                       }),
-                      (0, L.jsx)('div', { className: p }),
+                      (0, H.jsx)('div', { className: p }),
                     ],
                   }),
                 }),
@@ -208,46 +208,46 @@
       function E() {
         var e = (0, r.s0)(),
           n = I()
-        return (0, L.jsxs)('main', {
+        return (0, H.jsxs)('main', {
           className: l,
           children: [
-            (0, L.jsx)(A, { loggedIn: !0, desktop: n.width > 1024 }),
-            (0, L.jsx)('div', {
+            (0, H.jsx)(G, { loggedIn: !0, desktop: n.width > 1024 }),
+            (0, H.jsx)('div', {
               className: c,
-              children: (0, L.jsx)('div', {
+              children: (0, H.jsx)('div', {
                 className: o,
-                children: (0, L.jsxs)('div', {
-                  className: g,
+                children: (0, H.jsxs)('div', {
+                  className: _,
                   children: [
-                    (0, L.jsx)('p', {
-                      className: _,
+                    (0, H.jsx)('p', {
+                      className: j,
                       children: ' Chamber Of Secrets ',
                     }),
-                    (0, L.jsxs)('div', {
+                    (0, H.jsxs)('div', {
                       className: x,
                       children: [
-                        (0, L.jsxs)('div', {
+                        (0, H.jsxs)('div', {
                           className: d,
                           children: [
-                            (0, L.jsx)('div', {
+                            (0, H.jsx)('div', {
                               onClick: function () {
                                 return e('/register')
                               },
-                              className: ''.concat(u, ' ').concat(m),
+                              className: ''.concat(m, ' ').concat(u),
                             }),
-                            (0, L.jsx)('p', { children: ' Sign Up' }),
+                            (0, H.jsx)('p', { children: ' Sign Up' }),
                           ],
                         }),
-                        (0, L.jsxs)('div', {
+                        (0, H.jsxs)('div', {
                           className: d,
                           children: [
-                            (0, L.jsx)('div', {
+                            (0, H.jsx)('div', {
                               onClick: function () {
                                 return e('/login')
                               },
-                              className: ''.concat(u, ' ').concat(h),
+                              className: ''.concat(m, ' ').concat(h),
                             }),
-                            (0, L.jsx)('p', { children: ' Login ' }),
+                            (0, H.jsx)('p', { children: ' Login ' }),
                           ],
                         }),
                       ],
@@ -261,25 +261,25 @@
       }
       var F = function () {
           var e = a.useContext(i.i)
-          return (0, L.jsx)('div', {
-            children: e.isLogin ? (0, L.jsx)(B, {}) : (0, L.jsx)(E, {}),
+          return (0, H.jsx)('div', {
+            children: e.isLogin ? (0, H.jsx)(B, {}) : (0, H.jsx)(E, {}),
           })
         },
         Z = s(861),
         W = s(757),
         M = s.n(W),
-        D = 'Game_main__+0xaN',
-        U = 'Game_wrapper__0g2rD',
-        q = 'Game_GamePage__lj+VD',
-        R = 'Game_QuestionBar__7wEWI',
-        T = 'Game_nexticon__HLBJQ',
-        O = 'Game_previcon__Jd6ng',
-        Q = 'Game_QuestionImg__-+44o',
-        z = 'Game_AnswerBar__4+sER',
-        J = 'Game_AnswerBarInput__HWQzo',
-        P = 'Game_AnswerBarBottom__1F0Bq',
-        V = 'Game_AnswerBarIcon__vO3VS',
-        Y = 'Game_AnswerBarHint__K3HED',
+        R = 'Game_main__+0xaN',
+        D = 'Game_wrapper__0g2rD',
+        U = 'Game_GamePage__lj+VD',
+        q = 'Game_QuestionBar__7wEWI',
+        z = 'Game_nexticon__HLBJQ',
+        T = 'Game_previcon__Jd6ng',
+        O = 'Game_QuestionImg__-+44o',
+        J = 'Game_AnswerBar__4+sER',
+        P = 'Game_AnswerBarInput__HWQzo',
+        Q = 'Game_AnswerBarBottom__1F0Bq',
+        Y = 'Game_AnswerBarIcon__vO3VS',
+        V = 'Game_AnswerBarHint__K3HED',
         X = 'Game_AnswerBarSubmit__MqnTp',
         K = 'Game_AnswerBarOnelineBottom__Wo1Ll',
         $ = 'Game_GreyLayer__AbNU7',
@@ -346,26 +346,26 @@
         oe = s(952)
       function de(e) {
         var n = (0, a.useState)(0),
-          s = (0, C.Z)(n, 2),
+          s = (0, k.Z)(n, 2),
           t = s[0],
           r = s[1],
           i = a.useContext(he),
           l = { images: i.data.questions, hints: i.data.hints }
         return 'Mobile' === e.for
-          ? (0, L.jsxs)('div', {
-              className: R,
+          ? (0, H.jsxs)('div', {
+              className: q,
               children: [
-                (0, L.jsx)('img', {
-                  className: O,
+                (0, H.jsx)('img', {
+                  className: T,
                   src: 'images/right.png',
                   alt: 'right image',
                   onClick: function () {
                     t >= l.images.length - 1 ? r(0) : r(t + 1)
                   },
                 }),
-                (0, L.jsx)('img', { className: Q, src: l.images[t].url }),
-                (0, L.jsx)('img', {
-                  className: T,
+                (0, H.jsx)('img', { className: O, src: l.images[t].url }),
+                (0, H.jsx)('img', {
+                  className: z,
                   src: 'images/right.png',
                   alt: 'left image',
                   onClick: function () {
@@ -374,50 +374,50 @@
                 }),
               ],
             })
-          : (0, L.jsx)('div', {
-              className: R,
+          : (0, H.jsx)('div', {
+              className: q,
               children: l.images.map(function (e) {
                 return (0,
-                L.jsx)('img', { src: e.url, className: Q, alt: 'Question Image' }, e.id)
+                H.jsx)('img', { src: e.url, className: O, alt: 'Question Image' }, e.id)
               }),
             })
       }
-      function ue(e) {
+      function me(e) {
         return !0 === e.show
-          ? (0, L.jsxs)(L.Fragment, {
+          ? (0, H.jsxs)(H.Fragment, {
               children: [
-                (0, L.jsx)('div', {
+                (0, H.jsx)('div', {
                   className: $,
                   onClick: function () {
                     e.setShowHint(!1)
                   },
                 }),
-                (0, L.jsx)('div', {
+                (0, H.jsx)('div', {
                   className: ee,
                   children: e.hints.map(function (e) {
                     return (0,
-                    L.jsx)(L.Fragment, { children: (0, L.jsxs)('p', { children: ['Hint ', e.id, ': \xa0\xa0 ', e.msg] }, e.id) })
+                    H.jsx)(H.Fragment, { children: (0, H.jsxs)('p', { children: ['Hint ', e.id, ': \xa0\xa0 ', e.msg] }, e.id) })
                   }),
                 }),
               ],
             })
-          : (0, L.jsx)(L.Fragment, {})
+          : (0, H.jsx)(H.Fragment, {})
       }
-      function me(e) {
+      function ue(e) {
         var n = (0, a.useState)(!1),
-          s = (0, C.Z)(n, 2),
+          s = (0, k.Z)(n, 2),
           t = s[0],
           r = s[1],
           i = (0, a.useState)(''),
-          l = (0, C.Z)(i, 2),
+          l = (0, k.Z)(i, 2),
           c = l[0],
           o = l[1],
           d = (0, a.useState)(!1),
-          u = (0, C.Z)(d, 2),
-          m = u[0],
-          h = u[1],
+          m = (0, k.Z)(d, 2),
+          u = m[0],
+          h = m[1],
           x = a.useContext(he)
-        function _(e) {
+        function j(e) {
           e.preventDefault(),
             0 !== c.trim().length
               ? (h(!0),
@@ -437,14 +437,14 @@
               : x.handleError("Answer Can't Be Empty")
         }
         return 'Mobile' === e.for
-          ? (0, L.jsxs)(L.Fragment, {
+          ? (0, H.jsxs)(H.Fragment, {
               children: [
-                (0, L.jsx)('div', {
-                  className: z,
-                  children: (0, L.jsxs)('form', {
+                (0, H.jsx)('div', {
+                  className: J,
+                  children: (0, H.jsxs)('form', {
                     children: [
-                      (0, L.jsx)('input', {
-                        className: J,
+                      (0, H.jsx)('input', {
+                        className: P,
                         type: 'text',
                         value: c,
                         onChange: function (e) {
@@ -452,28 +452,28 @@
                         },
                         placeholder: 'Enter Answer',
                       }),
-                      (0, L.jsxs)('div', {
-                        className: P,
+                      (0, H.jsxs)('div', {
+                        className: Q,
                         children: [
-                          (0, L.jsxs)('button', {
-                            className: Y,
+                          (0, H.jsxs)('button', {
+                            className: V,
                             onClick: function (e) {
                               e.preventDefault(), r(!0)
                             },
                             children: [
                               'Hint',
-                              (0, L.jsx)('img', {
-                                className: V,
+                              (0, H.jsx)('img', {
+                                className: Y,
                                 src: 'images/idea.jpg',
                               }),
                             ],
                           }),
-                          (0, L.jsx)('button', {
-                            disabled: m,
+                          (0, H.jsx)('button', {
+                            disabled: u,
                             type: 'button',
                             className: X,
                             onClick: function (e) {
-                              return _(e)
+                              return j(e)
                             },
                             children: 'submit',
                           }),
@@ -482,52 +482,52 @@
                     ],
                   }),
                 }),
-                (0, L.jsx)(ue, {
+                (0, H.jsx)(me, {
                   show: t,
                   hints: x.data.hints,
                   setShowHint: r,
                 }),
               ],
             })
-          : (0, L.jsxs)(L.Fragment, {
+          : (0, H.jsxs)(H.Fragment, {
               children: [
-                (0, L.jsx)('div', {
-                  className: z,
-                  children: (0, L.jsxs)('div', {
+                (0, H.jsx)('div', {
+                  className: J,
+                  children: (0, H.jsxs)('div', {
                     className: K,
                     children: [
-                      (0, L.jsxs)('button', {
+                      (0, H.jsxs)('button', {
                         className: ie,
                         onClick: function (e) {
                           e.preventDefault(), r(!0)
                         },
                         children: [
-                          (0, L.jsx)('p', { children: 'Hint' }),
-                          (0, L.jsx)('img', {
-                            className: V,
+                          (0, H.jsx)('p', { children: 'Hint' }),
+                          (0, H.jsx)('img', {
+                            className: Y,
                             src: 'images/idea.jpg',
                           }),
                         ],
                       }),
-                      (0, L.jsx)('input', {
+                      (0, H.jsx)('input', {
                         type: 'text',
-                        className: J,
+                        className: P,
                         placeholder: 'Enter Answer',
                         value: c,
                         onChange: function (e) {
                           o(e.target.value)
                         },
                       }),
-                      (0, L.jsx)('button', {
+                      (0, H.jsx)('button', {
                         className: re,
                         type: 'button',
-                        onClick: _,
+                        onClick: j,
                         children: 'submit',
                       }),
                     ],
                   }),
                 }),
-                (0, L.jsx)(ue, {
+                (0, H.jsx)(me, {
                   show: t,
                   hints: x.data.hints,
                   setShowHint: r,
@@ -538,140 +538,285 @@
       s(138)
       var he = a.createContext()
       var xe = function () {
-        var e = I(),
-          n = (0, a.useState)(null),
-          s = (0, C.Z)(n, 2),
-          t = s[0],
-          r = s[1],
-          i = (0, a.useState)(''),
-          l = (0, C.Z)(i, 2),
-          c = l[0],
-          o = l[1],
-          d = { data: t, changeData: r, message: c, handleMessage: o }
-        return (
-          (0, a.useEffect)(function () {
-            ;(0, Z.Z)(
-              M().mark(function e() {
-                var n, s
-                return M().wrap(function (e) {
-                  for (;;)
-                    switch ((e.prev = e.next)) {
-                      case 0:
-                        return (e.next = 2), ce()
-                      case 2:
-                        'Success' === (n = e.sent).message
-                          ? (((s = {}).level = n.questionData.level),
-                            (s.questions = n.questionData.images),
-                            (s.hints = n.questionData.hints),
-                            r(s))
-                          : o(n.message)
-                      case 4:
-                      case 'end':
-                        return e.stop()
-                    }
-                }, e)
-              }),
-            )()
-          }, []),
-          '' !== c
-            ? (0, L.jsxs)('main', {
-                className: D,
-                children: [
-                  (0, L.jsx)(A, { loggedIn: !0, desktop: e.width > 1024 }),
-                  (0, L.jsx)('div', {
-                    className: U,
-                    children: (0, L.jsx)('div', {
-                      className: q,
-                      children: (0, L.jsx)('div', {
-                        className: te,
-                        children: (0, L.jsx)('h1', { children: c }),
+          var e = I(),
+            n = (0, a.useState)(null),
+            s = (0, k.Z)(n, 2),
+            t = s[0],
+            r = s[1],
+            i = (0, a.useState)(''),
+            l = (0, k.Z)(i, 2),
+            c = l[0],
+            o = l[1],
+            d = { data: t, changeData: r, message: c, handleMessage: o }
+          return (
+            (0, a.useEffect)(function () {
+              ;(0, Z.Z)(
+                M().mark(function e() {
+                  var n, s
+                  return M().wrap(function (e) {
+                    for (;;)
+                      switch ((e.prev = e.next)) {
+                        case 0:
+                          return console.log('Started'), (e.next = 3), ce()
+                        case 3:
+                          ;(n = e.sent),
+                            console.log(n),
+                            'Success' === n.message
+                              ? (((s = {}).level = n.questionData.level),
+                                (s.questions = n.questionData.images),
+                                (s.hints = n.questionData.hints),
+                                r(s))
+                              : o(n.message)
+                        case 6:
+                        case 'end':
+                          return e.stop()
+                      }
+                  }, e)
+                }),
+              )()
+            }, []),
+            null === t
+              ? (0, H.jsxs)('main', {
+                  className: R,
+                  children: [
+                    (0, H.jsx)(G, { loggedIn: !0, desktop: e.width > 1024 }),
+                    (0, H.jsx)('div', {
+                      className: D,
+                      children: (0, H.jsx)('div', {
+                        className: U,
+                        children: (0, H.jsx)('div', {
+                          className: te,
+                          children: (0, H.jsx)('h1', { children: 'Loading' }),
+                        }),
                       }),
                     }),
-                  }),
-                ],
-              })
-            : (0, L.jsxs)('main', {
-                className: D,
-                children: [
-                  (0, L.jsx)(A, { loggedIn: !0, desktop: e.width > 1024 }),
-                  (0, L.jsx)('div', {
-                    className: U,
-                    children: (0, L.jsx)(he.Provider, {
-                      value: d,
-                      children: (0, L.jsxs)('div', {
-                        className: q,
-                        children: [
-                          (0, L.jsxs)('div', {
-                            className: ne,
-                            children: [
-                              (0, L.jsx)('span', { className: se }),
-                              (0, L.jsx)('span', {
-                                className: ae,
-                                children:
-                                  null !== t &&
-                                  (0, L.jsxs)('div', {
-                                    children: [
-                                      t.level,
-                                      ' ',
-                                      (0, L.jsx)(oe.xng, {
-                                        style: { color: 'yellow' },
-                                      }),
-                                      ' ',
-                                    ],
-                                  }),
-                              }),
-                            ],
-                          }),
-                          e.width <= 1300
-                            ? (0, L.jsxs)(L.Fragment, {
-                                children: [
-                                  (0, L.jsx)(de, { for: 'Mobile' }),
-                                  (0, L.jsx)(me, { for: 'Mobile' }),
-                                ],
-                              })
-                            : (0, L.jsxs)(L.Fragment, {
-                                children: [
-                                  (0, L.jsx)(de, {}),
-                                  (0, L.jsx)(me, {}),
-                                ],
-                              }),
-                        ],
+                  ],
+                })
+              : '' !== c
+              ? (0, H.jsxs)('main', {
+                  className: R,
+                  children: [
+                    (0, H.jsx)(G, { loggedIn: !0, desktop: e.width > 1024 }),
+                    (0, H.jsx)('div', {
+                      className: D,
+                      children: (0, H.jsx)('div', {
+                        className: U,
+                        children: (0, H.jsx)('div', {
+                          className: te,
+                          children: (0, H.jsx)('h1', { children: c }),
+                        }),
                       }),
                     }),
-                  }),
-                ],
-              })
-        )
-      }
-      var _e = function () {
-          return (0, L.jsx)('div', { children: 'Leaderboard' })
+                  ],
+                })
+              : (0, H.jsxs)('main', {
+                  className: R,
+                  children: [
+                    (0, H.jsx)(G, { loggedIn: !0, desktop: e.width > 1024 }),
+                    (0, H.jsx)('div', {
+                      className: D,
+                      children: (0, H.jsx)(he.Provider, {
+                        value: d,
+                        children: (0, H.jsxs)('div', {
+                          className: U,
+                          children: [
+                            (0, H.jsxs)('div', {
+                              className: ne,
+                              children: [
+                                (0, H.jsx)('span', { className: se }),
+                                (0, H.jsx)('span', {
+                                  className: ae,
+                                  children:
+                                    null !== t &&
+                                    (0, H.jsxs)('div', {
+                                      children: [
+                                        t.level,
+                                        ' ',
+                                        (0, H.jsx)(oe.xng, {
+                                          style: { color: 'yellow' },
+                                        }),
+                                        ' ',
+                                      ],
+                                    }),
+                                }),
+                              ],
+                            }),
+                            e.width <= 1300
+                              ? (0, H.jsxs)(H.Fragment, {
+                                  children: [
+                                    (0, H.jsx)(de, { for: 'Mobile' }),
+                                    (0, H.jsx)(ue, { for: 'Mobile' }),
+                                  ],
+                                })
+                              : (0, H.jsxs)(H.Fragment, {
+                                  children: [
+                                    (0, H.jsx)(de, {}),
+                                    (0, H.jsx)(ue, {}),
+                                  ],
+                                }),
+                          ],
+                        }),
+                      }),
+                    }),
+                  ],
+                })
+          )
         },
-        ge = 'Login_main__OFmWj',
-        je = 'Login_wrapper__+Nfl1',
-        pe = 'Login_login__dH0gZ',
-        ve = 'Login_darkLayer__qL9s4',
-        fe = 'Login_loginBox__upQPW',
-        we = 'Login_createAccount__OEJ18',
-        Ne =
+        je = 'Leaderboard_main__6Wqda',
+        _e = 'Leaderboard_mainWrapper__Jcf9c',
+        ge = 'Leaderboard_wrapper__F3Ij3',
+        pe = 'Leaderboard_greyCover__yTFBB',
+        ve = 'Leaderboard_card__L7jNL',
+        fe = 'Leaderboard_navigator__GpAH+'
+      var we = function () {
+          var e = I(),
+            n = (0, a.useState)([]),
+            s = (0, k.Z)(n, 2),
+            t = s[0],
+            r = s[1],
+            l = a.useContext(i.i),
+            c = (0, a.useState)(1),
+            o = (0, k.Z)(c, 2),
+            d = o[0],
+            m = o[1]
+          return (
+            (0, a.useEffect)(
+              function () {
+                ;(0, Z.Z)(
+                  M().mark(function e() {
+                    var n, s
+                    return M().wrap(function (e) {
+                      for (;;)
+                        switch ((e.prev = e.next)) {
+                          case 0:
+                            return (
+                              d < 1 && m(1),
+                              (e.next = 3),
+                              fetch('/api/leaderboard', {
+                                method: 'POST',
+                                body: JSON.stringify({
+                                  startRank: d,
+                                  endRank: d + 10,
+                                }),
+                                headers: { 'Content-Type': 'application/json' },
+                              })
+                            )
+                          case 3:
+                            return (n = e.sent), (e.next = 6), n.json()
+                          case 6:
+                            ;(s = e.sent), r(s)
+                          case 8:
+                          case 'end':
+                            return e.stop()
+                        }
+                    }, e)
+                  }),
+                )()
+              },
+              [d],
+            ),
+            (0, H.jsxs)('main', {
+              className: je,
+              children: [
+                (0, H.jsx)(G, { loggedIn: l.isLogin, desktop: e.width > 1024 }),
+                (0, H.jsx)('div', {
+                  className: _e,
+                  children: (0, H.jsx)('div', {
+                    className: ge,
+                    children: (0, H.jsxs)('div', {
+                      className: pe,
+                      children: [
+                        (0, H.jsx)('h1', { children: 'LeaderBoard' }),
+                        l.isLogin
+                          ? (0, H.jsxs)('div', {
+                              className: ve,
+                              children: [
+                                (0, H.jsx)('p', { children: 'Your Rank' }),
+                                (0, H.jsx)('h1', { children: 6 }),
+                              ],
+                            })
+                          : (0, H.jsx)(H.Fragment, {}),
+                        (0, H.jsxs)('table', {
+                          children: [
+                            (0, H.jsx)('thead', {
+                              children: (0, H.jsxs)('tr', {
+                                children: [
+                                  (0, H.jsx)('th', { children: 'Rank' }),
+                                  (0, H.jsx)('th', { children: 'Name' }),
+                                  (0, H.jsx)('th', { children: 'Level' }),
+                                ],
+                              }),
+                            }),
+                            (0, H.jsx)('tbody', {
+                              children: t.map(function (e, n) {
+                                return (0,
+                                H.jsxs)('tr', { children: [(0, H.jsx)('td', { children: d + n }), (0, H.jsx)('td', { children: e.name }), (0, H.jsx)('td', { children: e.level })] }, d + n)
+                              }),
+                            }),
+                          ],
+                        }),
+                        (0, H.jsxs)('div', {
+                          className: fe,
+                          children: [
+                            (0, H.jsx)('svg', {
+                              xmlns: 'http://www.w3.org/2000/svg',
+                              fill: 'white',
+                              className: 'bi bi-arrow-left-circle',
+                              viewBox: '0 0 16 16',
+                              children: (0, H.jsx)('path', {
+                                fillRule: 'evenodd',
+                                d: 'M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z',
+                              }),
+                            }),
+                            (0, H.jsx)('svg', {
+                              xmlns: 'http://www.w3.org/2000/svg',
+                              fill: 'white',
+                              className: 'bi bi-arrow-right-circle',
+                              viewBox: '0 0 16 16',
+                              onClick: function () {
+                                return m(d + 10)
+                              },
+                              children: (0, H.jsx)('path', {
+                                fillRule: 'evenodd',
+                                d: 'M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z',
+                              }),
+                            }),
+                          ],
+                        }),
+                      ],
+                    }),
+                  }),
+                }),
+              ],
+            })
+          )
+        },
+        Ne = 'Login_main__OFmWj',
+        be = 'Login_wrapper__+Nfl1',
+        ye = 'Login_login__dH0gZ',
+        ke = 'Login_darkLayer__qL9s4',
+        Ce = 'Login_loginBox__upQPW',
+        Le = 'Login_createAccount__OEJ18',
+        Se =
           /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-      function ye(e) {
-        return e.toLowerCase().match(Ne)
+      function He(e) {
+        return e.toLowerCase().match(Se)
       }
-      function be(e) {
+      function Ae(e) {
         return e.length >= 8
       }
-      function Ce() {
+      function Ge() {
         var e = (0, a.useState)(!1),
-          n = (0, C.Z)(e, 2),
+          n = (0, k.Z)(e, 2),
           s = n[0],
           t = n[1]
-        return (0, L.jsxs)(L.Fragment, {
+        return (0, H.jsxs)(H.Fragment, {
           children: [
-            (0, L.jsx)('span', {
+            (0, H.jsx)('span', {
               style: { display: s ? '' : 'none' },
               children: ' Invalid Email ',
             }),
-            (0, L.jsx)('input', {
+            (0, H.jsx)('input', {
               type: 'email',
               placeholder: 'Email',
               name: 'email',
@@ -679,7 +824,7 @@
               autoComplete: 'on',
               onChange: function (e) {
                 return (function (e) {
-                  ye(e.target.value)
+                  He(e.target.value)
                     ? ((e.target.style.border = '0.1rem solid green'), t(!1))
                     : ((e.target.style.border = '0.1rem solid red'), t(!0)),
                     '' === e.target.value &&
@@ -691,18 +836,18 @@
           ],
         })
       }
-      function ke(e) {
+      function Ie(e) {
         var n = (0, a.useState)(!1),
-          s = (0, C.Z)(n, 2),
+          s = (0, k.Z)(n, 2),
           t = s[0],
           r = s[1]
-        return (0, L.jsxs)(L.Fragment, {
+        return (0, H.jsxs)(H.Fragment, {
           children: [
-            (0, L.jsx)('span', {
+            (0, H.jsx)('span', {
               style: { display: t ? '' : 'none' },
               children: 'Minimum 8 Characters ',
             }),
-            (0, L.jsx)('input', {
+            (0, H.jsx)('input', {
               type: 'password',
               placeholder: 'password',
               name: 'password',
@@ -710,7 +855,7 @@
               autoComplete: 'on',
               onChange: function (e) {
                 return (function (e) {
-                  be(e.target.value)
+                  Ae(e.target.value)
                     ? ((e.target.style.border = '0.1rem solid green'), r(!1))
                     : ((e.target.style.border = '0.1rem solid red'), r(!0)),
                     '' === e.target.value &&
@@ -722,18 +867,18 @@
           ],
         })
       }
-      function Se(e) {
+      function Be(e) {
         var n = (0, a.useState)(!1),
-          s = (0, C.Z)(n, 2),
+          s = (0, k.Z)(n, 2),
           t = s[0],
           r = s[1]
-        return (0, L.jsxs)(L.Fragment, {
+        return (0, H.jsxs)(H.Fragment, {
           children: [
-            (0, L.jsx)('span', {
+            (0, H.jsx)('span', {
               style: { display: t ? '' : 'none' },
               children: 'Minimum 8 Characters ',
             }),
-            (0, L.jsx)('input', {
+            (0, H.jsx)('input', {
               type: 'password',
               placeholder: 'confirm password',
               name: 'password',
@@ -753,27 +898,27 @@
           ],
         })
       }
-      var He = function () {
+      var Ee = function () {
           var e = a.useContext(i.i),
             n = I(),
             s = (0, r.s0)()
-          return (0, L.jsxs)('main', {
-            className: ge,
+          return (0, H.jsxs)('main', {
+            className: Ne,
             children: [
-              (0, L.jsx)(A, { loggedIn: !0, desktop: n.width > 1024 }),
-              (0, L.jsx)('div', {
-                className: je,
-                children: (0, L.jsx)('div', {
-                  className: pe,
-                  children: (0, L.jsx)('div', {
-                    className: ve,
-                    children: (0, L.jsxs)('form', {
-                      className: fe,
+              (0, H.jsx)(G, { loggedIn: !0, desktop: n.width > 1024 }),
+              (0, H.jsx)('div', {
+                className: be,
+                children: (0, H.jsx)('div', {
+                  className: ye,
+                  children: (0, H.jsx)('div', {
+                    className: ke,
+                    children: (0, H.jsxs)('form', {
+                      className: Ce,
                       children: [
-                        (0, L.jsx)('h1', { children: 'Sign In' }),
-                        (0, L.jsx)(Ce, {}),
-                        (0, L.jsx)(ke, {}),
-                        (0, L.jsx)('input', {
+                        (0, H.jsx)('h1', { children: 'Sign In' }),
+                        (0, H.jsx)(Ge, {}),
+                        (0, H.jsx)(Ie, {}),
+                        (0, H.jsx)('input', {
                           type: 'button',
                           value: 'Sign In',
                           onClick: function (n) {
@@ -783,8 +928,8 @@
                                 password:
                                   document.getElementById('password').value,
                               }
-                              ye(s.email) &&
-                                be(s.password) &&
+                              He(s.email) &&
+                                Ae(s.password) &&
                                 (0, Z.Z)(
                                   M().mark(function n() {
                                     var a, t
@@ -812,7 +957,7 @@
                                           case 5:
                                             'success' ===
                                               (t = n.sent).message &&
-                                              (0, b.vx)(
+                                              (0, y.vx)(
                                                 t.token,
                                                 e.handleIsLogin,
                                               )
@@ -826,13 +971,13 @@
                             })()
                           },
                         }),
-                        (0, L.jsxs)('div', {
-                          className: we,
+                        (0, H.jsxs)('div', {
+                          className: Le,
                           children: [
-                            (0, L.jsx)('p', {
+                            (0, H.jsx)('p', {
                               children: 'Dont have an account?',
                             }),
-                            (0, L.jsx)('input', {
+                            (0, H.jsx)('input', {
                               type: 'button',
                               value: 'Sign Up',
                               onClick: function () {
@@ -849,40 +994,40 @@
             ],
           })
         },
-        Le = 'Rules_main__GIxjv',
-        Ge = 'Rules_wrapper__ReoAq',
-        Ae = 'Rules_section__dSiFW',
-        Ie = 'Rules_bg__cnwNG',
-        Be = 'Rules_one__68+Yw',
-        Ee = 'Rules_ruletext__S6ckw'
-      var Fe = function () {
+        Fe = 'Rules_main__GIxjv',
+        Ze = 'Rules_wrapper__ReoAq',
+        We = 'Rules_section__dSiFW',
+        Me = 'Rules_bg__cnwNG',
+        Re = 'Rules_one__68+Yw',
+        De = 'Rules_ruletext__S6ckw'
+      var Ue = function () {
           var e = I()
-          return (0, L.jsxs)('main', {
-            className: Le,
+          return (0, H.jsxs)('main', {
+            className: Fe,
             children: [
-              (0, L.jsx)(A, { loggedIn: !0, desktop: e.width > 1024 }),
-              (0, L.jsx)('div', { className: Ge }),
-              (0, L.jsx)('div', {
-                className: Ie,
-                children: (0, L.jsxs)('section', {
-                  className: Be,
+              (0, H.jsx)(G, { loggedIn: !0, desktop: e.width > 1024 }),
+              (0, H.jsx)('div', { className: Ze }),
+              (0, H.jsx)('div', {
+                className: Me,
+                children: (0, H.jsxs)('section', {
+                  className: Re,
                   children: [
-                    (0, L.jsx)('div', { className: Ae, children: 'Rules' }),
-                    (0, L.jsxs)('div', {
-                      className: Ee,
+                    (0, H.jsx)('div', { className: We, children: 'Rules' }),
+                    (0, H.jsxs)('div', {
+                      className: De,
                       children: [
                         'This is a treasure kind of a game in which the participant should try to find the answer by identifying the similarity and connecting the given images. ',
-                        (0, L.jsx)('br', {}),
-                        (0, L.jsx)('br', {}),
+                        (0, H.jsx)('br', {}),
+                        (0, H.jsx)('br', {}),
                         'The game will be live for three days.',
-                        (0, L.jsx)('br', {}),
-                        (0, L.jsx)('br', {}),
+                        (0, H.jsx)('br', {}),
+                        (0, H.jsx)('br', {}),
                         'Each day is independent and one winner will be chosen each day.',
-                        (0, L.jsx)('br', {}),
-                        (0, L.jsx)('br', {}),
+                        (0, H.jsx)('br', {}),
+                        (0, H.jsx)('br', {}),
                         'The UI of the website has no relation to the questions.',
-                        (0, L.jsx)('br', {}),
-                        (0, L.jsx)('br', {}),
+                        (0, H.jsx)('br', {}),
+                        (0, H.jsx)('br', {}),
                         'Clues will be updated periodically in the specified time.',
                       ],
                     }),
@@ -892,45 +1037,45 @@
             ],
           })
         },
-        Ze = 'Signup_main__UxcTo',
-        We = 'Signup_wrapper__8m1s3',
-        Me = 'Signup_container__lV1-P',
-        De = 'Signup_aldreadyHavingAccount__QNkPm',
-        Ue = s(221)
-      var qe = function () {
+        qe = 'Signup_main__UxcTo',
+        ze = 'Signup_wrapper__8m1s3',
+        Te = 'Signup_container__lV1-P',
+        Oe = 'Signup_aldreadyHavingAccount__QNkPm',
+        Je = s(221)
+      var Pe = function () {
         var e = a.useContext(i.i),
           n = I(),
           s = (0, r.s0)()
-        return (0, L.jsxs)('main', {
-          className: Ze,
+        return (0, H.jsxs)('main', {
+          className: qe,
           children: [
-            (0, L.jsx)(A, { loggedIn: !0, desktop: n.width > 1024 }),
-            (0, L.jsx)('div', {
-              className: We,
-              children: (0, L.jsxs)('div', {
-                className: Me,
+            (0, H.jsx)(G, { loggedIn: !0, desktop: n.width > 1024 }),
+            (0, H.jsx)('div', {
+              className: ze,
+              children: (0, H.jsxs)('div', {
+                className: Te,
                 children: [
-                  (0, L.jsx)('h1', { children: 'Signup' }),
-                  (0, L.jsxs)('form', {
+                  (0, H.jsx)('h1', { children: 'Signup' }),
+                  (0, H.jsxs)('form', {
                     action: '',
                     children: [
-                      (0, L.jsx)('input', {
+                      (0, H.jsx)('input', {
                         type: 'text',
                         name: 'name',
                         id: 'name',
                         placeholder: 'Name',
                       }),
-                      (0, L.jsx)(Ce, {}),
-                      (0, L.jsx)('input', {
+                      (0, H.jsx)(Ge, {}),
+                      (0, H.jsx)('input', {
                         type: 'text',
                         name: 'clg',
                         id: 'clg',
                         placeholder: 'College',
                         required: !0,
                       }),
-                      (0, L.jsx)(ke, {}),
-                      (0, L.jsx)(Se, {}),
-                      (0, L.jsx)('input', {
+                      (0, H.jsx)(Ie, {}),
+                      (0, H.jsx)(Be, {}),
+                      (0, H.jsx)('input', {
                         type: 'button',
                         value: 'Sign Up',
                         onClick: function (n) {
@@ -943,8 +1088,8 @@
                               password:
                                 document.getElementById('password').value,
                             }
-                            ye(s.email) &&
-                              be(s.password) &&
+                            He(s.email) &&
+                              Ae(s.password) &&
                               (0, Z.Z)(
                                 M().mark(function n() {
                                   var a, t
@@ -969,7 +1114,7 @@
                                           )
                                         case 5:
                                           'success' === (t = n.sent).message &&
-                                            (0, b.vx)(t.token, e.handleIsLogin)
+                                            (0, y.vx)(t.token, e.handleIsLogin)
                                         case 7:
                                         case 'end':
                                           return n.stop()
@@ -980,13 +1125,13 @@
                           })(n)
                         },
                       }),
-                      (0, L.jsxs)('div', {
-                        className: De,
+                      (0, H.jsxs)('div', {
+                        className: Oe,
                         children: [
-                          (0, L.jsx)('p', {
+                          (0, H.jsx)('p', {
                             children: 'Already have an account?',
                           }),
-                          (0, L.jsx)('input', {
+                          (0, H.jsx)('input', {
                             type: 'button',
                             value: 'SignIn',
                             onClick: function () {
@@ -1000,58 +1145,62 @@
                 ],
               }),
             }),
-            (0, L.jsx)(Ue.mh, {}),
-          ],
-        })
-      }
-      var Re = function () {
-        return (0, L.jsx)('div', { children: 'Team' })
-      }
-      function Te() {
-        return (0, L.jsxs)(r.Z5, {
-          children: [
-            (0, L.jsx)(r.AW, { element: (0, L.jsx)(xe, {}), path: '/game' }),
-            (0, L.jsx)(r.AW, { element: (0, L.jsx)(Re, {}), path: '/team' }),
-            (0, L.jsx)(r.AW, {
-              element: (0, L.jsx)(_e, {}),
-              path: '/leaderboard',
-            }),
-            (0, L.jsx)(r.AW, { element: (0, L.jsx)(F, {}), path: '/' }),
-            (0, L.jsx)(r.AW, { element: (0, L.jsx)(Fe, {}), path: '/rules' }),
-            (0, L.jsx)(r.AW, {
-              element: (0, L.jsx)(r.Fg, { to: '/' }),
-              path: '/*',
-            }),
-          ],
-        })
-      }
-      function Oe() {
-        return (0, L.jsxs)(r.Z5, {
-          children: [
-            (0, L.jsx)(r.AW, { element: (0, L.jsx)(F, {}), path: '/' }),
-            (0, L.jsx)(r.AW, { element: (0, L.jsx)(He, {}), path: '/login' }),
-            (0, L.jsx)(r.AW, {
-              element: (0, L.jsx)(qe, {}),
-              path: '/register',
-            }),
-            (0, L.jsx)(r.AW, { element: (0, L.jsx)(Fe, {}), path: '/rules' }),
-            (0, L.jsx)(r.AW, {
-              element: (0, L.jsx)(r.Fg, { to: '/' }),
-              path: '/*',
-            }),
+            (0, H.jsx)(Je.mh, {}),
           ],
         })
       }
       var Qe = function () {
+        return (0, H.jsx)('div', { children: 'Team' })
+      }
+      function Ye() {
+        return (0, H.jsxs)(r.Z5, {
+          children: [
+            (0, H.jsx)(r.AW, { element: (0, H.jsx)(xe, {}), path: '/game' }),
+            (0, H.jsx)(r.AW, { element: (0, H.jsx)(Qe, {}), path: '/team' }),
+            (0, H.jsx)(r.AW, {
+              element: (0, H.jsx)(we, {}),
+              path: '/leaderboard',
+            }),
+            (0, H.jsx)(r.AW, { element: (0, H.jsx)(F, {}), path: '/' }),
+            (0, H.jsx)(r.AW, { element: (0, H.jsx)(Ue, {}), path: '/rules' }),
+            (0, H.jsx)(r.AW, {
+              element: (0, H.jsx)(r.Fg, { to: '/' }),
+              path: '/*',
+            }),
+          ],
+        })
+      }
+      function Ve() {
+        return (0, H.jsxs)(r.Z5, {
+          children: [
+            (0, H.jsx)(r.AW, { element: (0, H.jsx)(F, {}), path: '/' }),
+            (0, H.jsx)(r.AW, { element: (0, H.jsx)(Ee, {}), path: '/login' }),
+            (0, H.jsx)(r.AW, {
+              element: (0, H.jsx)(Pe, {}),
+              path: '/register',
+            }),
+            (0, H.jsx)(r.AW, {
+              element: (0, H.jsx)(we, {}),
+              path: '/leaderboard',
+            }),
+            (0, H.jsx)(r.AW, { element: (0, H.jsx)(Ue, {}), path: '/rules' }),
+            (0, H.jsx)(r.AW, {
+              element: (0, H.jsx)(r.Fg, { to: '/' }),
+              path: '/*',
+            }),
+          ],
+        })
+      }
+      var Xe = function () {
         var e = a.useContext(i.i)
-        return (0, L.jsx)(L.Fragment, {
-          children: (0, L.jsx)(t.VK, {
+        return (0, H.jsx)(H.Fragment, {
+          children: (0, H.jsx)(t.VK, {
             children:
-              !0 === e.isLogin ? (0, L.jsx)(Te, {}) : (0, L.jsx)(Oe, {}),
+              !0 === e.isLogin ? (0, H.jsx)(Ye, {}) : (0, H.jsx)(Ve, {}),
           }),
         })
       }
     },
   },
 ])
-//# sourceMappingURL=398.26f88b15.chunk.js.map
+//# sourceMappingURL=197.b121fa7f.chunk.js.map

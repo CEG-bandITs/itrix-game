@@ -11,7 +11,7 @@ const DaySchema = {
     default: 0,
   },
   lastCompletedTimeStamp: {
-    type: Date,
+    type: Number,
   },
 }
 

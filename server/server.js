@@ -37,6 +37,9 @@ app.use('/api/users/', require('./routes/userRoute'))
 // game route
 app.use('/api/game/', require('./routes/GameRoute'))
 
+// leaderboard
+app.use('/api/', require('./routes/LeaderBoardRoute'))
+
 // Serving files from ../client/build
 // Which can be created by running `npm run build` in client folder
 app.use(express.static(path.join(__dirname, '..', 'client', 'build')))

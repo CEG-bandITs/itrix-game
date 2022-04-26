@@ -1,18 +1,76 @@
+const Users = require('../db/UserModel')
+
+const leaderBoard = async (req, res) => {
+  console.log(req.body.startRank)
+  const rankArray = await Users.aggregate([
+    {
+      $project: {
+        name: 1,
+        level: { $arrayElemAt: ['$days.level', 0] },
+        lastCompletedTimeStamp: {
+          $arrayElemAt: ['$days.lastCompletedTimeStamp', 0],
+        },
+      },
+    },
+    { $sort: { level: -1, lastCompletedTimeStamp: 1 } },
+  ])
+  console.log(rankArray)
+  res.json(rankArray)
+}
+
+module.exports = leaderBoard
 /*
-  @desc : /api/leaderboard/
-  header : bearer token
-  request data : {"day":1}
-
-  actions :
-  parse header to get token 
-  sort all users with that specific day
-  gets users rank and send rank accordingly
-
+  const rankArray = await Users.aggregate([
+    {
+      $project: { _id: 0, name: 1, level: { $arrayElemAt: ['$days', 0] }.level },
+    },
+    { $sort: { 'days.level': 1, lastCompletedTimeStamp: -1 } },
+  ])
 */
 
-async function LeaderBoard(req, res) {}
-
 /*
+// get all at index 0
+db.users.find({}, { 'days': { '$arrayElemAt': [ "$days", 0]}})
+
+db.users.find({}, { 'days': { '$arrayElemAt': [ "$days", 0]}}).sort({"days.level": 1, "lastCompletedTimeStamp": -1})
+
+db.users.aggregate([
+      {"$project": { 'days': { '$arrayElemAt': [ "$days", 0]}}},
+      {"$sort": {"days.level": 1, "lastCompletedTimeStamp": -1}},
+])
+
+db.users.aggregate([
+      {"$project": { name: 1 , 'days': { '$arrayElemAt': [ "$days", 0]}}},
+]).sort({"days.level": 1, "lastCompletedTimeStamp": -1})
 
 
+db.users.aggregate(
+  [
+    {"$project": { name: 1 , 'days': { '$arrayElemAt': [ "$days", 0]}}}
+  ]
+)
+
+      {$rank: {}}
+
+
+db.users.aggregate([
+      {"$project": { 'days': { '$arrayElemAt': [ "$days", 0]}}},
+      "$setWindowFields": {
+        "sortBy": {"days.level": 1, "lastCompletedTimeStamp": -1}},
+        "output": { "rank": { "$rank": {} } }
+      }
+])
+
+
+//
+IMPORTANT PROJECT
+{ name: 1 , level: { '$arrayElemAt': ["$days.level", 0]}, lastCompletedTimeStamp: { '$arrayElemAt': ["$days.lastCompletedTimeStamp", 0]}}
+
+
+db.users.aggregate([
+      {
+        $project: { name: 1 , level: { '$arrayElemAt': ["$days.level", 0]}, lastCompletedTimeStamp: { '$arrayElemAt': ["$days.lastCompletedTimeStamp", 0]}}
+      },
+      {$sort: {level: -1, lastCompletedTimeStamp: 1}}
+])
 */

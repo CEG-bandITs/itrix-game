@@ -26,6 +26,12 @@ async function getQuestion(req, res) {
   try {
     const data = await UserModel.findOne({ email })
     const level = data.days[currentDate].level
+    console.log(level + 2 < config.level.length)
+    console.log(level + 2)
+    console.log(config.level.length)
+    if (level >= config.level.length) {
+      res.json({ message: 'Success', data: null })
+    }
     const questionData = {
       level,
       images: config.level[level].images,
@@ -63,9 +69,9 @@ async function verifyAnswer(req, res) {
     console.log(config.level[level].answers)
     if (config.level[level].answers.includes(req.body.answer)) {
       data.days[currentDate].level += 1
+      data.days[currentDate].lastCompletedTimeStamp = Date.now()
+      console.log(Date.now())
       data.save()
-      console.log(config.level.length)
-      console.log(level + 2)
       if (level + 2 < config.level.length) {
         level++
         res.json({

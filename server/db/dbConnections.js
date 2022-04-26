@@ -1,8 +1,11 @@
 const mongoose = require('mongoose')
 
 // atlas url
-const mongooseUrl =
-  'mongodb+srv://itrix:itrix@cluster0.ngqge.mongodb.net/itrix?retryWrites=true&w=majority'
+// const mongooseUrl =
+//   'mongodb+srv://itrix:itrix@cluster0.ngqge.mongodb.net/itrix?retryWrites=true&w=majority'
+
+// localURL
+const mongooseUrl = 'mongodb://localhost:27017/itrix'
 
 // connecting
 mongoose.connect(mongooseUrl)

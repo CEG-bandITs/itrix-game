@@ -24,7 +24,9 @@ function Game() {
 
   useEffect(() => {
     ;(async () => {
+      console.log('Started')
       const res = await GetQuestion()
+      console.log(res)
       if (res.message === 'Success') {
         const data = {}
         data.level = res.questionData.level
@@ -36,6 +38,21 @@ function Game() {
       }
     })()
   }, [])
+
+  if (data === null) {
+    return (
+      <main className={styles.main}>
+        <Menu loggedIn={true} desktop={size.width > 1024} />
+        <div className={styles.wrapper}>
+          <div className={styles.GamePage}>
+            <div className={styles.message}>
+              <h1>{'Loading'}</h1>
+            </div>
+          </div>
+        </div>
+      </main>
+    )
+  }
 
   if (message !== '')
     return (
