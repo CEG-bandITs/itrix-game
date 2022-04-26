@@ -18,13 +18,13 @@
         c = 'Home_wrapper__Ce14n',
         o = 'Home_content__wrapper__LkgMb',
         d = 'Home_column__X6izR',
-        m = 'Home_img__N7NQ0',
-        u = 'Home_img1__AsJPx',
+        u = 'Home_img__N7NQ0',
+        m = 'Home_img1__AsJPx',
         h = 'Home_img2__Dyjmg',
         x = 'Home_row__FYwgB',
         j = 'Home_content__header__Foxxu',
-        _ = 'Home_content__GWLDp',
-        g = 'Home_after__login__0MMxI',
+        g = 'Home_content__GWLDp',
+        _ = 'Home_after__login__0MMxI',
         p = 'Home_image__wrapper__wXJMU',
         v = 'Home_content1__ZxbGG',
         f = 'Home_nav__links__XoDUA',
@@ -49,7 +49,7 @@
           c = (0, k.Z)(l, 2),
           o = c[0],
           d = c[1],
-          m = (0, r.TH)()
+          u = (0, r.TH)()
         return n || o
           ? (0, H.jsx)('nav', {
               className: L,
@@ -71,7 +71,7 @@
                         }),
                       }),
                   A.map(function (e) {
-                    return e.link === m.pathname
+                    return e.link === u.pathname
                       ? (0, H.jsx)(
                           t.rU,
                           {
@@ -157,7 +157,7 @@
                 children: (0, H.jsx)('div', {
                   className: 'content1',
                   children: (0, H.jsxs)('div', {
-                    className: g,
+                    className: _,
                     children: [
                       (0, H.jsxs)('div', {
                         className: v,
@@ -205,7 +205,7 @@
           ],
         })
       }
-      function E() {
+      function Z() {
         var e = (0, r.s0)(),
           n = I()
         return (0, H.jsxs)('main', {
@@ -217,7 +217,7 @@
               children: (0, H.jsx)('div', {
                 className: o,
                 children: (0, H.jsxs)('div', {
-                  className: _,
+                  className: g,
                   children: [
                     (0, H.jsx)('p', {
                       className: j,
@@ -233,7 +233,7 @@
                               onClick: function () {
                                 return e('/register')
                               },
-                              className: ''.concat(m, ' ').concat(u),
+                              className: ''.concat(u, ' ').concat(m),
                             }),
                             (0, H.jsx)('p', { children: ' Sign Up' }),
                           ],
@@ -245,7 +245,7 @@
                               onClick: function () {
                                 return e('/login')
                               },
-                              className: ''.concat(m, ' ').concat(h),
+                              className: ''.concat(u, ' ').concat(h),
                             }),
                             (0, H.jsx)('p', { children: ' Login ' }),
                           ],
@@ -259,13 +259,13 @@
           ],
         })
       }
-      var F = function () {
+      var E = function () {
           var e = a.useContext(i.i)
           return (0, H.jsx)('div', {
-            children: e.isLogin ? (0, H.jsx)(B, {}) : (0, H.jsx)(E, {}),
+            children: e.isLogin ? (0, H.jsx)(B, {}) : (0, H.jsx)(Z, {}),
           })
         },
-        Z = s(861),
+        F = s(861),
         W = s(757),
         M = s.n(W),
         R = 'Game_main__+0xaN',
@@ -291,7 +291,7 @@
         re = 'Game_AnswerBarSubmitlap__NFRQU',
         ie = 'Game_AnswerBarHintlap__U9ReQ',
         le = (function () {
-          var e = (0, Z.Z)(
+          var e = (0, F.Z)(
             M().mark(function e(n) {
               var s, a
               return M().wrap(function (e) {
@@ -320,7 +320,7 @@
           }
         })(),
         ce = (function () {
-          var e = (0, Z.Z)(
+          var e = (0, F.Z)(
             M().mark(function e() {
               var n, s
               return M().wrap(function (e) {
@@ -382,7 +382,7 @@
               }),
             })
       }
-      function me(e) {
+      function ue(e) {
         return !0 === e.show
           ? (0, H.jsxs)(H.Fragment, {
               children: [
@@ -403,7 +403,7 @@
             })
           : (0, H.jsx)(H.Fragment, {})
       }
-      function ue(e) {
+      function me(e) {
         var n = (0, a.useState)(!1),
           s = (0, k.Z)(n, 2),
           t = s[0],
@@ -413,9 +413,9 @@
           c = l[0],
           o = l[1],
           d = (0, a.useState)(!1),
-          m = (0, k.Z)(d, 2),
-          u = m[0],
-          h = m[1],
+          u = (0, k.Z)(d, 2),
+          m = u[0],
+          h = u[1],
           x = a.useContext(he)
         function j(e) {
           e.preventDefault(),
@@ -469,7 +469,7 @@
                             ],
                           }),
                           (0, H.jsx)('button', {
-                            disabled: u,
+                            disabled: m,
                             type: 'button',
                             className: X,
                             onClick: function (e) {
@@ -482,7 +482,7 @@
                     ],
                   }),
                 }),
-                (0, H.jsx)(me, {
+                (0, H.jsx)(ue, {
                   show: t,
                   hints: x.data.hints,
                   setShowHint: r,
@@ -527,7 +527,7 @@
                     ],
                   }),
                 }),
-                (0, H.jsx)(me, {
+                (0, H.jsx)(ue, {
                   show: t,
                   hints: x.data.hints,
                   setShowHint: r,
@@ -550,7 +550,7 @@
             d = { data: t, changeData: r, message: c, handleMessage: o }
           return (
             (0, a.useEffect)(function () {
-              ;(0, Z.Z)(
+              ;(0, F.Z)(
                 M().mark(function e() {
                   var n, s
                   return M().wrap(function (e) {
@@ -645,13 +645,13 @@
                               ? (0, H.jsxs)(H.Fragment, {
                                   children: [
                                     (0, H.jsx)(de, { for: 'Mobile' }),
-                                    (0, H.jsx)(ue, { for: 'Mobile' }),
+                                    (0, H.jsx)(me, { for: 'Mobile' }),
                                   ],
                                 })
                               : (0, H.jsxs)(H.Fragment, {
                                   children: [
                                     (0, H.jsx)(de, {}),
-                                    (0, H.jsx)(ue, {}),
+                                    (0, H.jsx)(me, {}),
                                   ],
                                 }),
                           ],
@@ -663,8 +663,8 @@
           )
         },
         je = 'Leaderboard_main__6Wqda',
-        _e = 'Leaderboard_mainWrapper__Jcf9c',
-        ge = 'Leaderboard_wrapper__F3Ij3',
+        ge = 'Leaderboard_mainWrapper__Jcf9c',
+        _e = 'Leaderboard_wrapper__F3Ij3',
         pe = 'Leaderboard_greyCover__yTFBB',
         ve = 'Leaderboard_card__L7jNL',
         fe = 'Leaderboard_navigator__GpAH+'
@@ -674,15 +674,40 @@
             s = (0, k.Z)(n, 2),
             t = s[0],
             r = s[1],
-            l = a.useContext(i.i),
-            c = (0, a.useState)(1),
-            o = (0, k.Z)(c, 2),
-            d = o[0],
-            m = o[1]
+            l = (0, a.useState)(-1),
+            c = (0, k.Z)(l, 2),
+            o = c[0],
+            d = c[1],
+            u = a.useContext(i.i),
+            m = (0, a.useState)(1),
+            h = (0, k.Z)(m, 2),
+            x = h[0],
+            j = h[1]
           return (
+            (0, a.useEffect)(function () {
+              ;(0, F.Z)(
+                M().mark(function e() {
+                  var n, s
+                  return M().wrap(function (e) {
+                    for (;;)
+                      switch ((e.prev = e.next)) {
+                        case 0:
+                          return x < 1 && j(1), (e.next = 3), fetch('/api/rank')
+                        case 3:
+                          return (n = e.sent), (e.next = 6), n.json()
+                        case 6:
+                          ;(s = e.sent), console.log(s), d(s.rank)
+                        case 9:
+                        case 'end':
+                          return e.stop()
+                      }
+                  }, e)
+                }),
+              )()
+            }, []),
             (0, a.useEffect)(
               function () {
-                ;(0, Z.Z)(
+                ;(0, F.Z)(
                   M().mark(function e() {
                     var n, s
                     return M().wrap(function (e) {
@@ -690,13 +715,13 @@
                         switch ((e.prev = e.next)) {
                           case 0:
                             return (
-                              d < 1 && m(1),
+                              x < 1 && j(1),
                               (e.next = 3),
                               fetch('/api/leaderboard', {
                                 method: 'POST',
                                 body: JSON.stringify({
-                                  startRank: d,
-                                  endRank: d + 10,
+                                  startRank: x,
+                                  endRank: x + 10,
                                 }),
                                 headers: { 'Content-Type': 'application/json' },
                               })
@@ -704,8 +729,8 @@
                           case 3:
                             return (n = e.sent), (e.next = 6), n.json()
                           case 6:
-                            ;(s = e.sent), r(s)
-                          case 8:
+                            ;(s = e.sent), console.log(s), r(s)
+                          case 9:
                           case 'end':
                             return e.stop()
                         }
@@ -713,26 +738,26 @@
                   }),
                 )()
               },
-              [d],
+              [x],
             ),
             (0, H.jsxs)('main', {
               className: je,
               children: [
-                (0, H.jsx)(G, { loggedIn: l.isLogin, desktop: e.width > 1024 }),
+                (0, H.jsx)(G, { loggedIn: u.isLogin, desktop: e.width > 1024 }),
                 (0, H.jsx)('div', {
-                  className: _e,
+                  className: ge,
                   children: (0, H.jsx)('div', {
-                    className: ge,
+                    className: _e,
                     children: (0, H.jsxs)('div', {
                       className: pe,
                       children: [
                         (0, H.jsx)('h1', { children: 'LeaderBoard' }),
-                        l.isLogin
+                        u.isLogin && -1 !== o
                           ? (0, H.jsxs)('div', {
                               className: ve,
                               children: [
                                 (0, H.jsx)('p', { children: 'Your Rank' }),
-                                (0, H.jsx)('h1', { children: 6 }),
+                                (0, H.jsx)('h1', { children: o }),
                               ],
                             })
                           : (0, H.jsx)(H.Fragment, {}),
@@ -748,10 +773,20 @@
                               }),
                             }),
                             (0, H.jsx)('tbody', {
-                              children: t.map(function (e, n) {
-                                return (0,
-                                H.jsxs)('tr', { children: [(0, H.jsx)('td', { children: d + n }), (0, H.jsx)('td', { children: e.name }), (0, H.jsx)('td', { children: e.level })] }, d + n)
-                              }),
+                              children:
+                                0 === t.length
+                                  ? (0, H.jsx)('tr', {
+                                      children: (0, H.jsx)('td', {
+                                        colSpan: 3,
+                                        children: (0, H.jsx)('p', {
+                                          children: 'No Users Avaliable',
+                                        }),
+                                      }),
+                                    })
+                                  : t.map(function (e, n) {
+                                      return (0,
+                                      H.jsxs)('tr', { children: [(0, H.jsx)('td', { children: x + n }), (0, H.jsx)('td', { children: e.name }), (0, H.jsx)('td', { children: e.level })] }, x + n)
+                                    }),
                             }),
                           ],
                         }),
@@ -763,6 +798,9 @@
                               fill: 'white',
                               className: 'bi bi-arrow-left-circle',
                               viewBox: '0 0 16 16',
+                              onClick: function () {
+                                return j(x - 10)
+                              },
                               children: (0, H.jsx)('path', {
                                 fillRule: 'evenodd',
                                 d: 'M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z',
@@ -774,7 +812,7 @@
                               className: 'bi bi-arrow-right-circle',
                               viewBox: '0 0 16 16',
                               onClick: function () {
-                                return m(d + 10)
+                                return j(x + 10)
                               },
                               children: (0, H.jsx)('path', {
                                 fillRule: 'evenodd',
@@ -898,7 +936,7 @@
           ],
         })
       }
-      var Ee = function () {
+      var Ze = function () {
           var e = a.useContext(i.i),
             n = I(),
             s = (0, r.s0)()
@@ -930,7 +968,7 @@
                               }
                               He(s.email) &&
                                 Ae(s.password) &&
-                                (0, Z.Z)(
+                                (0, F.Z)(
                                   M().mark(function n() {
                                     var a, t
                                     return M().wrap(function (n) {
@@ -994,8 +1032,8 @@
             ],
           })
         },
-        Fe = 'Rules_main__GIxjv',
-        Ze = 'Rules_wrapper__ReoAq',
+        Ee = 'Rules_main__GIxjv',
+        Fe = 'Rules_wrapper__ReoAq',
         We = 'Rules_section__dSiFW',
         Me = 'Rules_bg__cnwNG',
         Re = 'Rules_one__68+Yw',
@@ -1003,10 +1041,10 @@
       var Ue = function () {
           var e = I()
           return (0, H.jsxs)('main', {
-            className: Fe,
+            className: Ee,
             children: [
               (0, H.jsx)(G, { loggedIn: !0, desktop: e.width > 1024 }),
-              (0, H.jsx)('div', { className: Ze }),
+              (0, H.jsx)('div', { className: Fe }),
               (0, H.jsx)('div', {
                 className: Me,
                 children: (0, H.jsxs)('section', {
@@ -1090,7 +1128,7 @@
                             }
                             He(s.email) &&
                               Ae(s.password) &&
-                              (0, Z.Z)(
+                              (0, F.Z)(
                                 M().mark(function n() {
                                   var a, t
                                   return M().wrap(function (n) {
@@ -1161,7 +1199,7 @@
               element: (0, H.jsx)(we, {}),
               path: '/leaderboard',
             }),
-            (0, H.jsx)(r.AW, { element: (0, H.jsx)(F, {}), path: '/' }),
+            (0, H.jsx)(r.AW, { element: (0, H.jsx)(E, {}), path: '/' }),
             (0, H.jsx)(r.AW, { element: (0, H.jsx)(Ue, {}), path: '/rules' }),
             (0, H.jsx)(r.AW, {
               element: (0, H.jsx)(r.Fg, { to: '/' }),
@@ -1173,8 +1211,8 @@
       function Ve() {
         return (0, H.jsxs)(r.Z5, {
           children: [
-            (0, H.jsx)(r.AW, { element: (0, H.jsx)(F, {}), path: '/' }),
-            (0, H.jsx)(r.AW, { element: (0, H.jsx)(Ee, {}), path: '/login' }),
+            (0, H.jsx)(r.AW, { element: (0, H.jsx)(E, {}), path: '/' }),
+            (0, H.jsx)(r.AW, { element: (0, H.jsx)(Ze, {}), path: '/login' }),
             (0, H.jsx)(r.AW, {
               element: (0, H.jsx)(Pe, {}),
               path: '/register',
@@ -1203,4 +1241,4 @@
     },
   },
 ])
-//# sourceMappingURL=197.b121fa7f.chunk.js.map
+//# sourceMappingURL=197.c8438e4f.chunk.js.map

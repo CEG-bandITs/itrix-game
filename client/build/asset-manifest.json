@@ -1,9 +1,9 @@
 {
   "files": {
     "main.css": "/static/css/main.0484fe16.css",
-    "main.js": "/static/js/main.61559e58.js",
+    "main.js": "/static/js/main.8672a5e0.js",
     "static/css/197.d7affd5a.chunk.css": "/static/css/197.d7affd5a.chunk.css",
-    "static/js/197.b121fa7f.chunk.js": "/static/js/197.b121fa7f.chunk.js",
+    "static/js/197.c8438e4f.chunk.js": "/static/js/197.c8438e4f.chunk.js",
     "static/js/477.14a5fdc4.chunk.js": "/static/js/477.14a5fdc4.chunk.js",
     "static/media/harrypotter-platform-bg.png": "/static/media/harrypotter-platform-bg.5b3029177a4dd0559c05.png",
     "static/media/question-bg.png": "/static/media/question-bg.82d5aaeee49effac137e.png",
@@ -19,10 +19,10 @@
     "static/media/notification.ttf?s3g3t9": "/static/media/notification.c5d9251ea82e42f75381.ttf",
     "index.html": "/index.html",
     "main.0484fe16.css.map": "/static/css/main.0484fe16.css.map",
-    "main.61559e58.js.map": "/static/js/main.61559e58.js.map",
+    "main.8672a5e0.js.map": "/static/js/main.8672a5e0.js.map",
     "197.d7affd5a.chunk.css.map": "/static/css/197.d7affd5a.chunk.css.map",
-    "197.b121fa7f.chunk.js.map": "/static/js/197.b121fa7f.chunk.js.map",
+    "197.c8438e4f.chunk.js.map": "/static/js/197.c8438e4f.chunk.js.map",
     "477.14a5fdc4.chunk.js.map": "/static/js/477.14a5fdc4.chunk.js.map"
   },
-  "entrypoints": ["static/css/main.0484fe16.css", "static/js/main.61559e58.js"]
+  "entrypoints": ["static/css/main.0484fe16.css", "static/js/main.8672a5e0.js"]
 }

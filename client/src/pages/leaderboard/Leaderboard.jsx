@@ -4,13 +4,23 @@ import Menu from '../../components/Menu'
 import { useWindowSize } from '../../lib/windowSize'
 import { Wrapper } from '../../RootPage'
 
-const userRank = 6
-
 function Leaderboard() {
   const size = useWindowSize()
   const [data, setData] = useState([])
+  const [rank, setRank] = useState(-1)
   const value = React.useContext(Wrapper)
   const [currentRankPage, setCurrentRankPage] = useState(1)
+
+  useEffect(() => {
+    ;(async () => {
+      // So CurrentRankPage can't be negative
+      if (currentRankPage < 1) setCurrentRankPage(1)
+      const res = await fetch('/api/rank')
+      const response = await res.json()
+      console.log(response)
+      setRank(response.rank)
+    })()
+  }, [])
 
   useEffect(() => {
     ;(async () => {
@@ -27,6 +37,7 @@ function Leaderboard() {
         },
       })
       const response = await res.json()
+      console.log(response)
       setData(response)
     })()
   }, [currentRankPage])
@@ -38,10 +49,10 @@ function Leaderboard() {
         <div className={style.wrapper}>
           <div className={style.greyCover}>
             <h1>LeaderBoard</h1>
-            {value.isLogin ? (
+            {value.isLogin && rank !== -1 ? (
               <div className={style.card}>
                 <p>Your Rank</p>
-                <h1>{userRank}</h1>
+                <h1>{rank + 1}</h1>
               </div>
             ) : (
               <></>
@@ -55,15 +66,23 @@ function Leaderboard() {
                 </tr>
               </thead>
               <tbody>
-                {data.map((personDetails, index) => {
-                  return (
-                    <tr key={currentRankPage + index}>
-                      <td>{currentRankPage + index}</td>
-                      <td>{personDetails.name}</td>
-                      <td>{personDetails.level}</td>
-                    </tr>
-                  )
-                })}
+                {data.length === 0 ? (
+                  <tr>
+                    <td colSpan={3}>
+                      <p>No Users Avaliable</p>
+                    </td>
+                  </tr>
+                ) : (
+                  data.map((personDetails, index) => {
+                    return (
+                      <tr key={currentRankPage + index}>
+                        <td>{currentRankPage + index}</td>
+                        <td>{personDetails.name}</td>
+                        <td>{personDetails.level}</td>
+                      </tr>
+                    )
+                  })
+                )}
               </tbody>
             </table>
             <div className={style.navigator}>
@@ -72,6 +91,7 @@ function Leaderboard() {
                 fill="white"
                 className="bi bi-arrow-left-circle"
                 viewBox="0 0 16 16"
+                onClick={() => setCurrentRankPage(currentRankPage - 10)}
               >
                 <path
                   fillRule="evenodd"
