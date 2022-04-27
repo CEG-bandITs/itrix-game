@@ -1,6 +1,7 @@
 const Users = require('../db/UserModel')
 const GetUserEmailFromJWt =
   require('../controllers/UserController').GetUserEmailFromJWt
+const config = require('../Questions')
 
 const leaderBoard = async (req, res) => {
   const rankArray = await Users.aggregate([
@@ -8,12 +9,13 @@ const leaderBoard = async (req, res) => {
       $project: {
         name: 1,
         email: 1,
-        level: { $arrayElemAt: ['$days.level', 0] },
+        level: { $arrayElemAt: ['$days.level', config.currentDate] },
         lastCompletedTimeStamp: {
-          $arrayElemAt: ['$days.lastCompletedTimeStamp', 0],
+          $arrayElemAt: ['$days.lastCompletedTimeStamp', config.currentDate],
         },
       },
     },
+    { $match: { level: { $gt: 0 } } },
     { $sort: { level: -1, lastCompletedTimeStamp: 1 } },
     { $skip: req.body.startRank - 1 },
     { $limit: req.body.endRank - req.body.startRank - 1 },
@@ -33,12 +35,13 @@ const rank = async (req, res) => {
       $project: {
         name: 1,
         email: 1,
-        level: { $arrayElemAt: ['$days.level', 0] },
+        level: { $arrayElemAt: ['$days.level', config.currentDate] },
         lastCompletedTimeStamp: {
-          $arrayElemAt: ['$days.lastCompletedTimeStamp', 0],
+          $arrayElemAt: ['$days.lastCompletedTimeStamp', config.currentDate],
         },
       },
     },
+    { $match: { level: { $gt: 0 } } },
     { $sort: { level: -1, lastCompletedTimeStamp: 1 } },
   ])
   console.log(rankArray.findIndex((e) => e.email === email))
