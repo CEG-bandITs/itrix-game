@@ -19,16 +19,14 @@ const currentDate = config.currentDate
 async function getQuestion(req, res) {
   const email = GetUserEmailFromJWt(req)
   if (email === '') {
-    res.status(400).json({ message: 'Email Not IN JWT' })
+    res.status(200).json({ message: 'Email Not IN JWT' })
     return
   }
 
   try {
+ 
     const data = await UserModel.findOne({ email })
     const level = data.days[currentDate].level
-    console.log(level + 2 < config.level.length)
-    console.log(level + 2)
-    console.log(config.level.length)
     if (level >= config.level.length) {
       res.json({ message: 'Success', data: null })
     }
@@ -40,7 +38,7 @@ async function getQuestion(req, res) {
     res.json({ message: 'Success', questionData })
   } catch (e) {
     console.log('ERROR: Error in finding email of user')
-    res.status(500).json({ message: 'Email Not IN JWT' })
+    res.status(200).json({ message: 'Email Not IN JWT' })
   }
 }
 
@@ -67,6 +65,7 @@ async function verifyAnswer(req, res) {
     const data = await UserModel.findOne({ email })
     let level = data.days[currentDate].level
     console.log(config.level[level].answers)
+    console.log(req.body.answer)
     if (config.level[level].answers.includes(req.body.answer)) {
       data.days[currentDate].level += 1
       data.days[currentDate].lastCompletedTimeStamp = Date.now()
@@ -86,11 +85,11 @@ async function verifyAnswer(req, res) {
         res.json({ message: 'Success', data: null })
       }
     } else {
-      res.status(500).json({ message: 'Wrong Answer' })
+      res.status(200).json({ message: 'Wrong Answer' })
     }
   } catch (e) {
     console.log('ERROR: Error in finding email of user', e)
-    res.status(500).json({ message: 'Email Not IN JWT' })
+    res.status(200).json({ message: 'Email Not IN JWT' })
   }
 }
 

@@ -9,7 +9,7 @@ const config = {
         },
         {
           id: 2,
-          url: 'images/game/1/jc-gellidon-wVZxGXRt6xM-unsplash/jpg',
+          url: 'images/game/1/jc-gellidon-wVZxGXRt6xM-unsplash.jpg',
         },
         {
           id: 3,

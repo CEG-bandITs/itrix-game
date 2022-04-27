@@ -142,3 +142,10 @@
     width: 80vw;
   }
 }
+
+.hint 
+{
+  color:red ;
+  white-space: nowrap;
+  font-size: .6rem;
+}

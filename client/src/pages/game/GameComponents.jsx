@@ -1,3 +1,5 @@
+/* eslint-disable no-empty */
+/* eslint-disable prettier/prettier */
 import React, { useState } from 'react'
 import style from './Game.module.css'
 import { SubmitAnswer } from '../../api_calls/Game'
@@ -110,14 +112,22 @@ export function AnswerBar(props) {
   const [disableButton, handleDisableButton] = useState(false)
   const value = React.useContext(Container)
 
+  const FormatAnswer =(message)=>{
+    message = message.trim() ;
+    message = message.split(" ").join("");
+    message =message.toLowerCase() ;
+    return message ;
+
+  }
+
   function Submit(e) {
     e.preventDefault()
 
     if (answer.trim().length !== 0) {
       handleDisableButton(true)
-      SubmitAnswer({ level: value.data.level, answer }).then((resp) => {
+      const formattedAnswer = FormatAnswer(answer);
+      SubmitAnswer({ level: value.data.level, answer: formattedAnswer }).then((resp) => {
         handleDisableButton(false)
-        console.log(resp)
 
         if (resp.message === 'Success') {
           const temp = resp.data
@@ -132,13 +142,21 @@ export function AnswerBar(props) {
           }
           value.changeData(data)
           handleAnswer('')
-          value.handleError(resp.message)
+          value.handleSuccessModal(true);
+          value.handleErrorMessage("");
         } else {
-          handleDisableButton(false)
-          value.handleError(resp.message)
+          value.handleErrorMessage("Wrong answer");
+          setTimeout(()=>{
+            value.handleErrorMessage("");
+          },2500)
         }
       })
-    } else value.handleError("Answer Can't Be Empty")
+    } else {
+       value.handleErrorMessage("Answer is Empty") ;
+       setTimeout(()=>{
+        value.handleErrorMessage("");
+      },2500)
+    }
   }
   if (props.for === 'Mobile') {
     return (
@@ -226,6 +244,9 @@ export function AnswerBar(props) {
     )
   }
 }
+
+
+
 
 AnswerBar.propTypes = {
   for: PropTypes.string,

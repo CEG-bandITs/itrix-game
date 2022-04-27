@@ -6,6 +6,15 @@
   color: white;
   display: flex;
 }
+.error__ 
+{
+  color:red ;
+  font-size: medium;
+  width:100%;
+  text-align: center;
+  margin-bottom: 20px;
+  height :40px;
+}
 
 .wrapper {
   color: white;

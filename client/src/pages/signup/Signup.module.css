@@ -105,3 +105,10 @@
     gap: 1rem;
   }
 }
+
+.hint 
+{
+  color:red ;
+  white-space: nowrap;
+  font-size: .6rem;
+}

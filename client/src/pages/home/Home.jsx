@@ -3,19 +3,16 @@ import { Link, useNavigate } from 'react-router-dom'
 import { Wrapper } from '../../RootPage'
 import styles from './Home.module.css'
 import { Logout } from '../../api_calls/Auth'
-import Menu from '../../components/Menu'
-import { useWindowSize } from '../../lib/windowSize'
+
 function Home() {
   const value = React.useContext(Wrapper)
   return <div>{value.isLogin ? <AfterLogin /> : <BeforeLogin />}</div>
 }
 
 function AfterLogin() {
-  const size = useWindowSize()
   const value = React.useContext(Wrapper)
   return (
     <main className={styles.main}>
-      <Menu loggedIn={value.isLogin} desktop={size.width > 1024} />
       <div className={styles.wrapper}>
         <div className="after__login">
           <div className="content1">
@@ -57,10 +54,8 @@ function AfterLogin() {
 
 function BeforeLogin() {
   const nav = useNavigate()
-  const size = useWindowSize()
   return (
     <main className={styles.main}>
-      <Menu loggedIn={true} desktop={size.width > 1024} />
       <div className={styles.wrapper}>
         <div className={styles.content__wrapper}>
           <div className={styles.content}>

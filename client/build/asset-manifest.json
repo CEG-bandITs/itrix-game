@@ -1,10 +1,11 @@
 {
   "files": {
     "main.css": "/static/css/main.0484fe16.css",
-    "main.js": "/static/js/main.8672a5e0.js",
-    "static/css/197.d7affd5a.chunk.css": "/static/css/197.d7affd5a.chunk.css",
-    "static/js/197.c8438e4f.chunk.js": "/static/js/197.c8438e4f.chunk.js",
-    "static/js/477.14a5fdc4.chunk.js": "/static/js/477.14a5fdc4.chunk.js",
+    "main.js": "/static/js/main.020f1977.js",
+    "static/css/903.edad6859.chunk.css": "/static/css/903.edad6859.chunk.css",
+    "static/js/903.b262883f.chunk.js": "/static/js/903.b262883f.chunk.js",
+    "static/css/334.d9c7fab9.chunk.css": "/static/css/334.d9c7fab9.chunk.css",
+    "static/js/334.6363665e.chunk.js": "/static/js/334.6363665e.chunk.js",
     "static/media/harrypotter-platform-bg.png": "/static/media/harrypotter-platform-bg.5b3029177a4dd0559c05.png",
     "static/media/question-bg.png": "/static/media/question-bg.82d5aaeee49effac137e.png",
     "static/media/cos.png": "/static/media/cos.fd0b240ded8a5a623855.png",
@@ -13,16 +14,16 @@
     "static/media/signin.png": "/static/media/signin.fe9b5795b5347d3de9b2.png",
     "static/media/signup.png": "/static/media/signup.21adce0a4f94fa2ab2fb.png",
     "static/media/imgr2.jpeg": "/static/media/imgr2.39e6a21be724a420db32.jpeg",
-    "static/media/notification.svg?s3g3t9": "/static/media/notification.5d0158671dd860c714c4.svg",
-    "static/media/notification.eot": "/static/media/notification.3657084dc0419605a91c.eot",
-    "static/media/notification.woff?s3g3t9": "/static/media/notification.c392cd33d9d9de730f9d.woff",
-    "static/media/notification.ttf?s3g3t9": "/static/media/notification.c5d9251ea82e42f75381.ttf",
     "index.html": "/index.html",
     "main.0484fe16.css.map": "/static/css/main.0484fe16.css.map",
-    "main.8672a5e0.js.map": "/static/js/main.8672a5e0.js.map",
-    "197.d7affd5a.chunk.css.map": "/static/css/197.d7affd5a.chunk.css.map",
-    "197.c8438e4f.chunk.js.map": "/static/js/197.c8438e4f.chunk.js.map",
-    "477.14a5fdc4.chunk.js.map": "/static/js/477.14a5fdc4.chunk.js.map"
+    "main.020f1977.js.map": "/static/js/main.020f1977.js.map",
+    "903.edad6859.chunk.css.map": "/static/css/903.edad6859.chunk.css.map",
+    "903.b262883f.chunk.js.map": "/static/js/903.b262883f.chunk.js.map",
+    "334.d9c7fab9.chunk.css.map": "/static/css/334.d9c7fab9.chunk.css.map",
+    "334.6363665e.chunk.js.map": "/static/js/334.6363665e.chunk.js.map"
   },
-  "entrypoints": ["static/css/main.0484fe16.css", "static/js/main.8672a5e0.js"]
+  "entrypoints": [
+    "static/css/main.0484fe16.css",
+    "static/js/main.020f1977.js"
+  ]
 }

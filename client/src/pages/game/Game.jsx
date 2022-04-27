@@ -1,11 +1,13 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable prettier/prettier */
 import React, { useEffect, useState } from 'react'
 import styles from './Game.module.css'
 import { GetQuestion } from '../../api_calls/Game'
 import { GiDiamondTrophy } from 'react-icons/gi'
 import Menu from '../../components/Menu'
 import { AnswerBar, QuestionBar } from './GameComponents'
-import 'react-notifications/lib/notifications.css'
 import { useWindowSize } from '../../lib/windowSize'
+import { Modal } from "../../components/Notifications/Notifications"
 
 export const Container = React.createContext()
 
@@ -14,18 +16,27 @@ function Game() {
 
   const [data, changeData] = useState(null)
   const [message, handleMessage] = useState('')
+  const [successModal,handleSuccessModal] =useState(false) ;
+  const [ErrorMessage,handleErrorMessage] =useState("");
 
   const value = {
     data,
     changeData,
     message,
     handleMessage,
+    successModal ,
+    handleSuccessModal,
+    ErrorMessage,
+    handleErrorMessage 
   }
 
+ 
   useEffect(() => {
     ;(async () => {
       console.log('Started')
-      const res = await GetQuestion()
+      const res = await GetQuestion(
+
+      )
       console.log(res)
       if (res.message === 'Success') {
         const data = {}
@@ -84,8 +95,11 @@ function Game() {
                   </div>
                 )}
               </span>
+              
             </div>
-
+            <span className={styles.error__}>
+                {ErrorMessage!==""&&ErrorMessage}
+              </span>
             {size.width <= 1300 ? (
               <>
                 <QuestionBar for="Mobile" />
@@ -98,6 +112,8 @@ function Game() {
               </>
             )}
           </div>
+          {successModal&&<Modal handler={handleSuccessModal}/>}
+     
         </Container.Provider>
       </div>
     </main>
