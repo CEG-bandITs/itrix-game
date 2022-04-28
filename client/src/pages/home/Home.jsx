@@ -29,8 +29,8 @@ function AfterLogin() {
                   <Link className={styles.other__pages} to="/leaderboard">
                     LeaderBoard
                   </Link>
-                  <Link className={styles.other__pages} to="/team">
-                    Our Team
+                  <Link className={styles.other__pages} to="/rules">
+                    Game Rules
                   </Link>
                   <span
                     className={styles.other__pages}

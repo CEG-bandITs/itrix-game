@@ -28,11 +28,11 @@ async function Auth(req, res) {
         }
         const token = JWTTokenGenerator(data)
         res.json({ message: 'success', token, data })
-      } else res.status(400).json({ message: 'wrong credentials' })
+      } else res.status(200).json({ message: 'wrong credentials' })
     }
   } catch (e) {
     console.log('ERROR: error in finding user')
-    res.status(500).json({ message: 'internal server error' })
+    res.status(200).json({ message: 'internal server error' })
   }
 }
 
@@ -85,7 +85,7 @@ async function CreateUser(req, res) {
 }
 
 function GetUserEmailFromJWt(req) {
-
+ 
   try {
     console.log(req);
     const data = jwt.verify(req.cookies.jwt, process.env.JWT_SECRET)

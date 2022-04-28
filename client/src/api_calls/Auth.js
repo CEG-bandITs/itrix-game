@@ -2,7 +2,7 @@ import jsCookie from 'js-cookie'
 
 export const VerifyLogin = async () => {
   try {
-    const res = await fetch('http://localhost:3001/api/users/verify')
+    const res = await fetch('/api/users/verify')
     const response = await res.json()
     if (response.msg === 'Validated') {
       return true

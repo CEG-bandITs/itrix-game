@@ -7,8 +7,6 @@ import Leaderboard from '../pages/leaderboard/Leaderboard'
 import Login from '../pages/login/Login'
 import Rules from '../pages/rules/Rules'
 import Signup from '../pages/signup/Signup'
-import Team from '../pages/team/Team'
-
 import { Wrapper } from '../RootPage'
 
 function Routing() {
@@ -30,7 +28,6 @@ function AuthenticatedRoute() {
   return (
     <Routes>
       <Route element={<Game />} path="/game"></Route>
-      <Route element={<Team />} path="/team"></Route>
       <Route element={<Leaderboard />} path="/leaderboard"></Route>
       <Route element={<Home />} path="/"></Route>
       <Route element={<Rules />} path="/rules"></Route>
