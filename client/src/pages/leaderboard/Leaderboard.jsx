@@ -15,7 +15,7 @@ function Leaderboard() {
     ;(async () => {
       // So CurrentRankPage can't be negative
       if (currentRankPage < 1) setCurrentRankPage(1)
-      const res = await fetch('http://localhost:3001/api/rank')
+      const res = await fetch('/api/rank')
       const response = await res.json()
       console.log(response)
       setRank(response.rank)

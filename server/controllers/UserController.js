@@ -85,9 +85,9 @@ async function CreateUser(req, res) {
 }
 
 function GetUserEmailFromJWt(req) {
- 
+  console.log(req.cookies) 
   try {
-    console.log(req);
+  
     const data = jwt.verify(req.cookies.jwt, process.env.JWT_SECRET)
     return data.email
   } catch (e) {

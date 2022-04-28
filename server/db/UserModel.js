@@ -23,8 +23,8 @@ const UserSchema = new Schema(
       required: [true, 'name is required'],
       trim: true,
       unique: false,
-      minlength: [3, 'too short first name'],
-      maxlength: [25, 'too long first name'],
+      minlength: [1, 'too short  name'],
+      maxlength: [25, 'too long  name'],
     },
 
     email: {
@@ -35,7 +35,11 @@ const UserSchema = new Schema(
       required: [true, 'email is required'],
     },
 
-    password: String,
+    password:{
+     type:String,
+     lowercase : true ,
+ 
+     } ,
 
     college: {
       type: String,
@@ -52,6 +56,7 @@ const UserSchema = new Schema(
 )
 
 // hashing password just before saving instance
+// this is not working !!
 UserSchema.pre('save', async function (next) {
   // generating salt for hashing
   const salt = await bcrypt.genSalt(10)
@@ -66,7 +71,10 @@ UserSchema.pre('save', async function (next) {
 
 // method for validating plain password against hashed one
 UserSchema.methods.ValidatePassword = async function (plainPassword) {
+   
   const validPassword = await bcrypt.compare(plainPassword, this.password)
+  console.log(this.password) ;
+  console.log(plainPassword);
   return validPassword
 }
 
