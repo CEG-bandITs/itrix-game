@@ -35,11 +35,9 @@ const UserSchema = new Schema(
       required: [true, 'email is required'],
     },
 
-    password:{
-     type:String,
-     lowercase : true ,
- 
-     } ,
+    password: {
+      type: String,
+    },
 
     college: {
       type: String,
@@ -60,6 +58,7 @@ const UserSchema = new Schema(
 UserSchema.pre('save', async function (next) {
   // generating salt for hashing
   const salt = await bcrypt.genSalt(10)
+  console.log(salt)
 
   // hashed password
   const hash = await bcrypt.hash(this.password, salt)
@@ -71,10 +70,9 @@ UserSchema.pre('save', async function (next) {
 
 // method for validating plain password against hashed one
 UserSchema.methods.ValidatePassword = async function (plainPassword) {
-   
   const validPassword = await bcrypt.compare(plainPassword, this.password)
-  console.log(this.password) ;
-  console.log(plainPassword);
+  console.log(this.password)
+  console.log(plainPassword)
   return validPassword
 }
 
