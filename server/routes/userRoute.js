@@ -15,7 +15,7 @@ router.post('/auth', asyncHandler(userCntrl.Auth))
 // Verify JWT token
 router.get('/verify', (req, res) => {
   try {
-   // jwt.verify(req.cookies.jwt, process.env.JWT_SECRET)
+    jwt.verify(req.cookies.jwt, process.env.JWT_SECRET)
     res.json({
       msg: 'Validated',
     })
