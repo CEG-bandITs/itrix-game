@@ -3,6 +3,8 @@ import { Link, useNavigate } from 'react-router-dom'
 import { Wrapper } from '../../RootPage'
 import styles from './Home.module.css'
 import { Logout } from '../../api_calls/Auth'
+import Menu from '../../components/Menu'
+import { useWindowSize } from '../../lib/windowSize'
 
 function Home() {
   const value = React.useContext(Wrapper)
@@ -54,8 +56,10 @@ function AfterLogin() {
 
 function BeforeLogin() {
   const nav = useNavigate()
+  const size = useWindowSize()
   return (
     <main className={styles.main}>
+      <Menu loggedIn={true} desktop={size.width > 1024} />
       <div className={styles.wrapper}>
         <div className={styles.content__wrapper}>
           <div className={styles.content}>

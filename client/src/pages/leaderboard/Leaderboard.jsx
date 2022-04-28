@@ -15,7 +15,7 @@ function Leaderboard() {
     ;(async () => {
       // So CurrentRankPage can't be negative
       if (currentRankPage < 1) setCurrentRankPage(1)
-      const res = await fetch('/api/rank')
+      const res = await fetch('/api/rank', { cache: 'no-store' })
       const response = await res.json()
       console.log(response)
       setRank(response.rank)
@@ -26,7 +26,7 @@ function Leaderboard() {
     ;(async () => {
       // So CurrentRankPage can't be negative
       if (currentRankPage < 1) setCurrentRankPage(1)
-      const res = await fetch('http://localhost:3001/api/leaderboard', {
+      const res = await fetch('/api/leaderboard', {
         method: 'POST',
         body: JSON.stringify({
           startRank: currentRankPage,
@@ -35,6 +35,7 @@ function Leaderboard() {
         headers: {
           'Content-Type': 'application/json',
         },
+        cache: 'no-store',
       })
       const response = await res.json()
       console.log(response)
