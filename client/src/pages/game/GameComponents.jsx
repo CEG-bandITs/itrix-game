@@ -169,6 +169,8 @@ export function AnswerBar(props) {
         value.handleErrorMessage('')
       }, 2500)
     }
+
+    handleAnswer('')
   }
   return (
     <>
@@ -187,7 +189,7 @@ export function AnswerBar(props) {
             type="text"
             name="answer"
             placeholder="Enter Answer"
-            id={answer}
+            value={answer}
             onChange={(e) => {
               handleAnswer(e.target.value)
             }}
