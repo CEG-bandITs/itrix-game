@@ -99,28 +99,50 @@
   padding: 1vmax;
 }
 
-.loginBox > input[type='button'] {
-  background-color: rgba(11, 194, 52, 0.6);
-  padding: 0.7vmax 3vmax 0.7vmax 3vmax;
-  color: white;
-  font-size: larger;
-  padding: 10px;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  width: 85%;
-  margin: 10px;
-  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
-}
+  
+  .login__button {background-image: linear-gradient(to right, #56ab2f 0%, #a8e063  51%, #56ab2f  100%)}
+  .login__button {
+     cursor:pointer; 
+     margin: 10px;
+     padding: 15px 45px;
+     text-align: center;
+     text-transform: uppercase;
+     transition: 0.5s;
+     background-size: 200% auto;
+     color: white;            
+     border-radius: 10px;
+     display: block;
+   }
 
-.createAccount > input[type='button'] {
-  background-color: rgba(45, 145, 188, 0.6);
-  color: white;
-  font-size: 1.5vmax;
-  padding: 10px;
-  border: none;
-  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
-}
+   .login__button:hover {
+     background-position: right center; /* change the direction of the change here */
+     color: #fff;
+     text-decoration: none;
+   }
+  
+
+   .createAccount > input[type='button'] {background-image: linear-gradient(to right, #00c6ff 0%, #0072ff  51%, #00c6ff  100%)}
+   .createAccount > input[type='button'] {
+      padding: 10px 15px;
+      text-align: center;
+      text-transform: uppercase;
+      transition: 0.5s;
+      color: white;            
+      border-radius: 5px;
+      display: block;
+      font-size: medium;
+      cursor: pointer;
+    }
+
+    .createAccount > input[type='button'] :hover {
+      background-position: right center; /* change the direction of the change here */
+      color: #fff;
+      text-decoration: none;
+    }
+   
+
+
+
 .loginBox > input[type='button']:active,
 .loginBox > input[type='button']:focus,
 .loginBox > input[type='button']:active:focus,

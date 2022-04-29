@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 export const SubmitAnswer = async (data) => {
   const res = await fetch('/api/game/verify', {
     method: 'POST',

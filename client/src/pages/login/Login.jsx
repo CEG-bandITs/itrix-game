@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 /* eslint-disable no-unused-vars */
 /* eslint-disable prettier/prettier */
 import React from 'react'
@@ -77,15 +78,17 @@ function Login() {
                 type="button"
                 value={'Sign In'}
                 onClick={(e) => handleSubmit(e)}
+                className={styles.login__button}
               />
 
               <div className={styles.createAccount}>
-                <p>Dont have an account?</p>
+                <p>Don't have an account?</p>
                 <input
                   type="button"
                   value={'Sign Up'}
                   disabled={disableButton}
                   onClick={() => nav('/register')}
+            
                 />
               </div>
             </form>

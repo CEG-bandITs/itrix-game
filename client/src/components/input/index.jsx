@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import React, { useState } from 'react'
 import { validEmail, validPassword } from '../../lib/validation'
 
@@ -19,7 +20,7 @@ export function Email() {
 
   return (
     <>
-      <span style={{ display: hint ? '' : 'none' }}> Invalid Email </span>
+      <span style={{ display: hint ? '' : 'none',fontSize:'medium',color:"red", }}> Invalid Email </span>
       <input
         type="email"
         placeholder="Email"
@@ -51,7 +52,7 @@ export function Password(props) {
 
   return (
     <>
-      <span style={{ display: hint ? '' : 'none' }}>Minimum 8 Characters </span>
+      <span style={{ display: hint ? '' : 'none' ,fontSize:'medium',color:"red",}}>Minimum 8 Characters </span>
       <input
         type="password"
         placeholder="password"
@@ -83,7 +84,7 @@ export function ConfirmPassword(props) {
 
   return (
     <>
-      <span style={{ display: hint ? '' : 'none' }}>Minimum 8 Characters </span>
+      <span style={{ display: hint ? '' : 'none',fontSize:'medium',color:"red", }}>Password mismatch </span>
       <input
         type="password"
         placeholder="confirm password"

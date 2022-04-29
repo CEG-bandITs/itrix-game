@@ -52,7 +52,7 @@ function Signup() {
 
     ;(async () => {
       handleDisableButton(true)
-      const res = await fetch('/api/users/new', {
+      const res = await fetch('http://localhost:3001/api/users/new', {
         method: 'POST',
         body: JSON.stringify(data),
         headers: {
@@ -76,10 +76,12 @@ function Signup() {
 
   return (
     <main className={SignupStyle.main}>
+
       <Menu loggedIn={true} desktop={size.width > 1024} />
+     
       <div className={SignupStyle.wrapper}>
         <div className={SignupStyle.container}>
-          <h1>Signup</h1>
+          <span className={SignupStyle.header}>Signup</span>
           {hint && <p className={SignupStyle.hint}>Some fields are empty</p>}
           <form action="">
             <input type="text" name="name" id="name" placeholder="Name" />

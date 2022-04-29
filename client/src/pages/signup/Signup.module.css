@@ -4,11 +4,11 @@
 .main {
   min-height: 100vh;
   display: flex;
-  overflow-y: scroll;
+  overflow-x:hidden; 
 }
 
+
 .wrapper {
-  flex-grow: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -16,11 +16,14 @@
   text-align: center;
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url(../../../public/images/cos.png);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 100vh;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+  min-height: 100vh;
+  
   width: 100vw;
+  
 }
 
 .container {
@@ -29,6 +32,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding:5px;
+  border-radius: 10px;
 }
 
 .container h1 {
@@ -54,9 +59,10 @@
   color: white;
   background-color: rgba(196, 196, 196, 0.4);
   height: 5vh;
-  border-radius: 10px;
-  margin: 1vmin;
-  padding: 1vmin;
+  border-radius: 7px;
+  margin: 1.5vh;
+  padding: 7px;
+  text-transform: capitalize;
 }
 
 .container form input[type='email']::placeholder,
@@ -65,14 +71,29 @@
 .container form input[type='tel']::placeholder {
   color: white;
 }
-.container form > input[type='button'] {
-  background-color: rgba(11, 194, 52, 0.6);
-  margin: 1vw;
-  color: white;
-  cursor: pointer;
-  border-radius: 10px;
-  padding: 0.2rem;
-}
+
+
+
+.container form  > input[type='button'] {background-image: linear-gradient(to right, #56ab2f 0%, #a8e063  51%, #56ab2f  100%)}
+   .container form  > input[type='button'] {
+      padding: 10px 40px;
+      text-align: center;
+      text-transform: uppercase;
+      transition: 0.5s;
+      color: white;            
+      border-radius: 5px;
+      display: block;
+      font-size: medium;
+      cursor: pointer;
+      margin: 3vh 0; 
+      font-size: 20px;
+    }
+
+    .container form > input[type='button'] :hover {
+      background-position: right center; /* change the direction of the change here */
+      color: #fff;
+      text-decoration: none;
+    }
 
 .aldreadyHavingAccount {
   display: flex;
@@ -80,7 +101,7 @@
   align-items: center;
   margin: 1vw;
   width: 100%;
-  padding: 0.3rem;
+  padding: 0.9rem;
 }
 
 .aldreadyHavingAccount p {
@@ -89,10 +110,11 @@
 }
 
 .aldreadyHavingAccount input[type='button'] {
-  background-color: rgba(45, 145, 188, 0.6);
-  padding: 0.2rem;
+  background-image: linear-gradient(to right, #00c6ff 0%, #0072ff  51%, #00c6ff  100%);
+  padding: 5px 20px;
+  font-size: large;
   color: white;
-  border-radius: 10px;
+  border-radius: 5px;
   cursor: pointer;
 }
 
@@ -106,9 +128,23 @@
   }
 }
 
+@media screen and (min-width : 500px)
+{
+  .container{
+    width:70%;
+  }
+}
 .hint 
 {
   color:red ;
   white-space: nowrap;
   font-size: .6rem;
+}
+
+
+.header 
+{
+  font-size:larger ;
+  color:white ;
+  margin :3vh 0;
 }
