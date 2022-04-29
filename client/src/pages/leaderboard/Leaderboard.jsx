@@ -39,9 +39,12 @@ function Leaderboard() {
       })
       const response = await res.json()
       console.log(response)
+      if (response.length === 0) setCurrentRankPage(currentRankPage - 10)
       setData(response)
     })()
   }, [currentRankPage])
+
+  console.log('Current Page Rank: ', currentRankPage)
 
   return (
     <main className={style.main}>
@@ -75,13 +78,25 @@ function Leaderboard() {
                   </tr>
                 ) : (
                   data.map((personDetails, index) => {
-                    return (
-                      <tr key={currentRankPage + index}>
-                        <td>{currentRankPage + index}</td>
-                        <td>{personDetails.name}</td>
-                        <td>{personDetails.level}</td>
-                      </tr>
-                    )
+                    if (currentRankPage + index === rank + 1)
+                      return (
+                        <tr
+                          key={currentRankPage + index}
+                          className={style.whiteLine}
+                        >
+                          <td>{currentRankPage + index}</td>
+                          <td>{personDetails.name}</td>
+                          <td>{personDetails.level}</td>
+                        </tr>
+                      )
+                    else
+                      return (
+                        <tr key={currentRankPage + index}>
+                          <td>{currentRankPage + index}</td>
+                          <td>{personDetails.name}</td>
+                          <td>{personDetails.level}</td>
+                        </tr>
+                      )
                   })
                 )}
               </tbody>
