@@ -88,12 +88,15 @@ async function CreateUser(req, res) {
 
 function GetUserEmailFromJWt(req) {
   console.log(req.cookies)
-  try {
+
+  // sending rank for un authenticated user !!
+  if(req.cookies.jwt===undefined) return ''
+
+  else  {
+    console.log('token: ',process.env.JWT_SECRET)
+    console.log('user jwt: ',req.cookies.jwt)
     const data = jwt.verify(req.cookies.jwt, process.env.JWT_SECRET)
     return data.email
-  } catch (e) {
-    console.log('ERROR: in verifing JWT', e)
-    return ''
   }
 }
 
