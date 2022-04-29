@@ -28,21 +28,17 @@ async function Auth(req, res) {
         }
         const token = JWTTokenGenerator(data)
         res.status(200).json({ message: 'success', token, data })
-      } 
-      else res.status(400).json({ message: 'Wrong Credentials' })
+      } else res.status(400).json({ message: 'Wrong Credentials' })
     }
   } catch (e) {
     console.log('ERROR: error in finding user')
-    res.status(501).json({ message: 'Internal Server Error' })
+    res.status(500).json({ message: 'Internal Server Error' })
   }
 }
 
 const JWTTokenGenerator = (payload) => {
   return jwt.sign(payload, process.env.JWT_SECRET)
 }
-
-
-
 
 /*
     @desc POST /api/users/new
@@ -74,8 +70,8 @@ async function CreateUser(req, res) {
   try {
     const user = new User(data)
     await user.save()
-    const token = JWTTokenGenerator({ name: user.name, email: user.email }) 
-    res.status(200).json({ message: 'success', token }) 
+    const token = JWTTokenGenerator({ name: user.name, email: user.email })
+    res.status(200).json({ message: 'success', token })
   } catch (e) {
     if (e.code === 11000) {
       res.status(400).json({ message: 'Account already exists' })
@@ -90,11 +86,10 @@ function GetUserEmailFromJWt(req) {
   console.log(req.cookies)
 
   // sending rank for un authenticated user !!
-  if(req.cookies.jwt===undefined) return ''
-
-  else  {
-    console.log('token: ',process.env.JWT_SECRET)
-    console.log('user jwt: ',req.cookies.jwt)
+  if (req.cookies.jwt === undefined) return ''
+  else {
+    console.log('token: ', process.env.JWT_SECRET)
+    console.log('user jwt: ', req.cookies.jwt)
     const data = jwt.verify(req.cookies.jwt, process.env.JWT_SECRET)
     return data.email
   }
