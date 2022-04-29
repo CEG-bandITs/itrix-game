@@ -82,7 +82,7 @@ async function CreateUser(req, res) {
       return
     }
     console.log('ERROR: in creating user', e)
-    res.stauts(501).json({ message: 'internal server error' })
+    res.status(500).json({ message: 'internal server error' })
   }
 }
 
