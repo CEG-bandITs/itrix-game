@@ -16,7 +16,7 @@ async function Auth(req, res) {
 
   try {
     const user = await User.findOne({ email: data.email })
-    if (!user) res.send({ message: 'User not found' })
+    if (!user) res.send({ message: 'User Not Found' })
     else {
       const valid = await user.ValidatePassword(data.password)
       console.log(valid)
@@ -27,18 +27,22 @@ async function Auth(req, res) {
           email: user.email,
         }
         const token = JWTTokenGenerator(data)
-        res.json({ message: 'success', token, data })
-      } else res.status(200).json({ message: 'wrong credentials' })
+        res.status(200).json({ message: 'success', token, data })
+      } 
+      else res.status(400).json({ message: 'Wrong Credentials' })
     }
   } catch (e) {
     console.log('ERROR: error in finding user')
-    res.status(200).json({ message: 'internal server error' })
+    res.status(501).json({ message: 'Internal Server Error' })
   }
 }
 
 const JWTTokenGenerator = (payload) => {
   return jwt.sign(payload, process.env.JWT_SECRET)
 }
+
+
+
 
 /*
     @desc POST /api/users/new
@@ -70,16 +74,15 @@ async function CreateUser(req, res) {
   try {
     const user = new User(data)
     await user.save()
-    const token = JWTTokenGenerator({ name: user.name, email: user.email })
-    console.log(user)
-    res.status(200).json({ message: 'success', token })
+    const token = JWTTokenGenerator({ name: user.name, email: user.email }) 
+    res.status(200).json({ message: 'success', token }) 
   } catch (e) {
     if (e.code === 11000) {
-      res.status(200).json({ message: 'Account already exists' })
+      res.status(400).json({ message: 'Account already exists' })
       return
     }
     console.log('ERROR: in creating user', e)
-    res.status(200).json({ message: 'internal server error' })
+    res.stauts(501).json({ message: 'internal server error' })
   }
 }
 
