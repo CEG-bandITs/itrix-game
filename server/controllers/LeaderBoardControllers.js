@@ -20,7 +20,6 @@ const leaderBoard = async (req, res) => {
         },
       },
     },
-    { $match: { level: { $gt: 0 } } },
     { $sort: { level: -1, lastCompletedTimeStamp: 1 } },
     { $skip: req.body.startRank - 1 },
     { $limit: req.body.endRank - req.body.startRank - 1 },
@@ -46,7 +45,6 @@ const rank = async (req, res) => {
         },
       },
     },
-    { $match: { level: { $gt: 0 } } },
     { $sort: { level: -1, lastCompletedTimeStamp: 1 } },
   ])
   console.log(rankArray.findIndex((e) => e.email === email))
