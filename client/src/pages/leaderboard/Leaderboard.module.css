@@ -44,8 +44,12 @@
 .wrapper .card {
   border: 0.01rem solid white;
   background-color: rgba(255, 255, 255, 0.1);
-  width: 85vw;
+  width: 85%;
   margin-top: 0.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3.5rem;
 }
 .wrapper .card p {
   color: white;
@@ -54,6 +58,11 @@
 
 .wrapper .card h1 {
   font-size: 2.5rem;
+  margin: 0;
+}
+
+.wrapper .whiteLine {
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 .wrapper table {
@@ -85,22 +94,22 @@
 
 /* top-left border-radius */
 .wrapper table tr:first-child th:first-child {
-  border-top-left-radius: 6px;
+  border-top-left-radius: 15px;
 }
 
 /* top-right border-radius */
 .wrapper table tr:first-child th:last-child {
-  border-top-right-radius: 6px;
+  border-top-right-radius: 15px;
 }
 
 /* bottom-left border-radius */
 .wrapper table tr:last-child td:first-child {
-  border-bottom-left-radius: 6px;
+  border-bottom-left-radius: 15px;
 }
 
 /* bottom-right border-radius */
 .wrapper table tr:last-child td:last-child {
-  border-bottom-right-radius: 6px;
+  border-bottom-right-radius: 15px;
 }
 
 .navigator {
@@ -120,5 +129,10 @@
 @media screen and (max-width: 1200px) {
   .greyCover {
     width: 70vw;
+  }
+
+  .wrapper .card {
+    justify-content: space-evenly;
+    gap: 0;
   }
 }
