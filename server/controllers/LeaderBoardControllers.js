@@ -4,6 +4,11 @@ const GetUserEmailFromJWt =
 const config = require('../Questions')
 
 const leaderBoard = async (req, res) => {
+  if (req.body.startRank > req.body.endRank || req.body.startRank < 1) {
+    req.body.startRank = 1
+    req.body.endRank = 10
+  }
+
   const rankArray = await Users.aggregate([
     {
       $project: {
