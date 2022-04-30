@@ -1,6 +1,6 @@
 /* eslint-disable no-unreachable */
 const jwt = require('jsonwebtoken')
-require('dotenv').config()
+require('dotenv').config({ path: '../.env' })
 const User = require('../db/UserModel')
 const DateZero = new Date(0)
 
@@ -84,7 +84,7 @@ async function CreateUser(req, res) {
 
 function GetUserEmailFromJWt(req) {
   console.log(req.cookies)
- 
+
   // sending rank for un authenticated user !!
   if (req.cookies.jwt === undefined) return ''
   else {
