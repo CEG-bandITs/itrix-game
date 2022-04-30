@@ -1,6 +1,7 @@
 /* eslint-disable no-unreachable */
 const jwt = require('jsonwebtoken')
-require('dotenv').config({ path: '../.env' })
+const path = require('path')
+require('dotenv').config({ path: path.resolve(__dirname, '../.env') })
 const User = require('../db/UserModel')
 const DateZero = new Date(0)
 
