@@ -6,6 +6,7 @@ const cookieParser = require('cookie-parser')
 const PORT = process.env.PORT || 3001
 const cors = require("cors")
 app.use(cors())
+
 // connecting to atlas
 require('./db/dbConnections')
 

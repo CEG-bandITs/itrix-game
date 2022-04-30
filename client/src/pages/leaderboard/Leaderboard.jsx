@@ -1,8 +1,11 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable prettier/prettier */
 import React, { useEffect, useState } from 'react'
 import style from './Leaderboard.module.css'
 import Menu from '../../components/Menu'
 import { useWindowSize } from '../../lib/windowSize'
 import { Wrapper } from '../../RootPage'
+import {AiOutlineArrowRight,AiOutlineArrowLeft} from "react-icons/ai" ;
 
 function Leaderboard() {
   const size = useWindowSize()
@@ -10,15 +13,17 @@ function Leaderboard() {
   const [rank, setRank] = useState(-1)
   const value = React.useContext(Wrapper)
   const [currentRankPage, setCurrentRankPage] = useState(1)
+  const [DisableRightButton,handleDisableRight] = useState(false)
 
   useEffect(() => {
     ;(async () => {
-      // So CurrentRankPage can't be negative
-      if (currentRankPage < 1) setCurrentRankPage(1)
-      const res = await fetch('/api/rank', { cache: 'no-store' })
+     
+      const res = await fetch('http://localhost:3001/api/rank', { 
+        cache: 'no-store' })
       const response = await res.json()
       console.log(response)
       setRank(response.rank)
+      handleDisableRight(!response.end)
     })()
   }, [])
 
@@ -26,7 +31,7 @@ function Leaderboard() {
     ;(async () => {
       // So CurrentRankPage can't be negative
       if (currentRankPage < 1) setCurrentRankPage(1)
-      const res = await fetch('/api/leaderboard', {
+      const res = await fetch('http://localhost:3001/api/leaderboard', {
         method: 'POST',
         body: JSON.stringify({
           startRank: currentRankPage,
@@ -39,8 +44,9 @@ function Leaderboard() {
       })
       const response = await res.json()
       console.log(response)
-      if (response.length === 0) setCurrentRankPage(currentRankPage - 10)
-      setData(response)
+      if (response.rankArray.length === 0) setCurrentRankPage(currentRankPage - 10)
+      setData(response.rankArray)
+
     })()
   }, [currentRankPage])
 
@@ -102,30 +108,15 @@ function Leaderboard() {
               </tbody>
             </table>
             <div className={style.navigator}>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="white"
-                className="bi bi-arrow-left-circle"
-                viewBox="0 0 16 16"
-                onClick={() => setCurrentRankPage(currentRankPage - 10)}
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"
-                />
-              </svg>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="white"
-                className="bi bi-arrow-right-circle"
-                viewBox="0 0 16 16"
-                onClick={() => setCurrentRankPage(currentRankPage + 10)}
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"
-                />
-              </svg>
+
+              <button className={style.nav__button}  disabled={currentRankPage===1&&true} onClick={() => setCurrentRankPage(currentRankPage - 10)}>
+                 <AiOutlineArrowLeft />
+              </button>
+
+              <button  className={style.nav__button} disabled={DisableRightButton} onClick={() => setCurrentRankPage(currentRankPage + 10)}>
+                 <AiOutlineArrowRight/>
+              </button>
+              
             </div>
           </div>
         </div>

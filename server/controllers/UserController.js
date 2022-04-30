@@ -15,6 +15,8 @@ const DateZero = new Date(0)
 async function Auth(req, res) {
   const email = req.body.email
   const password = req.body.password
+
+  if((email===undefined)||(password===undefined) )  res.status(500).json({message:'Need all fields'})
   const data = { email, password }
 
   if (!validator.validEmail(data.email) || !validator.validEmail(data.email)) {
@@ -84,6 +86,10 @@ const JWTTokenGenerator = (payload) => {
 */
 async function CreateUser(req, res) {
   const body = req.body
+  
+  if((body.name===undefined)||(body.clg===undefined)||(body.password===undefined)||(body.email===undefined))
+   return res.status(400).json({message:'Need all fields'})
+
   const data = {
     name: body.name,
     college: body.clg,
@@ -123,6 +129,7 @@ async function CreateUser(req, res) {
     await user.save()
     const token = JWTTokenGenerator({ name: user.name, email: user.email })
     res.status(200).json({ message: 'success', token })
+    process.env.NUMBER_OF_USERS = parseInt(process.env.NUMBER_OF_USERS)+1
     logger.info(
       `request from ${
         req.headers['x-forwarded-for'] || req.socket.remoteAddress
@@ -134,7 +141,7 @@ async function CreateUser(req, res) {
       logger.info(
         `request from ${
           req.headers['x-forwarded-for'] || req.socket.remoteAddress
-        }: Account Aldready created`,
+        }: Account Already created`,
       )
       return
     }
@@ -154,7 +161,7 @@ function GetUserEmailFromJWt(req) {
         req.headers['x-forwarded-for'] || req.socket.remoteAddress
       }: unable to resolved jwt: ${req.cookies.jwt}`,
     )
-    return ''
+    return 'a@gmail.com'
   } else {
     let data = {}
     try {

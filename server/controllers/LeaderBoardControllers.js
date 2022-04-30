@@ -1,8 +1,11 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable prefer-const */
 const Users = require('../db/UserModel')
 const GetUserEmailFromJWt =
   require('../controllers/UserController').GetUserEmailFromJWt
 const config = require('../Questions')
 const logger = require('../logger')
+require("dotenv").config()
 
 const leaderBoard = async (req, res) => {
   logger.info(
@@ -10,15 +13,18 @@ const leaderBoard = async (req, res) => {
       req.headers['x-forwarded-for'] || req.socket.remoteAddress
     }: startRank : ${req.body.startRank} : endRank : ${req.body.endRank}`,
   )
-
-  // Checking validoty of start and end rank
+  
+  logger.info('Current No of users : '+process.env.NUMBER_OF_USERS)
+  // Checking validity of start and end rank
   if (
     req.body.startRank === undefined ||
     req.body.endRank === undefined ||
     req.body.startRank < 1 ||
     req.body.endRank < 1 ||
     req.body.endRank <= req.body.startRank ||
-    req.body.endRank - req.body.startRank < 1
+    req.body.endRank - req.body.startRank < 1 ||
+    parseInt(process.env.NUMBER_OF_USERS) < req.body.startRank ||
+    req.body.endRank - req.body.startRank !==10
   ) {
     req.body.startRank = 1
     req.body.endRank = 10
@@ -52,8 +58,13 @@ const leaderBoard = async (req, res) => {
       req.headers['x-forwarded-for'] || req.socket.remoteAddress
     }: sent rank array of size ${rankArray.length}`,
   )
-
-  res.json(rankArray)
+ 
+  let end =false 
+  if(req.body.endRank> parseInt(process.env.NUMBER_OF_USERS)) 
+  {
+     end =true 
+  }
+  res.json({rankArray,end})
 }
 
 const rank = async (req, res) => {

@@ -5,7 +5,7 @@ const router = express.Router()
 const userCntrl = require('../controllers/UserController')
 const jwt = require('jsonwebtoken')
 const logger = require('../logger')
-
+require("dotenv").config() 
 // Creating new user
 router.post('/new', asyncHandler(userCntrl.CreateUser))
 
