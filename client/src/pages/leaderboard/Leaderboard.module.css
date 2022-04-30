@@ -141,6 +141,7 @@
 .nav__button {
   position: relative;
   margin: 10px;
+  cursor: pointer;
   -webkit-animation-name: gradient-shadow;
           animation-name: gradient-shadow;
   -webkit-animation-timing-function: ease;
