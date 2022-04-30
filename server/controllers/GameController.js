@@ -47,8 +47,9 @@ async function getQuestion(req, res) {
     )
 
     const level = data.days[currentDate].level
+    console.log(level)
     if (level >= config.level.length) {
-      res.json({ message: 'Success', data: null })
+     res.json({ message: 'Success', data: null })
     }
     const questionData = {
       level,
@@ -115,7 +116,8 @@ async function verifyAnswer(req, res) {
       data.days[currentDate].level += 1
       data.days[currentDate].lastCompletedTimeStamp = Date.now()
       data.save()
-      if (level + 2 < config.level.length) {
+      console.log(data)
+      if (level + 1 < config.level.length) {
         level++
         logger.info(
           `requested db for user ip ${
@@ -124,7 +126,7 @@ async function verifyAnswer(req, res) {
             data.days[currentDate].level
           }, Date: ${Date.now()}`,
         )
-        res.json({
+       return res.json({
           message: 'Success',
           data: {
             level,
@@ -138,14 +140,13 @@ async function verifyAnswer(req, res) {
     } else {
       res.status(400).json({ message: 'Wrong Answer' })
     }
-    return
   } catch (e) {
     logger.info(
       `requested db for user ip ${
         req.headers['x-forwarded-for'] || req.socket.remoteAddress
       }: Error occured ${e}`,
     )
-    res.status(500).json({ message: 'Internal Server Error' })
+     res.status(500).json({ message: 'Internal Server Error' })
   }
 }
 
