@@ -11,32 +11,32 @@ function Rules() {
       <Menu loggedIn={true} desktop={size.width > 1024} />
       <div className={styles.wrapper}>
         <div className={styles.text}>
-          <div className={styles.header}>Rules</div>
-          <div className={styles.content}>
-            <ul>
-              <li>
-                This is a treasure kind of a game in which the participant
-                should try to find the answer by identifying the similarity and
-                connecting the images.
-              </li>
-            </ul>
-            <ul>
-              <li>The game will be live for three days. </li>
-            </ul>
-            <ul>
-              <li>
-                Each day is independent and one winner will be chosen each day.
-              </li>
-            </ul>
-            <ul>
-              <li>The UI of the website has no relation to the questions. </li>
-            </ul>
-            <ul>
-              <li>
-                Clues will be updated periodically in the specified time.{' '}
-              </li>
-            </ul>
-          </div>
+          <h1>Rules</h1>
+          <ul>
+            <li>
+              This is a treasure kind of a game in which the participant should
+              try to find the answer by identifying the similarity and
+              connecting the images.
+            </li>
+          </ul>
+          <hr />
+          <ul>
+            <li>The game will be live for three days. </li>
+          </ul>
+          <hr />
+          <ul>
+            <li>
+              Each day is independent and one winner will be chosen each day.
+            </li>
+          </ul>
+          <hr />
+          <ul>
+            <li>The UI of the website has no relation to the questions. </li>
+          </ul>
+          <hr />
+          <ul>
+            <li>Clues will be updated periodically in the specified time. </li>
+          </ul>
         </div>
       </div>
     </main>
