@@ -167,7 +167,6 @@ function GetUserEmailFromJWt(req) {
         req.headers['x-forwarded-for'] || req.socket.remoteAddress
       }: unable to resolved jwt: ${req.cookies.jwt}`,
     )
-    return 'a@gmail.com'
   } else {
     let data = {}
     try {
