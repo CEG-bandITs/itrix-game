@@ -4,9 +4,6 @@ require('dotenv').config()
 const crypto = require('crypto')
 const Schema = mongoose.Schema
 
-// Hash Function
-const hash = crypto.createHash('sha256')
-
 // day schema
 const DaySchema = {
   level: {
