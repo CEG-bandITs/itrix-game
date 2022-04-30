@@ -14,7 +14,7 @@
   align-items: center;
   text-align: center;
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url(../../../public/images/cos.png);
+    url(../../../public/images/cos.webp);
   background-repeat: no-repeat;
   background-position: center center;
   background-attachment: fixed;

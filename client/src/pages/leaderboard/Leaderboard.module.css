@@ -18,7 +18,7 @@
 
 .wrapper {
   background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-    url('/public/images/harrypotter_timer_wall.png');
+    url('/public/images/harrypotter_timer_wall.webp');
   width: 100%;
   min-height: 100vh;
   background-position: center;

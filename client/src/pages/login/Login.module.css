@@ -19,7 +19,7 @@
 }
 
 .login {
-  background-image: url('/public/images/harrypotter-platform-bg.png');
+  background-image: url('/public/images/harrypotter-platform-bg.webp');
   background-size: cover;
   background-position: 80%;
   height: 100vh;
@@ -99,49 +99,58 @@
   padding: 1vmax;
 }
 
-  
-  .login__button {background-image: linear-gradient(to right, #56ab2f 0%, #a8e063  51%, #56ab2f  100%)}
-  .login__button {
-     cursor:pointer; 
-     margin: 10px;
-     padding: 15px 45px;
-     text-align: center;
-     text-transform: uppercase;
-     transition: 0.5s;
-     background-size: 200% auto;
-     color: white;            
-     border-radius: 10px;
-     display: block;
-   }
+.login__button {
+  background-image: linear-gradient(
+    to right,
+    #56ab2f 0%,
+    #a8e063 51%,
+    #56ab2f 100%
+  );
+}
+.login__button {
+  cursor: pointer;
+  margin: 10px;
+  padding: 15px 45px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  border-radius: 10px;
+  display: block;
+}
 
-   .login__button:hover {
-     background-position: right center; /* change the direction of the change here */
-     color: #fff;
-     text-decoration: none;
-   }
-  
+.login__button:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
 
-   .createAccount > input[type='button'] {background-image: linear-gradient(to right, #00c6ff 0%, #0072ff  51%, #00c6ff  100%)}
-   .createAccount > input[type='button'] {
-      padding: 10px 15px;
-      text-align: center;
-      text-transform: uppercase;
-      transition: 0.5s;
-      color: white;            
-      border-radius: 5px;
-      display: block;
-      font-size: medium;
-      cursor: pointer;
-    }
+.createAccount > input[type='button'] {
+  background-image: linear-gradient(
+    to right,
+    #00c6ff 0%,
+    #0072ff 51%,
+    #00c6ff 100%
+  );
+}
+.createAccount > input[type='button'] {
+  padding: 10px 15px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  color: white;
+  border-radius: 5px;
+  display: block;
+  font-size: medium;
+  cursor: pointer;
+}
 
-    .createAccount > input[type='button'] :hover {
-      background-position: right center; /* change the direction of the change here */
-      color: #fff;
-      text-decoration: none;
-    }
-   
-
-
+.createAccount > input[type='button'] :hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
 
 .loginBox > input[type='button']:active,
 .loginBox > input[type='button']:focus,
@@ -165,9 +174,8 @@
   }
 }
 
-.hint 
-{
-  color:red ;
+.hint {
+  color: red;
   white-space: nowrap;
-  font-size: .6rem;
+  font-size: 0.6rem;
 }

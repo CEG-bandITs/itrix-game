@@ -21,7 +21,7 @@
 
 .content__wrapper {
   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-    url('/public/images/cos.png');
+    url('/public/images/cos.webp');
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -50,10 +50,10 @@
     rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
 .column .img1 {
-  background-image: url('/public/images/signup.png');
+  background-image: url('/public/images/signup.webp');
 }
 .column .img2 {
-  background-image: url('/public/images/signin.png');
+  background-image: url('/public/images/signin.webp');
 }
 
 .column .img:hover {
@@ -139,7 +139,7 @@
   width: 100%;
   height: 100%;
   z-index: 1;
-  background-image: url('/public/images/home_page_image_3.jpg');
+  background-image: url('/public/images/home_page_image_3.webp');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -164,7 +164,6 @@
   gap: 1vw;
   align-items: center;
   justify-content: space-around;
- 
 }
 .nav__links a {
   text-decoration: none;
@@ -179,7 +178,7 @@
   text-align: center;
   color: white;
   cursor: pointer;
-  font-size:medium ; 
+  font-size: medium;
 }
 
 .other__pages:hover {
