@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 export const SubmitAnswer = async (data) => {
-  const res = await fetch('http://localhost:3001/api/game/verify', {
+  const res = await fetch('/api/game/verify', {
     method: 'POST',
     body: JSON.stringify(data),
     headers: {

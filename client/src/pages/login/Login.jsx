@@ -40,7 +40,7 @@ function Login() {
 
     ;(async () => {
       handleDisableButton(true)
-      const res = await fetch('http://localhost:3001/api/users/auth', {
+      const res = await fetch('/api/users/auth', {
         method: 'POST',
         body: JSON.stringify(data),
         headers: {

@@ -52,7 +52,7 @@ function Signup() {
 
     ;(async () => {
       handleDisableButton(true)
-      const res = await fetch('http://localhost:3001/api/users/new', {
+      const res = await fetch('/api/users/new', {
         method: 'POST',
         body: JSON.stringify(data),
         headers: {

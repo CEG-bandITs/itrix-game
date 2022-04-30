@@ -5,7 +5,7 @@ import style from './Leaderboard.module.css'
 import Menu from '../../components/Menu'
 import { useWindowSize } from '../../lib/windowSize'
 import { Wrapper } from '../../RootPage'
-import {AiOutlineArrowRight,AiOutlineArrowLeft} from "react-icons/ai" ;
+import {AiFillCaretRight,AiOutlineCaretLeft} from "react-icons/ai" ;
 
 function Leaderboard() {
   const size = useWindowSize()
@@ -23,7 +23,7 @@ function Leaderboard() {
       const response = await res.json()
       console.log(response)
       setRank(response.rank)
-      handleDisableRight(!response.end)
+      
     })()
   }, [])
 
@@ -46,7 +46,7 @@ function Leaderboard() {
       console.log(response)
       if (response.rankArray.length === 0) setCurrentRankPage(currentRankPage - 10)
       setData(response.rankArray)
-
+      handleDisableRight(response.end)
     })()
   }, [currentRankPage])
 
@@ -110,11 +110,11 @@ function Leaderboard() {
             <div className={style.navigator}>
 
               <button className={style.nav__button}  disabled={currentRankPage===1&&true} onClick={() => setCurrentRankPage(currentRankPage - 10)}>
-                 <AiOutlineArrowLeft />
+                 <AiOutlineCaretLeft/>
               </button>
 
               <button  className={style.nav__button} disabled={DisableRightButton} onClick={() => setCurrentRankPage(currentRankPage + 10)}>
-                 <AiOutlineArrowRight/>
+                 <AiFillCaretRight/>
               </button>
               
             </div>
