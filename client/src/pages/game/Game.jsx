@@ -39,33 +39,24 @@ function Game() {
       )
       console.log(res)
       if (res.message === 'Success') {
-        const data = {}
-        data.level = res.questionData.level
-        data.questions = res.questionData.images
-        data.hints = res.questionData.hints
-        changeData(data)
+        if(res.data!==null)
+        {
+          const data = {}
+          data.level = res.questionData.level
+          data.questions = res.questionData.images
+          data.hints = res.questionData.hints
+          changeData(data)
+        }
+        else handleMessage("Game completed")
       } else {
         handleMessage(res.message)
       }
     })()
   }, [])
 
-  if (data === null) {
-    return (
-      <main className={styles.main}>
-        <Menu loggedIn={true} desktop={size.width > 1024} />
-        <div className={styles.wrapper}>
-          <div className={styles.GamePage}>
-            <div className={styles.message}>
-              <h1>{'Loading'}</h1>
-            </div>
-          </div>
-        </div>
-      </main>
-    )
-  }
+  
 
-  if (message !== '')
+  if ((message !== '')||(data===null))
     return (
       <main className={styles.main}>
         <Menu loggedIn={true} desktop={size.width > 1024} />
