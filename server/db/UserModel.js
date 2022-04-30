@@ -3,8 +3,10 @@ const bcrypt = require('bcrypt')
 require('dotenv').config()
 const Schema = mongoose.Schema
 
-// day schema
+// generating salt for hashing
+const salt = bcrypt.genSaltSync(9)
 
+// day schema
 const DaySchema = {
   level: {
     type: Number,
@@ -56,9 +58,6 @@ const UserSchema = new Schema(
 // hashing password just before saving instance
 // this is not working !!
 UserSchema.pre('save', async function (next) {
-  // generating salt for hashing
-  const salt = await bcrypt.genSalt(10)
-
   // hashed password
   const hash = await bcrypt.hash(this.password, salt)
 

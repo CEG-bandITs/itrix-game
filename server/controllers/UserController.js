@@ -27,6 +27,8 @@ async function Auth(req, res) {
     return
   }
 
+  console.log(data)
+
   try {
     const user = await User.findOne({ email: data.email })
     if (user) {
@@ -35,9 +37,9 @@ async function Auth(req, res) {
       logger.info(
         `db request from user ip ${
           req.headers['x-forwarded-for'] || req.socket.remoteAddress
-        }: validating password ${data.password} for ${
-          data.email
-        }, VALID: ${valid} `,
+        }: validating password ${data.password} passwordHash ${
+          user.password
+        } for ${data.email}, VALID: ${valid} `,
       )
 
       if (!valid) {
@@ -105,6 +107,7 @@ async function CreateUser(req, res) {
     ],
   }
 
+  console.log(data)
   if (
     !validator.validEmail(data.email) ||
     !validator.validPassword(data.password)
@@ -113,7 +116,7 @@ async function CreateUser(req, res) {
     logger.info(
       `request from ${
         req.headers['x-forwarded-for'] || req.socket.remoteAddress
-      }: inavlid email or password : ${data} `,
+      }: invalid email or password : ${data} `,
     )
     return
   }
