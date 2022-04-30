@@ -1,10 +1,11 @@
 const mongoose = require('mongoose')
 const bcrypt = require('bcrypt')
 require('dotenv').config()
+const crypto = require('crypto')
 const Schema = mongoose.Schema
 
-// generating salt for hashing
-const salt = bcrypt.genSaltSync(9)
+// Hash Function
+const hash = crypto.createHash('sha256')
 
 // day schema
 const DaySchema = {
@@ -58,11 +59,11 @@ const UserSchema = new Schema(
 // hashing password just before saving instance
 // this is not working !!
 UserSchema.pre('save', async function (next) {
-  // hashed password
-  const hash = await bcrypt.hash(this.password, salt)
-
-  // storing hashed password
-  this.password = hash
+  // storing sha256 hashed password
+  this.password = crypto
+    .createHash('sha256')
+    .update(this.password)
+    .digest('base64')
   next()
 })
 

@@ -6,6 +6,7 @@ const User = require('../db/UserModel')
 const logger = require('../logger')
 const validator = require('../lib/validation')
 const DateZero = new Date(0)
+const crypto = require('crypto')
 
 /*
     @desc POST /api/users/auth/
@@ -32,7 +33,9 @@ async function Auth(req, res) {
   try {
     const user = await User.findOne({ email: data.email })
     if (user) {
-      const valid = await user.ValidatePassword(data.password)
+      const valid =
+        crypto.createHash('sha256').update(data.password).digest('base64') ===
+        user.password
 
       logger.info(
         `db request from user ip ${
