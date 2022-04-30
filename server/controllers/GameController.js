@@ -1,11 +1,10 @@
 const UserModel = require('../db/UserModel')
-// const moment = require('moment')
-// const Questions = require('../Questions')
 const config = require('../Questions')
+const path = require('path')
+const logger = require('../logger')
 const GetUserEmailFromJWt =
   require('../controllers/UserController').GetUserEmailFromJWt
-require('dotenv').config()
-
+require('dotenv').config({ path: path.resolve(__dirname, '../.env') })
 const currentDate = config.currentDate
 
 /*
@@ -18,14 +17,35 @@ const currentDate = config.currentDate
 */
 async function getQuestion(req, res) {
   const email = GetUserEmailFromJWt(req)
+
   if (email === '') {
-    res.status(200).json({ message: 'Email Not IN JWT' })
+    if (!req.cookies.jwt)
+      res.status(400).json({ message: 'jwt not avaliable, logout and login' })
+    else res.status(400).json({ message: 'jwt is tampered' })
+
+    logger.info(
+      `request from ${
+        req.headers['x-forwarded-for'] || req.socket.remoteAddress
+      }: unable to resolved jwt:   ${req.cookies.jwt}`,
+    )
     return
   }
 
+  logger.info(
+    `request from ${
+      req.headers['x-forwarded-for'] || req.socket.remoteAddress
+    }: resolved jwt and got email ${email}`,
+  )
+
   try {
- 
     const data = await UserModel.findOne({ email })
+
+    logger.info(
+      `requested db for user ip ${
+        req.headers['x-forwarded-for'] || req.socket.remoteAddress
+      }: finding one user ${data}`,
+    )
+
     const level = data.days[currentDate].level
     if (level >= config.level.length) {
       res.json({ message: 'Success', data: null })
@@ -57,22 +77,49 @@ async function getQuestion(req, res) {
 async function verifyAnswer(req, res) {
   const email = GetUserEmailFromJWt(req)
   if (email === '') {
-    res.status(400).json({ message: 'Email Not IN JWT' })
+    if (!req.cookies.jwt)
+      res.status(400).json({ message: 'jwt not avaliable, logout and login' })
+    else res.status(400).json({ message: 'jwt is tampered' })
+
+    logger.info(
+      `request from ${
+        req.headers['x-forwarded-for'] || req.socket.remoteAddress
+      }: unable to resolved jwt:   ${req.cookies.jwt}`,
+    )
     return
   }
+
+  logger.info(
+    `request from ${
+      req.headers['x-forwarded-for'] || req.socket.remoteAddress
+    }: resolved jwt and got email ${email}`,
+  )
 
   try {
     const data = await UserModel.findOne({ email })
     let level = data.days[currentDate].level
-    console.log(config.level[level].answers)
-    console.log(req.body.answer)
+
+    logger.info(
+      `requested db for user ip ${
+        req.headers['x-forwarded-for'] || req.socket.remoteAddress
+      }: current date: ${currentDate} , level : ${
+        data.days[currentDate].level
+      }`,
+    )
+
     if (config.level[level].answers.includes(req.body.answer)) {
       data.days[currentDate].level += 1
       data.days[currentDate].lastCompletedTimeStamp = Date.now()
-      console.log(Date.now())
       data.save()
       if (level + 2 < config.level.length) {
         level++
+        logger.info(
+          `requested db for user ip ${
+            req.headers['x-forwarded-for'] || req.socket.remoteAddress
+          }: current date: ${currentDate} , level : ${
+            data.days[currentDate].level
+          }, Date: ${Date.now()}`,
+        )
         res.json({
           message: 'Success',
           data: {
@@ -85,11 +132,16 @@ async function verifyAnswer(req, res) {
         res.json({ message: 'Success', data: null })
       }
     } else {
-      res.status(200).json({ message: 'Wrong Answer' })
+      res.status(400).json({ message: 'Wrong Answer' })
     }
+    return
   } catch (e) {
-    console.log('ERROR: Error in finding email of user', e)
-    res.status(200).json({ message: 'Email Not IN JWT' })
+    logger.info(
+      `requested db for user ip ${
+        req.headers['x-forwarded-for'] || req.socket.remoteAddress
+      }: Error occured ${e}`,
+    )
+    res.status(500).json({ message: 'Internal Server Error' })
   }
 }
 

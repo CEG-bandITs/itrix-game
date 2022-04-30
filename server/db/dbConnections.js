@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const logger = require('../logger')
 
 // atlas url
 const mongooseUrl =
@@ -13,9 +14,7 @@ mongoose.connect(mongooseUrl)
 const db = mongoose.connection
 
 // error instance
-db.on('error', console.error.bind('ERROR: error connecting to database'))
+db.on('error', () => logger.error('Error Connecting Database'))
 
 // success instance
-db.once('open', () => {
-  console.log('INFO: connected to atlas sucessfully')
-})
+db.once('open', () => logger.info('Connected To DB'))

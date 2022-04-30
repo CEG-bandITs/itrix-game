@@ -3,6 +3,8 @@ const jwt = require('jsonwebtoken')
 const path = require('path')
 require('dotenv').config({ path: path.resolve(__dirname, '../.env') })
 const User = require('../db/UserModel')
+const logger = require('../logger')
+const validator = require('../lib/validation')
 const DateZero = new Date(0)
 
 /*
@@ -15,24 +17,59 @@ async function Auth(req, res) {
   const password = req.body.password
   const data = { email, password }
 
+  if (!validator.validEmail(data.email) || !validator.validEmail(data.email)) {
+    res.status(400).json({ message: 'Invalid Email' })
+    logger.info(
+      `request from ${
+        req.headers['x-forwarded-for'] || req.socket.remoteAddress
+      }: inavlid email or password : ${data} `,
+    )
+    return
+  }
+
   try {
     const user = await User.findOne({ email: data.email })
-    if (!user) res.send({ message: 'User Not Found' })
-    else {
+    if (user) {
       const valid = await user.ValidatePassword(data.password)
-      console.log(valid)
 
-      if (valid) {
+      logger.info(
+        `db request from user ip ${
+          req.headers['x-forwarded-for'] || req.socket.remoteAddress
+        }: validating password ${data.password} for ${
+          data.email
+        }, VALID: ${valid} `,
+      )
+
+      if (!valid) {
+        res.status(400).json({ message: 'Wrong Credentials' })
+        return
+      } else {
         const data = {
           name: user.name,
           email: user.email,
         }
         const token = JWTTokenGenerator(data)
+        logger.info(
+          `request from user ip ${
+            req.headers['x-forwarded-for'] || req.socket.remoteAddress
+          }: validated password and generated jwt ${jwt}`,
+        )
         res.status(200).json({ message: 'success', token, data })
-      } else res.status(400).json({ message: 'Wrong Credentials' })
+      }
+    } else {
+      logger.info(
+        `db request from user ip ${
+          req.headers['x-forwarded-for'] || req.socket.remoteAddress
+        }: user not found for email ${data.email}`,
+      )
+      res.status(400).send({ message: 'User Not Found' })
     }
   } catch (e) {
-    console.log('ERROR: error in finding user')
+    logger.info(
+      `request from user ip ${
+        req.headers['x-forwarded-for'] || req.socket.remoteAddress
+      }: Authentication Error: ${e}`,
+    )
     res.status(500).json({ message: 'Internal Server Error' })
   }
 }
@@ -68,30 +105,80 @@ async function CreateUser(req, res) {
     ],
   }
 
+  if (
+    !validator.validEmail(data.email) ||
+    !validator.validPassword(data.password)
+  ) {
+    res.status(400).json({ message: 'not valid email or password' })
+    logger.info(
+      `request from ${
+        req.headers['x-forwarded-for'] || req.socket.remoteAddress
+      }: inavlid email or password : ${data} `,
+    )
+    return
+  }
+
   try {
     const user = new User(data)
     await user.save()
     const token = JWTTokenGenerator({ name: user.name, email: user.email })
     res.status(200).json({ message: 'success', token })
+    logger.info(
+      `request from ${
+        req.headers['x-forwarded-for'] || req.socket.remoteAddress
+      }: User created , jwt generated ${jwt} `,
+    )
   } catch (e) {
     if (e.code === 11000) {
       res.status(400).json({ message: 'Account already exists' })
+      logger.info(
+        `request from ${
+          req.headers['x-forwarded-for'] || req.socket.remoteAddress
+        }: Account Aldready created`,
+      )
       return
     }
-    console.log('ERROR: in creating user', e)
+    logger.info(
+      `request from ${
+        req.headers['x-forwarded-for'] || req.socket.remoteAddress
+      }: Internal Server Error ${e}`,
+    )
     res.status(500).json({ message: 'internal server error' })
   }
 }
 
 function GetUserEmailFromJWt(req) {
-  console.log(req.cookies)
-
-  // sending rank for un authenticated user !!
-  if (req.cookies.jwt === undefined) return ''
-  else {
-    console.log('token: ', process.env.JWT_SECRET)
-    console.log('user jwt: ', req.cookies.jwt)
-    const data = jwt.verify(req.cookies.jwt, process.env.JWT_SECRET)
+  if (req.cookies.jwt === undefined) {
+    logger.info(
+      `request from ${
+        req.headers['x-forwarded-for'] || req.socket.remoteAddress
+      }: unable to resolved jwt: ${req.cookies.jwt}`,
+    )
+    return ''
+  } else {
+    let data = {}
+    try {
+      data = jwt.verify(req.cookies.jwt, process.env.JWT_SECRET)
+    } catch (e) {
+      if (!req.cookies.jwt)
+        logger.info(
+          `request from ${
+            req.headers['x-forwarded-for'] || req.socket.remoteAddress
+          }: jwt is not avaliable: ${e}`,
+        )
+      else
+        logger.info(
+          `request from ${
+            req.headers['x-forwarded-for'] || req.socket.remoteAddress
+          }: jwt is tampered or unable to verify jwt Error: ${e}`,
+        )
+      return ''
+    }
+    logger.info(
+      `request from ${
+        req.headers['x-forwarded-for'] || req.socket.remoteAddress
+      }: jwt verified and email ${data.email} extracted`,
+    )
     return data.email
   }
 }
