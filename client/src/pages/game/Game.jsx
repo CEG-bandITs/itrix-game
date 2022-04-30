@@ -7,7 +7,7 @@ import { GiDiamondTrophy } from 'react-icons/gi'
 import Menu from '../../components/Menu'
 import { AnswerBar, QuestionBar } from './GameComponents'
 import { useWindowSize } from '../../lib/windowSize'
-import { Modal } from "../../components/Notifications/Notifications"
+import { Modal } from '../../components/Notifications/Notifications'
 
 export const Container = React.createContext()
 
@@ -16,58 +16,55 @@ function Game() {
 
   const [data, changeData] = useState(null)
   const [message, handleMessage] = useState('')
-  const [successModal,handleSuccessModal] =useState(false) ;
-  const [ErrorMessage,handleErrorMessage] =useState("");
+  const [successModal, handleSuccessModal] = useState(false)
+  const [ErrorMessage, handleErrorMessage] = useState('')
 
   const value = {
     data,
     changeData,
     message,
     handleMessage,
-    successModal ,
+    successModal,
     handleSuccessModal,
     ErrorMessage,
-    handleErrorMessage 
+    handleErrorMessage,
   }
 
- 
   useEffect(() => {
     ;(async () => {
       console.log('Started')
-      const res = await GetQuestion(
-
-      )
+      const res = await GetQuestion()
       console.log(res)
       if (res.message === 'Success') {
-        if(res.data!==null)
-        {
+        if (res.data !== null) {
           const data = {}
           data.level = res.questionData.level
-          data.questions = res.questionData.images
+          data.images = res.questionData.images
           data.hints = res.questionData.hints
+          console.log('Images:', data.images)
+
           changeData(data)
-        }
-        else handleMessage("Game completed")
+        } else handleMessage('Game completed')
       } else {
         handleMessage(res.message)
       }
     })()
   }, [])
 
-  
-
-  if ((message !== '')||(data===null))
+  if (message !== '' || data === null)
     return (
-      <main className={styles.main}>
-        <Menu loggedIn={true} desktop={size.width > 1024} />
-        <div className={styles.wrapper}>
-          <div className={styles.GamePage}>
-            <div className={styles.message}>
-              <h1>{message}</h1>
+      <>
+        <main className={styles.main}>
+          <Menu loggedIn={true} desktop={size.width > 1024} />
+          <div className={styles.wrapper}>
+            <div className={styles.GamePage}>
+              <div className={styles.message}>
+                <h1>{message}</h1>
+              </div>
             </div>
           </div>
-        </div>
-      </main>
+        </main>
+      </>
     )
 
   return (
@@ -86,11 +83,10 @@ function Game() {
                   </div>
                 )}
               </span>
-              
             </div>
             <span className={styles.error__}>
-                {ErrorMessage!==""&&ErrorMessage}
-              </span>
+              {ErrorMessage !== '' && ErrorMessage}
+            </span>
             {size.width <= 1300 ? (
               <>
                 <QuestionBar for="Mobile" />
@@ -103,8 +99,7 @@ function Game() {
               </>
             )}
           </div>
-          {successModal&&<Modal handler={handleSuccessModal}/>}
-     
+          {successModal && <Modal handler={handleSuccessModal} />}
         </Container.Provider>
       </div>
     </main>

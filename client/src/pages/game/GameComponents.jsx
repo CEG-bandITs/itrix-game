@@ -1,6 +1,6 @@
 /* eslint-disable no-empty */
 /* eslint-disable prettier/prettier */
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import style from './Game.module.css'
 import { SubmitAnswer } from '../../api_calls/Game'
 import { Container } from './Game.jsx'
@@ -9,52 +9,62 @@ import PropTypes from 'prop-types'
 export function QuestionBar(props) {
   const [ImgPointer, SetImgPointer] = useState(0)
   const value = React.useContext(Container)
-  const data = { images: value.data.questions, hints: value.data.hints }
+  const data = { images: value.data.images, hints: value.data.hints }
 
   function IncreaseImgPointer() {
-    if (ImgPointer >= data.images.length - 1) {
-      SetImgPointer(0)
-    } else {
-      SetImgPointer(ImgPointer + 1)
-    }
+    if (ImgPointer >= data.images.length) return
+    SetImgPointer(ImgPointer + 1)
   }
   function DecreaseImgPointer() {
-    if (ImgPointer <= 0) {
-      SetImgPointer(data.images.length - 1)
-    } else {
-      SetImgPointer(ImgPointer - 1)
-    }
+    if (ImgPointer <= 0) return
+    SetImgPointer(ImgPointer - 1)
   }
+
+  useEffect(() => {
+    console.log(ImgPointer, data.images.length)
+    console.log(data.images[ImgPointer].url)
+  }, [ImgPointer])
+
   if (props.for === 'Mobile') {
     return (
-      <div className={style.QuestionBar}>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="16"
-          height="16"
-          fill="currentColor"
-          className="bi bi-arrow-left-circle-fill"
-          onClick={() => IncreaseImgPointer()}
-          viewBox="0 0 16 16"
-        >
-          <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z" />
-        </svg>
-        <img
-          className={style.QuestionImg}
-          src={data.images[ImgPointer].url}
-        ></img>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="16"
-          height="16"
-          fill="currentColor"
-          className="bi bi-arrow-right-circle-fill"
-          viewBox="0 0 16 16"
-          onClick={() => DecreaseImgPointer()}
-        >
-          <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z" />
-        </svg>
-      </div>
+      <>
+        {data.images.map((e) => {
+          return <link key={e.id} rel="preload" href={e.url} as="image"></link>
+        })}
+        <div className={style.QuestionBar}>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            style={{ visibility: ImgPointer === 0 ? 'hidden' : 'visible' }}
+            className="bi bi-arrow-left-circle-fill"
+            onClick={() => DecreaseImgPointer()}
+            viewBox="0 0 16 16"
+          >
+            <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z" />
+          </svg>
+          <img
+            className={style.QuestionImg}
+            src={data.images[ImgPointer].url}
+          ></img>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            className="bi bi-arrow-right-circle-fill"
+            viewBox="0 0 16 16"
+            onClick={() => IncreaseImgPointer()}
+            style={{
+              visibility:
+                ImgPointer === data.images.length - 1 ? 'hidden' : 'visible',
+            }}
+          >
+            <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z" />
+          </svg>
+        </div>
+      </>
     )
   } else {
     return (
@@ -149,8 +159,10 @@ export function AnswerBar(props) {
             const data = {
               level: temp.level,
               hints: temp.hints,
-              questions: temp.questions,
+              images: temp.questions,
             }
+            console.log('data', data)
+            console.log('temp', temp)
             value.changeData(data)
             handleAnswer('')
             value.handleSuccessModal(true)
