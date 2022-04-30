@@ -57,8 +57,12 @@ async function getQuestion(req, res) {
     }
     res.json({ message: 'Success', questionData })
   } catch (e) {
-    console.log('ERROR: Error in finding email of user')
-    res.status(200).json({ message: 'Email Not IN JWT' })
+    logger.info(
+      `requested db for user ip ${
+        req.headers['x-forwarded-for'] || req.socket.remoteAddress
+      }: Error in getting Questions : Error : ${e}`,
+    )
+    res.status(200).json({ message: 'Internal Server Error' })
   }
 }
 

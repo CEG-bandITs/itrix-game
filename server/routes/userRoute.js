@@ -4,6 +4,7 @@ const asyncHandler = require('express-async-handler')
 const router = express.Router()
 const userCntrl = require('../controllers/UserController')
 const jwt = require('jsonwebtoken')
+const logger = require('../logger')
 
 // Creating new user
 router.post('/new', asyncHandler(userCntrl.CreateUser))
@@ -13,15 +14,36 @@ router.post('/auth', asyncHandler(userCntrl.Auth))
 
 // Verify JWT token
 router.get('/verify', (req, res) => {
+  if (!req.cookies.jwt) {
+    logger.info(
+      `request from ip ${
+        req.headers['x-forwarded-for'] || req.socket.remoteAddress
+      }: Token not Provided`,
+    )
+    res.json({
+      msg: 'Invalid Token',
+    })
+    return
+  }
+
   try {
     jwt.verify(req.cookies.jwt, process.env.JWT_SECRET)
+    logger.info(
+      `request from ip ${
+        req.headers['x-forwarded-for'] || req.socket.remoteAddress
+      }: JWT Validated jwt : ${jwt}`,
+    )
     res.json({
       msg: 'Validated',
     })
   } catch (e) {
-    console.log('Error Occured In ' + req.path + ' ' + e)
+    logger.info(
+      `request from ip ${
+        req.headers['x-forwarded-for'] || req.socket.remoteAddress
+      }: Error Occured Error: ${e}`,
+    )
     res.json({
-      msg: 'Invalid Token',
+      msg: 'Internal Server Error',
     })
   }
 })
