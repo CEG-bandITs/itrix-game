@@ -12,16 +12,7 @@ const config = {
           url: 'images/game/1/jhftygdthgcfhgfdjgfdgf.webp',
         },
       ],
-      hints: [
-        {
-          id: 1,
-          msg: '',
-        },
-        {
-          id: 2,
-          msg: '',
-        },
-      ],
+      hints: [{ id: 1, msg: 'Test' }],
       answers: ['joey'],
     },
     {
@@ -31,16 +22,7 @@ const config = {
           url: 'images/game/2/kljhtkjdjkfshuirefgvjr.webp',
         },
       ],
-      hints: [
-        {
-          id: 1,
-          msg: '',
-        },
-        {
-          id: 2,
-          msg: '',
-        },
-      ],
+      hints: [],
       answers: ['internationalworkersday'],
     },
 
@@ -59,16 +41,7 @@ const config = {
           url: 'images/game/3/mvnbvbvbvberfey46578fjhgfh_fdjfdhf_1.webp',
         },
       ],
-      hints: [
-        {
-          id: 1,
-          msg: '',
-        },
-        {
-          id: 2,
-          msg: '',
-        },
-      ],
+      hints: [],
       answers: ['vampirediaries'],
     },
 
@@ -83,16 +56,7 @@ const config = {
           url: 'images/game/4/rettwywhbvbhgghfgh6bcvgf.webp',
         },
       ],
-      hints: [
-        {
-          id: 1,
-          msg: '',
-        },
-        {
-          id: 2,
-          msg: '',
-        },
-      ],
+      hints: [],
       answers: ['dobby'],
     },
 
@@ -107,16 +71,7 @@ const config = {
           url: 'images/game/5/yfyudfsdhfdshfhsdfhd.webp',
         },
       ],
-      hints: [
-        {
-          id: 1,
-          msg: '',
-        },
-        {
-          id: 2,
-          msg: '',
-        },
-      ],
+      hints: [],
       answers: ['aryastark'],
     },
 
@@ -135,16 +90,7 @@ const config = {
           url: 'images/game/6/qwedsrddshdsghdshdgsahj.webp',
         },
       ],
-      hints: [
-        {
-          id: 1,
-          msg: '',
-        },
-        {
-          id: 2,
-          msg: '',
-        },
-      ],
+      hints: [],
       answers: ['blackpearl'],
     },
     {
@@ -162,16 +108,7 @@ const config = {
           url: 'images/game/7/yriutyeriuytfghdjsfhghsdfsdgf.webp',
         },
       ],
-      hints: [
-        {
-          id: 1,
-          msg: '',
-        },
-        {
-          id: 2,
-          msg: '',
-        },
-      ],
+      hints: [],
       answers: ['julia'],
     },
     {
@@ -189,16 +126,7 @@ const config = {
           url: 'images/game/8/NMCNVHJFGJHYRTGFYEH.webp',
         },
       ],
-      hints: [
-        {
-          id: 1,
-          msg: '',
-        },
-        {
-          id: 2,
-          msg: '',
-        },
-      ],
+      hints: [],
       answers: ['battleofthehydaspes'],
     },
   ],
