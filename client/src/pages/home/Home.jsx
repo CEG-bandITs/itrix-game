@@ -17,6 +17,9 @@ function AfterLogin() {
     <main className={styles.main}>
       <div className={styles.wrapper}>
         <div className="after__login">
+          <div className={styles.logo}>
+            <img src="images/logo.985d08990301b49117ac.webp" />
+          </div>
           <div className="content1">
             <div className={styles.after__login}>
               <div className={styles.content1}>
@@ -62,6 +65,9 @@ function BeforeLogin() {
       <Menu loggedIn={true} desktop={size.width > 1024} />
       <div className={styles.wrapper}>
         <div className={styles.content__wrapper}>
+          <div className={styles.logo}>
+            <img src="images/logo.985d08990301b49117ac.webp" />
+          </div>
           <div className={styles.content}>
             <p className={styles.content__header}> Chamber Of Secrets </p>
             <div className={styles.row}>

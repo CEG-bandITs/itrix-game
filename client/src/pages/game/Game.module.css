@@ -101,20 +101,21 @@
   left: 0;
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: right;
   align-items: center;
-
+  gap: 0.3rem;
   padding: 20px 0px;
+  font-size: 0.5rem;
+  color: red;
 }
 
-.game__menu,
-.trophy {
-  color: white;
-  margin: 20px;
-}
 .trophy {
   display: flex;
-  align-items: baseline;
+  align-items: center;
+  padding-right: 0.5rem;
+  fill: yellow;
+  color: yellow;
+  font-size: 0.8rem;
 }
 
 .message {

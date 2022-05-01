@@ -19,6 +19,14 @@
   font-family: 'Open Sans';
 }
 
+.logo img {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: clamp(10vh, 1rem + 3vw, 13vh);
+  width: auto;
+}
+
 .content__wrapper {
   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
     url('/public/images/cos.webp');
@@ -171,14 +179,14 @@
 }
 .other__pages {
   padding: 10px;
-  background-color: transparent;
+  background-color: rgba(196, 196, 196, 0.2);
   border: 1px solid thistle;
   border-radius: 5px;
-  width: 150px;
+  min-width: 10vw;
+  font-size: 0.8rem;
   text-align: center;
   color: white;
   cursor: pointer;
-  font-size: medium;
 }
 
 .other__pages:hover {
@@ -221,7 +229,7 @@
 .hi {
   animation: glitch 1s linear infinite;
   color: white;
-  font-size: 30px;
+  font-size: 1.4rem;
   white-space: nowrap;
 }
 

@@ -8,6 +8,7 @@ import Menu from '../../components/Menu'
 import { AnswerBar, QuestionBar } from './GameComponents'
 import { useWindowSize } from '../../lib/windowSize'
 import { Modal } from '../../components/Notifications/Notifications'
+import { CountDown } from '../../components/countdown'
 
 export const Container = React.createContext()
 
@@ -74,13 +75,14 @@ function Game() {
         <Container.Provider value={value}>
           <div className={styles.GamePage}>
             <div className={styles.game__nav}>
+              <CountDown finaldate={1651494600000} /> Time Left
               <span className={styles.game__menu}></span>
-
               <span className={styles.trophy}>
                 {data !== null && (
-                  <div>
-                    {data.level} <GiDiamondTrophy style={{ color: 'yellow' }} />{' '}
-                  </div>
+                  <>
+                    Lvl: {data.level}
+                    <GiDiamondTrophy style={{ color: 'yellow' }} />{' '}
+                  </>
                 )}
               </span>
             </div>
