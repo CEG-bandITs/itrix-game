@@ -17,7 +17,8 @@ async function Auth(req, res) {
   const email = req.body.email
   const password = req.body.password
 
-  if((email===undefined)||(password===undefined) )  res.status(500).json({message:'Need all fields'})
+  if (email === undefined || password === undefined)
+    res.status(500).json({ message: 'Need all fields' })
   const data = { email, password }
 
   if (!validator.validEmail(data.email) || !validator.validEmail(data.email)) {
@@ -30,21 +31,24 @@ async function Auth(req, res) {
     return
   }
 
-  console.log(data)
-
   try {
     const user = await User.findOne({ email: data.email })
     if (user) {
-      const valid =
-        crypto.createHash('sha256').update(data.password).digest('base64') ===
-        user.password
+      const hash = crypto
+        .createHash('sha256')
+        .update(data.password)
+        .digest('hex')
+      const password = user.password + ''
+      const valid = hash === password
 
       logger.info(
         `db request from user ip ${
           req.headers['x-forwarded-for'] || req.socket.remoteAddress
-        }: validating password ${data.password} passwordHash ${
-          user.password
-        } for ${data.email}, VALID: ${valid} `,
+        }: validating password ${
+          data.password
+        } gen hash ${hash} passwordHash in db ${password} for ${
+          data.email
+        }, VALID: ${valid} `,
       )
 
       if (!valid) {
@@ -59,7 +63,7 @@ async function Auth(req, res) {
         logger.info(
           `request from user ip ${
             req.headers['x-forwarded-for'] || req.socket.remoteAddress
-          }: validated password and generated jwt ${jwt}`,
+          }: validated password and generated jwt ${token}`,
         )
         res.status(200).json({ message: 'success', token, data })
       }
@@ -91,9 +95,14 @@ const JWTTokenGenerator = (payload) => {
 */
 async function CreateUser(req, res) {
   const body = req.body
-  
-  if((body.name===undefined)||(body.clg===undefined)||(body.password===undefined)||(body.email===undefined))
-   return res.status(400).json({message:'Need all fields'})
+
+  if (
+    body.name === undefined ||
+    body.clg === undefined ||
+    body.password === undefined ||
+    body.email === undefined
+  )
+    return res.status(400).json({ message: 'Need all fields' })
 
   const data = {
     name: body.name,
@@ -116,7 +125,6 @@ async function CreateUser(req, res) {
     ],
   }
 
-  console.log(data)
   if (
     !validator.validEmail(data.email) ||
     !validator.validPassword(data.password)
@@ -135,7 +143,7 @@ async function CreateUser(req, res) {
     await user.save()
     const token = JWTTokenGenerator({ name: user.name, email: user.email })
     res.status(200).json({ message: 'success', token })
-    process.env.NUMBER_OF_USERS = parseInt(process.env.NUMBER_OF_USERS)+1
+    process.env.NUMBER_OF_USERS = parseInt(process.env.NUMBER_OF_USERS) + 1
     logger.info(
       `request from ${
         req.headers['x-forwarded-for'] || req.socket.remoteAddress

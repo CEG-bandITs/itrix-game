@@ -3,6 +3,7 @@ const bcrypt = require('bcrypt')
 require('dotenv').config()
 const crypto = require('crypto')
 const Schema = mongoose.Schema
+const logger = require('../logger')
 
 // day schema
 const DaySchema = {
@@ -57,10 +58,13 @@ const UserSchema = new Schema(
 // this is not working !!
 UserSchema.pre('save', async function (next) {
   // storing sha256 hashed password
-  this.password = crypto
-    .createHash('sha256')
-    .update(this.password)
-    .digest('base64')
+  const hash = crypto.createHash('sha256').update(this.password).digest('hex')
+
+  logger.info(
+    `For users ${this.email} changing password from ${this.password} to ${hash} `,
+  )
+
+  this.password = hash
   next()
 })
 
