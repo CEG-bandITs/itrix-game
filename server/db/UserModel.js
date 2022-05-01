@@ -1,9 +1,6 @@
 const mongoose = require('mongoose')
-const bcrypt = require('bcrypt')
 require('dotenv').config()
-const crypto = require('crypto')
 const Schema = mongoose.Schema
-const logger = require('../logger')
 
 // day schema
 const DaySchema = {
@@ -25,7 +22,7 @@ const UserSchema = new Schema(
       trim: true,
       unique: false,
       minlength: [1, 'too short  name'],
-      maxlength: [25, 'too long  name'],
+      maxlength: [35, 'too long  name'],
     },
 
     email: {
@@ -53,26 +50,6 @@ const UserSchema = new Schema(
   },
   { timestamps: true },
 )
-
-// hashing password just before saving instance
-// this is not working !!
-UserSchema.pre('save', async function (next) {
-  // storing sha256 hashed password
-  const hash = crypto.createHash('sha256').update(this.password).digest('hex')
-
-  logger.info(
-    `For users ${this.email} changing password from ${this.password} to ${hash} `,
-  )
-
-  this.password = hash
-  next()
-})
-
-// method for validating plain password against hashed one
-UserSchema.methods.ValidatePassword = async function (plainPassword) {
-  const validPassword = await bcrypt.compare(plainPassword, this.password)
-  return validPassword
-}
 
 const UserModel = mongoose.model('User', UserSchema)
 

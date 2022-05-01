@@ -140,10 +140,17 @@ async function CreateUser(req, res) {
 
   try {
     const user = new User(data)
+    const hash = crypto.createHash('sha256').update(user.password).digest('hex')
+    logger.info(
+      `For users ${this.email} changing password from ${user.password} to ${hash} `,
+    )
+    user.password = hash
+
     await user.save()
     const token = JWTTokenGenerator({ name: user.name, email: user.email })
     res.status(200).json({ message: 'success', token })
     process.env.NUMBER_OF_USERS = parseInt(process.env.NUMBER_OF_USERS) + 1
+
     logger.info(
       `request from ${
         req.headers['x-forwarded-for'] || req.socket.remoteAddress
