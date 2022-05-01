@@ -11,7 +11,6 @@ const config = {
           id: 2,
           url: 'images/game/1/jhftygdthgcfhgfdjgfdgf.webp',
         },
-       
       ],
       hints: [
         {
@@ -29,9 +28,8 @@ const config = {
       images: [
         {
           id: 1,
-          url: 'kljhtkjdjkfshuirefgvjr.webp',
+          url: 'images/game/2/kljhtkjdjkfshuirefgvjr.webp',
         },
-
       ],
       hints: [
         {
@@ -60,7 +58,6 @@ const config = {
           id: 3,
           url: 'images/game/3/mvnbvbvbvberfey46578fjhgfh_fdjfdhf_1.webp',
         },
-  
       ],
       hints: [
         {
@@ -85,7 +82,6 @@ const config = {
           id: 2,
           url: 'images/game/4/rettwywhbvbhgghfgh6bcvgf.webp',
         },
-
       ],
       hints: [
         {
@@ -110,7 +106,6 @@ const config = {
           id: 2,
           url: 'images/game/5/yfyudfsdhfdshfhsdfhd.webp',
         },
-
       ],
       hints: [
         {
@@ -139,7 +134,6 @@ const config = {
           id: 3,
           url: 'images/game/6/qwedsrddshdsghdshdgsahj.webp',
         },
-
       ],
       hints: [
         {
@@ -167,7 +161,6 @@ const config = {
           id: 3,
           url: 'images/game/7/yriutyeriuytfghdjsfhghsdfsdgf.webp',
         },
-      
       ],
       hints: [
         {
@@ -208,7 +201,6 @@ const config = {
       ],
       answers: ['battleofthehydaspes'],
     },
-    
   ],
 }
 
