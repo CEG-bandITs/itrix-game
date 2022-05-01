@@ -14,7 +14,6 @@ const leaderBoard = async (req, res) => {
     }: startRank : ${req.body.startRank} : endRank : ${req.body.endRank}`,
   )
 
-  logger.info('Current No of users : ' + process.env.NUMBER_OF_USERS)
   // Checking validity of start and end rank
   if (
     req.body.startRank === undefined ||
@@ -49,9 +48,9 @@ const leaderBoard = async (req, res) => {
         },
       },
     },
-    { $sort: { level: -1, lastCompletedTimeStamp: 1, email: 1 } },
+    { $sort: { level: -1, lastCompletedTimeStamp: 1 } },
     { $skip: req.body.startRank - 1 },
-    { $limit: 10 },
+    { $limit: req.body.endRank - req.body.startRank },
   ])
 
   logger.info(
@@ -126,17 +125,12 @@ const rank = async (req, res) => {
     { $sort: { level: -1, lastCompletedTimeStamp: 1 } },
   ])
 
-  console.log(rankArray)
-  function ToString(e) {
-    return e + ''
-  }
-
-  const rank = rankArray.findIndex((e) => ToString(e.email) === ToString(email))
+  const rank = rankArray.findIndex((e) => e.email === email)
 
   logger.info(
     `request for user ip ${
       req.headers['x-forwarded-for'] || req.socket.remoteAddress
-    }: userrank found ${rank} ${rankArray}`,
+    }: userrank found ${rank}`,
   )
   res.json({ rank })
 }
