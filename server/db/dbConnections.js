@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 const logger = require('../logger')
 
-require("dotenv").config();
+require('dotenv').config()
 // atlas url
 const mongooseUrl =
   'mongodb+srv://itrix:itrix@cluster0.ngqge.mongodb.net/itrix?retryWrites=true&w=majority'
@@ -19,21 +19,20 @@ db.on('error', () => logger.error('Error Connecting Database'))
 
 // success instance
 db.once('open', () => {
-  
-  // counting number of users and setting to env variable 
-  mongoose.model('User').find().count((err,count)=>{
-    if(!err)
-    {
-      process.env.NUMBER_OF_USERS = count 
-      logger.info(`Number of current users is : ${process.env.NUMBER_OF_USERS}`)
-      
-    }
-    else {
-       logger.info("Error Fetching Number of Users") 
-    }
-    
-  })
-  
+  // counting number of users and setting to env variable
+  mongoose
+    .model('User')
+    .find()
+    .count((err, count) => {
+      if (!err) {
+        process.env.NUMBER_OF_USERS = count
+        logger.info(
+          `Number of current users is : ${process.env.NUMBER_OF_USERS}`,
+        )
+      } else {
+        logger.info('Error Fetching Number of Users')
+      }
+    })
+
   logger.info('Connected To DB')
-  
 })

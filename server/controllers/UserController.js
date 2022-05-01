@@ -5,7 +5,6 @@ require('dotenv').config({ path: path.resolve(__dirname, '../.env') })
 const User = require('../db/UserModel')
 const logger = require('../logger')
 const validator = require('../lib/validation')
-const DateZero = new Date(0)
 const crypto = require('crypto')
 
 /*
@@ -94,6 +93,7 @@ const JWTTokenGenerator = (payload) => {
     actions :create new user , generate token and set token as cookie
 */
 async function CreateUser(req, res) {
+  const DateZero = Date.now(0)
   const body = req.body
 
   if (
@@ -124,6 +124,8 @@ async function CreateUser(req, res) {
       },
     ],
   }
+
+  console.log(data)
 
   if (
     !validator.validEmail(data.email) ||

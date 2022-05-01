@@ -5,7 +5,7 @@ const GetUserEmailFromJWt =
   require('../controllers/UserController').GetUserEmailFromJWt
 const config = require('../Questions')
 const logger = require('../logger')
-require("dotenv").config()
+require('dotenv').config()
 
 const leaderBoard = async (req, res) => {
   logger.info(
@@ -13,8 +13,8 @@ const leaderBoard = async (req, res) => {
       req.headers['x-forwarded-for'] || req.socket.remoteAddress
     }: startRank : ${req.body.startRank} : endRank : ${req.body.endRank}`,
   )
-  
-  logger.info('Current No of users : '+process.env.NUMBER_OF_USERS)
+
+  logger.info('Current No of users : ' + process.env.NUMBER_OF_USERS)
   // Checking validity of start and end rank
   if (
     req.body.startRank === undefined ||
@@ -24,7 +24,7 @@ const leaderBoard = async (req, res) => {
     req.body.endRank <= req.body.startRank ||
     req.body.endRank - req.body.startRank < 1 ||
     parseInt(process.env.NUMBER_OF_USERS) < req.body.startRank ||
-    req.body.endRank - req.body.startRank !==10
+    req.body.endRank - req.body.startRank !== 10
   ) {
     req.body.startRank = 1
     req.body.endRank = 10
@@ -37,9 +37,10 @@ const leaderBoard = async (req, res) => {
     )
   }
 
-  const rankArray = await Users.aggregate([
+  let rankArray = await Users.aggregate([
     {
       $project: {
+        _id: 0,
         name: 1,
         email: 1,
         level: { $arrayElemAt: ['$days.level', config.currentDate] },
@@ -48,9 +49,9 @@ const leaderBoard = async (req, res) => {
         },
       },
     },
-    { $sort: { level: -1, lastCompletedTimeStamp: 1 } },
+    { $sort: { level: -1, lastCompletedTimeStamp: 1, email: 1 } },
     { $skip: req.body.startRank - 1 },
-    { $limit: req.body.endRank - req.body.startRank },
+    { $limit: 10 },
   ])
 
   logger.info(
@@ -58,15 +59,18 @@ const leaderBoard = async (req, res) => {
       req.headers['x-forwarded-for'] || req.socket.remoteAddress
     }: sent rank array of size ${rankArray.length}`,
   )
- 
-  let end =false 
-  if(req.body.endRank> parseInt(process.env.NUMBER_OF_USERS)) 
-  {
-     end =true 
+
+  let end = false
+  if (req.body.endRank > parseInt(process.env.NUMBER_OF_USERS)) {
+    end = true
   }
-  res.json({rankArray,end})
+  res.json({
+    rankArray,
+    end,
+  })
 }
 
+// Rank Function
 const rank = async (req, res) => {
   const email = GetUserEmailFromJWt(req)
   if (email === '') {
@@ -122,12 +126,17 @@ const rank = async (req, res) => {
     { $sort: { level: -1, lastCompletedTimeStamp: 1 } },
   ])
 
-  const rank = rankArray.findIndex((e) => e.email === email)
+  console.log(rankArray)
+  function ToString(e) {
+    return e + ''
+  }
+
+  const rank = rankArray.findIndex((e) => ToString(e.email) === ToString(email))
 
   logger.info(
     `request for user ip ${
       req.headers['x-forwarded-for'] || req.socket.remoteAddress
-    }: userrank found ${rank}`,
+    }: userrank found ${rank} ${rankArray}`,
   )
   res.json({ rank })
 }
