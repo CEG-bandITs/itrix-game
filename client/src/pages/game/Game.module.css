@@ -70,8 +70,7 @@
 .HintBox {
   position: absolute;
   z-index: 3;
-  max-width: 85%;
-  max-height: 75%;
+  width: 75vw;
   font-size: 0.8rem;
   background-color: rgb(59, 59, 59);
   color: white;
@@ -217,5 +216,8 @@
   }
   .QuestionBar {
     flex-wrap: wrap;
+  }
+  .HintBox {
+    width: 40vw;
   }
 }
