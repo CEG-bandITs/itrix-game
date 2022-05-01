@@ -5,316 +5,210 @@ const config = {
       images: [
         {
           id: 1,
-          url: 'images/game/1/geraltyichen-IShcfZc5jgY-unsplash.jpg',
+          url: 'images/game/1/fbvdfdgfjdgfbnsxcvbndf_1.webp',
         },
         {
           id: 2,
-          url: 'images/game/1/jc-gellidon-wVZxGXRt6xM-unsplash.jpg',
+          url: 'images/game/1/jhftygdthgcfhgfdjgfdgf.webp',
         },
-        {
-          id: 3,
-          url: 'images/game/1/photo-1627303127141-95f886daeadd.jpeg',
-        },
-        {
-          id: 4,
-          url: 'images/game/1/sam-wong-D39NZdVMVTI-unsplash.jpg',
-        },
+       
       ],
       hints: [
         {
           id: 1,
-          msg: 'An actors',
+          msg: '',
         },
         {
           id: 2,
-          msg: 'Asian',
+          msg: '',
         },
       ],
-      answers: ['elonmusk1'],
+      answers: ['joey'],
     },
     {
       images: [
         {
           id: 1,
-          url: 'images/game/2/virender-singh-GybmMi0QZV4-unsplash.jpg',
+          url: 'kljhtkjdjkfshuirefgvjr.webp',
         },
-        {
-          id: 2,
-          url: 'images/game/2/m-cooper-oDyDOESv6ew-unsplash.jpg',
-        },
-        {
-          id: 3,
-          url: 'images/game/2/zawisza-edit-WNvl-l6Ybww-unsplash.jpg',
-        },
-        {
-          id: 4,
-          url: 'images/game/2/evan-wise-GL4-19aRP5s-unsplash.jpg',
-        },
+
       ],
       hints: [
         {
           id: 1,
-          msg: 'this is question 2 ',
+          msg: '',
         },
         {
           id: 2,
-          msg: 'Asian',
+          msg: '',
         },
       ],
-      answers: ['elonmusk2'],
+      answers: ['internationalworkersday'],
     },
 
     {
       images: [
         {
           id: 1,
-          url: 'images/game/3/ha-nguy-n-LZHxr3bNcRY-unsplash.jpg',
+          url: 'images/game/3/efwtr67523fhgfshgdfsvvbvcgfgg.webp',
         },
         {
           id: 2,
-          url: 'images/game/3/alesan-aboafash-AkyKEX6B-WU-unsplash.jpg',
+          url: 'images/game/3/kwtywewtyfrehjfggghsdfja_1.webp',
         },
         {
           id: 3,
-          url: 'images/game/3/brad-fickeisen-MHzZp8X5ngU-unsplash.jpg',
+          url: 'images/game/3/mvnbvbvbvberfey46578fjhgfh_fdjfdhf_1.webp',
         },
-        {
-          id: 4,
-          url: 'images/game/3/andres-molina-AFfG6_R_RjQ-unsplash.jpg',
-        },
+  
       ],
       hints: [
         {
           id: 1,
-          msg: 'this is question 3 ',
+          msg: '',
         },
         {
           id: 2,
-          msg: 'muthu!!',
+          msg: '',
         },
       ],
-      answers: ['elonmusk3'],
+      answers: ['vampirediaries'],
     },
 
     {
       images: [
         {
           id: 1,
-          url: 'images/game/4/eberhard-grossgasteiger-pBgnT4KH8d4-unsplash.jpg',
+          url: 'images/game/4/jsjsjsuufufuvvvavqgfdhfgdsfh.webp',
         },
         {
           id: 2,
-          url: 'images/game/4/vasanth-SvLiRk1wE2s-unsplash.jpg',
+          url: 'images/game/4/rettwywhbvbhgghfgh6bcvgf.webp',
         },
-        {
-          id: 3,
-          url: 'images/game/4/luke-bender-2BsgN5Km6Zg-unsplash.jpg',
-        },
-        {
-          id: 4,
-          url: 'images/game/4/henry-be-IicyiaPYGGI-unsplash.jpg',
-        },
+
       ],
       hints: [
         {
           id: 1,
-          msg: 'this is question 4 ',
+          msg: '',
         },
         {
           id: 2,
-          msg: 'muthu!!',
+          msg: '',
         },
       ],
-      answers: ['elonmusk4'],
+      answers: ['dobby'],
     },
 
     {
       images: [
         {
           id: 1,
-          url: 'images/game/5/siska-vrijburg-ptojCRijT3E-unsplash.jpg',
+          url: 'images/game/5/iuyiuyfdhfgsgdjsgfsdfuywer.webp',
         },
         {
           id: 2,
-          url: 'images/game/5/bruno-van-der-kraan-6P-dSJbcvow-unsplash.jpg',
+          url: 'images/game/5/yfyudfsdhfdshfhsdfhd.webp',
         },
-        {
-          id: 3,
-          url: 'images/game/5/wes-hicks-6rNitHsIU3c-unsplash.jpg',
-        },
-        {
-          id: 4,
-          url: 'images/game/5/chuttersnap-z8lvJsoOUvo-unsplash.jpg',
-        },
+
       ],
       hints: [
         {
           id: 1,
-          msg: 'this is question 5 ',
+          msg: '',
         },
         {
           id: 2,
-          msg: 'kumaran!!',
+          msg: '',
         },
       ],
-      answers: ['elonmusk5'],
+      answers: ['aryastark'],
     },
 
     {
       images: [
         {
           id: 1,
-          url: 'images/game/6/alessio-soggetti-Vn7vB7rWenQ-unsplash.jpg',
+          url: 'images/game/6/k1k2kk3kfhdgfhjdgfdf.webp',
         },
         {
           id: 2,
-          url: 'images/game/6/robert-bye-EKLr56NaJDw-unsplash.jpg',
+          url: 'images/game/6/kjgvcvbncvhdsrtfdghf6345vbdsnf.webp',
         },
         {
           id: 3,
-          url: 'images/game/6/michael-petrila-o_-gToPk62c-unsplash.jpg',
+          url: 'images/game/6/qwedsrddshdsghdshdgsahj.webp',
         },
-        {
-          id: 4,
-          url: 'images/game/6/chase-emmons-Y2324BRyvNs-unsplash.jpg',
-        },
+
       ],
       hints: [
         {
           id: 1,
-          msg: 'this is question 6 ',
+          msg: '',
         },
         {
           id: 2,
-          msg: 'kumaran!!',
+          msg: '',
         },
       ],
-      answers: ['elonmusk6'],
+      answers: ['blackpearl'],
     },
     {
       images: [
         {
           id: 1,
-          url: 'images/game/7/dave-hoefler-0HmYBhpfaxA-unsplash.jpg',
+          url: 'images/game/7/hjhjsytsyutydscfgd5745d4ddd.webp',
         },
         {
           id: 2,
-          url: 'images/game/7/sebastian-boring-1s66d5yY5gE-unsplash.jpg',
+          url: 'images/game/7/jkgtxfygsdtgsduytgrytaaa.webp',
         },
         {
           id: 3,
-          url: 'images/game/7/markus-henze-NFPnsPYEXsM-unsplash.jpg',
+          url: 'images/game/7/yriutyeriuytfghdjsfhghsdfsdgf.webp',
         },
-        {
-          id: 4,
-          url: 'images/game/7/chuttersnap-pE8WW245aik-unsplash.jpg',
-        },
+      
       ],
       hints: [
         {
           id: 1,
-          msg: 'this is question 7 ',
+          msg: '',
         },
         {
           id: 2,
-          msg: 'kumaran!!',
+          msg: '',
         },
       ],
-      answers: ['elonmusk7'],
+      answers: ['julia'],
     },
     {
       images: [
         {
           id: 1,
-          url: 'images/game/8/aaron-burden-Kp9z6zcUfGw-unsplash.jpg',
+          url: 'images/game/8/klkdfkdsflkdfleenajkehrdjkh.webp',
         },
         {
           id: 2,
-          url: 'images/game/8/aaron-burden-Kp9z6zcUfGw-unsplash.jpg',
+          url: 'images/game/8/uiuiterutgfhdghleenLVEFEGWF.webp',
         },
         {
           id: 3,
-          url: 'images/game/8/dan-aragon-n20DUSVsUk8-unsplash.jpg',
-        },
-        {
-          id: 4,
-          url: 'images/game/8/andrii-ganzevych-_ae6DzlFIrA-unsplash.jpg',
+          url: 'images/game/8/NMCNVHJFGJHYRTGFYEH.webp',
         },
       ],
       hints: [
         {
           id: 1,
-          msg: 'this is question 8 ',
+          msg: '',
         },
         {
           id: 2,
-          msg: 'kumaran!!',
+          msg: '',
         },
       ],
-      answers: ['elonmusk8'],
+      answers: ['battleofthehydaspes'],
     },
-    {
-      images: [
-        {
-          id: 1,
-          url: 'images/game/9/wil-stewart-T26KCgCPsCI-unsplash.jpg',
-        },
-        {
-          id: 2,
-          url: 'images/game/9/jeremy-bishop-EwKXn5CapA4-unsplash.jpg',
-        },
-        {
-          id: 3,
-          url: 'images/game/9/ray-hennessy-jN5pk0lbv4E-unsplash.jpg',
-        },
-        {
-          id: 4,
-          url: 'images/game/9/elyssa-fahndrich-MF16lGb95WY-unsplash.jpg',
-        },
-      ],
-      hints: [
-        {
-          id: 1,
-          msg: 'this is question 9 ',
-        },
-        {
-          id: 2,
-          msg: 'kumaran!!',
-        },
-      ],
-      answers: ['elonmusk9'],
-    },
-    {
-      images: [
-        {
-          id: 1,
-          url: 'images/game/10/sophie-3V42LejZHEg-unsplash.jpg',
-        },
-        {
-          id: 2,
-          url: 'images/game/10/wolfgang-hasselmann-L-9wn-ceFd4-unsplash.jpg',
-        },
-        {
-          id: 3,
-          url: 'images/game/10/zhu-xihua-A74_Kz2zn3w-unsplash.jpg',
-        },
-        {
-          id: 4,
-          url: 'images/game/10/sam-wermut-FiUuNWxnb3k-unsplash.jpg',
-        },
-      ],
-      hints: [
-        {
-          id: 1,
-          msg: 'this is question 10 ',
-        },
-        {
-          id: 2,
-          msg: 'kumaran!!',
-        },
-      ],
-      answers: ['elonmusk10'],
-    },
+    
   ],
 }
 
