@@ -89,32 +89,53 @@ QuestionBar.propTypes = {
 }
 
 function HintBox(props) {
-  if (props.show === true) {
-    return (
-      <>
-        <div
-          className={style.GreyLayer}
-          onClick={() => {
-            props.setShowHint(false)
-          }}
-        >
-          <div className={style.HintBox}>
-            {props.hints.map((i) => {
-              return (
-                <>
-                  <p key={i.id}>
-                    Hint {i.id}: &nbsp;&nbsp; {i.msg}
-                  </p>
-                </>
-              )
-            })}
+  console.log(props.hints)
+  if (props.show === true)
+    if (props.hints.length === 0 || props.hints.length === undefined) {
+      return (
+        <>
+          <div
+            className={style.GreyLayer}
+            onClick={() => {
+              props.setShowHint(false)
+            }}
+          >
+            <div className={style.HintBox}>
+              No hints available for this question.
+              <small>
+                Check this hint frequently. hint might get released later.
+              </small>
+            </div>
           </div>
-        </div>
-      </>
-    )
-  } else {
-    return <></>
-  }
+        </>
+      )
+    } else if (props.hints.length > 0) {
+      return (
+        <>
+          <div
+            className={style.GreyLayer}
+            onClick={() => {
+              props.setShowHint(false)
+            }}
+          >
+            <div className={style.HintBox}>
+              {props.hints.map((i) => {
+                return (
+                  <>
+                    <p key={i.id}>
+                      Hint {i.id}: &nbsp;&nbsp; {i.msg}
+                    </p>
+                  </>
+                )
+              })}
+            </div>
+          </div>
+        </>
+      )
+    } else {
+      return <></>
+    }
+  else return <></>
 }
 
 HintBox.propTypes = {

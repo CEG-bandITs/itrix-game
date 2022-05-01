@@ -70,7 +70,7 @@
 .HintBox {
   position: absolute;
   z-index: 3;
-  max-width: 75%;
+  max-width: 85%;
   max-height: 75%;
   font-size: 0.8rem;
   background-color: rgb(59, 59, 59);
@@ -84,11 +84,16 @@
   padding: 1rem;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
     rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  text-align: center;
 }
 
 .HintBox > p {
   text-align: center;
   padding: 3vmin;
+}
+
+.HintBox small {
+  font-size: 0.4rem;
 }
 
 .HintBox :not(:last-child) {
