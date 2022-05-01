@@ -44,7 +44,11 @@
     "eslint-config-prettier": "^8.5.0",
     "node-fetch": "^3.2.4",
     "party-js": "^2.1.2",
+    "react-google-invisible-recaptcha": "^0.2.12",
+    "react-google-recaptcha": "^2.1.0",
+    "react-google-recaptcha-v3": "^1.9.7",
     "react-modal": "^3.14.4",
+    "react-recaptcha-google": "^1.1.1",
     "react-toastify": "^8.2.0"
   }
 }

@@ -15,6 +15,10 @@ import {
   NotifierContainer,
 } from '../../components/Notifications/Notifications'
 
+
+import Recaptcha from "react-google-invisible-recaptcha"
+
+
 function Signup() {
   const value = React.useContext(Wrapper)
   const size = useWindowSize()
@@ -22,59 +26,76 @@ function Signup() {
   const [disableButton, handleDisableButton] = React.useState(false)
   const [hint, handleHint] = React.useState(false)
 
+  const recaptcha =  React.createRef() ;
+  const [token,setToken] =React.useState("")
+
+
   const submitData = (e) => {
-    e.preventDefault()
 
-    const data = {
-      name: document.getElementById('name').value,
-      email: document.getElementById('email').value,
-      clg: document.getElementById('clg').value,
-      tel: document.getElementById('tel').value,
-      password: document.getElementById('password').value,
-    }
-    const c = document.getElementById('confirmpassword').value
-
-    // checking empty fields
-    if (
-      data.name.trim().length === 0 ||
-      data.email.trim().length === 0 ||
-      data.clg.trim().length === 0 ||
-      data.password.trim().length === 0 ||
-      data.tel.trim().length === 0 ||
-      c.trim().length === 0
-    ) {
-      handleHint(true)
-      return
-    }
-
-    // Don't send request if its invalid
-    if (!validEmail(data.email) || !validPassword(data.password)) {
-      return
-    }
-
-    ;(async () => {
-      handleDisableButton(true)
-      const res = await fetch('/api/users/new', {
-        method: 'POST',
-        body: JSON.stringify(data),
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        cache: 'no-store',
-      })
-      const response = await res.json()
-      if (response.message === 'success') {
-        NotifySuccess('Account created successfully!!')
-        setTimeout(() => {
-          LoginUser(response.token, value.handleIsLogin)
-        }, 2000)
-      } else {
-        NotifyError(response.message)
-        handleDisableButton(true)
-        handleHint(false)
-      }
-    })()
+    recaptcha.current.execute()
+  
   }
+
+  React.useEffect(()=>{
+    if(token!=="")
+    {
+      console.log("Captcha verified Success!!")
+      const data = {
+        name: document.getElementById('name').value,
+        email: document.getElementById('email').value,
+        clg: document.getElementById('clg').value,
+        tel: document.getElementById('tel').value,
+        password: document.getElementById('password').value,
+        token 
+      }
+      const c = document.getElementById('confirmpassword').value
+  
+      // checking empty fields
+      if (
+        data.name.trim().length === 0 ||
+        data.email.trim().length === 0 ||
+        data.clg.trim().length === 0 ||
+        data.password.trim().length === 0 ||
+        data.tel.trim().length === 0 ||
+        c.trim().length === 0
+      ) {
+        handleHint(true)
+        return
+      }
+  
+      // Don't send request if its invalid
+      if (!validEmail(data.email) || !validPassword(data.password)) {
+        return
+      }
+  
+      ;(async () => {
+        handleDisableButton(true)
+        const res = await fetch('/api/users/new', {
+          method: 'POST',
+          body: JSON.stringify(data),
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          cache: 'no-store',
+        })
+        const response = await res.json()
+        if (response.message === 'success') {
+          NotifySuccess('Account created successfully!!')
+          setTimeout(() => {
+            LoginUser(response.token, value.handleIsLogin)
+          }, 2000)
+        } else {
+          NotifyError(response.message)
+          handleDisableButton(true)
+          handleHint(false)
+        }
+      })()
+    }
+    
+  
+  },[token])
+
+
 
   return (
     <main className={SignupStyle.main}>
@@ -84,6 +105,7 @@ function Signup() {
         <div className={SignupStyle.container}>
           <span className={SignupStyle.header}>Signup</span>
           {hint && <p className={SignupStyle.hint}>Some fields are empty</p>}
+        
           <form action="">
             <input type="text" name="name" id="name" placeholder="Name" />
 
@@ -107,7 +129,14 @@ function Signup() {
 
             <Password />
             <ConfirmPassword />
-
+            
+            <Recaptcha 
+            ref={recaptcha} 
+              sitekey="6LeLM7cfAAAAAGe7CeSKQ6xi8fKKoFV4vHCSq-8u"
+              onResolved={(e)=>{setToken(e);}}
+              size="small" 
+            />
+             
             <input
               type="button"
               value={'Sign Up'}
@@ -125,6 +154,7 @@ function Signup() {
           </form>
         </div>
       </div>
+      
       <NotifierContainer />
     </main>
   )

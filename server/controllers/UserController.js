@@ -6,6 +6,8 @@ const User = require('../db/UserModel')
 const logger = require('../logger')
 const validator = require('../lib/validation')
 const crypto = require('crypto')
+const fetch = (...args) =>
+  import('node-fetch').then(({ default: fetch }) => fetch(...args))
 
 /*
     @desc POST /api/users/auth/
@@ -25,7 +27,7 @@ async function Auth(req, res) {
     logger.info(
       `request from ${
         req.headers['x-forwarded-for'] || req.socket.remoteAddress
-      }: inavlid email or password : ${data} `,
+      }: invalid email or password : ${data} `,
     )
     return
   }
@@ -88,6 +90,19 @@ const JWTTokenGenerator = (payload) => {
   return jwt.sign(payload, process.env.JWT_SECRET)
 }
 
+
+const ValidateCaptcha =async(token)=>{
+   const secret = process.env.RECAPTCHA_SECRET_KEY
+   console.log(token)
+   const res=  await fetch(`https://www.google.com/recaptcha/api/siteverify?secret=${secret}&response=${token}`,{method:'POST'})
+   
+   const response =  await res.json()
+   console.log(response)                       
+  return response.success
+      
+}
+
+
 /*
     @desc POST /api/users/new
     actions :create new user , generate token and set token as cookie
@@ -100,10 +115,17 @@ async function CreateUser(req, res) {
     body.name === undefined ||
     body.clg === undefined ||
     body.password === undefined ||
-    body.email === undefined
+    body.email === undefined || 
+    body.token === undefined
   )
     return res.status(400).json({ message: 'Need all fields' })
+   
+    
+  const validity = await ValidateCaptcha(body.token)
 
+  if (validity===false )
+    return res.status(500).json({message:"Captcha Failed , Reload!"}) 
+    
   const data = {
     name: body.name,
     college: body.clg,
