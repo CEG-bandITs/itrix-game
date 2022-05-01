@@ -33,6 +33,11 @@ const UserSchema = new Schema(
       required: [true, 'email is required'],
     },
 
+    phonenumber: {
+      type: String,
+      trim: true,
+    },
+
     password: {
       type: String,
     },

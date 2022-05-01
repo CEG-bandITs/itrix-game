@@ -29,6 +29,7 @@ function Signup() {
       name: document.getElementById('name').value,
       email: document.getElementById('email').value,
       clg: document.getElementById('clg').value,
+      tel: document.getElementById('tel').value,
       password: document.getElementById('password').value,
     }
     const c = document.getElementById('confirmpassword').value
@@ -39,6 +40,7 @@ function Signup() {
       data.email.trim().length === 0 ||
       data.clg.trim().length === 0 ||
       data.password.trim().length === 0 ||
+      data.tel.trim().length === 0 ||
       c.trim().length === 0
     ) {
       handleHint(true)
@@ -92,6 +94,14 @@ function Signup() {
               name="clg"
               id="clg"
               placeholder="College"
+              required
+            />
+
+            <input
+              type="tel"
+              name="tel"
+              id="tel"
+              placeholder="Phone Number"
               required
             />
 

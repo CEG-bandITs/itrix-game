@@ -20,7 +20,16 @@ export function Email() {
 
   return (
     <>
-      <span style={{ display: hint ? '' : 'none',fontSize:'medium',color:"red", }}> Invalid Email </span>
+      <span
+        style={{
+          display: hint ? '' : 'none',
+          fontSize: 'medium',
+          color: 'red',
+        }}
+      >
+        {' '}
+        Invalid Email{' '}
+      </span>
       <input
         type="email"
         placeholder="Email"
@@ -52,10 +61,18 @@ export function Password(props) {
 
   return (
     <>
-      <span style={{ display: hint ? '' : 'none' ,fontSize:'medium',color:"red",}}>Minimum 8 Characters </span>
+      <span
+        style={{
+          display: hint ? '' : 'none',
+          fontSize: 'medium',
+          color: 'red',
+        }}
+      >
+        Minimum 8 Characters{' '}
+      </span>
       <input
         type="password"
-        placeholder="password"
+        placeholder="Password"
         name="password"
         id="password"
         autoComplete="on"
@@ -84,10 +101,18 @@ export function ConfirmPassword(props) {
 
   return (
     <>
-      <span style={{ display: hint ? '' : 'none',fontSize:'medium',color:"red", }}>Password mismatch </span>
+      <span
+        style={{
+          display: hint ? '' : 'none',
+          fontSize: 'medium',
+          color: 'red',
+        }}
+      >
+        Password mismatch{' '}
+      </span>
       <input
         type="password"
-        placeholder="confirm password"
+        placeholder="Confirm password"
         name="password"
         id="confirmpassword"
         autoComplete="on"

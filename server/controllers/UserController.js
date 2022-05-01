@@ -108,6 +108,7 @@ async function CreateUser(req, res) {
     name: body.name,
     college: body.clg,
     password: body.password,
+    phonenumber: body.tel,
     email: body.email,
     days: [
       {
