@@ -73,10 +73,9 @@ textarea {
   margin: 0;
 }
 
-::placeholder
-{
-   opacity:70% ;
-   color:black;
+::placeholder {
+  opacity: 70%;
+  color: black;
 }
 button,
 input {
@@ -158,6 +157,9 @@ template {
 /*
   Global CSS Variables And Conditions
 */
+
+@import url('https://fonts.googleapis.com/css2?family=Cookie&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&display=swap');
 
 * {
   margin: 0;
