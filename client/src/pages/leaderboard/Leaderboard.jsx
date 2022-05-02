@@ -7,7 +7,7 @@ import style from './Leaderboard.module.css'
 import Menu from '../../components/Menu'
 import { useWindowSize } from '../../lib/windowSize'
 import { Wrapper } from '../../RootPage'
-import {AiFillCaretRight,AiOutlineCaretLeft} from "react-icons/ai" ;
+import { AiFillCaretRight, AiOutlineCaretLeft } from 'react-icons/ai'
 import { validPassword } from '../../lib/validation'
 
 function Leaderboard() {
@@ -16,23 +16,20 @@ function Leaderboard() {
   const [rank, setRank] = useState(-1)
   const value = React.useContext(Wrapper)
   const [currentRankPage, setCurrentRankPage] = useState(1)
-  const [DisableRightButton,handleDisableRight] = useState(true)
-  const [DisableLeftButton,handleDisableLeft] =useState(true)
+  const [DisableRightButton, handleDisableRight] = useState(true)
+  const [DisableLeftButton, handleDisableLeft] = useState(true)
   useEffect(() => {
     ;(async () => {
-     
-      const res = await fetch('/api/rank', { 
-        cache: 'no-store' })
+      const res = await fetch('/api/rank', {
+        cache: 'no-store',
+      })
       const response = await res.json()
-      console.log(response)
       setRank(response.rank)
-      
     })()
   }, [])
 
   useEffect(() => {
     ;(async () => {
-     
       const res = await fetch('/api/leaderboard', {
         method: 'POST',
         body: JSON.stringify({
@@ -45,43 +42,33 @@ function Leaderboard() {
         cache: 'no-store',
       })
       const response = await res.json()
-      console.log(response)
 
       setData(response.rankArray)
       handleDisableRight(response.end)
     })()
   }, [])
 
-
-  const fetch__ =async(id)=>{
-    
-    let startRank=-1 ; let endRank=-1 ;
-    if(id==="left")
-    {
-    
-         if(currentRankPage>=1)
-         {
-            handleDisableLeft(true)
-            startRank = currentRankPage-10 ;
-            endRank =currentRankPage;
-         } 
-    }
-    else 
-    {
+  const fetch__ = async (id) => {
+    let startRank = -1
+    let endRank = -1
+    if (id === 'left') {
+      if (currentRankPage >= 1) {
+        handleDisableLeft(true)
+        startRank = currentRankPage - 10
+        endRank = currentRankPage
+      }
+    } else {
       handleDisableRight(true)
-      startRank=currentRankPage+10;
-      endRank= currentRankPage+20 ;
+      startRank = currentRankPage + 10
+      endRank = currentRankPage + 20
     }
 
-    console.log(startRank,endRank)
-    if((startRank!==-1)&&(endRank!==-1))
-    {
-      
+    if (startRank !== -1 && endRank !== -1) {
       const res = await fetch('/api/leaderboard', {
         method: 'POST',
         body: JSON.stringify({
           startRank,
-          endRank 
+          endRank,
         }),
         headers: {
           'Content-Type': 'application/json',
@@ -89,30 +76,19 @@ function Leaderboard() {
         cache: 'no-store',
       })
       const response = await res.json()
-      console.log(response)
 
       setData(response.rankArray)
       handleDisableRight(response.end)
 
-      if(id==="left") 
-      {
-          if(currentRankPage!==11) handleDisableLeft(false);
-          setCurrentRankPage(pre=>pre-10);
-     
-        
+      if (id === 'left') {
+        if (currentRankPage !== 11) handleDisableLeft(false)
+        setCurrentRankPage((pre) => pre - 10)
+      } else {
+        if (currentRankPage === 1) handleDisableLeft(false)
+        setCurrentRankPage((pre) => pre + 10)
       }
-      else
-      {
-        if(currentRankPage===1) handleDisableLeft(false) 
-        setCurrentRankPage(pre=>pre+10);
-      }
-
     }
-    
-    
   }
-
-  console.log('Current Page Rank: ', currentRankPage)
 
   return (
     <main className={style.main}>
@@ -167,29 +143,39 @@ function Leaderboard() {
                       )
                   })
                 )}
-                {(data.length>0&&data.length<10)&&(
-                  Array.apply(null,{length: 10-data.length}).map((val,index)=>{
-                    return(
-                      <tr style={{opacity:"0"}}>
-                        <td>00</td>
-                        <td>00</td>
-                        <td>00</td>
-                      </tr>
-                    )
-                  })
-                )}
+                {data.length > 0 &&
+                  data.length < 10 &&
+                  Array.apply(null, { length: 10 - data.length }).map(
+                    (val, index) => {
+                      return (
+                        <tr style={{ opacity: '0' }}>
+                          <td>00</td>
+                          <td>00</td>
+                          <td>00</td>
+                        </tr>
+                      )
+                    },
+                  )}
               </tbody>
             </table>
             <div className={style.navigator}>
-
-              <button className={style.nav__button}  disabled={DisableLeftButton} id="left" onClick={() => fetch__("left")}>
-                 <AiOutlineCaretLeft/>
+              <button
+                className={style.nav__button}
+                disabled={DisableLeftButton}
+                id="left"
+                onClick={() => fetch__('left')}
+              >
+                <AiOutlineCaretLeft />
               </button>
 
-              <button  className={style.nav__button} id="right" disabled={DisableRightButton} onClick={() => fetch__("right")}>
-                 <AiFillCaretRight/>
+              <button
+                className={style.nav__button}
+                id="right"
+                disabled={DisableRightButton}
+                onClick={() => fetch__('right')}
+              >
+                <AiFillCaretRight />
               </button>
-              
             </div>
           </div>
         </div>

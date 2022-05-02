@@ -1,6 +1,6 @@
 /* eslint-disable no-empty */
 /* eslint-disable prettier/prettier */
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import style from './Game.module.css'
 import { SubmitAnswer } from '../../api_calls/Game'
 import { Container } from './Game.jsx'
@@ -19,11 +19,6 @@ export function QuestionBar(props) {
     if (ImgPointer <= 0) return
     SetImgPointer(ImgPointer - 1)
   }
-
-  useEffect(() => {
-    console.log(ImgPointer, data.images.length)
-    console.log(data.images[ImgPointer].url)
-  }, [ImgPointer])
 
   if (props.for === 'Mobile') {
     return (
@@ -89,7 +84,6 @@ QuestionBar.propTypes = {
 }
 
 function HintBox(props) {
-  console.log(props.hints)
   if (props.show === true)
     if (props.hints.length === 0 || props.hints.length === undefined) {
       return (
@@ -182,14 +176,12 @@ export function AnswerBar(props) {
               hints: temp.hints,
               images: temp.questions,
             }
-            console.log('data', data)
-            console.log('temp', temp)
             value.changeData(data)
             handleAnswer('')
             value.handleSuccessModal(true)
             value.handleErrorMessage('')
           } else {
-            value.handleErrorMessage('Wrong answer')
+            value.handleErrorMessage(resp.message)
             setTimeout(() => {
               value.handleErrorMessage('')
             }, 2500)

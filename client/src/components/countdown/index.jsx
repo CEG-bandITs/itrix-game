@@ -6,7 +6,6 @@ export function CountDown({ finaldate }) {
 
   useEffect(() => {
     setInterval(() => {
-      console.log(finaldate, Date.now())
       const distance = finaldate - Date.now()
       if (distance < 0) {
         setTime('Game Over')

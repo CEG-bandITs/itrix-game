@@ -33,16 +33,13 @@ function Game() {
 
   useEffect(() => {
     ;(async () => {
-      console.log('Started')
       const res = await GetQuestion()
-      console.log(res)
       if (res.message === 'Success') {
         if (res.data !== null) {
           const data = {}
           data.level = res.questionData.level
           data.images = res.questionData.images
           data.hints = res.questionData.hints
-          console.log('Images:', data.images)
 
           changeData(data)
         } else handleMessage('Game completed')
