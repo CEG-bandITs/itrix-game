@@ -5,129 +5,125 @@
       "images": [
         {
           "id": 1,
-          "url": "images/game/1/fbvdfdgfjdgfbnsxcvbndf_1.webp"
+          "url": "images/game/1/jhqfdhgsfdhgsdfshgdqs.jpeg"
         },
         {
           "id": 2,
-          "url": "images/game/1/jhftygdthgcfhgfdjgfdgf.webp"
+          "url": "images/game/1/hdfgshdfashgdfqshf.jpeg"
         }
       ],
-      "hints": [{ "id": 1, "msg": "Test" }],
-      "answers": ["joey"]
+      "hints": [],
+      "answers": ["snapchat"]
     },
     {
       "images": [
         {
           "id": 1,
-          "url": "images/game/2/kljhtkjdjkfshuirefgvjr.webp"
+          "url": "images/game/2/hgfdhgsdfqtyhgdfsgd.jpg"
         }
       ],
       "hints": [],
-      "answers": ["internationalworkersday"]
+      "answers": ["jakelockley"]
     },
 
     {
       "images": [
         {
           "id": 1,
-          "url": "images/game/3/efwtr67523fhgfshgdfsvvbvcgfgg.webp"
+          "url": "images/game/3/gfhjgdfgdgfdhfncnbx.jpg"
         },
         {
           "id": 2,
-          "url": "images/game/3/kwtywewtyfrehjfggghsdfja_1.webp"
-        },
-        {
-          "id": 3,
-          "url": "images/game/3/mvnbvbvbvberfey46578fjhgfh_fdjfdhf_1.webp"
+          "url": "images/game/3/dghfdshgqfdqhgsdfqsghd.jpg"
         }
       ],
       "hints": [],
-      "answers": ["vampirediaries"]
+      "answers": ["umranmalik"]
     },
 
     {
       "images": [
         {
           "id": 1,
-          "url": "images/game/4/jsjsjsuufufuvvvavqgfdhfgdsfh.webp"
+          "url": "images/game/4/gfdhgfherwre2135546dfsqd.jpg"
         },
         {
           "id": 2,
-          "url": "images/game/4/rettwywhbvbhgghfgh6bcvgf.webp"
+          "url": "images/game/4/fbjhdgfhdfvdbfvbfehg75261.jpg"
         }
       ],
       "hints": [],
-      "answers": ["dobby"]
+      "answers": ["falcon9"]
     },
 
     {
       "images": [
         {
           "id": 1,
-          "url": "images/game/5/iuyiuyfdhfgsgdjsgfsdfuywer.webp"
+          "url": "images/game/5/eredrgfgdwwdgfgfg123gfd.jpeg"
         },
         {
           "id": 2,
-          "url": "images/game/5/yfyudfsdhfdshfhsdfhd.webp"
+          "url": "images/game/5/tertwdfc2345tgfdfd.jpeg"
         }
       ],
-      "hints": [{ "id": 1, "msg": "JS" }],
-      "answers": ["aryastark"]
+      "hints": [],
+      "answers": ["shanewarne"]
     },
 
     {
       "images": [
         {
           "id": 1,
-          "url": "images/game/6/k1k2kk3kfhdgfhjdgfdf.webp"
+          "url": "images/game/6/hfdghfvsdhfdgsahfrdhg.jpeg"
         },
         {
           "id": 2,
-          "url": "images/game/6/kjgvcvbncvhdsrtfdghf6345vbdsnf.webp"
+          "url": "images/game/6/hgdfgdhvanbdfhsgefqwfdgd.jpeg"
         },
         {
           "id": 3,
-          "url": "images/game/6/qwedsrddshdsghdshdgsahj.webp"
+          "url": "images/game/6/tydftyr443thgfehdgefds.jpeg"
         }
       ],
-      "hints": [{ "id": 1, "msg": "TESTS" }],
-      "answers": ["blackpearl"]
+      "hints": [],
+      "answers": ["siriusblack"]
     },
     {
       "images": [
         {
           "id": 1,
-          "url": "images/game/7/hjhjsytsyutydscfgd5745d4ddd.webp"
+          "url": "images/game/7/cjhdfgdwhrfgdhvsgahdfgahsdfgh.jpeg"
         },
         {
           "id": 2,
-          "url": "images/game/7/jkgtxfygsdtgsduytgrytaaa.webp"
-        },
-        {
-          "id": 3,
-          "url": "images/game/7/yriutyeriuytfghdjsfhghsdfsdgf.webp"
+          "url": "images/game/7/jhrfegfvdghfvdagfghefgh3.jpeg"
         }
       ],
       "hints": [],
-      "answers": ["julia"]
+      "answers": ["ramaneffect"]
     },
     {
       "images": [
         {
           "id": 1,
-          "url": "images/game/8/klkdfkdsflkdfleenajkehrdjkh.webp"
+          "url": "images/game/8/hgdfrhgfdghsdvbnvf.jpeg"
         },
         {
           "id": 2,
-          "url": "images/game/8/uiuiterutgfhdghleenLVEFEGWF.webp"
+          "url": "images/game/8/qrtwerdfqgfdgfdghwrf.jpeg"
         },
         {
           "id": 3,
-          "url": "images/game/8/NMCNVHJFGJHYRTGFYEH.webp"
+          "url": "images/game/8/hgdfhgdfrghfdhgsavbv.jpeg"
+        },
+        {
+          "id": 3,
+          "url": "images/game/8/treyjqteqewfdtfy1t2r3ty.jpeg"
         }
       ],
       "hints": [],
-      "answers": ["battleofthehydaspes"]
+      "answers": ["ratantata"]
     }
   ]
 }

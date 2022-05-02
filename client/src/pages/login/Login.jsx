@@ -50,7 +50,7 @@ function Login() {
       })
       const response = await res.json()
       if (response.message === 'success') {
-        NotifySuccess('Login Success!!')
+        NotifySuccess('Logined sucessfully!!')
         setTimeout(() => {
           LoginUser(response.token, value.handleIsLogin)
         }, 2000)
