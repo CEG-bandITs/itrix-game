@@ -7,7 +7,7 @@ const loginLogoutRateLimiter = rateLimit({
 })
 const gameRateLimiter = rateLimit({
   windowMs: 24 * 60 * 60 * 1000, // 24 hrs in milliseconds
-  max: 10,
+  max: 500,
   message: '{"message":"Exceeded Request Limit"}',
   headers: true,
 })

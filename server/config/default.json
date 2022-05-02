@@ -90,7 +90,7 @@
           "url": "images/game/6/qwedsrddshdsghdshdgsahj.webp"
         }
       ],
-      "hints": [],
+      "hints": [{ "id": 1, "msg": "2" }],
       "answers": ["blackpearl"]
     },
     {

@@ -2,7 +2,7 @@
 /* eslint-disable prettier/prettier */
 import React, { useState } from 'react'
 import style from './Game.module.css'
-import { SubmitAnswer } from '../../api_calls/Game'
+import { GetQuestion, SubmitAnswer } from '../../api_calls/Game'
 import { Container } from './Game.jsx'
 import PropTypes from 'prop-types'
 
@@ -84,8 +84,12 @@ QuestionBar.propTypes = {
 }
 
 function HintBox(props) {
+  const value = React.useContext(Container)
   if (props.show === true)
-    if (props.hints.length === 0 || props.hints.length === undefined) {
+    if (
+      value.data.hints.length === 0 ||
+      value.data.hints.length === undefined
+    ) {
       return (
         <>
           <div
@@ -103,7 +107,7 @@ function HintBox(props) {
           </div>
         </>
       )
-    } else if (props.hints.length > 0) {
+    } else if (value.data.hints.length > 0) {
       return (
         <>
           <div
@@ -113,7 +117,7 @@ function HintBox(props) {
             }}
           >
             <div className={style.HintBox}>
-              {props.hints.map((i) => {
+              {value.data.hints.map((i) => {
                 return (
                   <>
                     <p key={i.id}>
@@ -135,7 +139,6 @@ function HintBox(props) {
 HintBox.propTypes = {
   show: PropTypes.bool,
   setShowHint: PropTypes.func,
-  hints: PropTypes.array,
 }
 
 /*
@@ -205,6 +208,21 @@ export function AnswerBar(props) {
             onClick={(e) => {
               e.preventDefault()
               setShowHint(true)
+              ;(async () => {
+                const res = await GetQuestion()
+                if (res.message === 'Success') {
+                  if (res.data !== null) {
+                    const data = {}
+                    data.level = res.questionData.level
+                    data.images = res.questionData.images
+                    data.hints = res.questionData.hints
+
+                    value.changeData(data)
+                  } else value.handleMessage('Game completed')
+                } else {
+                  value.handleMessage(res.message)
+                }
+              })()
             }}
           >
             Hint
@@ -227,11 +245,7 @@ export function AnswerBar(props) {
           />
         </form>
       </div>
-      <HintBox
-        show={showHint}
-        hints={value.data.hints}
-        setShowHint={setShowHint}
-      />
+      <HintBox show={showHint} setShowHint={setShowHint} />
     </>
   )
 }
