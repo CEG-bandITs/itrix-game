@@ -23,12 +23,17 @@ function Signup() {
   const navigate = useNavigate()
   const [disableButton, handleDisableButton] = React.useState(false)
   const [hint, handleHint] = React.useState(false)
-
+  const [verifying, handleVerifying] = React.useState(false)
   const recaptcha = React.createRef()
   const [token, setToken] = React.useState('')
 
   const submitData = (e) => {
-    recaptcha.current.execute()
+    if (recaptcha.current.execute === undefined) {
+      NotifyError('captcha not loaded yet, pls wait')
+    } else {
+      handleVerifying(true)
+      recaptcha.current.execute()
+    }
   }
 
   React.useEffect(() => {
@@ -73,7 +78,7 @@ function Signup() {
         })
         const response = await res.json()
         if (response.message === 'success') {
-          NotifySuccess('Account created successfully!!')
+          NotifySuccess('Account Created Successfully!!')
           setTimeout(() => {
             LoginUser(response.token, value.handleIsLogin)
           }, 2000)
@@ -124,13 +129,14 @@ function Signup() {
               sitekey="6LeLM7cfAAAAAGe7CeSKQ6xi8fKKoFV4vHCSq-8u"
               onResolved={(e) => {
                 setToken(e)
+                handleVerifying(false)
               }}
               size="small"
             />
 
             <input
               type="button"
-              value={'Sign Up'}
+              value={verifying ? 'Pls Wait...' : 'Sign Up'}
               onClick={(e) => submitData(e)}
             />
 

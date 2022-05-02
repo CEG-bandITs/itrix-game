@@ -158,8 +158,18 @@ template {
   Global CSS Variables And Conditions
 */
 
-@import url('https://fonts.googleapis.com/css2?family=Cookie&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&display=swap');
+@font-face {
+  font-family: Cookie;
+  src: url(../public/Cookie.woff2);
+}
+
+@font-face {
+  font-family: 'Open San';
+  src: url(../public/OpenSans.woff2);
+}
+
+/* @import url('https://fonts.googleapis.com/css2?family=Cookie&display=swap'); */
+/* @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&display=swap'); */
 
 * {
   margin: 0;
