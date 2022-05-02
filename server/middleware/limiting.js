@@ -1,7 +1,7 @@
 const rateLimit = require('express-rate-limit')
 const loginLogoutRateLimiter = rateLimit({
   windowMs: 24 * 60 * 60 * 1000, // 24 hrs in milliseconds
-  max: 10,
+  max: 25,
   message: '{"message":"Exceeded Request Limit"}',
   headers: true,
 })

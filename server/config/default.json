@@ -12,7 +12,7 @@
           "url": "images/game/1/hdfgshdfashgdfqshf.jpeg"
         }
       ],
-      "hints": [],
+      "hints": [{ "id": 1, "msg": "Mobile Application" }],
       "answers": ["snapchat"]
     },
 
@@ -27,7 +27,7 @@
           "url": "images/game/2/tertwdfc2345tgfdfd.jpeg"
         }
       ],
-      "hints": [],
+      "hints": [{ "id": 1, "msg": "Cricketer (legie)" }],
       "answers": ["shanewarne"]
     },
     {
@@ -41,7 +41,7 @@
           "url": "images/game/3/dghfdshgqfdqhgsdfqsghd.jpg"
         }
       ],
-      "hints": [],
+      "hints": [{ "id": 1, "msg": "fastest(150+)" }],
       "answers": ["umranmalik"]
     },
 
@@ -56,7 +56,7 @@
           "url": "images/game/4/fbjhdgfhdfvdbfvbfehg75261.jpg"
         }
       ],
-      "hints": [],
+      "hints": [{ "id": 1, "msg": "ElonMusk" }],
       "answers": ["falcon9"]
     },
 
