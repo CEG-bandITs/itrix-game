@@ -4,8 +4,20 @@ const asyncHandler = require('express-async-handler')
 const router = express.Router()
 const userCntrl = require('../controllers/UserController')
 const jwt = require('jsonwebtoken')
+const loginLogoutRateLimiter =
+  require('../middleware/limiting').loginLogoutRateLimiter
 const logger = require('../logger')
-require("dotenv").config() 
+require('dotenv').config()
+
+router.use((req, res, next) => {
+  if (req.path === '/verify') {
+    next()
+  } else {
+    res.setHeader('Content-type', 'application/json')
+    return loginLogoutRateLimiter(req, res, next)
+  }
+})
+
 // Creating new user
 router.post('/new', asyncHandler(userCntrl.CreateUser))
 

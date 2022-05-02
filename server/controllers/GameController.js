@@ -1,11 +1,11 @@
 const UserModel = require('../db/UserModel')
-const config = require('../Questions')
+const config = require('config-reloadable')
 const path = require('path')
 const logger = require('../logger')
 const GetUserEmailFromJWt =
   require('../controllers/UserController').GetUserEmailFromJWt
 require('dotenv').config({ path: path.resolve(__dirname, '../.env') })
-const currentDate = config.currentDate
+const currentDate = config().get('currentDate')
 
 /*
   @desc : get /api/game/ ;  cookie jwt
@@ -47,13 +47,13 @@ async function getQuestion(req, res) {
     )
 
     const level = data.days[currentDate].level
-    if (level >= config.level.length) {
+    if (level >= config().get('level').length) {
       res.json({ message: 'Success', data: null })
     }
     const questionData = {
       level,
-      images: config.level[level].images,
-      hints: config.level[level].hints,
+      images: config().get('level')[level].images,
+      hints: config().get('level')[level].hints,
     }
     res.json({ message: 'Success', questionData })
   } catch (e) {
@@ -111,11 +111,11 @@ async function verifyAnswer(req, res) {
       }`,
     )
 
-    if (config.level[level].answers.includes(req.body.answer)) {
+    if (config().get('level')[level].answers.includes(req.body.answer)) {
       data.days[currentDate].level += 1
       data.days[currentDate].lastCompletedTimeStamp = Date.now()
       data.save()
-      if (level + 1 < config.level.length) {
+      if (level + 1 < config().get('level').length) {
         level++
         logger.info(
           `requested db for user ip ${
@@ -128,8 +128,8 @@ async function verifyAnswer(req, res) {
           message: 'Success',
           data: {
             level,
-            questions: config.level[level].images,
-            hints: config.level[level].hints,
+            questions: config().get('level')[level].images,
+            hints: config().get('level')[level].hints,
           },
         })
       } else {

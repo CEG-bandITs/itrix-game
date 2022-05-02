@@ -3,7 +3,7 @@
 const Users = require('../db/UserModel')
 const GetUserEmailFromJWt =
   require('../controllers/UserController').GetUserEmailFromJWt
-const config = require('../Questions')
+const config = require('config')
 const logger = require('../logger')
 require('dotenv').config()
 
@@ -42,9 +42,12 @@ const leaderBoard = async (req, res) => {
         _id: 0,
         name: 1,
         email: 1,
-        level: { $arrayElemAt: ['$days.level', config.currentDate] },
+        level: { $arrayElemAt: ['$days.level', config.get('currentDate')] },
         lastCompletedTimeStamp: {
-          $arrayElemAt: ['$days.lastCompletedTimeStamp', config.currentDate],
+          $arrayElemAt: [
+            '$days.lastCompletedTimeStamp',
+            config.get('currentDate'),
+          ],
         },
       },
     },
@@ -116,9 +119,12 @@ const rank = async (req, res) => {
       $project: {
         name: 1,
         email: 1,
-        level: { $arrayElemAt: ['$days.level', config.currentDate] },
+        level: { $arrayElemAt: ['$days.level', config.get('currentDate')] },
         lastCompletedTimeStamp: {
-          $arrayElemAt: ['$days.lastCompletedTimeStamp', config.currentDate],
+          $arrayElemAt: [
+            '$days.lastCompletedTimeStamp',
+            config.get('currentDate'),
+          ],
         },
       },
     },

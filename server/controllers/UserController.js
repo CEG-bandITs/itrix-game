@@ -90,18 +90,16 @@ const JWTTokenGenerator = (payload) => {
   return jwt.sign(payload, process.env.JWT_SECRET)
 }
 
+const ValidateCaptcha = async (token) => {
+  const secret = process.env.RECAPTCHA_SECRET_KEY
+  const res = await fetch(
+    `https://www.google.com/recaptcha/api/siteverify?secret=${secret}&response=${token}`,
+    { method: 'POST' },
+  )
 
-const ValidateCaptcha =async(token)=>{
-   const secret = process.env.RECAPTCHA_SECRET_KEY
-   console.log(token)
-   const res=  await fetch(`https://www.google.com/recaptcha/api/siteverify?secret=${secret}&response=${token}`,{method:'POST'})
-   
-   const response =  await res.json()
-   console.log(response)                       
+  const response = await res.json()
   return response.success
-      
 }
-
 
 /*
     @desc POST /api/users/new
@@ -115,17 +113,16 @@ async function CreateUser(req, res) {
     body.name === undefined ||
     body.clg === undefined ||
     body.password === undefined ||
-    body.email === undefined || 
+    body.email === undefined ||
     body.token === undefined
   )
     return res.status(400).json({ message: 'Need all fields' })
-   
-    
+
   const validity = await ValidateCaptcha(body.token)
 
-  if (validity===false )
-    return res.status(500).json({message:"Captcha Failed , Reload!"}) 
-    
+  if (validity === false)
+    return res.status(500).json({ message: 'Captcha Failed , Reload!' })
+
   const data = {
     name: body.name,
     college: body.clg,
@@ -147,8 +144,6 @@ async function CreateUser(req, res) {
       },
     ],
   }
-
-  console.log(data)
 
   if (
     !validator.validEmail(data.email) ||
