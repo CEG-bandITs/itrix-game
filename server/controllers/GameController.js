@@ -62,7 +62,9 @@ async function getQuestion(req, res) {
         req.headers['x-forwarded-for'] || req.socket.remoteAddress
       }: Error in getting Questions : Error : ${e}`,
     )
-    res.status(200).json({ message: 'Internal Server Error' })
+    res
+      .status(200)
+      .json({ message: 'Internal Server Error so logout and login' })
   }
 }
 
