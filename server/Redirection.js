@@ -1,11 +1,10 @@
-const http = require("http")
-const PORT = 3002 
+const http = require('http')
+const PORT = 80
 
-const server = http.createServer(function(req,res){
-    res.redirect(301,"https://cos.istaceg.in/register")
+const server = http.createServer(function (req, res) {
+  res.redirect(301, 'https://cos.istaceg.in/')
 })
 
 server.listen(PORT)
 
-console.log("Server started at port ",PORT)
-
+console.log('Redirection server started at port ', PORT)
