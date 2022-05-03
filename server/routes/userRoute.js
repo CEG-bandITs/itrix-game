@@ -7,6 +7,7 @@ const jwt = require('jsonwebtoken')
 const loginLogoutRateLimiter =
   require('../middleware/limiting').loginLogoutRateLimiter
 const logger = require('../logger')
+const config = require('config')
 require('dotenv').config()
 
 router.use((req, res, next) => {
@@ -26,6 +27,7 @@ router.post('/auth', asyncHandler(userCntrl.Auth))
 
 // Verify JWT token
 router.get('/verify', (req, res) => {
+  const currentDay = config.get('currentDate')
   if (!req.cookies.jwt) {
     logger.info(
       `request from ip ${
@@ -34,6 +36,7 @@ router.get('/verify', (req, res) => {
     )
     res.json({
       msg: 'Invalid Token',
+      currentDay
     })
     return
   }
@@ -47,6 +50,7 @@ router.get('/verify', (req, res) => {
     )
     res.json({
       msg: 'Validated',
+      currentDay
     })
   } catch (e) {
     logger.info(

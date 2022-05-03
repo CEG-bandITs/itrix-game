@@ -28,7 +28,11 @@ function Signup() {
   const [token, setToken] = React.useState('')
 
   const submitData = (e) => {
-    recaptcha.current.execute()
+    if(recaptcha.current.execute===undefined)
+    {
+      NotifyError("Poor Internet Connection ")
+    }
+    else recaptcha.current.execute()
   }
 
   React.useEffect(() => {

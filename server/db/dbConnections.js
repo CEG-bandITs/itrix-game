@@ -1,13 +1,14 @@
+/* eslint-disable spaced-comment */
 const mongoose = require('mongoose')
 const logger = require('../logger')
 
 require('dotenv').config()
-// atlas url
-// const mongooseUrl =
-//   'mongodb+srv://itrix:itrix@cluster0.ngqge.mongodb.net/itrix?retryWrites=true&w=majority'
+//atlas url
+const mongooseUrl =
+  'mongodb+srv://itrix:itrix@cluster0.ngqge.mongodb.net/itrix?retryWrites=true&w=majority'
 
 // localURL
-const mongooseUrl = 'mongodb://localhost:27017/itrix'
+// const mongooseUrl = 'mongodb://localhost:27017/itrix'
 
 // connecting
 mongoose.connect(mongooseUrl)

@@ -115,11 +115,11 @@ function Leaderboard() {
           <div className={style.greyCover}>
             <h1>LeaderBoard</h1>
              
-             <div >
-             <select  onChange={handleChange}>
-                <option className="option" selected={currentDay===0&&true} value="0">Day 1</option>
-                <option  className="option" selected={currentDay===1&&true} disabled={disableOtherDay[0]} value="1">Day 2</option>
-                <option className="option"selected={currentDay===2&&true} disabled={disableOtherDay[1]} value="2">Day 3</option>
+             <div  className={style.select__wrapper}>
+             <select   onChange={handleChange}>
+                <option selected={currentDay===0&&true} value="0">Day 1</option>
+                <option   selected={currentDay===1&&true} disabled={disableOtherDay[0]} value="1">Day 2</option>
+                <option selected={currentDay===2&&true} disabled={disableOtherDay[1]} value="2">Day 3</option>
               </select>
               
               </div>

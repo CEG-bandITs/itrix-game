@@ -5,6 +5,7 @@ const GetUserEmailFromJWt =
   require('../controllers/UserController').GetUserEmailFromJWt
 const config = require('config')
 const logger = require('../logger')
+const crypto = require("crypto")
 require('dotenv').config()
 
 const leaderBoard = async (req, res) => {
@@ -27,14 +28,17 @@ const leaderBoard = async (req, res) => {
   ) {
     req.body.startRank = 1
     req.body.endRank = 10
+
     logger.info(
       `requested db for user ip ${
         req.headers['x-forwarded-for'] || req.socket.remoteAddress
       }: converted startRank : ${req.body.startRank} : converted endRank : ${
         req.body.endRank
-      }`,
+      } and day requested is ${req.body.currentDay} (0 for first day) )`,
     )
   }
+
+ 
 
   let rankArray = await Users.aggregate([
     {
@@ -42,11 +46,11 @@ const leaderBoard = async (req, res) => {
         _id: 0,
         name: 1,
         email: 1,
-        level: { $arrayElemAt: ['$days.level', config.get('currentDate')] },
+        level: { $arrayElemAt: ['$days.level', req.body.currentDay] },
         lastCompletedTimeStamp: {
           $arrayElemAt: [
             '$days.lastCompletedTimeStamp',
-            config.get('currentDate'),
+            req.body.currentDay,
           ],
         },
       },
@@ -55,20 +59,37 @@ const leaderBoard = async (req, res) => {
     { $skip: req.body.startRank - 1 },
     { $limit: req.body.endRank - req.body.startRank },
   ])
-
+   
   logger.info(
     `requested db for user ip ${
       req.headers['x-forwarded-for'] || req.socket.remoteAddress
     }: sent rank array of size ${rankArray.length}`,
   )
+  
+ 
 
   let end = false
   if (req.body.endRank > parseInt(process.env.NUMBER_OF_USERS)) {
     end = true
   }
+  // to decide whether to disable other days are not 
+  if(((req.body.startRank===1)&&(req.body.endRank===11)&&(req.body.currentDay===config.get('currentDate'))))
+  {
+    let disableDay = [true,true];
+    if(config.get('currentDate') ===1) disableDay[0] =false ;
+    else if(config.get('currentDate') === 2) {disableDay[0]=false;disableDay[1]=false }
+
+    return res.json({
+      rankArray,
+      end,
+      disableDay
+       })
+  }
+  
   res.json({
     rankArray,
     end,
+   
   })
 }
 
@@ -113,7 +134,7 @@ const rank = async (req, res) => {
       }`,
     )
   }
-
+  console.log("INFO:requesting for day ",req.query.currentDay)
   const rankArray = await Users.aggregate([
     {
       $project: {
