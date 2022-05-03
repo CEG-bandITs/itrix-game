@@ -42,7 +42,7 @@ function Game() {
           data.hints = res.questionData.hints
 
           changeData(data)
-        } else handleMessage('Game completed')
+        } else handleMessage('Game completed!')
       } else {
         handleMessage(res.message)
       }

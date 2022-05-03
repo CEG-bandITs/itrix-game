@@ -9,6 +9,7 @@ import { useWindowSize } from '../../lib/windowSize'
 import { validEmail, validPassword } from '../../lib/validation'
 import { LoginUser } from '../../api_calls/Auth'
 import { Wrapper } from '../../RootPage'
+import config from '../../config/config'
 import {
   NotifyError,
   NotifySuccess,
@@ -28,11 +29,9 @@ function Signup() {
   const [token, setToken] = React.useState('')
 
   const submitData = (e) => {
-    if(recaptcha.current.execute===undefined)
-    {
-      NotifyError("Poor Internet Connection ")
-    }
-    else recaptcha.current.execute()
+    if (recaptcha.current.execute === undefined) {
+      NotifyError('Poor Internet Connection ')
+    } else recaptcha.current.execute()
   }
 
   React.useEffect(() => {
@@ -125,7 +124,7 @@ function Signup() {
 
             <Recaptcha
               ref={recaptcha}
-              sitekey="6LffJbofAAAAAJcRHAisQgMX_4XwuQKBgtt7wNPe"
+              sitekey={config.sitekey}
               onResolved={(e) => {
                 setToken(e)
               }}

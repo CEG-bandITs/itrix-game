@@ -8,8 +8,7 @@ import Menu from '../../components/Menu'
 import { useWindowSize } from '../../lib/windowSize'
 import { Wrapper } from '../../RootPage'
 import { AiFillCaretRight, AiOutlineCaretLeft } from 'react-icons/ai'
-import { validPassword } from '../../lib/validation'
-
+import config from '../../config/config'
 
 function Leaderboard() {
   const size = useWindowSize()
@@ -19,30 +18,32 @@ function Leaderboard() {
   const [currentRankPage, setCurrentRankPage] = useState(1)
   const [DisableRightButton, handleDisableRight] = useState(true)
   const [DisableLeftButton, handleDisableLeft] = useState(true)
-  const [currentDay,handleCurrentDay] =useState(value.currentDay)
-  const [disableOtherDay,handleDisableOtherDay] =useState([true,true])
+  const [currentDay, handleCurrentDay] = useState(value.currentDay)
 
   useEffect(() => {
     ;(async () => {
-      const res = await fetch('/api/rank?'+new URLSearchParams({
-          currentDay
-       }), {
-        cache: 'no-store',
-      })
+      const res = await fetch(
+        '/api/rank?' +
+          new URLSearchParams({
+            currentDay,
+          }),
+        {
+          cache: 'no-store',
+        },
+      )
       const response = await res.json()
       setRank(response.rank)
     })()
   }, [currentDay])
 
   useEffect(() => {
-   
     ;(async () => {
       const res = await fetch('/api/leaderboard', {
         method: 'POST',
         body: JSON.stringify({
           startRank: currentRankPage,
           endRank: currentRankPage + 10,
-          currentDay
+          currentDay,
         }),
         headers: {
           'Content-Type': 'application/json',
@@ -53,10 +54,6 @@ function Leaderboard() {
 
       setData(response.rankArray)
       handleDisableRight(response.end)
-      if(response.disableDay!==undefined) {
-        console.log('inital request',response.disableDay)
-        handleDisableOtherDay(response.disableDay)
-      }
     })()
   }, [currentDay])
 
@@ -81,7 +78,7 @@ function Leaderboard() {
         body: JSON.stringify({
           startRank,
           endRank,
-          currentDay
+          currentDay,
         }),
         headers: {
           'Content-Type': 'application/json',
@@ -103,8 +100,8 @@ function Leaderboard() {
     }
   }
 
-  const handleChange =(e)=>{
-       handleCurrentDay(parseInt(e.target.value))
+  const handleChange = (e) => {
+    handleCurrentDay(parseInt(e.target.value))
   }
 
   return (
@@ -114,16 +111,18 @@ function Leaderboard() {
         <div className={style.wrapper}>
           <div className={style.greyCover}>
             <h1>LeaderBoard</h1>
-             
-             <div  className={style.select__wrapper}>
-             <select   onChange={handleChange}>
-                <option selected={currentDay===0&&true} value="0">Day 1</option>
-                <option   selected={currentDay===1&&true} disabled={disableOtherDay[0]} value="1">Day 2</option>
-                <option selected={currentDay===2&&true} disabled={disableOtherDay[1]} value="2">Day 3</option>
+
+            <div className={style.select__wrapper}>
+              <select onChange={handleChange}>
+                {config.dates.map((d) => {
+                  return (
+                    <option selected={config.currentDate} value={d}>
+                      Day {d + 1}
+                    </option>
+                  )
+                })}
               </select>
-              
-              </div>
-            
+            </div>
 
             {value.isLogin && rank !== -1 ? (
               <div className={style.card}>

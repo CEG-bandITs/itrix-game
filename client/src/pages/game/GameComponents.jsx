@@ -9,6 +9,7 @@ import PropTypes from 'prop-types'
 export function QuestionBar(props) {
   const [ImgPointer, SetImgPointer] = useState(0)
   const value = React.useContext(Container)
+  value.SetImgPointer = SetImgPointer
   const data = { images: value.data.images, hints: value.data.hints }
 
   function IncreaseImgPointer() {
@@ -171,7 +172,7 @@ export function AnswerBar(props) {
           if (resp.message === 'Success') {
             const temp = resp.data
             if (resp.data == null) {
-              value.handleMessage('Game Over!')
+              value.handleMessage('Game Completed!')
               return
             }
             const data = {
@@ -183,6 +184,7 @@ export function AnswerBar(props) {
             handleAnswer('')
             value.handleSuccessModal(true)
             value.handleErrorMessage('')
+            value.SetImgPointer(0)
           } else {
             value.handleErrorMessage(resp.message)
             setTimeout(() => {
@@ -218,7 +220,7 @@ export function AnswerBar(props) {
                     data.hints = res.questionData.hints
 
                     value.changeData(data)
-                  } else value.handleMessage('Game completed')
+                  } else value.handleMessage('Game completed !')
                 } else {
                   value.handleMessage(res.message)
                 }
