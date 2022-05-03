@@ -9,7 +9,7 @@
           "url": "images/game/1/5f457f57af382d9ef788ae3c3b7180f0244da3e47b5f202aeb545155ec3cdeec.webp"
         }
       ],
-      "hints": [],
+      "hints": [{"id":1, "msg":"Another name for this cube"}],
       "answers": ["sergiomarquina"]
     },
 
@@ -24,7 +24,7 @@
           "url": "images/game/2/32ac15721838224b1e7d0068feffa7bca6bf6e98afedd08b76d3a875a48c0c80.webp"
         }
       ],
-      "hints": [],
+      "hints": [{"id":1, "msg":"harry potter"}],
       "answers": ["lordvoldemort"]
     },
     {
