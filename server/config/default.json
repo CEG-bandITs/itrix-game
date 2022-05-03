@@ -9,7 +9,7 @@
           "url": "images/game/1/5f457f57af382d9ef788ae3c3b7180f0244da3e47b5f202aeb545155ec3cdeec.webp"
         }
       ],
-      "hints": [{"id":1, "msg":"Another name for this cube"}],
+      "hints": [{"id":1, "msg":"Another name for this cube"}, {"id":2, "msg":"Name of the person who is nicknamed with the cube's other name"}],
       "answers": ["sergiomarquina"]
     },
 
@@ -42,7 +42,7 @@
           "url": "images/game/3/44bf3a409e29082ac859e5ab6f16354424d31687165a4cb4b0d15ecee6431590.webp"
         }
       ],
-      "hints": [],
+      "hints": [{"id":1, "msg":"Musician"}],
       "answers": ["arrahman"]
     },
 
@@ -57,7 +57,7 @@
           "url": "images/game/4/5bfc800dde04f9e69e68dc205aaf3738d067663a107a4bb63cb7b51229eb66de.webp"
         }
       ],
-      "hints": [],
+      "hints": [{"id":1, "msg":"Nasa"}],
       "answers": ["newhorizons"]
     },
 
