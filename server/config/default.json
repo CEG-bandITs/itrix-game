@@ -72,7 +72,7 @@
           "url": "images/game/5/d3f3c592db6d2a7e0f2e4391b2658896e7465f0dc358c55e24639d35d3dd266e.webp"
         }
       ],
-      "hints": [],
+      "hints": [{"id":1, "msg": "APJ"}],
       "answers": ["pokhran2"]
     },
 
@@ -87,7 +87,7 @@
           "url": "images/game/6/5a27494827697c26ca884e5a3048a270d0415a8781102d9e6fa378a1919a9dd8.webp"
         }
       ],
-      "hints": [],
+      "hints": [{"id":1, "msg": "british novelist"}],
       "answers": ["salmanrushdie"]
     },
     {
