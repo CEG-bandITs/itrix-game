@@ -194,7 +194,6 @@
 .select__wrapper select {
   font-size: 0.6rem;
   background: rgba(255, 255, 255, 0.2);
-  color: white;
   padding: 0.3rem;
   outline: none;
   width: 120%;
@@ -220,8 +219,9 @@
   z-index: 1;
 }
 
-select option {
-  color: white;
+.select__wrapper option {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: black;
   border: none;
   outline: none;
   width: 100%;
