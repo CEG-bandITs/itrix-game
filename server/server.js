@@ -2,21 +2,21 @@
 const express = require('express')
 const path = require('path')
 const app = express()
-// const https = require('https')
-// const fs = require('fs')
+const https = require('https')
+const fs = require('fs')
 const cookieParser = require('cookie-parser')
 
-// const PORT = 443
-// 
-// const privateKey = fs.readFileSync('./privkey.pem', 'utf8')
-// const certificate = fs.readFileSync('./cert.pem', 'utf8')
-// const ca = fs.readFileSync('./chain.pem', 'utf8')
+const PORT = 443
 
-// const credentials = {
-//   key: privateKey,
-//   cert: certificate,
-//   ca: ca,
-// }
+const privateKey = fs.readFileSync('privkey.pem', 'utf8')
+const certificate = fs.readFileSync('./cert.pem', 'utf8')
+const cafile = fs.readFileSync('./chain.pem', 'utf8')
+
+const credentials = {
+  key: privateKey,
+  cert: certificate,
+  ca: cafile,
+}
 
 // connecting to atlas
 require('./db/dbConnections')
@@ -51,17 +51,15 @@ app.use('/api/', require('./routes/LeaderBoardRoute'))
 // Which can be created by running `npm run build` in client folder
 app.use(express.static(path.join(__dirname, '..', 'client', 'build')))
 
-// https.createServer(credentials, app).listen(PORT, (err) => {
-//   if (err) {
-//     logger.fatal('unable to to listen to port, Error:', err)
-//     throw err
-//   }
-//   logger.info(`listening in ${PORT}`)
-// })
-
-
-
-app.listen(3001,(err)=>{
-  if(!err) console.log("INFO : Listening at port ",3001)
-  else console.log('unable to to listen to port, Error:', err)
+https.createServer(credentials, app).listen(PORT, (err) => {
+  if (err) {
+    logger.fatal('unable to to listen to port, Error:', err)
+    throw err
+  }
+  logger.info(`listening in ${PORT}`)
 })
+
+// app.listen(3001,(err)=>{
+//   if(!err) console.log("INFO : Listening at port ",3001)
+//   else console.log('unable to to listen to port, Error:', err)
+// })
