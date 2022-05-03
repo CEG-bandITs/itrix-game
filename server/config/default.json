@@ -9,7 +9,13 @@
           "url": "images/game/1/5f457f57af382d9ef788ae3c3b7180f0244da3e47b5f202aeb545155ec3cdeec.webp"
         }
       ],
-      "hints": [{"id":1, "msg":"Another name for this cube"}, {"id":2, "msg":"Name of the person who is nicknamed with the cube's other name"}],
+      "hints": [
+        { "id": 1, "msg": "Another name for this cube" },
+        {
+          "id": 2,
+          "msg": "Name of the person who is nicknamed with the cube's other name"
+        }
+      ],
       "answers": ["sergiomarquina"]
     },
 
@@ -24,7 +30,7 @@
           "url": "images/game/2/32ac15721838224b1e7d0068feffa7bca6bf6e98afedd08b76d3a875a48c0c80.webp"
         }
       ],
-      "hints": [{"id":1, "msg":"harry potter"}],
+      "hints": [{ "id": 1, "msg": "harry potter" }],
       "answers": ["lordvoldemort"]
     },
     {
@@ -42,7 +48,7 @@
           "url": "images/game/3/44bf3a409e29082ac859e5ab6f16354424d31687165a4cb4b0d15ecee6431590.webp"
         }
       ],
-      "hints": [{"id":1, "msg":"Musician"}],
+      "hints": [{ "id": 1, "msg": "Musician" }],
       "answers": ["arrahman"]
     },
 
@@ -57,7 +63,7 @@
           "url": "images/game/4/5bfc800dde04f9e69e68dc205aaf3738d067663a107a4bb63cb7b51229eb66de.webp"
         }
       ],
-      "hints": [{"id":1, "msg":"Nasa"}],
+      "hints": [{ "id": 1, "msg": "Nasa" }],
       "answers": ["newhorizons"]
     },
 
@@ -72,7 +78,7 @@
           "url": "images/game/5/d3f3c592db6d2a7e0f2e4391b2658896e7465f0dc358c55e24639d35d3dd266e.webp"
         }
       ],
-      "hints": [{"id":1, "msg": "APJ"}],
+      "hints": [{ "id": 1, "msg": "APJ" }],
       "answers": ["pokhran2"]
     },
 
@@ -87,7 +93,7 @@
           "url": "images/game/6/5a27494827697c26ca884e5a3048a270d0415a8781102d9e6fa378a1919a9dd8.webp"
         }
       ],
-      "hints": [{"id":1, "msg": "british novelist"}],
+      "hints": [{ "id": 1, "msg": "british novelist" }],
       "answers": ["salmanrushdie"]
     },
     {
@@ -101,7 +107,7 @@
           "url": "images/game/7/3036d7737b348f1cf123561ffb6c0750f96bc0bd5c121a1a07375a6d34b9d6a3.webp"
         }
       ],
-      "hints": [],
+      "hints": [{ "id": 1, "msg": "netherland world record player" }],
       "answers": ["frederiqueoverdijk"]
     },
     {
@@ -115,7 +121,7 @@
           "url": "images/game/8/051c7d0cc2cc65e13aad902b12bd11049bb40f6a658135ee80ca6d07cf09e4a1.webp"
         }
       ],
-      "hints": [],
+      "hints": [{ "id": 1, "msg": "Things in ship (Navigation, light)" }],
       "answers": ["binnacle"]
     },
     {
