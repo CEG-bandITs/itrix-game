@@ -67,7 +67,7 @@
           "url": "images/game/5/hgfdhgsdfqtyhgdfsgd.jpg"
         }
       ],
-      "hints": [],
+      "hints": [{ "id": 1, "msg": "Hollywood Actor" }],
       "answers": ["jakelockley"]
     },
 
@@ -86,7 +86,7 @@
           "url": "images/game/6/tydftyr443thgfehdgefds.jpeg"
         }
       ],
-      "hints": [],
+      "hints": [{ "id": 1, "msg": "Harry Potter" }],
       "answers": ["siriusblack"]
     },
     {
@@ -100,7 +100,7 @@
           "url": "images/game/7/jhrfegfvdghfvdagfghefgh3.jpeg"
         }
       ],
-      "hints": [],
+      "hints": [{ "id": 1, "msg": "Science Phenomenon" }],
       "answers": ["ramaneffect"]
     },
     {
@@ -122,7 +122,7 @@
           "url": "images/game/8/treyjqteqewfdtfy1t2r3ty.jpeg"
         }
       ],
-      "hints": [],
+      "hints": [{ "id": 1, "msg": "Industrialist" }],
       "answers": ["ratantata"]
     }
   ]
