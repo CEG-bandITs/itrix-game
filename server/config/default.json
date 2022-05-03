@@ -100,7 +100,7 @@
           "url": "images/game/7/jhrfegfvdghfvdagfghefgh3.jpeg"
         }
       ],
-      "hints": [{ "id": 1, "msg": "Science Phenomenon" }],
+      "hints": [],
       "answers": ["ramaneffect"]
     },
     {
@@ -122,7 +122,7 @@
           "url": "images/game/8/treyjqteqewfdtfy1t2r3ty.jpeg"
         }
       ],
-      "hints": [{ "id": 1, "msg": "Industrialist" }],
+      "hints": [],
       "answers": ["ratantata"]
     }
   ]
