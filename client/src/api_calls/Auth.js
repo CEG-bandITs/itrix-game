@@ -1,10 +1,11 @@
 /* eslint-disable prettier/prettier */
 import jsCookie from 'js-cookie'
 
-export const VerifyLogin = async () => {
+export const VerifyLogin = async (handleCurrentDay) => {
   try {
     const res = await fetch('/api/users/verify', { cache: 'no-store' })
     const response = await res.json()
+    handleCurrentDay(parseInt(response.currentDay))
     if (response.msg === 'Validated') {
       return true
     } else {

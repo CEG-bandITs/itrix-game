@@ -10,6 +10,7 @@ import { Wrapper } from '../../RootPage'
 import { AiFillCaretRight, AiOutlineCaretLeft } from 'react-icons/ai'
 import { validPassword } from '../../lib/validation'
 
+
 function Leaderboard() {
   const size = useWindowSize()
   const [data, setData] = useState([])
@@ -18,23 +19,30 @@ function Leaderboard() {
   const [currentRankPage, setCurrentRankPage] = useState(1)
   const [DisableRightButton, handleDisableRight] = useState(true)
   const [DisableLeftButton, handleDisableLeft] = useState(true)
+  const [currentDay,handleCurrentDay] =useState(value.currentDay)
+  const [disableOtherDay,handleDisableOtherDay] =useState([true,true])
+
   useEffect(() => {
     ;(async () => {
-      const res = await fetch('/api/rank', {
+      const res = await fetch('/api/rank?'+new URLSearchParams({
+          currentDay
+       }), {
         cache: 'no-store',
       })
       const response = await res.json()
       setRank(response.rank)
     })()
-  }, [])
+  }, [currentDay])
 
   useEffect(() => {
+   
     ;(async () => {
       const res = await fetch('/api/leaderboard', {
         method: 'POST',
         body: JSON.stringify({
           startRank: currentRankPage,
           endRank: currentRankPage + 10,
+          currentDay
         }),
         headers: {
           'Content-Type': 'application/json',
@@ -45,8 +53,12 @@ function Leaderboard() {
 
       setData(response.rankArray)
       handleDisableRight(response.end)
+      if(response.disableDay!==undefined) {
+        console.log('inital request',response.disableDay)
+        handleDisableOtherDay(response.disableDay)
+      }
     })()
-  }, [])
+  }, [currentDay])
 
   const fetch__ = async (id) => {
     let startRank = -1
@@ -69,6 +81,7 @@ function Leaderboard() {
         body: JSON.stringify({
           startRank,
           endRank,
+          currentDay
         }),
         headers: {
           'Content-Type': 'application/json',
@@ -90,6 +103,10 @@ function Leaderboard() {
     }
   }
 
+  const handleChange =(e)=>{
+       handleCurrentDay(parseInt(e.target.value))
+  }
+
   return (
     <main className={style.main}>
       <Menu loggedIn={value.isLogin} desktop={size.width > 1024} />
@@ -97,6 +114,17 @@ function Leaderboard() {
         <div className={style.wrapper}>
           <div className={style.greyCover}>
             <h1>LeaderBoard</h1>
+             
+             <div >
+             <select  onChange={handleChange}>
+                <option className="option" selected={currentDay===0&&true} value="0">Day 1</option>
+                <option  className="option" selected={currentDay===1&&true} disabled={disableOtherDay[0]} value="1">Day 2</option>
+                <option className="option"selected={currentDay===2&&true} disabled={disableOtherDay[1]} value="2">Day 3</option>
+              </select>
+              
+              </div>
+            
+
             {value.isLogin && rank !== -1 ? (
               <div className={style.card}>
                 <p>Your Rank</p>
