@@ -211,11 +211,13 @@
 
 @media screen and (min-width: 1200px) {
   .QuestionBar > .QuestionImg {
-    width: 25vw;
-    height: 25vh;
+    aspect-ratio: auto;
+    max-width: 25%;
+    max-height: 100%;
   }
   .QuestionBar {
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
+    object-fit: contain;
   }
   .HintBox {
     width: 40vw;
