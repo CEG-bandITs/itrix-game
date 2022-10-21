@@ -1,0 +1,223 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Cookie&display=swap'); */
+
+.main {
+  min-height: 100vh;
+  background-color: var(--black);
+  color: white;
+  display: flex;
+  overflow-y: auto;
+}
+.error__ {
+  color: red;
+  width: 100%;
+  text-align: center;
+  margin: 0.5rem 0 0.5rem 0;
+}
+
+.wrapper {
+  color: white;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  gap: 2rem;
+  font-family: 'Open Sans';
+}
+
+.GamePage {
+  background-image: url('../../../public/images/question-bg.webp');
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+}
+
+.QuestionBar {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 50vh;
+  gap: 1.3rem;
+}
+
+.QuestionBar img {
+  object-fit: cover;
+}
+
+.QuestionBar svg {
+  width: 10vmin;
+  height: auto;
+}
+
+.QuestionImg {
+  width: 55%;
+  height: auto;
+}
+
+.GreyLayer {
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 4;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+}
+
+.HintBox {
+  position: absolute;
+  z-index: 3;
+  width: 75vw;
+  font-size: 0.8rem;
+  background-color: rgb(59, 59, 59);
+  color: white;
+  left: 50%;
+  top: 50%;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  transform: translate(-50%, -50%);
+  padding: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+    rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  text-align: center;
+}
+
+.HintBox > p {
+  text-align: center;
+  padding: 3vmin;
+}
+
+.HintBox small {
+  font-size: 0.4rem;
+}
+
+.HintBox :not(:last-child) {
+  border-bottom: 1vmin solid white;
+}
+
+.game__nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 20px 0px;
+  font-size: 0.5rem;
+  color: red;
+}
+
+.trophy {
+  display: flex;
+  align-items: center;
+  padding-right: 0.5rem;
+  fill: yellow;
+  color: yellow;
+  font-size: 0.8rem;
+}
+
+.message {
+  color: white;
+  text-transform: capitalize;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.AnswerBar form {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 3vmax;
+}
+
+.message h1 {
+  font-size: 1.2rem;
+  background-color: rgba(255, 255, 255, 0.3);
+  padding: 0.5rem;
+}
+
+.AnswerBar form button {
+  order: 1;
+  padding: 0.3rem;
+  background-color: blue;
+  min-width: 15%;
+  outline: 0;
+  border: 0;
+  color: white;
+  border-radius: 0.5rem;
+  display: flex;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.5);
+  color: black;
+}
+
+.AnswerBar form button img {
+  height: 1rem;
+}
+
+.AnswerBar form input[type='text'] {
+  order: 2;
+  padding: 0.2rem;
+  min-width: 60%;
+  outline: 0;
+  border: 0;
+  border-radius: 0.2rem;
+}
+
+.AnswerBar form input[type='submit'] {
+  order: 3;
+  padding: 0.3rem;
+  background-color: blue;
+  color: white;
+  padding: 0.2rem;
+  outline: 0;
+  min-width: 15%;
+  border: 0;
+  border-radius: 0.1rem;
+  background-color: transparent;
+  color: white;
+  border: 0.3vmin solid white;
+}
+
+@media screen and (max-width: 1024px) {
+  .AnswerBar form {
+    flex-wrap: wrap;
+    align-content: space-evenly;
+    gap: 1rem;
+  }
+
+  .AnswerBar form input[type='text'] {
+    order: 1;
+    width: 90%;
+  }
+
+  .AnswerBar form button {
+    order: 2;
+    width: 40%;
+  }
+
+  .AnswerBar form input[type='submit'] {
+    order: 3;
+    width: 40%;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .QuestionBar > .QuestionImg {
+    width: 25vw;
+    height: 25vh;
+  }
+  .QuestionBar {
+    flex-wrap: wrap;
+  }
+  .HintBox {
+    width: 40vw;
+  }
+}

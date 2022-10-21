@@ -1,0 +1,181 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Cookie&display=swap'); */
+
+.main {
+  min-height: 100vh;
+  background-color: var(--black);
+  color: var(--white);
+  display: flex;
+}
+
+.wrapper {
+  color: var(--white);
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  gap: 2rem;
+  font-family: 'Open Sans';
+}
+
+.login {
+  background-image: url('/public/images/harrypotter-platform-bg.webp');
+  background-size: cover;
+  background-position: 80%;
+  height: 100vh;
+}
+
+.darkLayer {
+  background-color: black;
+  height: 100vh;
+  opacity: 0.85;
+  position: relative;
+}
+
+.loginBox {
+  background-color: rgba(196, 196, 196, 0.3);
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  gap: 1.7vmax;
+  border-radius: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40vw;
+}
+
+.loginBox > h1 {
+  font-size: larger;
+  text-align: center;
+  display: block;
+  color: white;
+  padding: 1vmax;
+  margin: 20px;
+  font-weight: lighter;
+}
+
+.loginBox > input[type='email'],
+.loginBox > input[type='password'] {
+  width: 80%;
+  background-color: rgba(196, 196, 196, 0.6);
+  height: 5vh;
+  border-radius: 10px;
+  padding: 10px;
+  color: white;
+  outline: 0;
+  border: 1px solid transparent;
+  margin: 10px;
+}
+
+.loginBox > input[type='email']:focus,
+.loginBox > input[type='password']:focus {
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;
+}
+
+.loginBox > input[type='email']::placeholder,
+.loginBox > input[type='password']::placeholder {
+  color: white;
+}
+
+.loginBox span {
+  color: red;
+  font-weight: bold;
+  font-size: 0.5rem;
+}
+
+.createAccount {
+  width: 90%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 20px;
+}
+
+.createAccount > p {
+  font-size: 2vmax;
+  color: lightgray;
+  padding: 1vmax;
+}
+
+.login__button {
+  background-image: linear-gradient(
+    to right,
+    #56ab2f 0%,
+    #a8e063 51%,
+    #56ab2f 100%
+  );
+}
+.login__button {
+  cursor: pointer;
+  margin: 10px;
+  padding: 15px 45px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  border-radius: 10px;
+  display: block;
+}
+
+.login__button:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
+
+.createAccount > input[type='button'] {
+  background-image: linear-gradient(
+    to right,
+    #00c6ff 0%,
+    #0072ff 51%,
+    #00c6ff 100%
+  );
+}
+.createAccount > input[type='button'] {
+  padding: 10px 15px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  color: white;
+  border-radius: 5px;
+  display: block;
+  font-size: medium;
+  cursor: pointer;
+}
+
+.createAccount > input[type='button'] :hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
+
+.loginBox > input[type='button']:active,
+.loginBox > input[type='button']:focus,
+.loginBox > input[type='button']:active:focus,
+.loginBox > input[type='button']:focus:active {
+  outline: none;
+  border: none;
+}
+
+.Error {
+  color: red;
+  font-weight: 100;
+  white-space: nowrap;
+  min-height: 20px;
+  font-size: smaller;
+}
+
+@media only screen and (max-width: 700px) {
+  .loginBox {
+    width: 80vw;
+  }
+}
+
+.hint {
+  color: red;
+  white-space: nowrap;
+  font-size: 0.6rem;
+}

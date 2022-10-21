@@ -1,0 +1,151 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Cookie&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap'); */
+
+.main {
+  min-height: 100vh;
+  display: flex;
+  overflow-x: hidden;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(../../../public/images/cos.webp);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
+  min-height: 100vh;
+
+  width: 100vw;
+}
+
+.container {
+  background-color: rgba(255, 255, 255, 0.3);
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+.container h1 {
+  color: white;
+}
+
+.container form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  width: 100%;
+  gap: 0.1rem;
+}
+
+.container form input[type='email'],
+.container form input[type='text'],
+.container form input[type='password'],
+.container form input[type='tel'] {
+  width: 90%;
+  font-size: 0.7rem;
+  color: white;
+  background-color: rgba(196, 196, 196, 0.4);
+  height: 5vh;
+  border-radius: 7px;
+  margin: 1.5vh;
+  padding: 7px;
+}
+
+.container form input[type='email']::placeholder,
+.container form input[type='text']::placeholder,
+.container form input[type='password']::placeholder,
+.container form input[type='tel']::placeholder {
+  color: white;
+}
+
+.container form > input[type='button'] {
+  background-image: linear-gradient(
+    to right,
+    #56ab2f 0%,
+    #a8e063 51%,
+    #56ab2f 100%
+  );
+}
+.container form > input[type='button'] {
+  padding: 10px 40px;
+  text-align: center;
+  transition: 0.5s;
+  color: white;
+  border-radius: 5px;
+  display: block;
+  font-size: medium;
+  cursor: pointer;
+  margin: 3vh 0;
+  font-size: 20px;
+}
+
+.container form > input[type='button'] :hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
+
+.aldreadyHavingAccount {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  padding: 0.5rem;
+}
+
+.aldreadyHavingAccount p {
+  font-size: 0.6rem;
+  color: white;
+}
+
+.aldreadyHavingAccount input[type='button'] {
+  background-image: linear-gradient(
+    to right,
+    #00c6ff 0%,
+    #0072ff 51%,
+    #00c6ff 100%
+  );
+  padding: 5px 20px;
+  font-size: large;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 1200px) {
+  .container {
+    width: 60%;
+  }
+  .aldreadyHavingAccount {
+    justify-content: center;
+    gap: 1rem;
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .container {
+    width: 70%;
+  }
+}
+.hint {
+  color: red;
+  white-space: nowrap;
+  font-size: 0.6rem;
+}
+
+.header {
+  font-size: larger;
+  color: white;
+  margin: 3vh 0;
+}

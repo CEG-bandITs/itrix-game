@@ -1,0 +1,295 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Cookie&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap'); */
+
+.main {
+  min-height: 100vh;
+  background-color: black;
+  color: white;
+  display: flex;
+}
+
+.wrapper {
+  color: white;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  gap: 2rem;
+  font-family: 'Open Sans';
+}
+
+.logo img {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: clamp(10vh, 1rem + 3vw, 13vh);
+  width: auto;
+}
+
+.content__wrapper {
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    url('/public/images/cos.webp');
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  color: white;
+  width: auto;
+  height: 100vh;
+  min-height: fit-content;
+  display: block;
+  position: relative;
+}
+
+.column .img {
+  height: 25vh;
+  width: 25vh;
+  max-width: 25vmax;
+  max-height: 25vmax;
+  border-radius: 50%;
+  margin-bottom: 20px;
+  cursor: pointer;
+  background-position: center;
+  background-size: cover;
+  box-shadow: rgba(185, 81, 81, 0.19) 0px 10px 20px,
+    rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+.column .img1 {
+  background-image: url('/public/images/signup.webp');
+}
+.column .img2 {
+  background-image: url('/public/images/signin.webp');
+}
+
+.column .img:hover {
+  animation-name: tada;
+  animation-duration: 2s;
+}
+.row {
+  display: flex;
+}
+
+.content__header {
+  padding: 1vw;
+  white-space: nowrap;
+  font-size: clamp(5vmax, 10vw, 6vmax);
+  color: white;
+  font-family: cookie;
+  position: relative;
+  animation-name: headShake;
+  animation-duration: 1s;
+}
+
+/* Float four columns side by side */
+
+.column {
+  padding: 0 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+}
+/* Remove extra left and right margins, due to padding */
+
+.content {
+  background-color: rgba(196, 196, 196, 0.2);
+  border-radius: 5px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+  margin: 20px 0px;
+  border-color: black;
+  box-shadow: 0 0 10px black;
+}
+
+.column p {
+  font-family: cookie;
+  font-size: 4vmax;
+  color: white;
+}
+
+/* Responsive columns */
+
+@media screen and (max-width: 500px) {
+  .row {
+    flex-direction: column;
+  }
+  .content__header {
+    margin: 0;
+  }
+}
+/* Style the counter cards */
+
+.card {
+  font-weight: bold;
+  font-size: 30px;
+  padding: 5px;
+  text-align: center;
+}
+/*
+======================================
+*/
+/* After Authentication */
+.after__login {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+.image__wrapper {
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background-image: url('/public/images/home_page_image_3.webp');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.content1 {
+  display: flex;
+  position: absolute;
+  z-index: 2;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  background-color: transparent;
+  width: 100%;
+  height: 100%;
+}
+.nav__links {
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  height: 50%;
+  width: 50%;
+  gap: 1vw;
+  align-items: center;
+  justify-content: space-around;
+}
+.nav__links a {
+  text-decoration: none;
+  color: white;
+}
+.other__pages {
+  padding: 10px;
+  background-color: rgba(196, 196, 196, 0.2);
+  border: 1px solid thistle;
+  border-radius: 5px;
+  min-width: 10vw;
+  font-size: 0.8rem;
+  text-align: center;
+  color: white;
+  cursor: pointer;
+}
+
+.other__pages:hover {
+  background-color: thistle;
+  color: black;
+}
+
+.btnGrad {
+  background-image: linear-gradient(
+    to right,
+    #f2994a 0%,
+    #f2c94c 51%,
+    #f2994a 100%
+  );
+}
+.btnGrad {
+  margin: 10px;
+  animation-name: tada;
+  animation-duration: 1.5s;
+  padding: 15px 45px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  white-space: nowrap;
+}
+
+.btnGrad:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
+
+/*
+*/
+
+.hi {
+  animation: glitch 1s linear infinite;
+  color: white;
+  font-size: 1.3rem;
+  white-space: nowrap;
+}
+
+@keyframes glitch {
+  2%,
+  64% {
+    transform: translate(2px, 0) skew(0deg);
+  }
+  4%,
+  60% {
+    transform: translate(-2px, 0) skew(0deg);
+  }
+  62% {
+    transform: translate(0, 0) skew(5deg);
+  }
+}
+
+.hi:before,
+.hi:after {
+  content: attr(title);
+  position: absolute;
+  left: 0;
+}
+
+.hi:before {
+  animation: glitchTop 1s linear infinite;
+  clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%);
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%);
+}
+
+@keyframes glitchTop {
+  2%,
+  64% {
+    transform: translate(2px, -2px);
+  }
+  4%,
+  60% {
+    transform: translate(-2px, 2px);
+  }
+  62% {
+    transform: translate(13px, -1px) skew(-13deg);
+  }
+}
+
+.hi:after {
+  animation: glitchBotom 1.5s linear infinite;
+  clip-path: polygon(0 67%, 100% 67%, 100% 100%, 0 100%);
+  -webkit-clip-path: polygon(0 67%, 100% 67%, 100% 100%, 0 100%);
+}
+
+@keyframes glitchBotom {
+  2%,
+  64% {
+    transform: translate(-2px, 0);
+  }
+  4%,
+  60% {
+    transform: translate(-2px, 0);
+  }
+  62% {
+    transform: translate(-22px, 5px) skew(21deg);
+  }
+}

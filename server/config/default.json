@@ -1,0 +1,144 @@
+{
+  "currentDate": 1,
+  "days": [0, 1],
+  "level": [
+    {
+      "images": [
+        {
+          "id": 1,
+          "url": "images/game/1/5f457f57af382d9ef788ae3c3b7180f0244da3e47b5f202aeb545155ec3cdeec.webp"
+        }
+      ],
+      "hints": [],
+      "answers": ["sergiomarquina"]
+    },
+
+    {
+      "images": [
+        {
+          "id": 1,
+          "url": "images/game/2/7ea68c0f5c9bdbe037dab96daa61df8f63ddf6cb44f5954f800929fd0c0d5e9c.webp"
+        },
+        {
+          "id": 2,
+          "url": "images/game/2/32ac15721838224b1e7d0068feffa7bca6bf6e98afedd08b76d3a875a48c0c80.webp"
+        }
+      ],
+      "hints": [],
+      "answers": ["lordvoldemort"]
+    },
+    {
+      "images": [
+        {
+          "id": 1,
+          "url": "images/game/3/2887448541594cb885badf1fce41830414287e1e33f9607e2d51b339aada646f.webp"
+        },
+        {
+          "id": 2,
+          "url": "images/game/3/461146176db510d3722e814071f364afc6df8b9b2dce6752b2ed149024f67afe.webp"
+        },
+        {
+          "id": 3,
+          "url": "images/game/3/44bf3a409e29082ac859e5ab6f16354424d31687165a4cb4b0d15ecee6431590.webp"
+        }
+      ],
+      "hints": [],
+      "answers": ["arrahman"]
+    },
+
+    {
+      "images": [
+        {
+          "id": 1,
+          "url": "images/game/4/57ccef5387161d46be641e1fbbf9adc9a748d7028514ca9659b43f5a534495ab.webp"
+        },
+        {
+          "id": 2,
+          "url": "images/game/4/5bfc800dde04f9e69e68dc205aaf3738d067663a107a4bb63cb7b51229eb66de.webp"
+        }
+      ],
+      "hints": [],
+      "answers": ["newhorizons"]
+    },
+
+    {
+      "images": [
+        {
+          "id": 1,
+          "url": "images/game/5/ddbcbb8f0d794864531406cbd5b75757775a0ba6cb2ac29dba1d031fb864ff7e.webp"
+        },
+        {
+          "id": 2,
+          "url": "images/game/5/d3f3c592db6d2a7e0f2e4391b2658896e7465f0dc358c55e24639d35d3dd266e.webp"
+        }
+      ],
+      "hints": [],
+      "answers": ["pokhran2"]
+    },
+
+    {
+      "images": [
+        {
+          "id": 1,
+          "url": "images/game/6/d65192dbda58dfeab15e872e02d9fb9e4ab098419f7036ccd834a2035b47e2a5.webp"
+        },
+        {
+          "id": 2,
+          "url": "images/game/6/5a27494827697c26ca884e5a3048a270d0415a8781102d9e6fa378a1919a9dd8.webp"
+        }
+      ],
+      "hints": [],
+      "answers": ["salmanrushdie"]
+    },
+    {
+      "images": [
+        {
+          "id": 1,
+          "url": "images/game/7/20c034ce208df12b1463ba3c7ace5b1b690616262ffdda32aa5927a90f5dcf16.webp"
+        },
+        {
+          "id": 2,
+          "url": "images/game/7/3036d7737b348f1cf123561ffb6c0750f96bc0bd5c121a1a07375a6d34b9d6a3.webp"
+        }
+      ],
+      "hints": [],
+      "answers": ["frederiqueoverdijk"]
+    },
+    {
+      "images": [
+        {
+          "id": 1,
+          "url": "images/game/8/4ce781a297d06f4e14b54872d7a6c829fa24f42058ff431004e83fde8e029dbe.webp"
+        },
+        {
+          "id": 2,
+          "url": "images/game/8/051c7d0cc2cc65e13aad902b12bd11049bb40f6a658135ee80ca6d07cf09e4a1.webp"
+        }
+      ],
+      "hints": [],
+      "answers": ["binnacle"]
+    },
+    {
+      "images": [
+        {
+          "id": 1,
+          "url": "images/game/9/e5ae7f29a3b32109d3e439665d55aafc9fac43f0c7f45cc926f4e35c57c2ef33.webp"
+        },
+        {
+          "id": 2,
+          "url": "images/game/9/051c7d0cc2cc65e13aad902b12bd11049bb40f6a658135ee80ca6d07cf09e4a1.webp"
+        },
+        {
+          "id": 2,
+          "url": "images/game/9/cebcd23ff164992514e1ef139b40b32160c2b45dd1f2e0a0f44e04ebaa08e7a7.webp"
+        },
+        {
+          "id": 2,
+          "url": "images/game/9/969665a2a8615cc06c58ccea7971b80b3a21f8f80b77c46a1596e0a20bf15dc0.webp"
+        }
+      ],
+      "hints": [],
+      "answers": ["gautamadani"]
+    }
+  ]
+}

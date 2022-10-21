@@ -1,0 +1,65 @@
+/*
+  Anything outside of media queries is for MOBILE
+  This is Mobile first approach.
+*/
+/* @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&display=swap'); */
+
+.MenuIcon {
+  background-color: black;
+  fill: white;
+  height: 2rem;
+  width: auto;
+  z-index: 3;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.NavBar {
+  z-index: 3;
+  min-height: 100vh;
+  background-color: black;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  font-family: 'Open Sans';
+}
+
+.NavBar li svg {
+  width: 1.5rem;
+  height: auto;
+}
+
+.NavBar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.NavBar li {
+  padding: 0.5rem;
+  color: white;
+}
+
+.NavBar li:hover {
+  background-color: rgb(68, 68, 68);
+  cursor: pointer;
+}
+
+.active {
+  background-color: rgb(44, 44, 44);
+}
+
+/* Above Tablet */
+@media only screen and (min-width: 1024px) {
+  .NavBar {
+    font-size: 0.8rem;
+    position: static;
+  }
+}
+
+/* Both Tablet and Mobile */
+@media only screen and (max-width: 1023px) {
+}
