@@ -1,5 +1,3 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable prettier/prettier */
 import React, { useState, useEffect, Suspense } from 'react'
 import { VerifyLogin } from './api_calls/Auth'
 import Loader from '../src/components/loader/Loader'
@@ -12,15 +10,15 @@ export const Wrapper = React.createContext()
 export default function RootPage() {
   const [isLoading, handleIsLoading] = useState(true)
   const [isLogin, handleIsLogin] = useState(false)
-  const [currentDay,handleCurrentDay] =useState(null)
+  const [currentDay, handleCurrentDay] = useState(null)
   const value = {
     isLogin,
     handleIsLogin,
-    currentDay 
+    currentDay
   }
 
   useEffect(() => {
-    ;(async () => {
+    ; (async () => {
       const res = await VerifyLogin(handleCurrentDay)
       handleIsLogin(res)
       handleIsLoading(false)

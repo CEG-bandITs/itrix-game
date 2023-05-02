@@ -1,7 +1,3 @@
-/* eslint-disable react/jsx-key */
-/* eslint-disable prefer-const */
-/* eslint-disable no-unused-vars */
-/* eslint-disable prettier/prettier */
 import React, { useEffect, useState } from 'react'
 import style from './Leaderboard.module.css'
 import Menu from '../../components/Menu'
@@ -21,12 +17,12 @@ function Leaderboard() {
   const [currentDay, handleCurrentDay] = useState(value.currentDay)
 
   useEffect(() => {
-    ;(async () => {
+    ; (async () => {
       const res = await fetch(
         '/api/rank?' +
-          new URLSearchParams({
-            currentDay,
-          }),
+        new URLSearchParams({
+          currentDay,
+        }),
         {
           cache: 'no-store',
         },
@@ -37,7 +33,7 @@ function Leaderboard() {
   }, [currentDay])
 
   useEffect(() => {
-    ;(async () => {
+    ; (async () => {
       const res = await fetch('/api/leaderboard', {
         method: 'POST',
         body: JSON.stringify({

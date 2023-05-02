@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import jsCookie from 'js-cookie'
 
 export const VerifyLogin = async (handleCurrentDay) => {

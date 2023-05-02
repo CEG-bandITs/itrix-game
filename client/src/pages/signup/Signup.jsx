@@ -1,5 +1,3 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable prettier/prettier */
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import SignupStyle from './Signup.module.css'
@@ -64,7 +62,7 @@ function Signup() {
         return
       }
 
-      ;(async () => {
+      ; (async () => {
         handleDisableButton(true)
         const res = await fetch('/api/users/new', {
           method: 'POST',

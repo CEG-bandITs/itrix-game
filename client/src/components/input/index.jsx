@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import React, { useState } from 'react'
 import { validEmail, validPassword } from '../../lib/validation'
 

@@ -1,5 +1,3 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable prettier/prettier */
 import React from 'react'
 import Menu from '../../components/Menu'
 import { useWindowSize } from '../../lib/windowSize'

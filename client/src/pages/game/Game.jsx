@@ -1,5 +1,3 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable prettier/prettier */
 import React, { useEffect, useState } from 'react'
 import styles from './Game.module.css'
 import { GetQuestion } from '../../api_calls/Game'
@@ -33,7 +31,7 @@ function Game() {
   }
 
   useEffect(() => {
-    ;(async () => {
+    ; (async () => {
       const res = await GetQuestion()
       if (res.message === 'Success') {
         if (res.data !== null) {

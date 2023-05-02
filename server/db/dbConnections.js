@@ -1,14 +1,15 @@
 /* eslint-disable spaced-comment */
 const mongoose = require('mongoose')
 const logger = require('../logger')
+const { count } = require('./UserModel')
 
 require('dotenv').config()
 //atlas url
-const mongooseUrl =
-  'mongodb+srv://itrix:itrix@cluster0.ngqge.mongodb.net/itrix?retryWrites=true&w=majority'
+// const mongooseUrl =
+//   'mongodb+srv://itrix:itrix@cluster0.ngqge.mongodb.net/itrix?retryWrites=true&w=majority'
 
 // localURL
-// const mongooseUrl = 'mongodb://localhost:27017/itrix'
+const mongooseUrl = 'mongodb://127.0.0.1:27017/itrix'
 
 // connecting
 mongoose.connect(mongooseUrl)
@@ -16,7 +17,7 @@ mongoose.connect(mongooseUrl)
 const db = mongoose.connection
 
 // error instance
-db.on('error', () => logger.error('Error Connecting Database'))
+db.on('error', (e) => logger.error('Error Connecting Database' + e))
 
 // success instance
 db.once('open', () => {
@@ -24,15 +25,8 @@ db.once('open', () => {
   mongoose
     .model('User')
     .find()
-    .count((err, count) => {
-      if (!err) {
-        process.env.NUMBER_OF_USERS = count
-        logger.info(
-          `Number of current users is : ${process.env.NUMBER_OF_USERS}`,
-        )
-      } else {
-        logger.info('Error Fetching Number of Users')
-      }
+    .countDocuments().then(count => {
+
     })
 
   logger.info('Connected To DB')

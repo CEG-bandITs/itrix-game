@@ -1,6 +1,3 @@
-/* eslint-disable react/no-unescaped-entities */
-/* eslint-disable no-unused-vars */
-/* eslint-disable prettier/prettier */
 import React from 'react'
 import styles from './Login.module.css'
 import Menu from '../../components/Menu'
@@ -38,7 +35,7 @@ function Login() {
       return
     }
 
-    ;(async () => {
+    ; (async () => {
       handleDisableButton(true)
       const res = await fetch('/api/users/auth', {
         method: 'POST',

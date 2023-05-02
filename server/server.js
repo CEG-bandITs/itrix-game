@@ -6,7 +6,7 @@ const https = require('https')
 const fs = require('fs')
 const cookieParser = require('cookie-parser')
 
-const PORT = 443
+const PORT = process.env.PORT || 443
 
 const privateKey = fs.readFileSync('privkey.pem', 'utf8')
 const certificate = fs.readFileSync('./cert.pem', 'utf8')

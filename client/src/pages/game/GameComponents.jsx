@@ -1,5 +1,3 @@
-/* eslint-disable no-empty */
-/* eslint-disable prettier/prettier */
 import React, { useState } from 'react'
 import style from './Game.module.css'
 import { GetQuestion, SubmitAnswer } from '../../api_calls/Game'
@@ -210,21 +208,21 @@ export function AnswerBar(props) {
             onClick={(e) => {
               e.preventDefault()
               setShowHint(true)
-              ;(async () => {
-                const res = await GetQuestion()
-                if (res.message === 'Success') {
-                  if (res.data !== null) {
-                    const data = {}
-                    data.level = res.questionData.level
-                    data.images = res.questionData.images
-                    data.hints = res.questionData.hints
+                ; (async () => {
+                  const res = await GetQuestion()
+                  if (res.message === 'Success') {
+                    if (res.data !== null) {
+                      const data = {}
+                      data.level = res.questionData.level
+                      data.images = res.questionData.images
+                      data.hints = res.questionData.hints
 
-                    value.changeData(data)
-                  } else value.handleMessage('Game completed !')
-                } else {
-                  value.handleMessage(res.message)
-                }
-              })()
+                      value.changeData(data)
+                    } else value.handleMessage('Game completed !')
+                  } else {
+                    value.handleMessage(res.message)
+                  }
+                })()
             }}
           >
             Hint
