@@ -109,13 +109,21 @@ function Leaderboard() {
             <h1>LeaderBoard</h1>
 
             <div className={style.select__wrapper}>
-              <select onChange={handleChange}>
+              <select onChange={handleChange} selected={config.currentDate}>
                 {config.dates.map((d) => {
-                  return (
-                    <option selected={config.currentDate} value={d}>
-                      Day {d + 1}
-                    </option>
-                  )
+                  if (d == config.currentDate)
+                    return (
+                      <option selected="selected" value={d}>
+                        Day {d + 1}
+                      </option>
+                    )
+                  else
+                    return (
+                      <option value={d}>
+                        Day {d + 1}
+                      </option>
+
+                    )
                 })}
               </select>
             </div>
