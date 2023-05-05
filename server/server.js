@@ -8,9 +8,9 @@ const cookieParser = require('cookie-parser')
 
 const PORT = process.env.PORT || 443
 
-const privateKey = fs.readFileSync(path.join(__dirname, 'privkey.pem'), 'utf8')
-const certificate = fs.readFileSync(path.join(__dirname, 'cert.pem'), 'utf8')
-const cafile = fs.readFileSync(path.join(__dirname, 'chain.pem'), 'utf8')
+const privateKey = fs.readFileSync(path.join(__dirname, 'private.key'), 'utf8')
+const certificate = fs.readFileSync(path.join(__dirname, 'certificate.crt'), 'utf8')
+const cafile = fs.readFileSync(path.join(__dirname, 'ca_bundle.crt'), 'utf8')
 
 const credentials = {
   key: privateKey,
